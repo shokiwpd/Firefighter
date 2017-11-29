@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--First View Controller-->
         <scene sceneID="ypa-2t-B8D">
             <objects>
-                <viewController id="e6i-IH-fxx" sceneMemberID="viewController">
+                <viewController id="e6i-IH-fxx" customClass="FirstViewController" customModule="FireFighters" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p0Y-j1-n4i">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -105,15 +105,16 @@
                                     <!--2017-11-21 16:05:12 +0000-->
                                 </date>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynQ-KE-zIs" customClass="FirstViewButton" customModule="FireFighters" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynQ-KE-zIs">
                                 <rect key="frame" x="15" y="425" width="345" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="QOI-K2-1wn"/>
                                     <constraint firstAttribute="width" constant="345" id="sfD-P4-HLo"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Далее"/>
                                 <connections>
-                                    <segue destination="M9r-4w-sN7" kind="show" id="6GG-QA-WF3"/>
+                                    <action selector="nextViewSelButton:" destination="e6i-IH-fxx" eventType="touchUpInside" id="78e-j7-b88"/>
+                                    <segue destination="M9r-4w-sN7" kind="show" identifier="NextVC" id="l7z-bo-yK7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -154,15 +155,23 @@
                         <viewLayoutGuide key="safeArea" id="ZjA-yL-Dg4"/>
                     </view>
                     <navigationItem key="navigationItem" id="1NJ-wb-L8d"/>
+                    <connections>
+                        <outlet property="nextViewButton" destination="ynQ-KE-zIs" id="qPQ-p7-11L"/>
+                        <outlet property="userBirthdayPicker" destination="USX-cW-KeE" id="0fT-Ji-ZZK"/>
+                        <outlet property="userCityView" destination="hxN-Zb-F91" id="h6A-6B-pgY"/>
+                        <outlet property="userNameView" destination="rCJ-xA-Qhd" id="7bb-6P-Tzk"/>
+                        <outlet property="userPhotoView" destination="zeb-IB-JwO" id="goE-Bn-NwQ"/>
+                        <outlet property="userSecondNameView" destination="PwL-6y-RKV" id="qZL-9W-KXC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fTq-G9-dKB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="447.19999999999999" y="113.79310344827587"/>
         </scene>
-        <!--View Controller-->
+        <!--First Next View Controller-->
         <scene sceneID="QSv-RM-cTi">
             <objects>
-                <viewController id="M9r-4w-sN7" sceneMemberID="viewController">
+                <viewController id="M9r-4w-sN7" customClass="FirstNextViewController" customModule="FireFighters" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HbN-TR-Mgd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -172,10 +181,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAT-Gs-2H3">
-                                <rect key="frame" x="15" y="92" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Номер части" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAT-Gs-2H3">
+                                <rect key="frame" x="15" y="92" width="105" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -184,9 +193,13 @@
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AD5-cf-K9M">
                                 <rect key="frame" x="160" y="185" width="200" height="40"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="M9r-4w-sN7" id="qRE-Hk-hPO"/>
+                                    <outlet property="delegate" destination="M9r-4w-sN7" id="6OA-QL-PvN"/>
+                                </connections>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbX-ub-ktS">
-                                <rect key="frame" x="15" y="139" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Дежурная смена" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbX-ub-ktS">
+                                <rect key="frame" x="15" y="139" width="136" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -197,10 +210,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97q-bI-32m">
-                                <rect key="frame" x="15" y="195" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Должность" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97q-bI-32m">
+                                <rect key="frame" x="15" y="195" width="90" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -209,12 +222,21 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJR-8S-FnC">
                                 <rect key="frame" x="15" y="282" width="345" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Сохранить"/>
+                                <connections>
+                                    <action selector="acceptSaveButton:" destination="M9r-4w-sN7" eventType="touchUpInside" id="Qes-Sg-9PL"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="lri-g9-N4K"/>
                     </view>
+                    <connections>
+                        <outlet property="ChangeNum" destination="EVS-v3-2Em" id="UXq-d2-1TS"/>
+                        <outlet property="Position" destination="AD5-cf-K9M" id="1Uh-Ks-Fsl"/>
+                        <outlet property="partNumb" destination="mad-gN-55j" id="Mgc-qx-eUM"/>
+                        <outlet property="saveButton" destination="kJR-8S-FnC" id="ggx-qe-0K9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qzw-Y1-WnD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
