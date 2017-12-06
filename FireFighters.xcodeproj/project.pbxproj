@@ -17,6 +17,8 @@
 		E96429F21FCEDDF0005BB8D4 /* icon in Resources */ = {isa = PBXBuildFile; fileRef = E96429F01FCEDDF0005BB8D4 /* icon */; };
 		E96429F31FCEDDF0005BB8D4 /* LaunchScreenImage in Resources */ = {isa = PBXBuildFile; fileRef = E96429F11FCEDDF0005BB8D4 /* LaunchScreenImage */; };
 		E9BEDB491FC4A3CF00DAD26E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BEDB481FC4A3CF00DAD26E /* FirstViewController.swift */; };
+		E9C788351FD82DE7009F98F2 /* UserProfile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C788331FD82DE7009F98F2 /* UserProfile+CoreDataClass.swift */; };
+		E9C788361FD82DE7009F98F2 /* UserProfile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C788341FD82DE7009F98F2 /* UserProfile+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		E96429F01FCEDDF0005BB8D4 /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icon; sourceTree = "<group>"; };
 		E96429F11FCEDDF0005BB8D4 /* LaunchScreenImage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = LaunchScreenImage; sourceTree = "<group>"; };
 		E9BEDB481FC4A3CF00DAD26E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		E9C788331FD82DE7009F98F2 /* UserProfile+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserProfile+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E9C788341FD82DE7009F98F2 /* UserProfile+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserProfile+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,8 @@
 		E90894ED1FC48553001DEE07 /* Core Data File */ = {
 			isa = PBXGroup;
 			children = (
+				E9C788331FD82DE7009F98F2 /* UserProfile+CoreDataClass.swift */,
+				E9C788341FD82DE7009F98F2 /* UserProfile+CoreDataProperties.swift */,
 			);
 			path = "Core Data File";
 			sourceTree = "<group>";
@@ -198,10 +204,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9C788361FD82DE7009F98F2 /* UserProfile+CoreDataProperties.swift in Sources */,
 				C93E98BE1FCDE28F00377B89 /* UICustomClass.swift in Sources */,
 				E9BEDB491FC4A3CF00DAD26E /* FirstViewController.swift in Sources */,
 				E90894D21FC47F43001DEE07 /* AppDelegate.swift in Sources */,
 				C93E98BC1FCC685D00377B89 /* FirstNextViewController.swift in Sources */,
+				E9C788351FD82DE7009F98F2 /* UserProfile+CoreDataClass.swift in Sources */,
 				E90894DA1FC47F43001DEE07 /* FireFighters.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

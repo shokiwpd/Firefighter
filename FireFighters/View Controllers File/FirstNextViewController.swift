@@ -61,7 +61,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                     case "":
                     errorsMassages(errors: "Ошибка выбора!")
                     default:
-                    print(changeNum, partNumb, position, name, secName, city)
+                    errorsMassages(errors: "\(changeNum, partNumb, position, name, secName, city)")
                 }
             }
         }
