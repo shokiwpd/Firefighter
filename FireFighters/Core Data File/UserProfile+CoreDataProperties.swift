@@ -11,7 +11,7 @@ import Foundation
 import CoreData
 import UIKit
 
-extension UserProfiles {
+extension UserProfile {
     class func getProfileInfo() -> NSManagedObject {
         let AppDelegete = UIApplication.shared.delegate as! AppDelegate
         let Context = AppDelegete.persistentContainer.viewContext

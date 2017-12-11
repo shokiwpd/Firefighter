@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jBa-Vd-CcF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jBa-Vd-CcF">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -104,6 +104,10 @@
                                 <date key="date" timeIntervalSinceReferenceDate="532973112.92276198">
                                     <!--2017-11-21 16:05:12 +0000-->
                                 </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
+                                    <!--1970-01-01 11:00:00 +0000-->
+                                </date>
+                                <locale key="locale" localeIdentifier="ru_RU"/>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynQ-KE-zIs">
                                 <rect key="frame" x="15" y="425" width="345" height="50"/>
@@ -115,6 +119,13 @@
                                 <connections>
                                     <action selector="nextViewSelButton:" destination="e6i-IH-fxx" eventType="touchUpInside" id="78e-j7-b88"/>
                                     <segue destination="M9r-4w-sN7" kind="show" identifier="NextVC" id="l7z-bo-yK7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2D-ed-gdP">
+                                <rect key="frame" x="16" y="75" width="116" height="164"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="selectPhoto:" destination="e6i-IH-fxx" eventType="touchUpInside" id="goB-3T-Km1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -157,6 +168,7 @@
                     <navigationItem key="navigationItem" id="1NJ-wb-L8d"/>
                     <connections>
                         <outlet property="nextViewButton" destination="ynQ-KE-zIs" id="qPQ-p7-11L"/>
+                        <outlet property="selPhotoButton" destination="q2D-ed-gdP" id="WkE-FE-0Wo"/>
                         <outlet property="userBirthdayPicker" destination="USX-cW-KeE" id="0fT-Ji-ZZK"/>
                         <outlet property="userCityView" destination="hxN-Zb-F91" id="h6A-6B-pgY"/>
                         <outlet property="userNameView" destination="rCJ-xA-Qhd" id="7bb-6P-Tzk"/>

@@ -16,14 +16,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-//        let todayDate = NSDate()
-//        let format = DateFormatter()
-//        format.dateFormat = "dd.mm.yyyy"
-//        let date = format.date(from: to)
-//        print(todayDate)
+        func todayDate()-> String!{
+            let today = Date()
+            let Forrmated = DateFormatter()
+            Forrmated.dateFormat = "dd:MM:YYYY"
+            let formatedDate = Forrmated.string(from: today)
+            return formatedDate
+        }
+        print(todayDate())
+        if todayDate() == "11:12:2017" {
+            print("It's time today")
+        }
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        if UserProfile.userInform.userName.isEmpty{
+            window?.rootViewController = UIStoryboard(name: "firstStoryBoards", bundle: nil).instantiateInitialViewController() as! UINavigationController
+        } else {
+            window?.rootViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UINavigationController
+        }
         return true
     }
-
+    
     func applicationWillResignActive(_ application: UIApplication) {
 
     }

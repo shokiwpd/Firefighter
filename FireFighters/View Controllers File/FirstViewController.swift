@@ -9,13 +9,14 @@ import UIKit
 import CoreData
 
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate  {
     @IBOutlet weak var userPhotoView: UIImageView!
     @IBOutlet weak var userNameView: UITextField!
     @IBOutlet weak var userSecondNameView: UITextField!
     @IBOutlet weak var userCityView: UITextField!
     @IBOutlet weak var userBirthdayPicker: UIDatePicker!
     @IBOutlet weak var nextViewButton: UIButton!
+    @IBOutlet weak var selPhotoButton: UIButton!
     
     //MARK: Var
     let CustomClass = UICustomClass()
@@ -24,9 +25,31 @@ class FirstViewController: UIViewController {
     //MARK: Загрузка данных
     override func viewDidLoad() {
         super.viewDidLoad()
-        CustomClass.CustomButton(nameBut: "Продолжить", buttons: nextViewButton)
-        userBirthdayPicker.datePickerMode = .date
         self.view.backgroundColor = UIColor.blue
+        userSecondNameView.delegate = self
+        userCityView.delegate = self
+        CustomClass.CustomButton(nameBut: "Продолжить", buttons: nextViewButton)
+        CustomClass.customDataPicker(dataPicker: userBirthdayPicker)
+        CustomClass.CustomTextField(textField: userNameView, nextBut: true)
+        CustomClass.CustomTextField(textField: userSecondNameView, nextBut: true)
+        CustomClass.CustomTextField(textField: userCityView, nextBut: false)
+        userPhotoView.layer.cornerRadius = 10
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let mainViewHeight = self.view.bounds.size.height
+        let mainViewWidth = self.view.bounds.size.width
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: { () -> Void in
+            self.view.center = CGPoint(x: mainViewWidth / 2, y: mainViewHeight / 2)
+        }, completion: nil)
+        textField.resignFirstResponder()
+        return true
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        let mainViewHeight = self.view.bounds.size.height
+        let mainViewWidth = self.view.bounds.size.width
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: { () -> Void in
+            self.view.center = CGPoint(x: mainViewWidth / 2, y: mainViewHeight / 2 - 40)
+        }, completion: nil)
     }
     //MARK: Уберает клавиатуру при нажатии на любое поле
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -38,6 +61,7 @@ class FirstViewController: UIViewController {
     //MARK: переход на следущий контроллер
     @IBAction func nextViewSelButton(_ sender: Any) {
         nextView = checkInfo(name: userNameView.text!, secName: userSecondNameView.text!, city: userCityView.text!)
+        print(getUserBirthday(date: userBirthdayPicker.date))
         view.endEditing(true)
     }
     //MARK: Перенос данных на следущий контроллер
@@ -49,10 +73,18 @@ class FirstViewController: UIViewController {
                   NextView.name = userNameView.text!
                     NextView.secName = userSecondNameView.text!
                     NextView.city = userCityView.text!
+                    NextView.birthDay = getUserBirthday(date: userBirthdayPicker.date)
             }
         case false:
             print("Errors")
         }
+    }
+    //MARK: Получаем дату рождения пользователя
+    func getUserBirthday(date: Date) -> String!{
+        let Forrmated = DateFormatter()
+        Forrmated.dateFormat = "dd:MM:YYYY"
+        let formatedDate = Forrmated.string(from: date)
+        return formatedDate
     }
     //MARK: Предупреждение
     func errorsMassages(errors: String!){
@@ -60,6 +92,38 @@ class FirstViewController: UIViewController {
         AlertView.addAction(UIAlertAction(title: "Хорошо", style: .default, handler: nil))
         present(AlertView, animated: true, completion: nil)
     }
+    //MARK: Выбор фотографии из альбома или с камеры
+    @IBAction func selectPhoto(_ sender: Any) {
+        selectPhotoAlert()
+    }
+    func selectPhotoAlert(){
+        let SelPhoto = UIAlertController(title: "Добавить Фото", message: nil, preferredStyle: .actionSheet)
+        SelPhoto.addAction(UIAlertAction(title: "Камера", style: .default) { (action) in
+            self.selPhotoSource(source: .camera)
+        })
+        SelPhoto.addAction(UIAlertAction(title: "Альбом", style: .default) { (action) in
+            self.selPhotoSource(source: .photoLibrary)
+        })
+        SelPhoto.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+        present(SelPhoto, animated: true, completion: nil)
+    }
+    func selPhotoSource(source: UIImagePickerControllerSourceType){
+        if UIImagePickerController.isSourceTypeAvailable(source) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = source
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        userPhotoView.image = info[UIImagePickerControllerEditedImage] as? UIImage
+        userPhotoView.contentMode = .scaleAspectFill
+        userPhotoView.clipsToBounds = true
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     //MARK: ПРовера Данных
     func checkInfo(name: String!, secName: String!, city: String!) -> Bool! {
         var errorMassage = ""

@@ -11,11 +11,11 @@ import Foundation
 import CoreData
 import UIKit
 
-class UserProfiles {
+class UserProfile {
     
-    static let userInform = UserProfiles()
-    static let sharedUserProfile = UserProfiles.getProfileInfo()
-    let usersInform = UserProfiles.sharedUserProfile
+    static let userInform = UserProfile()
+    static let sharedUserProfile = UserProfile.getProfileInfo()
+    let usersInform = UserProfile.sharedUserProfile
 
     var userName: String! {
         get {

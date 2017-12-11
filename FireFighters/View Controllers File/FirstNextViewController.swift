@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var partNumb: UITextField!
@@ -14,12 +15,14 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet weak var Position: UIPickerView!
     @IBOutlet weak var saveButton: UIButton!
     //MARK: Var
+    let userInformSave = UserProfile.userInform
     let CustomClass = UICustomClass()
     let PositionSel = ["Пожарный","Командир отделения","Нач.караула","ПНЧ"]
     var PositionName = "Пожарный"
     var name = ""
     var secName = ""
     var city = ""
+    var birthDay = ""
     //MARK:Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,12 +64,26 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                     case "":
                     errorsMassages(errors: "Ошибка выбора!")
                     default:
-                    errorsMassages(errors: "\(changeNum, partNumb, position, name, secName, city)")
+                    //errorsMassages(errors: "\(changeNum, partNumb, position, name, secName, city)")
+//                        user
+                    userInformSave.userName = name
+                    userInformSave.userSecName = secName
+                    userInformSave.userCity = city
+                    userInformSave.userPosition = position
+                    userInformSave.userPartNum = partNumb
+                    userInformSave.userChange = changeNum
+                    userInformSave.userBirthday = birthDay
+                    nextVC()
                 }
             }
         }
     }
+
     @IBAction func acceptSaveButton(_ sender: Any) {
         checkInfoWork(changeNum: ChangeNum.text!, partNumb: partNumb.text!, position: PositionName)
+    }
+    private func nextVC() {
+        let Vc = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UINavigationController
+        present(Vc, animated: true, completion: nil)
     }
 }

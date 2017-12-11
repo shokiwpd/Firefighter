@@ -16,8 +16,16 @@ class UICustomClass{
         buttons.setTitle(nameBut, for: .normal)
         buttons.tintColor = UIColor.black
     }
-    func CustomTextField(textField: UITextField){
-        
+    func CustomTextField(textField: UITextField, nextBut: Bool){
+        textField.autocorrectionType = .no
+        textField.borderStyle = .line
+        switch nextBut {
+        case true: textField.returnKeyType = .next
+        case false: textField.returnKeyType = .done
+        }
     }
-    
+    func customDataPicker(dataPicker: UIDatePicker){
+        dataPicker.datePickerMode = .date
+        dataPicker.maximumDate = Date()
+    }
 }
