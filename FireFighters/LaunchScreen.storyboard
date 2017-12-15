@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,16 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconLS" highlightedImage="iconLS" translatesAutoresizingMaskIntoConstraints="NO" id="e0Y-va-sPv">
-                                <rect key="frame" x="62" y="208" width="250" height="250"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LauncScreen" translatesAutoresizingMaskIntoConstraints="NO" id="3Z9-hr-3FG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="e0Y-va-sPv" secondAttribute="trailing" constant="63" id="Xbd-Rl-nMN"/>
-                            <constraint firstItem="e0Y-va-sPv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="188" id="Xng-Uj-awd"/>
-                            <constraint firstItem="e0Y-va-sPv" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-10.5" id="nvY-wK-j2N"/>
-                            <constraint firstItem="e0Y-va-sPv" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="u78-Yh-FgX"/>
+                            <constraint firstItem="3Z9-hr-3FG" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="9ST-FA-1S0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3Z9-hr-3FG" secondAttribute="trailing" id="UPZ-Lj-aow"/>
+                            <constraint firstItem="3Z9-hr-3FG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bzL-q9-Foq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3Z9-hr-3FG" secondAttribute="bottom" id="gCr-Wz-Nhx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="iconLS" width="400" height="400"/>
+        <image name="LauncScreen" width="125" height="222"/>
     </resources>
 </document>

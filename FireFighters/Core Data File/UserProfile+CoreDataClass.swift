@@ -73,17 +73,17 @@ class UserProfile {
             usersInform.setValue(newValue, forKey: "userChange")
         }
     }
-//    var photo: UIImage {
-//        get {
-//            if let data = userInfo.valueForKey("photo") as? NSData {
-//                return UIImage(data: data) ?? UIImage(named: "defaultUserPic")!
-//            }
-//
-//            return UIImage(named: "defaultUserPic")!
-//        }
-//        set {
-//            userInfo.setValue(UIImageJPEGRepresentation(newValue, 0.5), forKey: "photo")
-//        }
-//    }
+    var userPhoto: UIImage {
+        get {
+            if let data = usersInform.value(forKey: "userPhoto") as? NSData {
+                return UIImage(data: data as Data) ?? UIImage(named: "iconLS")!
+            }
+
+            return UIImage(named: "iconLS")!
+        }
+        set {
+            usersInform.setValue(UIImageJPEGRepresentation(newValue, 0.5), forKey: "userPhoto")
+        }
+    }
     
 }

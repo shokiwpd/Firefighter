@@ -23,17 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let formatedDate = Forrmated.string(from: today)
             return formatedDate
         }
-        print(todayDate())
-        if todayDate() == "11:12:2017" {
-            print("It's time today")
-        }
-        
+
         window = UIWindow(frame: UIScreen.main.bounds)
         if UserProfile.userInform.userName.isEmpty{
             window?.rootViewController = UIStoryboard(name: "firstStoryBoards", bundle: nil).instantiateInitialViewController() as! UINavigationController
-        } else {
-            window?.rootViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UINavigationController
-        }
+        }else{
+            window?.rootViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UINavigationController}
+        
         return true
     }
     

@@ -19,10 +19,11 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     let CustomClass = UICustomClass()
     let PositionSel = ["Пожарный","Командир отделения","Нач.караула","ПНЧ"]
     var PositionName = "Пожарный"
-    var name = ""
-    var secName = ""
-    var city = ""
-    var birthDay = ""
+    var name: String!
+    var secName: String!
+    var city: String!
+    var birthDay: String!
+    var userPhoto: UIImage!
     //MARK:Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,8 +65,6 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                     case "":
                     errorsMassages(errors: "Ошибка выбора!")
                     default:
-                    //errorsMassages(errors: "\(changeNum, partNumb, position, name, secName, city)")
-//                        user
                     userInformSave.userName = name
                     userInformSave.userSecName = secName
                     userInformSave.userCity = city
@@ -73,6 +72,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                     userInformSave.userPartNum = partNumb
                     userInformSave.userChange = changeNum
                     userInformSave.userBirthday = birthDay
+                    userInformSave.userPhoto = userPhoto
                     nextVC()
                 }
             }

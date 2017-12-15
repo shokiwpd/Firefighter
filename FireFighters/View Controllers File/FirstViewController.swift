@@ -21,7 +21,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     //MARK: Var
     let CustomClass = UICustomClass()
     var nextView = false
-    
+    let userInformSave = UserProfile.userInform
     //MARK: Загрузка данных
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +55,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if (touches.first) != nil{
             view.endEditing(true)
+            let mainViewHeight = self.view.bounds.size.height
+            let mainViewWidth = self.view.bounds.size.width
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: { () -> Void in
+                self.view.center = CGPoint(x: mainViewWidth / 2, y: mainViewHeight / 2)
+            }, completion: nil)
         }
         super.touchesBegan(touches, with: event)
     }
@@ -74,6 +79,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                     NextView.secName = userSecondNameView.text!
                     NextView.city = userCityView.text!
                     NextView.birthDay = getUserBirthday(date: userBirthdayPicker.date)
+                    NextView.userPhoto = userPhotoView.image!
             }
         case false:
             print("Errors")
@@ -96,6 +102,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     @IBAction func selectPhoto(_ sender: Any) {
         selectPhotoAlert()
     }
+    
     func selectPhotoAlert(){
         let SelPhoto = UIAlertController(title: "Добавить Фото", message: nil, preferredStyle: .actionSheet)
         SelPhoto.addAction(UIAlertAction(title: "Камера", style: .default) { (action) in
@@ -106,6 +113,9 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         })
         SelPhoto.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
         present(SelPhoto, animated: true, completion: nil)
+    }
+    func pr(){
+        print("Yes")
     }
     func selPhotoSource(source: UIImagePickerControllerSourceType){
         if UIImagePickerController.isSourceTypeAvailable(source) {
@@ -124,7 +134,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     }
     
     
-    //MARK: ПРовера Данных
+    //MARK: Провера Данных
     func checkInfo(name: String!, secName: String!, city: String!) -> Bool! {
         var errorMassage = ""
         var nextViewC = false

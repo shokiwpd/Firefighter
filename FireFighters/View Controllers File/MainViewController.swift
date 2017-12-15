@@ -9,11 +9,14 @@
 import UIKit
 import CoreData
 class MainViewController: UIViewController {
-    let test = UserProfile()
+    let tests = UserProfile()
+    @IBOutlet weak var test: UILabel!
+    @IBOutlet weak var testImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Load")
-        print(test.userBirthday)
+        test.text = "Привет \(String(tests.userName)) \(String(tests.userSecName)) "
+        testImage.image = tests.userPhoto
         // Do any additional setup after loading the view.
     }
 
