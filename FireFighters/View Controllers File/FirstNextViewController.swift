@@ -20,7 +20,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     let PositionSel = ["Пожарный","Командир отделения","Нач.караула","ПНЧ"]
     var PositionName = "Пожарный"
     var name: String!
-    var secName: String!
+    var Patronymic: String!
     var city: String!
     var birthDay: String!
     var userPhoto: UIImage!
@@ -66,7 +66,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                     errorsMassages(errors: "Ошибка выбора!")
                     default:
                     userInformSave.userName = name
-                    userInformSave.userSecName = secName
+                    userInformSave.userPatronymic = Patronymic
                     userInformSave.userCity = city
                     userInformSave.userPosition = position
                     userInformSave.userPartNum = partNumb

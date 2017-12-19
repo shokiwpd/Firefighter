@@ -23,13 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let formatedDate = Forrmated.string(from: today)
             return formatedDate
         }
-
         window = UIWindow(frame: UIScreen.main.bounds)
         if UserProfile.userInform.userName.isEmpty{
             window?.rootViewController = UIStoryboard(name: "firstStoryBoards", bundle: nil).instantiateInitialViewController() as! UINavigationController
         }else{
-            window?.rootViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UINavigationController}
-        
+            window?.rootViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UINavigationController
+        }
         return true
     }
     

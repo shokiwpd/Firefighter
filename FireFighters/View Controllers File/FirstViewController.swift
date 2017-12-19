@@ -12,7 +12,7 @@ import CoreData
 class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate  {
     @IBOutlet weak var userPhotoView: UIImageView!
     @IBOutlet weak var userNameView: UITextField!
-    @IBOutlet weak var userSecondNameView: UITextField!
+    @IBOutlet weak var userPatronymicView: UITextField!
     @IBOutlet weak var userCityView: UITextField!
     @IBOutlet weak var userBirthdayPicker: UIDatePicker!
     @IBOutlet weak var nextViewButton: UIButton!
@@ -26,12 +26,12 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.blue
-        userSecondNameView.delegate = self
+        userPatronymicView.delegate = self//фамилия
         userCityView.delegate = self
         CustomClass.CustomButton(nameBut: "Продолжить", buttons: nextViewButton)
         CustomClass.customDataPicker(dataPicker: userBirthdayPicker)
         CustomClass.CustomTextField(textField: userNameView, nextBut: true)
-        CustomClass.CustomTextField(textField: userSecondNameView, nextBut: true)
+        CustomClass.CustomTextField(textField: userPatronymicView, nextBut: true)
         CustomClass.CustomTextField(textField: userCityView, nextBut: false)
         userPhotoView.layer.cornerRadius = 10
     }
@@ -65,7 +65,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     }
     //MARK: переход на следущий контроллер
     @IBAction func nextViewSelButton(_ sender: Any) {
-        nextView = checkInfo(name: userNameView.text!, secName: userSecondNameView.text!, city: userCityView.text!)
+        nextView = checkInfo(name: userNameView.text!, Patronymic: userPatronymicView.text!, city: userCityView.text!)
         print(getUserBirthday(date: userBirthdayPicker.date))
         view.endEditing(true)
     }
@@ -75,8 +75,8 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         case true:
             if segue.identifier == "NextVC"{
                 let NextView = segue.destination as! FirstNextViewController
-                  NextView.name = userNameView.text!
-                    NextView.secName = userSecondNameView.text!
+                    NextView.name = userNameView.text!
+                    NextView.Patronymic = userPatronymicView.text!
                     NextView.city = userCityView.text!
                     NextView.birthDay = getUserBirthday(date: userBirthdayPicker.date)
                     NextView.userPhoto = userPhotoView.image!
@@ -135,16 +135,16 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     
     
     //MARK: Провера Данных
-    func checkInfo(name: String!, secName: String!, city: String!) -> Bool! {
+    func checkInfo(name: String!, Patronymic: String!, city: String!) -> Bool! {
         var errorMassage = ""
         var nextViewC = false
         switch name {
         case "":
             errorMassage = "Вы не указали свое имя!"
         default:
-            switch secName {
+            switch Patronymic {
             case "":
-                errorMassage = "Вы не указали свою фамилию!"
+                errorMassage = "Вы не указали своё Отчество!"
             default:
                 switch city {
                 case "":

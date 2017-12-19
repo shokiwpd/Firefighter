@@ -6,9 +6,9 @@
         <attribute name="userCity" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userPartNum" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userPatronymic" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userPhoto" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="userPosition" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="userSecName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="UserProfile" positionX="-63" positionY="-18" width="128" height="165"/>

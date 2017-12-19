@@ -25,12 +25,12 @@ class UserProfile {
             usersInform.setValue(newValue, forKey: "userName")
         }
     }
-    var userSecName: String! {
+    var userPatronymic: String! {
         get {
-            return usersInform.value(forKey: "userSecName") as? String ?? ""
+            return usersInform.value(forKey: "userPatronymic") as? String ?? ""
         }
         set {
-            usersInform.setValue(newValue, forKey: "userSecName")
+            usersInform.setValue(newValue, forKey: "userPatronymic")
         }
     }
     var userCity: String! {
@@ -76,10 +76,9 @@ class UserProfile {
     var userPhoto: UIImage {
         get {
             if let data = usersInform.value(forKey: "userPhoto") as? NSData {
-                return UIImage(data: data as Data) ?? UIImage(named: "iconLS")!
+                return UIImage(data: data as Data) ?? UIImage(named: "defPhoto")!
             }
-
-            return UIImage(named: "iconLS")!
+            return UIImage(named: "defPhoto")!
         }
         set {
             usersInform.setValue(UIImageJPEGRepresentation(newValue, 0.5), forKey: "userPhoto")

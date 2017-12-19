@@ -17,7 +17,7 @@ class UICustomClass{
         buttons.tintColor = UIColor.black
     }
     func CustomTextField(textField: UITextField, nextBut: Bool){
-        textField.autocorrectionType = .no
+        textField.autocorrectionType = .yes
         textField.borderStyle = .line
         switch nextBut {
         case true: textField.returnKeyType = .next
@@ -27,5 +27,9 @@ class UICustomClass{
     func customDataPicker(dataPicker: UIDatePicker){
         dataPicker.datePickerMode = .date
         dataPicker.maximumDate = Date()
+    }
+    func customImage(image: UIImageView){
+        image.layer.cornerRadius = image.frame.height / 2
+        image.clipsToBounds = true
     }
 }
