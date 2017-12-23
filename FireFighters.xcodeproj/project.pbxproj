@@ -19,13 +19,11 @@
 		E94994C21FE8FE8600041EFF /* enumLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94994C11FE8FE8500041EFF /* enumLabel.swift */; };
 		E96429F21FCEDDF0005BB8D4 /* icon in Resources */ = {isa = PBXBuildFile; fileRef = E96429F01FCEDDF0005BB8D4 /* icon */; };
 		E96429F31FCEDDF0005BB8D4 /* LaunchScreenImage in Resources */ = {isa = PBXBuildFile; fileRef = E96429F11FCEDDF0005BB8D4 /* LaunchScreenImage */; };
+		E978EAED1FEED7B700197057 /* CalculationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E978EAEC1FEED7B700197057 /* CalculationViewController.swift */; };
 		E9BEDB491FC4A3CF00DAD26E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BEDB481FC4A3CF00DAD26E /* FirstViewController.swift */; };
 		E9C788351FD82DE7009F98F2 /* UserProfile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C788331FD82DE7009F98F2 /* UserProfile+CoreDataClass.swift */; };
 		E9C788361FD82DE7009F98F2 /* UserProfile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C788341FD82DE7009F98F2 /* UserProfile+CoreDataProperties.swift */; };
 		E9F31F521FDDB056001D74B9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F31F511FDDB056001D74B9 /* MainViewController.swift */; };
-		E9F91FB51FE9546B002668D4 /* CalculationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F91FB41FE9546B002668D4 /* CalculationsTableViewController.swift */; };
-		E9F91FB71FE95476002668D4 /* CalculationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F91FB61FE95476002668D4 /* CalculationCell.swift */; };
-		E9F91FB91FE95B75002668D4 /* load.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F91FB81FE95B75002668D4 /* load.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,13 +41,11 @@
 		E94994C11FE8FE8500041EFF /* enumLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enumLabel.swift; sourceTree = "<group>"; };
 		E96429F01FCEDDF0005BB8D4 /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icon; sourceTree = "<group>"; };
 		E96429F11FCEDDF0005BB8D4 /* LaunchScreenImage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = LaunchScreenImage; sourceTree = "<group>"; };
+		E978EAEC1FEED7B700197057 /* CalculationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationViewController.swift; sourceTree = "<group>"; };
 		E9BEDB481FC4A3CF00DAD26E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		E9C788331FD82DE7009F98F2 /* UserProfile+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserProfile+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E9C788341FD82DE7009F98F2 /* UserProfile+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserProfile+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E9F31F511FDDB056001D74B9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		E9F91FB41FE9546B002668D4 /* CalculationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculationsTableViewController.swift; sourceTree = "<group>"; };
-		E9F91FB61FE95476002668D4 /* CalculationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculationCell.swift; sourceTree = "<group>"; };
-		E9F91FB81FE95B75002668D4 /* load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = load.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +107,7 @@
 				E9BEDB481FC4A3CF00DAD26E /* FirstViewController.swift */,
 				C93E98BB1FCC685C00377B89 /* FirstNextViewController.swift */,
 				E9F31F511FDDB056001D74B9 /* MainViewController.swift */,
-				E9F91FB41FE9546B002668D4 /* CalculationsTableViewController.swift */,
+				E978EAEC1FEED7B700197057 /* CalculationViewController.swift */,
 			);
 			path = "View Controllers File";
 			sourceTree = "<group>";
@@ -139,9 +135,7 @@
 			children = (
 				C93E98BD1FCDE28F00377B89 /* UICustomClass.swift */,
 				E923873B1FE3D5D600AA8078 /* CustomNavContr.swift */,
-				E9F91FB61FE95476002668D4 /* CalculationCell.swift */,
 				E94994C11FE8FE8500041EFF /* enumLabel.swift */,
-				E9F91FB81FE95B75002668D4 /* load.swift */,
 			);
 			path = CustomClass;
 			sourceTree = "<group>";
@@ -227,10 +221,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9C788361FD82DE7009F98F2 /* UserProfile+CoreDataProperties.swift in Sources */,
+				E978EAED1FEED7B700197057 /* CalculationViewController.swift in Sources */,
 				C93E98BE1FCDE28F00377B89 /* UICustomClass.swift in Sources */,
-				E9F91FB51FE9546B002668D4 /* CalculationsTableViewController.swift in Sources */,
-				E9F91FB91FE95B75002668D4 /* load.swift in Sources */,
-				E9F91FB71FE95476002668D4 /* CalculationCell.swift in Sources */,
 				E9BEDB491FC4A3CF00DAD26E /* FirstViewController.swift in Sources */,
 				E90894D21FC47F43001DEE07 /* AppDelegate.swift in Sources */,
 				C93E98BC1FCC685D00377B89 /* FirstNextViewController.swift in Sources */,

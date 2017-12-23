@@ -84,5 +84,13 @@ class UserProfile {
             usersInform.setValue(UIImageJPEGRepresentation(newValue, 0.5), forKey: "userPhoto")
         }
     }
+    var userUnitType: String {
+        get {
+            return usersInform.value(forKey: "userUnitType") as? String ?? ""
+        }
+        set {
+            usersInform.setValue(newValue, forKey: "userUnitType")
+        }
+    }
     
 }

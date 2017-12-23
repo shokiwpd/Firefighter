@@ -14,6 +14,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet weak var ChangeNum: UITextField!
     @IBOutlet weak var Position: UIPickerView!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var userUnitTypeSel: UISegmentedControl!
     //MARK: Var
     let userInformSave = UserProfile.userInform
     let CustomClass = UICustomClass()
@@ -51,6 +52,18 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         AlertView.addAction(UIAlertAction(title: "Хорошо", style: .default, handler: nil))
         present(AlertView, animated: true, completion: nil)
     }
+    func selUnitType(type: UISegmentedControl) -> String!{
+        var types = ""
+        switch type.selectedSegmentIndex {
+        case 0: types = "ДАСВ"
+        case 1: types = "ДАСК"
+        default:
+            print("Errors")
+        }
+        return types
+    }
+    
+    
     
     func checkInfoWork(changeNum: String, partNumb: String, position: String){
         switch partNumb{
@@ -65,6 +78,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                     case "":
                     errorsMassages(errors: "Ошибка выбора!")
                     default:
+                    userInformSave.userUnitType = selUnitType(type: userUnitTypeSel)
                     userInformSave.userName = name
                     userInformSave.userPatronymic = Patronymic
                     userInformSave.userCity = city

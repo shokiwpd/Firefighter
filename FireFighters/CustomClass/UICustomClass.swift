@@ -32,4 +32,7 @@ class UICustomClass{
         image.layer.cornerRadius = image.frame.height / 2
         image.clipsToBounds = true
     }
+    func customLAbel(label: UILabel){
+        label.lineBreakMode = .byTruncatingHead
+    }
 }
