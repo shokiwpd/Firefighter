@@ -32,7 +32,17 @@ class UICustomClass{
         image.layer.cornerRadius = image.frame.height / 2
         image.clipsToBounds = true
     }
-    func customLAbel(label: UILabel){
+    func customLabel(label: UILabel){
         label.lineBreakMode = .byTruncatingHead
+    }
+    func keyboardStepAndHidden(viewVC: UIView, step: Bool){
+    let ViewHeight = viewVC.bounds.size.height
+    let ViewWidth = viewVC.bounds.size.width
+    UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: { () -> Void in
+        switch step {
+        case true: viewVC.center = CGPoint(x: ViewWidth / 2, y: ViewHeight / 2 - 70)
+        case false: viewVC.center = CGPoint(x: ViewWidth / 2, y: ViewHeight / 2)
+        }
+        }, completion: nil)
     }
 }

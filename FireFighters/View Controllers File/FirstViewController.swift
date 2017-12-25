@@ -22,6 +22,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     let CustomClass = UICustomClass()
     var nextView = false
     let userInformSave = UserProfile.userInform
+    
     //MARK: Загрузка данных
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,30 +37,18 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         userPhotoView.layer.cornerRadius = 10
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let mainViewHeight = self.view.bounds.size.height
-        let mainViewWidth = self.view.bounds.size.width
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: { () -> Void in
-            self.view.center = CGPoint(x: mainViewWidth / 2, y: mainViewHeight / 2)
-        }, completion: nil)
+        CustomClass.keyboardStepAndHidden(viewVC: view, step: false)
         textField.resignFirstResponder()
         return true
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        let mainViewHeight = self.view.bounds.size.height
-        let mainViewWidth = self.view.bounds.size.width
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: { () -> Void in
-            self.view.center = CGPoint(x: mainViewWidth / 2, y: mainViewHeight / 2 - 40)
-        }, completion: nil)
+        CustomClass.keyboardStepAndHidden(viewVC: view, step: true)
     }
     //MARK: Уберает клавиатуру при нажатии на любое поле
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if (touches.first) != nil{
             view.endEditing(true)
-            let mainViewHeight = self.view.bounds.size.height
-            let mainViewWidth = self.view.bounds.size.width
-            UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: { () -> Void in
-                self.view.center = CGPoint(x: mainViewWidth / 2, y: mainViewHeight / 2)
-            }, completion: nil)
+            CustomClass.keyboardStepAndHidden(viewVC: view, step: false)
         }
         super.touchesBegan(touches, with: event)
     }
