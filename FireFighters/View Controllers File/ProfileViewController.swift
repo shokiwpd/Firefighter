@@ -11,6 +11,7 @@ import UIKit
 class ProfileViewController: UITableViewController {
 
     let SelUsersCell = ["Личные данные","Рабочие данные","Мед.комиссии","Сосотояние здоровья"]
+    let icon = [""]
     override func viewDidLoad() {
         super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
@@ -39,13 +40,26 @@ class ProfileViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-
-        cell?.textLabel?.text = SelUsersCell[indexPath.row]
-
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! CustomProfileCell
+            cell.labelViewCell.text = SelUsersCell[indexPath.row]
+            cell.iconCell.image = #imageLiteral(resourceName: "userInform")
+        return cell
     }
- 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let Cell:CustomProfileCell!
+        switch  indexPath.row{
+        case 0:
+            print(1)
+        case 1:
+            print(2)
+        case 2:
+            print(3)
+        case 3:
+            print(4)
+        default:
+            print("Error")
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.

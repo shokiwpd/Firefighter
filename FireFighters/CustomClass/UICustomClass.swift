@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MBProgressHUD
 
 class UICustomClass{
     func CustomButton(nameBut: String, buttons: UIButton){
@@ -40,9 +41,18 @@ class UICustomClass{
     let ViewWidth = viewVC.bounds.size.width
     UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: { () -> Void in
         switch step {
-        case true: viewVC.center = CGPoint(x: ViewWidth / 2, y: ViewHeight / 2 - 70)
-        case false: viewVC.center = CGPoint(x: ViewWidth / 2, y: ViewHeight / 2)
+            case true: viewVC.center = CGPoint(x: ViewWidth / 2, y: ViewHeight / 2 - 70)
+            case false: viewVC.center = CGPoint(x: ViewWidth / 2, y: ViewHeight / 2)
         }
         }, completion: nil)
+    }
+    func CustomLoadView(text: String, view: UIView){
+        let load = MBProgressHUD.showAdded(to: view, animated: true)
+        load.animationType = .fade
+        load.backgroundView.color = UIColor.blue
+        load.labelText = text
+        load.backgroundView.style = .blur
+        load.tintColor = UIColor.red
+        load.minShowTime = 2
     }
 }

@@ -7,7 +7,7 @@
 //
 import UIKit
 import CoreData
-
+import MBProgressHUD
 
 class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate  {
     @IBOutlet weak var userPhotoView: UIImageView!
@@ -22,7 +22,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     let CustomClass = UICustomClass()
     var nextView = false
     let userInformSave = UserProfile.userInform
-    
+    var isProfileEdit = false
     //MARK: Загрузка данных
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +35,15 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         CustomClass.CustomTextField(textField: userPatronymicView, nextBut: true)
         CustomClass.CustomTextField(textField: userCityView, nextBut: false)
         userPhotoView.layer.cornerRadius = 10
+        if isProfileEdit == true {
+            userNameView.text = userInformSave.userName
+            userPatronymicView.text! = userInformSave.userPatronymic
+            userCityView.text! = userInformSave.userCity
+           // getUserBirthday(date: userBirthdayPicker.date)
+            userPhotoView.image! = userInformSave.userPhoto
+        } else {
+            print("Error")
+        }
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         CustomClass.keyboardStepAndHidden(viewVC: view, step: false)
@@ -63,6 +72,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         switch nextView {
         case true:
             if segue.identifier == "NextVC"{
+               
                 let NextView = segue.destination as! FirstNextViewController
                     NextView.name = userNameView.text!
                     NextView.Patronymic = userPatronymicView.text!
@@ -102,9 +112,6 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         })
         SelPhoto.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
         present(SelPhoto, animated: true, completion: nil)
-    }
-    func pr(){
-        print("Yes")
     }
     func selPhotoSource(source: UIImagePickerControllerSourceType){
         if UIImagePickerController.isSourceTypeAvailable(source) {
