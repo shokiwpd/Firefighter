@@ -1,12 +1,4 @@
-//
-//  FirstViewController.swift
-//  FireFighters
-//
-//  Created by Павел on 21.11.17.
-//  Copyright © 2017 Павел. All rights reserved.
-//
 import UIKit
-import CoreData
 import MBProgressHUD
 
 class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate  {
@@ -35,15 +27,6 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         CustomClass.CustomTextField(textField: userPatronymicView, nextBut: true)
         CustomClass.CustomTextField(textField: userCityView, nextBut: false)
         userPhotoView.layer.cornerRadius = 10
-        if isProfileEdit == true {
-            userNameView.text = userInformSave.userName
-            userPatronymicView.text! = userInformSave.userPatronymic
-            userCityView.text! = userInformSave.userCity
-           // getUserBirthday(date: userBirthdayPicker.date)
-            userPhotoView.image! = userInformSave.userPhoto
-        } else {
-            print("Error")
-        }
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         CustomClass.keyboardStepAndHidden(viewVC: view, step: false)
@@ -72,7 +55,6 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         switch nextView {
         case true:
             if segue.identifier == "NextVC"{
-               
                 let NextView = segue.destination as! FirstNextViewController
                     NextView.name = userNameView.text!
                     NextView.Patronymic = userPatronymicView.text!

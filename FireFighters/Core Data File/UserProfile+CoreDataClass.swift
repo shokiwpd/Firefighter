@@ -1,18 +1,9 @@
-//
-//  UserProfile+CoreDataClass.swift
-//  FireFighters
-//
-//  Created by Павел on 06.12.17.
-//  Copyright © 2017 Павел. All rights reserved.
-//
-//
-
 import Foundation
 import CoreData
 import UIKit
 
 class UserProfile {
-    
+    init() {}
     static let userInform = UserProfile()
     static let sharedUserProfile = UserProfile.getProfileInfo()
     let usersInform = UserProfile.sharedUserProfile
@@ -65,9 +56,9 @@ class UserProfile {
             usersInform.setValue(newValue, forKey: "userPosition")
         }
     }
-    var userChange: String! {
+    var userChange: Int! {
         get {
-            return usersInform.value(forKey: "userChange") as? String ?? ""
+            return usersInform.value(forKey: "userChange") as? Int ?? 0
         }
         set {
             usersInform.setValue(newValue, forKey: "userChange")

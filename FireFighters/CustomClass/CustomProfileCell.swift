@@ -1,11 +1,3 @@
-//
-//  CustomProfileCell.swift
-//  FireFighters
-//
-//  Created by Павел on 26.12.17.
-//  Copyright © 2017 Павел. All rights reserved.
-//
-
 import UIKit
 
 class CustomProfileCell: UITableViewCell {

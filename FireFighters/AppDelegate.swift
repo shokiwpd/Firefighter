@@ -13,16 +13,10 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let DayMoth = 0
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        func todayDate()-> String!{
-            let today = Date()
-            let Forrmated = DateFormatter()
-            Forrmated.dateFormat = "dd:MM:YYYY"
-            let formatedDate = Forrmated.string(from: today)
-            return formatedDate
-        }
+
         window = UIWindow(frame: UIScreen.main.bounds)
         if UserProfile.userInform.userName.isEmpty{
             window?.rootViewController = UIStoryboard(name: "firstStoryBoards", bundle: nil).instantiateInitialViewController() as! UINavigationController

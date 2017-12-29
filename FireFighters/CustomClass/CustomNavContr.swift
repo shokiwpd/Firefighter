@@ -1,11 +1,3 @@
-//
-//  CustomNavContr.swift
-//  FireFighters
-//
-//  Created by Павел on 15.12.17.
-//  Copyright © 2017 Павел. All rights reserved.
-//
-
 import UIKit
 
 class CustomNavContr: UINavigationController {

@@ -1,13 +1,4 @@
-//
-//  DocViewController.swift
-//  FireFighters
-//
-//  Created by Павел on 25.12.17.
-//  Copyright © 2017 Павел. All rights reserved.
-//
-
 import UIKit
-
 class DocViewController: UITableViewController {
     let DocSelCell = ["Приказы","Специализации","Постановления"]
     override func viewDidLoad() {

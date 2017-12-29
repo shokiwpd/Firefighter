@@ -1,11 +1,3 @@
-//
-//  UICustomClass.swift
-//  FireFighters
-//
-//  Created by Павел Уланов on 28.11.17.
-//  Copyright © 2017 Павел. All rights reserved.
-//
-
 import Foundation
 import UIKit
 import MBProgressHUD

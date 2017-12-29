@@ -1,13 +1,4 @@
-//
-//  FirstNextViewController.swift
-//  FireFighters
-//
-//  Created by Павел Уланов on 27.11.17.
-//  Copyright © 2017 Павел. All rights reserved.
-//
-
 import UIKit
-import CoreData
 import MBProgressHUD
 class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var partNumb: UITextField!
@@ -65,13 +56,13 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     
     
-    func checkInfoWork(changeNum: String, partNumb: String, position: String){
+    func checkInfoWork(changeNum: Int, partNumb: String, position: String){
         switch partNumb{
         case "":
                 errorsMassages(errors: "Вы не указали номер своей части!")
         default:
             switch changeNum{
-            case "":
+            case 0:
                 errorsMassages(errors: "Вы не указали свою дежурную смену(Караул)!")
             default:
                 switch position {
@@ -84,7 +75,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                     userInformSave.userCity = city
                     userInformSave.userPosition = position
                     userInformSave.userPartNum = partNumb
-                    userInformSave.userChange = changeNum
+                    userInformSave.userChange = Int(changeNum)
                     userInformSave.userBirthday = birthDay
                     userInformSave.userPhoto = userPhoto
                     nextVC()
@@ -94,7 +85,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
 
     @IBAction func acceptSaveButton(_ sender: Any) {
-        checkInfoWork(changeNum: ChangeNum.text!, partNumb: partNumb.text!, position: PositionName)
+        checkInfoWork(changeNum: Int(ChangeNum.text!)!, partNumb: partNumb.text!, position: PositionName)
     }
     private func nextVC() {
         let Vc = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UINavigationController

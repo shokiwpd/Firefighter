@@ -1,16 +1,11 @@
-//
-//  enumLabel.swift
-//  FireFighters
-//
-//  Created by Павел on 19.12.17.
-//  Copyright © 2017 Павел. All rights reserved.
-//
-
 import UIKit
+
 enum TextLabel: String {
-    case Tomorrow = "Вы сегодня на сутках"
-    case today = "Вам завтра на сутки"
-    case Soon = "На сутки вам через :"
+    case Today = "Вы сегодня на сутках"
+    case Tomorrow = "Вам завтра на сутки"
+    case SoonTwoDay = "На сутки вам через два дня"
+    case SoonThreeDay = "На сутки вам через три дня"
+    
 }
 
 enum UnitTypeEnum: String {

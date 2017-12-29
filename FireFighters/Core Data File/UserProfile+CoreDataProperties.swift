@@ -1,12 +1,3 @@
-//
-//  UserProfile+CoreDataProperties.swift
-//  FireFighters
-//
-//  Created by Павел on 06.12.17.
-//  Copyright © 2017 Павел. All rights reserved.
-//
-//
-
 import Foundation
 import CoreData
 import UIKit

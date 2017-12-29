@@ -1,15 +1,6 @@
-//
-//  CalculationViewController.swift
-//  FireFighters
-//
-//  Created by Павел on 23.12.17.
-//  Copyright © 2017 Павел. All rights reserved.
-//
-
 import UIKit
-import CoreData
 class CalculationViewController: UIViewController {
-let DataBase = UserProfile()
+let DataBase = UserProfile.userInform
     @IBOutlet weak var UnitTypeInfo: UILabel!
     
     override func viewDidLoad() {
