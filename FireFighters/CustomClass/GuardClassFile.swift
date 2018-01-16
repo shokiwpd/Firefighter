@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 struct GuardFunc {
     func Guard1(Guard: Int, userGuard: Int) -> String!{
         var GuardNum: String!

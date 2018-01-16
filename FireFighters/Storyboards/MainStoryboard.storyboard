@@ -21,7 +21,6 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <outlet property="customNavBarOutlet" destination="z2j-fI-U5d" id="GLa-09-4Wq"/>
                         <segue destination="IiO-Pp-5zA" kind="relationship" relationship="rootViewController" id="fvZ-uA-eYY"/>
                     </connections>
                 </navigationController>
