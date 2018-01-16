@@ -15,11 +15,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     var nextView = false
     let userInformSave = UserProfile.userInform
     var isProfileEdit = false
-    //MARK: Загрузка данных
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.blue
-        userPatronymicView.delegate = self//фамилия
+        userPatronymicView.delegate = self
         userCityView.delegate = self
         CustomClass.CustomButton(nameBut: "Продолжить", buttons: nextViewButton)
         CustomClass.customDataPicker(dataPicker: userBirthdayPicker)
@@ -36,7 +36,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     func textFieldDidBeginEditing(_ textField: UITextField) {
         CustomClass.keyboardStepAndHidden(viewVC: view, step: true)
     }
-    //MARK: Уберает клавиатуру при нажатии на любое поле
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if (touches.first) != nil{
             view.endEditing(true)
@@ -44,13 +44,10 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         }
         super.touchesBegan(touches, with: event)
     }
-    //MARK: переход на следущий контроллер
     @IBAction func nextViewSelButton(_ sender: Any) {
         nextView = checkInfo(name: userNameView.text!, Patronymic: userPatronymicView.text!, city: userCityView.text!)
-        print(getUserBirthday(date: userBirthdayPicker.date))
         view.endEditing(true)
     }
-    //MARK: Перенос данных на следущий контроллер
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch nextView {
         case true:
@@ -66,20 +63,17 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
             print("Errors")
         }
     }
-    //MARK: Получаем дату рождения пользователя
     func getUserBirthday(date: Date) -> String!{
         let Forrmated = DateFormatter()
         Forrmated.dateFormat = "dd:MM:YYYY"
         let formatedDate = Forrmated.string(from: date)
         return formatedDate
     }
-    //MARK: Предупреждение
     func errorsMassages(errors: String!){
         let AlertView = UIAlertController(title: "Внимание", message: errors, preferredStyle: .alert)
         AlertView.addAction(UIAlertAction(title: "Хорошо", style: .default, handler: nil))
         present(AlertView, animated: true, completion: nil)
     }
-    //MARK: Выбор фотографии из альбома или с камеры
     @IBAction func selectPhoto(_ sender: Any) {
         selectPhotoAlert()
     }
@@ -110,9 +104,8 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         userPhotoView.clipsToBounds = true
         dismiss(animated: true, completion: nil)
     }
+
     
-    
-    //MARK: Провера Данных
     func checkInfo(name: String!, Patronymic: String!, city: String!) -> Bool! {
         var errorMassage = ""
         var nextViewC = false

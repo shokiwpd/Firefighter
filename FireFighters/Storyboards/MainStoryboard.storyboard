@@ -115,20 +115,42 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="98y-2j-YVd">
+                                <rect key="frame" x="0.0" y="220" width="375" height="398"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHm-gF-9En">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="GHm-gF-9En" secondAttribute="trailing" id="Auv-hD-uvE"/>
+                                    <constraint firstAttribute="bottom" secondItem="GHm-gF-9En" secondAttribute="bottom" constant="377" id="YJd-gW-kNn"/>
+                                    <constraint firstItem="GHm-gF-9En" firstAttribute="width" secondItem="98y-2j-YVd" secondAttribute="width" id="YVa-T5-G4m"/>
+                                    <constraint firstItem="GHm-gF-9En" firstAttribute="leading" secondItem="98y-2j-YVd" secondAttribute="leading" id="fkn-WV-52X"/>
+                                    <constraint firstItem="GHm-gF-9En" firstAttribute="top" secondItem="98y-2j-YVd" secondAttribute="top" id="gWK-8w-xun"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ncK-Ld-6Vc" firstAttribute="top" secondItem="KLg-8V-FA9" secondAttribute="bottom" constant="41" id="31G-oH-gbw"/>
                             <constraint firstItem="ncK-Ld-6Vc" firstAttribute="leading" secondItem="kR9-Js-o57" secondAttribute="leading" constant="15" id="3BB-ak-fOP"/>
                             <constraint firstItem="kR9-Js-o57" firstAttribute="trailing" secondItem="ncK-Ld-6Vc" secondAttribute="trailing" constant="15" id="B8E-eI-fBU"/>
+                            <constraint firstItem="98y-2j-YVd" firstAttribute="bottom" secondItem="kR9-Js-o57" secondAttribute="bottom" id="GM9-Vq-oVW"/>
                             <constraint firstItem="KLg-8V-FA9" firstAttribute="leading" secondItem="VGx-X3-JW5" secondAttribute="trailing" constant="16" id="Igg-Y1-zrP"/>
                             <constraint firstItem="VGx-X3-JW5" firstAttribute="top" secondItem="kR9-Js-o57" secondAttribute="top" constant="7" id="OCz-EC-2EF"/>
+                            <constraint firstItem="98y-2j-YVd" firstAttribute="top" secondItem="ncK-Ld-6Vc" secondAttribute="bottom" constant="8" id="Qw2-UF-yaX"/>
                             <constraint firstItem="KLg-8V-FA9" firstAttribute="top" secondItem="kR9-Js-o57" secondAttribute="top" constant="7" id="UsW-X2-4XO"/>
                             <constraint firstItem="kR9-Js-o57" firstAttribute="trailing" secondItem="KLg-8V-FA9" secondAttribute="trailing" constant="15" id="Xv5-OP-mUl"/>
                             <constraint firstItem="ncK-Ld-6Vc" firstAttribute="top" secondItem="VGx-X3-JW5" secondAttribute="bottom" constant="41" id="ZyV-8B-HqJ"/>
+                            <constraint firstItem="98y-2j-YVd" firstAttribute="trailing" secondItem="kR9-Js-o57" secondAttribute="trailing" id="bYg-eZ-Yqi"/>
                             <constraint firstItem="ncK-Ld-6Vc" firstAttribute="leading" secondItem="kR9-Js-o57" secondAttribute="leading" constant="15" id="gVG-iG-uZg"/>
                             <constraint firstItem="VGx-X3-JW5" firstAttribute="leading" secondItem="kR9-Js-o57" secondAttribute="leading" constant="15" id="oRr-DA-eWU"/>
                             <constraint firstItem="kR9-Js-o57" firstAttribute="trailing" secondItem="ncK-Ld-6Vc" secondAttribute="trailing" constant="15" id="soH-IZ-Meg"/>
+                            <constraint firstItem="98y-2j-YVd" firstAttribute="leading" secondItem="kR9-Js-o57" secondAttribute="leading" id="wph-Os-gFY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kR9-Js-o57"/>
                     </view>
@@ -136,6 +158,8 @@
                         <color key="badgeColor" red="1" green="0.0" blue="0.084040851149999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="LabelView" destination="GHm-gF-9En" id="Znu-Hk-00T"/>
+                        <outlet property="scrollViews" destination="98y-2j-YVd" id="lnb-zI-iHp"/>
                         <outlet property="statusLabel" destination="ncK-Ld-6Vc" id="VrT-5d-QvZ"/>
                         <outlet property="userNameLabel" destination="KLg-8V-FA9" id="5Ig-IV-QCk"/>
                         <outlet property="userPhoto" destination="VGx-X3-JW5" id="Yjr-p9-acn"/>
@@ -143,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YKF-Hs-sEt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1532" y="-573"/>
+            <point key="canvasLocation" x="-1532" y="-573.46326836581716"/>
         </scene>
         <!--Новости-->
         <scene sceneID="qfI-1M-4k6">

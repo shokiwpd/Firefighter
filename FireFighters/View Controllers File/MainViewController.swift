@@ -11,6 +11,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var userPhoto: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var scrollViews: UIScrollView!
+    @IBOutlet weak var LabelView: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         for (Data, karaul) in MonthWorkClass.Month(MonthNum: todayDate()) {
@@ -29,6 +31,7 @@ class MainViewController: UIViewController {
         CustomView.customImage(image: userPhoto)
         userNameLabel.text = "Здравствуйте \(String(userInfo.userName)) \(String(userInfo.userPatronymic)) "
         userPhoto.image = userInfo.userPhoto
+        LabelView.text = UnitTestEnum.theFirstTest.rawValue
     }
     func todayDate()-> String!{
         let today = Date()
