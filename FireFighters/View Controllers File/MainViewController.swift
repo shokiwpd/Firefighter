@@ -1,7 +1,5 @@
 import UIKit
 
-
-
 class MainViewController: UIViewController {
     let userInfo = UserProfile.userInform
     let CustomView = UICustomClass()
