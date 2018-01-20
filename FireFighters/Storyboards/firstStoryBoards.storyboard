@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -143,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fTq-G9-dKB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="447.19999999999999" y="113.79310344827587"/>
+            <point key="canvasLocation" x="377" y="116"/>
         </scene>
         <!--First Next View Controller-->
         <scene sceneID="QSv-RM-cTi">
@@ -233,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qzw-Y1-WnD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1156" y="106.59670164917542"/>
+            <point key="canvasLocation" x="1153" y="116"/>
         </scene>
         <!--Custom Nav Contr-->
         <scene sceneID="RgX-2d-rSO">
@@ -246,15 +247,115 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="e6i-IH-fxx" kind="relationship" relationship="rootViewController" id="E4H-7E-30r"/>
+                        <segue destination="bKu-7K-unp" kind="relationship" relationship="rootViewController" id="sKB-VT-dgx"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gkD-tF-mvX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-270" y="114"/>
+            <point key="canvasLocation" x="-1156" y="116"/>
+        </scene>
+        <!--Login PassVC-->
+        <scene sceneID="6k5-De-xVw">
+            <objects>
+                <viewController id="bKu-7K-unp" customClass="LoginPassVC" customModule="FireFighters" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z96-TT-TWr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zyj-d5-kwF">
+                                <rect key="frame" x="16" y="309" width="345" height="42"/>
+                                <state key="normal" title="Далее"/>
+                                <connections>
+                                    <action selector="createUsers:" destination="bKu-7K-unp" eventType="touchUpInside" id="bhT-a6-Ci4"/>
+                                    <action selector="nextViewSelButton:" destination="e6i-IH-fxx" eventType="touchUpInside" id="dTe-gD-AIK"/>
+                                    <segue destination="e6i-IH-fxx" kind="show" id="ptv-2k-Icx"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nlD-7C-rwL">
+                                <rect key="frame" x="16" y="213" width="351" height="38"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Укажите ваш почтовый ящик" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loM-dE-Xuu">
+                                <rect key="frame" x="16" y="91" width="313" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Придумайте пароль" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XxU-61-Jgz">
+                                <rect key="frame" x="16" y="184" width="313" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUw-V0-LBi">
+                                <rect key="frame" x="337" y="91" width="22" height="22"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdJ-pd-szA">
+                                <rect key="frame" x="337" y="184" width="22" height="22"/>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ваш почтовый ящик" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LFV-JM-TSB">
+                                <rect key="frame" x="16" y="120" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="2mX-Vt-KUO"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeK-GW-QKa">
+                                <rect key="frame" x="333" y="217" width="30" height="30"/>
+                                <state key="normal" image="visible"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nlD-7C-rwL" firstAttribute="leading" secondItem="Zyj-d5-kwF" secondAttribute="leading" id="0KA-dN-U0E"/>
+                            <constraint firstItem="xeK-GW-QKa" firstAttribute="leading" secondItem="k9O-JD-AT1" secondAttribute="leading" constant="333" id="3xS-r2-EGo"/>
+                            <constraint firstItem="LFV-JM-TSB" firstAttribute="leading" secondItem="XxU-61-Jgz" secondAttribute="leading" id="5Uy-Rb-iil"/>
+                            <constraint firstItem="k9O-JD-AT1" firstAttribute="trailing" secondItem="nlD-7C-rwL" secondAttribute="trailing" constant="8" id="9xo-bx-tHm"/>
+                            <constraint firstItem="loM-dE-Xuu" firstAttribute="top" secondItem="dUw-V0-LBi" secondAttribute="top" id="CHb-jP-DEK"/>
+                            <constraint firstItem="Zyj-d5-kwF" firstAttribute="top" secondItem="nlD-7C-rwL" secondAttribute="bottom" constant="58" id="Huc-qK-hc3"/>
+                            <constraint firstItem="xeK-GW-QKa" firstAttribute="top" secondItem="zdJ-pd-szA" secondAttribute="bottom" constant="11" id="MVV-ge-Nlz"/>
+                            <constraint firstItem="loM-dE-Xuu" firstAttribute="leading" secondItem="z96-TT-TWr" secondAttribute="leadingMargin" id="Nvb-2z-SsA"/>
+                            <constraint firstItem="nlD-7C-rwL" firstAttribute="top" secondItem="XxU-61-Jgz" secondAttribute="bottom" constant="8" symbolic="YES" id="NwV-kS-sTS"/>
+                            <constraint firstItem="zdJ-pd-szA" firstAttribute="leading" secondItem="XxU-61-Jgz" secondAttribute="trailing" constant="8" symbolic="YES" id="TyR-rb-TIY"/>
+                            <constraint firstItem="loM-dE-Xuu" firstAttribute="top" secondItem="k9O-JD-AT1" secondAttribute="top" constant="27" id="ZUa-nb-uLp"/>
+                            <constraint firstItem="dUw-V0-LBi" firstAttribute="leading" secondItem="loM-dE-Xuu" secondAttribute="trailing" constant="8" symbolic="YES" id="aX8-bc-8Me"/>
+                            <constraint firstItem="nlD-7C-rwL" firstAttribute="centerY" secondItem="xeK-GW-QKa" secondAttribute="centerY" id="c5j-3i-XQh"/>
+                            <constraint firstItem="XxU-61-Jgz" firstAttribute="top" secondItem="zdJ-pd-szA" secondAttribute="top" id="ceO-dl-KRw"/>
+                            <constraint firstItem="LFV-JM-TSB" firstAttribute="trailing" secondItem="zdJ-pd-szA" secondAttribute="trailing" id="fF6-cf-PA7"/>
+                            <constraint firstItem="k9O-JD-AT1" firstAttribute="trailing" secondItem="Zyj-d5-kwF" secondAttribute="trailing" constant="14" id="mQr-1d-4eH"/>
+                            <constraint firstItem="LFV-JM-TSB" firstAttribute="top" secondItem="loM-dE-Xuu" secondAttribute="bottom" constant="8" symbolic="YES" id="nI2-OM-6Mh"/>
+                            <constraint firstItem="k9O-JD-AT1" firstAttribute="bottom" secondItem="Zyj-d5-kwF" secondAttribute="bottom" constant="316" id="pI0-FN-4JM"/>
+                            <constraint firstItem="loM-dE-Xuu" firstAttribute="leading" secondItem="LFV-JM-TSB" secondAttribute="leading" id="pO5-RE-QaN"/>
+                            <constraint firstItem="XxU-61-Jgz" firstAttribute="top" secondItem="LFV-JM-TSB" secondAttribute="bottom" constant="34" id="pd4-hJ-sib"/>
+                            <constraint firstItem="dUw-V0-LBi" firstAttribute="trailing" secondItem="LFV-JM-TSB" secondAttribute="trailing" id="qHa-jx-ZO4"/>
+                            <constraint firstItem="XxU-61-Jgz" firstAttribute="leading" secondItem="nlD-7C-rwL" secondAttribute="leading" id="qvd-e9-Q9E"/>
+                            <constraint firstItem="dUw-V0-LBi" firstAttribute="leading" secondItem="zdJ-pd-szA" secondAttribute="leading" id="uht-Sv-vN9"/>
+                            <constraint firstItem="zdJ-pd-szA" firstAttribute="centerX" secondItem="xeK-GW-QKa" secondAttribute="centerX" id="xiE-32-W2K"/>
+                            <constraint firstItem="dUw-V0-LBi" firstAttribute="trailing" secondItem="z96-TT-TWr" secondAttribute="trailingMargin" id="yML-HD-W05"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="k9O-JD-AT1"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="JYF-3b-R8J"/>
+                    <connections>
+                        <outlet property="createLogin" destination="LFV-JM-TSB" id="zur-Ql-G5m"/>
+                        <outlet property="createPassw" destination="nlD-7C-rwL" id="O0N-QG-W9c"/>
+                        <outlet property="customButton" destination="Zyj-d5-kwF" id="mWV-Bn-gcl"/>
+                        <outlet property="infoLogin" destination="dUw-V0-LBi" id="ZND-dk-5wr"/>
+                        <outlet property="infoPass" destination="zdJ-pd-szA" id="6wu-hy-hDL"/>
+                        <outlet property="viewPass" destination="xeK-GW-QKa" id="Uyu-Ed-WFH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yXU-LR-6FA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-418.39999999999998" y="115.59220389805098"/>
         </scene>
     </scenes>
     <resources>
         <image name="defPhoto" width="40" height="50"/>
+        <image name="visible" width="30" height="30"/>
     </resources>
 </document>

@@ -1,5 +1,8 @@
 import UIKit
 import MBProgressHUD
+import Firebase
+
+
 class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var partNumb: UITextField!
     @IBOutlet weak var ChangeNum: UITextField!
@@ -11,16 +14,22 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     let CustomClass = UICustomClass()
     let PositionSel = ["Пожарный","Командир отделения","Нач.караула","ПНЧ"]
     var PositionName = "Пожарный"
+    var user: Users!
+    var ref: DatabaseReference!
     var name: String!
     var Patronymic: String!
     var city: String!
     var birthDay: String!
     var userPhoto: UIImage!
+    //var userDataBase = Array<userInfoFIR>
     //MARK:Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         CustomClass.CustomButton(nameBut: "Сохранить", buttons: saveButton)
         self.view.backgroundColor = UIColor.blue
+        guard let currentUser = Auth.auth().currentUser else { return }
+        user = Users(user: currentUser)
+        ref = Database.database().reference(withPath: "user").child(String(user.uid))
         
     }
     //MARK: PickerView
@@ -78,6 +87,10 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                     userInformSave.userChange = Int(changeNum)
                     userInformSave.userBirthday = birthDay
                     userInformSave.userPhoto = userPhoto
+                    let saveDataBase = userInfoFIR(UsersID: user.uid, Name: name, Patronymic: Patronymic, City: city, Position: position, PartNumb: partNumb, ChangeNum: Int(changeNum) as NSNumber, BirthDay: birthDay, UnitType: selUnitType(type: userUnitTypeSel))
+                    let infoRef = self.ref.child(user.uid.lowercased())
+                    infoRef.setValue(saveDataBase.convertDataBase())
+                    
                     nextVC()
                 }
             }

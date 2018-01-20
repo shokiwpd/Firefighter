@@ -17,12 +17,16 @@
 		E90894EA1FC48401001DEE07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E90894E91FC48401001DEE07 /* LaunchScreen.storyboard */; };
 		E90894F01FC48593001DEE07 /* firstStoryBoards.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E90894EF1FC48593001DEE07 /* firstStoryBoards.storyboard */; };
 		E918A4771FF4181E00BD8240 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E918A4761FF4181E00BD8240 /* Podfile */; };
+		E91C40412013CFF2003A3B43 /* userFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91C40402013CFF2003A3B43 /* userFB.swift */; };
 		E923873C1FE3D5D600AA8078 /* CustomNavContr.swift in Sources */ = {isa = PBXBuildFile; fileRef = E923873B1FE3D5D600AA8078 /* CustomNavContr.swift */; };
 		E923ED6A1FF16C2200A319B6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E923ED691FF16C2200A319B6 /* ProfileViewController.swift */; };
 		E923ED6C1FF1738300A319B6 /* DocViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E923ED6B1FF1738300A319B6 /* DocViewController.swift */; };
 		E9347B472011044C00B20980 /* authStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9347B462011044C00B20980 /* authStoryBoard.storyboard */; };
 		E9347B49201108BD00B20980 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9347B48201108BD00B20980 /* GoogleService-Info.plist */; };
+		E9458DC02013682D00377530 /* userInfoDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9458DBF2013682D00377530 /* userInfoDataBase.swift */; };
 		E94994C21FE8FE8600041EFF /* enumLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94994C11FE8FE8500041EFF /* enumLabel.swift */; };
+		E9524AF32011F94900E007C8 /* authorizationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9524AF22011F94900E007C8 /* authorizationVC.swift */; };
+		E9524AF52011FF8800E007C8 /* LoginPassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9524AF42011FF8800E007C8 /* LoginPassVC.swift */; };
 		E96429F21FCEDDF0005BB8D4 /* icon in Resources */ = {isa = PBXBuildFile; fileRef = E96429F01FCEDDF0005BB8D4 /* icon */; };
 		E96429F31FCEDDF0005BB8D4 /* LaunchScreenImage in Resources */ = {isa = PBXBuildFile; fileRef = E96429F11FCEDDF0005BB8D4 /* LaunchScreenImage */; };
 		E978EAED1FEED7B700197057 /* CalculationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E978EAEC1FEED7B700197057 /* CalculationViewController.swift */; };
@@ -50,12 +54,16 @@
 		E90894E91FC48401001DEE07 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E90894EF1FC48593001DEE07 /* firstStoryBoards.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = firstStoryBoards.storyboard; sourceTree = "<group>"; };
 		E918A4761FF4181E00BD8240 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		E91C40402013CFF2003A3B43 /* userFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userFB.swift; sourceTree = "<group>"; };
 		E923873B1FE3D5D600AA8078 /* CustomNavContr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavContr.swift; sourceTree = "<group>"; };
 		E923ED691FF16C2200A319B6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E923ED6B1FF1738300A319B6 /* DocViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocViewController.swift; sourceTree = "<group>"; };
 		E9347B462011044C00B20980 /* authStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = authStoryBoard.storyboard; sourceTree = "<group>"; };
 		E9347B48201108BD00B20980 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E9458DBF2013682D00377530 /* userInfoDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userInfoDataBase.swift; sourceTree = "<group>"; };
 		E94994C11FE8FE8500041EFF /* enumLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enumLabel.swift; sourceTree = "<group>"; };
+		E9524AF22011F94900E007C8 /* authorizationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authorizationVC.swift; sourceTree = "<group>"; };
+		E9524AF42011FF8800E007C8 /* LoginPassVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPassVC.swift; sourceTree = "<group>"; };
 		E96429F01FCEDDF0005BB8D4 /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icon; sourceTree = "<group>"; };
 		E96429F11FCEDDF0005BB8D4 /* LaunchScreenImage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = LaunchScreenImage; sourceTree = "<group>"; };
 		E978EAEC1FEED7B700197057 /* CalculationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +121,7 @@
 			children = (
 				E96429F01FCEDDF0005BB8D4 /* icon */,
 				E96429F11FCEDDF0005BB8D4 /* LaunchScreenImage */,
+				E9458DBE201367D400377530 /* FireDataBaseClass */,
 				E90894EB1FC484C7001DEE07 /* View Controllers File */,
 				E90894EE1FC4855D001DEE07 /* CustomClass */,
 				E90894ED1FC48553001DEE07 /* Core Data File */,
@@ -138,12 +147,9 @@
 		E90894EB1FC484C7001DEE07 /* View Controllers File */ = {
 			isa = PBXGroup;
 			children = (
-				E9BEDB481FC4A3CF00DAD26E /* FirstViewController.swift */,
-				C93E98BB1FCC685C00377B89 /* FirstNextViewController.swift */,
-				E9F31F511FDDB056001D74B9 /* MainViewController.swift */,
-				E978EAEC1FEED7B700197057 /* CalculationViewController.swift */,
-				E923ED691FF16C2200A319B6 /* ProfileViewController.swift */,
-				E923ED6B1FF1738300A319B6 /* DocViewController.swift */,
+				E9524AF22011F94900E007C8 /* authorizationVC.swift */,
+				E9524AF72011FF9E00E007C8 /* firstAuthVC's */,
+				E9524AF82011FFB200E007C8 /* mainVC's */,
 			);
 			path = "View Controllers File";
 			sourceTree = "<group>";
@@ -151,9 +157,9 @@
 		E90894EC1FC48509001DEE07 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				E9347B462011044C00B20980 /* authStoryBoard.storyboard */,
 				E90894EF1FC48593001DEE07 /* firstStoryBoards.storyboard */,
 				E905295A1FDBEA2E00647967 /* MainStoryboard.storyboard */,
-				E9347B462011044C00B20980 /* authStoryBoard.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -178,6 +184,36 @@
 				E9A03AD81FF6BFF400E2B7D0 /* CalendarDayWork.swift */,
 			);
 			path = CustomClass;
+			sourceTree = "<group>";
+		};
+		E9458DBE201367D400377530 /* FireDataBaseClass */ = {
+			isa = PBXGroup;
+			children = (
+				E9458DBF2013682D00377530 /* userInfoDataBase.swift */,
+				E91C40402013CFF2003A3B43 /* userFB.swift */,
+			);
+			path = FireDataBaseClass;
+			sourceTree = "<group>";
+		};
+		E9524AF72011FF9E00E007C8 /* firstAuthVC's */ = {
+			isa = PBXGroup;
+			children = (
+				E9524AF42011FF8800E007C8 /* LoginPassVC.swift */,
+				E9BEDB481FC4A3CF00DAD26E /* FirstViewController.swift */,
+				C93E98BB1FCC685C00377B89 /* FirstNextViewController.swift */,
+			);
+			path = "firstAuthVC's";
+			sourceTree = "<group>";
+		};
+		E9524AF82011FFB200E007C8 /* mainVC's */ = {
+			isa = PBXGroup;
+			children = (
+				E9F31F511FDDB056001D74B9 /* MainViewController.swift */,
+				E978EAEC1FEED7B700197057 /* CalculationViewController.swift */,
+				E923ED691FF16C2200A319B6 /* ProfileViewController.swift */,
+				E923ED6B1FF1738300A319B6 /* DocViewController.swift */,
+			);
+			path = "mainVC's";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,16 +370,20 @@
 				C93E98BE1FCDE28F00377B89 /* UICustomClass.swift in Sources */,
 				E9BEDB491FC4A3CF00DAD26E /* FirstViewController.swift in Sources */,
 				E90894D21FC47F43001DEE07 /* AppDelegate.swift in Sources */,
+				E91C40412013CFF2003A3B43 /* userFB.swift in Sources */,
 				C93E98BC1FCC685D00377B89 /* FirstNextViewController.swift in Sources */,
+				E9524AF52011FF8800E007C8 /* LoginPassVC.swift in Sources */,
 				E923ED6A1FF16C2200A319B6 /* ProfileViewController.swift in Sources */,
 				E94994C21FE8FE8600041EFF /* enumLabel.swift in Sources */,
 				E923ED6C1FF1738300A319B6 /* DocViewController.swift in Sources */,
 				E9C788351FD82DE7009F98F2 /* UserProfile+CoreDataClass.swift in Sources */,
 				E9A03AD91FF6BFF400E2B7D0 /* CalendarDayWork.swift in Sources */,
+				E9524AF32011F94900E007C8 /* authorizationVC.swift in Sources */,
 				E90894DA1FC47F43001DEE07 /* FireFighters.xcdatamodeld in Sources */,
 				E9F31F521FDDB056001D74B9 /* MainViewController.swift in Sources */,
 				E97B9D251FF2BEA100542C6C /* CustomProfileCell.swift in Sources */,
 				E923873C1FE3D5D600AA8078 /* CustomNavContr.swift in Sources */,
+				E9458DC02013682D00377530 /* userInfoDataBase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
