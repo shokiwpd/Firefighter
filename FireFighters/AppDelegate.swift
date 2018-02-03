@@ -18,18 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         window = UIWindow(frame: UIScreen.main.bounds)
-           window?.rootViewController = UIStoryboard(name: "authStoryBoard", bundle: nil).instantiateInitialViewController() as! authorizationVC
-
-//        if userOfflineAuth.isExit.status == true {
-//            window?.rootViewController = UIStoryboard(name: <#T##String#>, bundle: <#T##Bundle?#>)
-//        } else {
-//            window?.rootViewController = UIStoryboard(name: <#T##String#>, bundle: <#T##Bundle?#>)
-//        }
+        if UserProfile.userInform.userName.isEmpty{
+            window?.rootViewController = UIStoryboard(name: "authStoryBoard", bundle: nil).instantiateInitialViewController() as! authorizationVC
+        } else {
+            window?.rootViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UINavigationController
+        }
         return true
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
-
+        
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -45,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        self.saveContext()
+//        self.saveContext()
     }
 
     // MARK: - Core Data stack

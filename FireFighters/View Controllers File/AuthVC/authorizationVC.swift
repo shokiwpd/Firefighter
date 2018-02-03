@@ -1,30 +1,22 @@
-//
-//  authorizationVC.swift
-//  FireFighters
-//
-//  Created by Павел on 19.01.18.
-//  Copyright © 2018 Павел. All rights reserved.
-//
-
 import UIKit
+import MBProgressHUD
 import FirebaseAuth
 import Firebase
 class authorizationVC: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var loginView: UITextField!
     @IBOutlet weak var passwordView: UITextField!
     @IBOutlet weak var authButtonStyle: UIButton!
+    @IBOutlet weak var loadActivity: UIActivityIndicatorView!
     let offlineAuth = false
     let customClass = UICustomClass()
+    var ref: DatabaseReference!
+    var userCD = UserProfile.userInform
     override func viewDidLoad() {
         super.viewDidLoad()
         loginView.delegate = self
         passwordView.delegate = self
         customClass.CustomButton(nameBut: "Авторизироваться", buttons: authButtonStyle)
-//        Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
-//            if user != nil{
-//                self?.nextViewContr(nameVC: "MainStoryboard")
-//            }
-//        }
+        loadActivity.isHidden = true
     }
     @IBAction func authorizationButton(_ sender: Any) {
         Auth.auth().signIn(withEmail: loginView.text!, password: passwordView.text!) { [weak self](user, error) in
@@ -33,7 +25,10 @@ class authorizationVC: UIViewController, UITextFieldDelegate{
                 return
             }
             if user != nil {
-                self?.nextViewContr(nameVC: "MainStoryboard")
+                self?.customClass.CustomButton(nameBut: "", buttons: (self?.authButtonStyle)!)
+                self?.loadActivity.isHidden = false
+                self?.loadActivity.startAnimating()
+                self?.fetchFirebase()
             }
         }
     }
@@ -52,4 +47,24 @@ class authorizationVC: UIViewController, UITextFieldDelegate{
         present(AC, animated: true, completion: nil)
     }
 
+
+fileprivate func fetchFirebase() {
+    let getUserID: String! = Auth.auth().currentUser?.uid
+    let queue = DispatchQueue.main
+    queue.async {
+        guard getUserID != nil else { return }
+        Database.database().reference().child("firefighter").child(getUserID).observeSingleEvent(of: .value) {[weak self](snapshot) in
+            let value = snapshot.value as? NSDictionary
+            self?.userCD.userName = value?["name"] as? String ?? ""
+            self?.userCD.userPatronymic = value?["patronymic"]  as? String ?? ""
+            self?.userCD.userCity = value?["city"]  as? String ?? ""
+            self?.userCD.userPosition = value?["position"]  as? String ?? ""
+            self?.userCD.userPartNum = value?["partNumb"]  as? String ?? ""
+            self?.userCD.userChange = value?["changeNum"] as? Int ?? 0
+            self?.userCD.userBirthday = value?["birthDay"] as? String ?? ""
+            self?.userCD.userUnitType = value?["unitType"] as? String ?? ""
+            self?.nextViewContr(nameVC: "MainStoryboard")
+          }
+        }
+    }
 }

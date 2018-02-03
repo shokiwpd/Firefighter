@@ -38,7 +38,8 @@ class UICustomClass{
         }
         }, completion: nil)
     }
-    func CustomLoadView(text: String, view: UIView){
+    
+    func CustomLoadView(text: String, view: UIView, Hidden: Bool){
         let load = MBProgressHUD.showAdded(to: view, animated: true)
         load.animationType = .fade
         load.backgroundView.color = UIColor.blue
@@ -46,5 +47,15 @@ class UICustomClass{
         load.backgroundView.style = .blur
         load.tintColor = UIColor.red
         load.minShowTime = 2
+        load.isHidden = Hidden
+    }
+}
+extension UIAlertController {
+    
+    func alertAction(errors: String!) {
+        let AC = UIAlertController(title: "Внимание", message: errors, preferredStyle: .alert)
+        let AlAc = UIAlertAction(title: "ОК", style: .default, handler: nil)
+        AC.addAction(AlAc)
+        present(AC, animated: true, completion: nil)
     }
 }

@@ -1,4 +1,5 @@
 import UIKit
+import Firebase
 
 class MainViewController: UIViewController {
     let userInfo = UserProfile.userInform
@@ -6,6 +7,7 @@ class MainViewController: UIViewController {
     let MonthWorkClass = MonthWork()
     let TimersClass = DayFormat()
     let GuardClass = GuardFunc()
+    
     @IBOutlet weak var userPhoto: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
@@ -23,9 +25,7 @@ class MainViewController: UIViewController {
                 case 4: statusLabel.text = GuardClass.Guard4(Guard: karaul, userGuard: userInfo.userChange)
                 default:
                     break
-                }
-            }
-        }
+                }}}
         CustomView.customImage(image: userPhoto)
         userNameLabel.text = "Здравствуйте \(String(userInfo.userName)) \(String(userInfo.userPatronymic)) "
         userPhoto.image = userInfo.userPhoto
@@ -39,3 +39,4 @@ class MainViewController: UIViewController {
         return formatedDate
     }
 }
+

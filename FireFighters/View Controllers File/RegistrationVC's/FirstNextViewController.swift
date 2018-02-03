@@ -29,7 +29,8 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         self.view.backgroundColor = UIColor.blue
         guard let currentUser = Auth.auth().currentUser else { return }
         user = Users(user: currentUser)
-        ref = Database.database().reference(withPath: "user").child(String(user.uid))
+        ref = Database.database().reference(withPath: "firefighter")
+        print("ref\(ref)")
         
     }
     //MARK: PickerView
@@ -88,9 +89,8 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                     userInformSave.userBirthday = birthDay
                     userInformSave.userPhoto = userPhoto
                     let saveDataBase = userInfoFIR(UsersID: user.uid, Name: name, Patronymic: Patronymic, City: city, Position: position, PartNumb: partNumb, ChangeNum: Int(changeNum) as NSNumber, BirthDay: birthDay, UnitType: selUnitType(type: userUnitTypeSel))
-                    let infoRef = self.ref.child(user.uid.lowercased())
+                    let infoRef = self.ref.child(user.uid)
                     infoRef.setValue(saveDataBase.convertDataBase())
-                    
                     nextVC()
                 }
             }

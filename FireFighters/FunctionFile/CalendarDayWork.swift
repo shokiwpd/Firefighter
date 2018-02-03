@@ -17,6 +17,15 @@ class MonthWork {
         switch MonthNum {
         case "01": MonthNumType = Jun
         case "02": MonthNumType = Feb
+//        case "03": MonthNumType = Mar
+//        case "04": MonthNumType = Apr
+//        case "05": MonthNumType = May
+//        case "06": MonthNumType = Jun
+//        case "07": MonthNumType = Jul
+//        case "08": MonthNumType = Avg
+//        case "09": MonthNumType = Sent
+//        case "010": MonthNumType = Okt
+            
         default:
             break
         }

@@ -1,11 +1,3 @@
-//
-//  userFB.swift
-//  FireFighters
-//
-//  Created by Павел on 20.01.18.
-//  Copyright © 2018 Павел. All rights reserved.
-//
-
 import Foundation
 import Firebase
 

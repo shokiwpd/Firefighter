@@ -21,7 +21,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         self.view.backgroundColor = UIColor.blue
         userPatronymicView.delegate = self
         userCityView.delegate = self
-        CustomClass.CustomButton(nameBut: "Продолжить", buttons: nextViewButton)
+        isProfileEdit ? CustomClass.CustomButton(nameBut: "Сохранить", buttons: nextViewButton) : CustomClass.CustomButton(nameBut: "Продолжить", buttons: nextViewButton)
         CustomClass.customDataPicker(dataPicker: userBirthdayPicker)
         CustomClass.CustomTextField(textField: userNameView, nextBut: true)
         CustomClass.CustomTextField(textField: userPatronymicView, nextBut: true)
@@ -45,7 +45,14 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         super.touchesBegan(touches, with: event)
     }
     @IBAction func nextViewSelButton(_ sender: Any) {
-        nextView = checkInfo(name: userNameView.text!, Patronymic: userPatronymicView.text!, city: userCityView.text!)
+        guard userNameView.text != "",userPatronymicView.text! != "",userCityView.text! != ""  else {
+            nextView = false
+            if userNameView.text == ""{ errorsMassages(errors: "Вы не указали свое имя!")}
+                else if userPatronymicView.text == "" {errorsMassages(errors: "Вы не указали своё Отчество!")}
+                    else if userCityView.text == ""{errorsMassages(errors: "Вы не указали свой город!")}
+            return
+        }
+        nextView = true
         view.endEditing(true)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -103,32 +110,6 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         userPhotoView.contentMode = .scaleAspectFill
         userPhotoView.clipsToBounds = true
         dismiss(animated: true, completion: nil)
-    }
-
-    
-    func checkInfo(name: String!, Patronymic: String!, city: String!) -> Bool! {
-        var errorMassage = ""
-        var nextViewC = false
-        switch name {
-        case "":
-            errorMassage = "Вы не указали свое имя!"
-        default:
-            switch Patronymic {
-            case "":
-                errorMassage = "Вы не указали своё Отчество!"
-            default:
-                switch city {
-                case "":
-                    errorMassage = "Вы не указали свой город!"
-                default:
-                    nextViewC = true
-                }
-            }
-        }
-    if errorMassage != "" {
-        errorsMassages(errors: errorMassage)
-        }
-        return nextViewC
     }
 }
 
