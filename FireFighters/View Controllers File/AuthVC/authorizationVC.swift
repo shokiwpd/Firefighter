@@ -63,6 +63,10 @@ fileprivate func fetchFirebase() {
             self?.userCD.userChange = value?["changeNum"] as? Int ?? 0
             self?.userCD.userBirthday = value?["birthDay"] as? String ?? ""
             self?.userCD.userUnitType = value?["unitType"] as? String ?? ""
+            self?.userCD.userVBallons = value?["vBallons"] as? Int ?? 0
+            self?.userCD.userAirFlow = value?["airFlow"] as? Double ?? 0.0
+            self?.userCD.userAspectRatio = value?["aspectRatio"] as? Double ?? 0.0
+            self?.userCD.userGearboxOperation = value?["gearboxOperation"] as? Int ?? 0
             self?.nextViewContr(nameVC: "MainStoryboard")
           }
         }

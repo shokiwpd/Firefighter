@@ -1,30 +1,23 @@
+
+
 import UIKit
 class CalculationViewController: UIViewController {
 let DataBase = UserProfile.userInform
-    @IBOutlet weak var UnitTypeInfo: UILabel!
+//    @IBOutlet weak var Fire_Calc: UISwitch!
+//    @IBOutlet weak var fire_status: UISwitch!
+//    @IBOutlet weak var fireFighter: UISlider!
+//    @IBOutlet weak var numFireFighter: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UnitTypeInfo.text = userUnitTypeInfo(type: DataBase.userUnitType)
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
-    func userUnitTypeInfo(type: String!) -> String! {
-        var types: String!
-        switch type {
-        case "ДАСВ":
-            types = UnitTypeEnum.dasv.rawValue
-        case "ДАСК":
-            types = UnitTypeEnum.dask.rawValue
-        default:
-            print("Errors load DB")
-        }
-        return types
-    }
+    
+    
+    
+    
+    
+    
 
 }

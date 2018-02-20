@@ -18,18 +18,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="gWt-rf-Scn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LauncScreen" translatesAutoresizingMaskIntoConstraints="NO" id="60p-VT-VOy">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="667" id="Vzo-5I-xcR"/>
-                                    <constraint firstAttribute="width" constant="375" id="qIG-OM-djW"/>
+                                    <constraint firstAttribute="width" constant="375" id="I86-YU-3oq"/>
+                                    <constraint firstAttribute="height" constant="667" id="rqO-9J-ZRz"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="gWt-rf-Scn" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="k5H-1v-Ly9"/>
-                            <constraint firstItem="gWt-rf-Scn" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="tYd-rY-q5T"/>
+                            <constraint firstItem="60p-VT-VOy" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="NiA-VU-xYe"/>
+                            <constraint firstItem="60p-VT-VOy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VXV-GV-vRK"/>
+                            <constraint firstItem="60p-VT-VOy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ez9-PO-Oks"/>
+                            <constraint firstItem="60p-VT-VOy" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="puf-55-glt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -40,6 +42,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchScreen" width="360" height="640"/>
+        <image name="LauncScreen" width="125" height="222"/>
     </resources>
 </document>

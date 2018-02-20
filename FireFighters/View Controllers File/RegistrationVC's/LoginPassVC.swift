@@ -1,7 +1,7 @@
 import UIKit
 import Firebase
 
-class LoginPassVC: UIViewController {
+class LoginPassVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var createLogin: UITextField!
     @IBOutlet weak var createPassw: UITextField!
     @IBOutlet weak var infoPass: UIButton!
@@ -12,7 +12,7 @@ class LoginPassVC: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.blue
         customClass.CustomButton(nameBut: "Далее", buttons: customButton)
-        
+        createPassw.delegate = self
     }
     @IBAction func createUsers(_ sender: Any) {
         Auth.auth().createUser(withEmail: createLogin.text!, password: createPassw.text!, completion:  {[weak self](user, error) in
@@ -26,6 +26,21 @@ class LoginPassVC: UIViewController {
             }
             self?.alertAction(errors: error?.localizedDescription)
         })
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        customClass.keyboardStepAndHidden(viewVC: view, step: false)
+        textField.resignFirstResponder()
+        return true
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        customClass.keyboardStepAndHidden(viewVC: view, step: true)
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if (touches.first) != nil{
+            view.endEditing(true)
+            customClass.keyboardStepAndHidden(viewVC: view, step: false)
+        }
+        super.touchesBegan(touches, with: event)
     }
     func alertAction(errors: String!) {
         let AC = UIAlertController(title: "Внимание", message: errors, preferredStyle: .alert)

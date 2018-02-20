@@ -83,5 +83,39 @@ class UserProfile {
             usersInform.setValue(newValue, forKey: "userUnitType")
         }
     }
-    
-}
+    var userVBallons: Int {
+        get {
+            return usersInform.value(forKey: "userVBallons") as? Int ?? 0
+        }
+        set {
+            usersInform.setValue(newValue, forKey: "userVBallons")
+        }
+    }
+
+    var userAspectRatio: Double { //коэффициент сжатия
+        get {
+            return usersInform.value(forKey: "userAspectRatio") as? Double ?? 0.0
+        }
+        set {
+            usersInform.setValue(newValue, forKey: "userAspectRatio")
+        }
+    }
+
+    var userAirFlow: Double{ //расход воздуха
+        get {
+            return usersInform.value(forKey: "userAirFlow") as? Double ?? 0.0
+        }
+        set {
+            usersInform.setValue(newValue, forKey: "userAirFlow")
+        }
+    }
+    var userGearboxOperation: Int {
+        get {
+            return usersInform.value(forKey: "userGearboxOperation") as? Int ?? 0
+        }
+        set {
+            usersInform.setValue(newValue, forKey: "userGearboxOperation")
+        }
+    }
+} //давление на работу редуктора
+

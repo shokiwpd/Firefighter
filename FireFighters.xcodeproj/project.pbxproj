@@ -33,6 +33,7 @@
 		E97B9D251FF2BEA100542C6C /* CustomProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97B9D241FF2BEA100542C6C /* CustomProfileCell.swift */; };
 		E9A03AD91FF6BFF400E2B7D0 /* CalendarDayWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A03AD81FF6BFF400E2B7D0 /* CalendarDayWork.swift */; };
 		E9AA3E361FF69D8400CFC2C6 /* GuardClassFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA3E351FF69D8400CFC2C6 /* GuardClassFile.swift */; };
+		E9B278D3202CE8BC00FA89EE /* CalculationsFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B278D2202CE8BC00FA89EE /* CalculationsFile.swift */; };
 		E9BEDB491FC4A3CF00DAD26E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BEDB481FC4A3CF00DAD26E /* FirstViewController.swift */; };
 		E9C788351FD82DE7009F98F2 /* UserProfile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C788331FD82DE7009F98F2 /* UserProfile+CoreDataClass.swift */; };
 		E9C788361FD82DE7009F98F2 /* UserProfile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C788341FD82DE7009F98F2 /* UserProfile+CoreDataProperties.swift */; };
@@ -70,10 +71,12 @@
 		E97B9D241FF2BEA100542C6C /* CustomProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProfileCell.swift; sourceTree = "<group>"; };
 		E9A03AD81FF6BFF400E2B7D0 /* CalendarDayWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayWork.swift; sourceTree = "<group>"; };
 		E9AA3E351FF69D8400CFC2C6 /* GuardClassFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardClassFile.swift; sourceTree = "<group>"; };
+		E9B278D2202CE8BC00FA89EE /* CalculationsFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationsFile.swift; sourceTree = "<group>"; };
 		E9BEDB481FC4A3CF00DAD26E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		E9C788331FD82DE7009F98F2 /* UserProfile+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserProfile+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E9C788341FD82DE7009F98F2 /* UserProfile+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserProfile+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E9F31F511FDDB056001D74B9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E9FE97022032256B00258065 /* FireFighters.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FireFighters.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,7 @@
 		E90894D01FC47F43001DEE07 /* FireFighters */ = {
 			isa = PBXGroup;
 			children = (
+				E9FE97022032256B00258065 /* FireFighters.entitlements */,
 				E96429F01FCEDDF0005BB8D4 /* icon */,
 				E96429F11FCEDDF0005BB8D4 /* LaunchScreenImage */,
 				E9458DBE201367D400377530 /* FireDataBaseClass */,
@@ -195,6 +199,7 @@
 		E9289FE32025C52100805C95 /* FunctionFile */ = {
 			isa = PBXGroup;
 			children = (
+				E9B278D2202CE8BC00FA89EE /* CalculationsFile.swift */,
 				E9AA3E351FF69D8400CFC2C6 /* GuardClassFile.swift */,
 				E9A03AD81FF6BFF400E2B7D0 /* CalendarDayWork.swift */,
 				E94994C11FE8FE8500041EFF /* EnumLabel.swift */,
@@ -271,6 +276,9 @@
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
 							};
 						};
 					};
@@ -385,6 +393,7 @@
 				E978EAED1FEED7B700197057 /* CalculationViewController.swift in Sources */,
 				C93E98BE1FCDE28F00377B89 /* UICustomClass.swift in Sources */,
 				E9BEDB491FC4A3CF00DAD26E /* FirstViewController.swift in Sources */,
+				E9B278D3202CE8BC00FA89EE /* CalculationsFile.swift in Sources */,
 				E90894D21FC47F43001DEE07 /* AppDelegate.swift in Sources */,
 				E91C40412013CFF2003A3B43 /* userFB.swift in Sources */,
 				C93E98BC1FCC685D00377B89 /* FirstNextViewController.swift in Sources */,
@@ -518,6 +527,7 @@
 			baseConfigurationReference = 7BE6FE637E4589DB5C62AD11 /* Pods-FireFighters.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FireFighters/FireFighters.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GVA5J44S8J;
 				INFOPLIST_FILE = FireFighters/Info.plist;
@@ -535,6 +545,7 @@
 			baseConfigurationReference = 3AC3D33ED9941FE8757C2361 /* Pods-FireFighters.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FireFighters/FireFighters.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GVA5J44S8J;
 				INFOPLIST_FILE = FireFighters/Info.plist;

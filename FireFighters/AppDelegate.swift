@@ -23,15 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             window?.rootViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UINavigationController
         }
+        
         return true
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
-        
+        //self.saveContext()
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-    
+        //self.saveContext()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -43,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-//        self.saveContext()
+        self.saveContext()
     }
 
     // MARK: - Core Data stack

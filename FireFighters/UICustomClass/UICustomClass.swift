@@ -35,7 +35,7 @@ class UICustomClass{
         switch step {
             case true: viewVC.center = CGPoint(x: ViewWidth / 2, y: ViewHeight / 2 - 70)
             case false: viewVC.center = CGPoint(x: ViewWidth / 2, y: ViewHeight / 2)
-        }
+            }
         }, completion: nil)
     }
     
@@ -43,19 +43,11 @@ class UICustomClass{
         let load = MBProgressHUD.showAdded(to: view, animated: true)
         load.animationType = .fade
         load.backgroundView.color = UIColor.blue
-        load.labelText = text
+        //load.labelText = text
         load.backgroundView.style = .blur
         load.tintColor = UIColor.red
         load.minShowTime = 2
         load.isHidden = Hidden
     }
-}
-extension UIAlertController {
-    
-    func alertAction(errors: String!) {
-        let AC = UIAlertController(title: "Внимание", message: errors, preferredStyle: .alert)
-        let AlAc = UIAlertAction(title: "ОК", style: .default, handler: nil)
-        AC.addAction(AlAc)
-        present(AC, animated: true, completion: nil)
-    }
+
 }

@@ -1,6 +1,6 @@
 import UIKit
 class DocViewController: UITableViewController {
-    let DocSelCell = ["Приказы","Специализации","Постановления"]
+    let DocSelCell = ["Приказы","Специализации","Постановления","ПТВ","Пожарные автомобили"]
     override func viewDidLoad() {
         super.viewDidLoad()
 
