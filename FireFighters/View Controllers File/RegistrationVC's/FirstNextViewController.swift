@@ -16,7 +16,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     //MARK: Var
     let userInformSave = UserProfile.userInform
     let CustomClass = UICustomClass()
-    let PositionSel = ["Пожарный","Командир отделения","Нач.караула","ПНЧ"]
+    let PositionSel = ["Пожарный","Командир отделения","Нач.караула","ПНЧ","Диспетчер"]
     var PositionName = "Пожарный"
     var user: Users!
     var ref: DatabaseReference!
@@ -125,7 +125,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         checkInfoWork(changeNum: Int(ChangeNum.text!)!, partNumb: partNumb.text!, position: PositionName, vBallon: Int(vBallons.text!)!, airFlow: Int(AirFlow.text!)!, AspectRatio: Int(AspectRatio.text!)!, GearboxOperation: Int(GearboxOperation.text!)!)
     }
     private func nextVC() {
-        let Vc = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UINavigationController
+        let Vc = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UITabBarController
         present(Vc, animated: true, completion: nil)
     }
 }

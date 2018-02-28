@@ -29,6 +29,9 @@
 		E9524AF52011FF8800E007C8 /* LoginPassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9524AF42011FF8800E007C8 /* LoginPassVC.swift */; };
 		E96429F21FCEDDF0005BB8D4 /* icon in Resources */ = {isa = PBXBuildFile; fileRef = E96429F01FCEDDF0005BB8D4 /* icon */; };
 		E96429F31FCEDDF0005BB8D4 /* LaunchScreenImage in Resources */ = {isa = PBXBuildFile; fileRef = E96429F11FCEDDF0005BB8D4 /* LaunchScreenImage */; };
+		E977517E2041CF9C0004F400 /* SelectTimeFireFighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E977517D2041CF9C0004F400 /* SelectTimeFireFighter.swift */; };
+		E97751802041CFAA0004F400 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E977517F2041CFAA0004F400 /* TimerViewController.swift */; };
+		E97751822041CFF60004F400 /* HearthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97751812041CFF60004F400 /* HearthViewController.swift */; };
 		E978EAED1FEED7B700197057 /* CalculationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E978EAEC1FEED7B700197057 /* CalculationViewController.swift */; };
 		E97B9D251FF2BEA100542C6C /* CustomProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97B9D241FF2BEA100542C6C /* CustomProfileCell.swift */; };
 		E9A03AD91FF6BFF400E2B7D0 /* CalendarDayWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A03AD81FF6BFF400E2B7D0 /* CalendarDayWork.swift */; };
@@ -67,6 +70,9 @@
 		E9524AF42011FF8800E007C8 /* LoginPassVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPassVC.swift; sourceTree = "<group>"; };
 		E96429F01FCEDDF0005BB8D4 /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icon; sourceTree = "<group>"; };
 		E96429F11FCEDDF0005BB8D4 /* LaunchScreenImage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = LaunchScreenImage; sourceTree = "<group>"; };
+		E977517D2041CF9C0004F400 /* SelectTimeFireFighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTimeFireFighter.swift; sourceTree = "<group>"; };
+		E977517F2041CFAA0004F400 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		E97751812041CFF60004F400 /* HearthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearthViewController.swift; sourceTree = "<group>"; };
 		E978EAEC1FEED7B700197057 /* CalculationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationViewController.swift; sourceTree = "<group>"; };
 		E97B9D241FF2BEA100542C6C /* CustomProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProfileCell.swift; sourceTree = "<group>"; };
 		E9A03AD81FF6BFF400E2B7D0 /* CalendarDayWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayWork.swift; sourceTree = "<group>"; };
@@ -151,6 +157,7 @@
 		E90894EB1FC484C7001DEE07 /* View Controllers File */ = {
 			isa = PBXGroup;
 			children = (
+				E977517A2041CF190004F400 /* CalculationVC File */,
 				E9289FE22025C4C500805C95 /* AuthVC */,
 				E9524AF72011FF9E00E007C8 /* RegistrationVC's */,
 				E9524AF82011FFB200E007C8 /* MainVC's */,
@@ -235,6 +242,16 @@
 				E923ED6B1FF1738300A319B6 /* DocViewController.swift */,
 			);
 			path = "MainVC's";
+			sourceTree = "<group>";
+		};
+		E977517A2041CF190004F400 /* CalculationVC File */ = {
+			isa = PBXGroup;
+			children = (
+				E977517D2041CF9C0004F400 /* SelectTimeFireFighter.swift */,
+				E977517F2041CFAA0004F400 /* TimerViewController.swift */,
+				E97751812041CFF60004F400 /* HearthViewController.swift */,
+			);
+			path = "CalculationVC File";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E97751822041CFF60004F400 /* HearthViewController.swift in Sources */,
 				E9AA3E361FF69D8400CFC2C6 /* GuardClassFile.swift in Sources */,
 				E9C788361FD82DE7009F98F2 /* UserProfile+CoreDataProperties.swift in Sources */,
 				E978EAED1FEED7B700197057 /* CalculationViewController.swift in Sources */,
@@ -398,9 +416,11 @@
 				E91C40412013CFF2003A3B43 /* userFB.swift in Sources */,
 				C93E98BC1FCC685D00377B89 /* FirstNextViewController.swift in Sources */,
 				E9524AF52011FF8800E007C8 /* LoginPassVC.swift in Sources */,
+				E977517E2041CF9C0004F400 /* SelectTimeFireFighter.swift in Sources */,
 				E923ED6A1FF16C2200A319B6 /* ProfileViewController.swift in Sources */,
 				E94994C21FE8FE8600041EFF /* EnumLabel.swift in Sources */,
 				E923ED6C1FF1738300A319B6 /* DocViewController.swift in Sources */,
+				E97751802041CFAA0004F400 /* TimerViewController.swift in Sources */,
 				E9C788351FD82DE7009F98F2 /* UserProfile+CoreDataClass.swift in Sources */,
 				E9A03AD91FF6BFF400E2B7D0 /* CalendarDayWork.swift in Sources */,
 				E9524AF32011F94900E007C8 /* authorizationVC.swift in Sources */,

@@ -33,11 +33,20 @@ class authorizationVC: UIViewController, UITextFieldDelegate{
         }
     }
     @IBAction func registrationButton(_ sender: Any) {
-        nextViewContr(nameVC: "firstStoryBoards")
+        nextViewContr(nameVC: "firstStoryBoards", typeVC: "register")
     }
-    func nextViewContr(nameVC: String) {
+    func nextViewContr(nameVC: String, typeVC: String) {
+        switch typeVC {
+        case "main":
+        let Vc = UIStoryboard(name: nameVC, bundle: nil).instantiateInitialViewController() as! UITabBarController
+            present(Vc, animated: true, completion: nil)
+        case "register":
         let Vc = UIStoryboard(name: nameVC, bundle: nil).instantiateInitialViewController() as! UINavigationController
-        present(Vc, animated: true, completion: nil)
+            present(Vc, animated: true, completion: nil)
+        default:
+            print("nil")
+        }
+
     }
 
     func alertAction(errors: String!) {
@@ -67,7 +76,7 @@ fileprivate func fetchFirebase() {
             self?.userCD.userAirFlow = value?["airFlow"] as? Double ?? 0.0
             self?.userCD.userAspectRatio = value?["aspectRatio"] as? Double ?? 0.0
             self?.userCD.userGearboxOperation = value?["gearboxOperation"] as? Int ?? 0
-            self?.nextViewContr(nameVC: "MainStoryboard")
+            self?.nextViewContr(nameVC: "MainStoryboard", typeVC: "main")
           }
         }
     }

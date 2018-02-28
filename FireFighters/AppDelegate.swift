@@ -21,18 +21,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if UserProfile.userInform.userName.isEmpty{
             window?.rootViewController = UIStoryboard(name: "authStoryBoard", bundle: nil).instantiateInitialViewController() as! authorizationVC
         } else {
-            window?.rootViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UINavigationController
+            window?.rootViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UITabBarController
         }
         
         return true
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
-        //self.saveContext()
+        self.saveContext()
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        //self.saveContext()
+        self.saveContext()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {

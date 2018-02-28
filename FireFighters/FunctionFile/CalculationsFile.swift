@@ -7,7 +7,7 @@
 class calculations {
     //Рабочие данные пожарных
     let calculateCoreData = UserProfile.userInform
-    lazy var P1 = 0// Пожарный 1
+    lazy var P1 = 0//Пожарный 1
     lazy var P2 = 0//Пожарный 2
     lazy var P3 = 0//Пожарный 3
     lazy var P4 = 0//Пожарный 4
@@ -17,12 +17,12 @@ class calculations {
         lazy var P3Hearth = 0//Пожарный 3
         lazy var P4Hearth = 0//Пожарный 4
         lazy var P5Hearth = 0//Пожарный 5
-    //Значения для CoreData --- Отдельным классом ------ ?
+    //Значения для CoreData
     lazy var V = calculateCoreData.userVBallons
     lazy var Kszh = calculateCoreData.userAspectRatio             // Коэффициент сжимаемости воздуха +
     lazy var Q = calculateCoreData.userAirFlow               // средний расход воздуха
     lazy var Pust = calculateCoreData.userGearboxOperation              //Pуст.раб
-    
+    var Hearth = false
     var Complexity = true
     //для вывода данных
     var Pmax:Int! // Максимальное падение воздуха
@@ -48,16 +48,16 @@ class calculations {
         //-------/--------------//
         Tall = ((Pmin - Pust)*V)/Int(Double(Q*Kszh))// Общее время работы
         //-------/-------------//
-        let P1pad = P1 - P1Hearth
-        let P2pad = P2 - P2Hearth
-        let PPadMax = [P1pad,P2pad]
-        let PminHearth = [P1Hearth,P2Hearth]
-        switch Complexity {
-            case false: PkexitH = 2*PPadMax.max()! + Pust
-            case true:  PkexitH = Int(1.5*Double(PPadMax.max()!)) + Pust
+            let P1pad = P1 - P1Hearth
+            let P2pad = P2 - P2Hearth
+            let PPadMax = [P1pad,P2pad]
+            let PminHearth = [P1Hearth,P2Hearth]
+            switch Complexity {
+                case false: PkexitH = 2*PPadMax.max()! + Pust
+                case true:  PkexitH = Int(1.5*Double(PPadMax.max()!)) + Pust
+            }
+            THearthWork = ((PminHearth.min()!-PkexitH)*V)/Int(Double(Q*Kszh))
         }
-        THearthWork = ((PminHearth.min()!-PkexitH)*V)/Int(Double(Q*Kszh))
-    }
     func CalculationThreeFireFighter(){
         let Pmin = [P1,P2,P3].min()!
         //--------//------
