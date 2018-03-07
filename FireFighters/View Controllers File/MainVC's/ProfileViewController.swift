@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseAuth
 class ProfileViewController: UITableViewController {
 
     let SelUsersCell = ["Личные данные","Рабочие данные","Мед.комиссии","Сосотояние здоровья","Сменить пользователя"]
@@ -58,7 +59,7 @@ class ProfileViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let Cell:CustomProfileCell!
-        switch  indexPath.row{
+        switch indexPath.row{
         case 0:
             print(1)
         case 1:
@@ -68,10 +69,38 @@ class ProfileViewController: UITableViewController {
         case 3:
             print(4)
         default:
-            print("Error")
+            alertAction()
         }
     }
+    func alertAction() {
+        let AC = UIAlertController(title: "Смена пользователя", message: "Вы уверены что хотите сменить пользователя?", preferredStyle: .alert)
+        let AlAc = UIAlertAction(title: "Нет", style: .default, handler: nil)
+        let AlAc2 = UIAlertAction(title: "ДА", style: .cancel, handler: { (UIAlertAction) in
+            self.exit()
+            self.userInfo.clearData()
+            })
+         AC.addAction(AlAc)
+         AC.addAction(AlAc2)
+        present(AC, animated: true, completion: nil)
+    }
+    func exit() {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print("Fig vam")
+        }
+        nextViewContr()
+    }
+    
+    
+    
+    
+    
+    func nextViewContr() {
+            let Vc = UIStoryboard(name: "authStoryBoard", bundle: nil).instantiateInitialViewController() as! authorizationVC
+            present(Vc, animated: true, completion: nil)
 
+        }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

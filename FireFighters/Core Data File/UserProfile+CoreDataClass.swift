@@ -83,9 +83,9 @@ class UserProfile {
             usersInform.setValue(newValue, forKey: "userUnitType")
         }
     }
-    var userVBallons: Int {
+    var userVBallons: Double {
         get {
-            return usersInform.value(forKey: "userVBallons") as? Int ?? 0
+            return usersInform.value(forKey: "userVBallons") as? Double ?? 0.0
         }
         set {
             usersInform.setValue(newValue, forKey: "userVBallons")
@@ -117,5 +117,20 @@ class UserProfile {
             usersInform.setValue(newValue, forKey: "userGearboxOperation")
         }
     }
+    func clearData(){
+         userName = nil
+         userPatronymic = nil
+         userCity = nil
+         userBirthday = nil
+         userPartNum = nil
+         userPosition = nil
+         userChange = nil
+         //userPhoto = nil
+         userUnitType = ""
+         userVBallons = 0.0
+         userAspectRatio = 0.0
+         userAirFlow = 0.0
+    }
+    
 } //давление на работу редуктора
 

@@ -23,7 +23,7 @@ class calculations {
     lazy var Q = calculateCoreData.userAirFlow               // средний расход воздуха
     lazy var Pust = calculateCoreData.userGearboxOperation              //Pуст.раб
     var Hearth = false
-    var Complexity = true
+    var Complexity = false
     //для вывода данных
     var Pmax:Int! // Максимальное падение воздуха
     var Tall:Int! // Общее время работы
@@ -37,27 +37,30 @@ class calculations {
         
         //--------//------
         switch Complexity {
-            case false: Pmax = Int(Double(Pmin - Pust)/2.5)
-            case true: Pmax = (Pmin - Pust)/3
+        case false: Pmax = Int(Double(Pmin - Pust)/2.5)
+            
+        case true: Pmax = (Pmin - Pust)/3
         }
         Pkexit = Pmin - Pmax
-            if Pkexit < 50 {
-                Pkexit = 50
-            }
-        Twork = (Pkexit*V)/Int(Double(Q*Kszh))
+        if Pkexit < 50 {
+            Pkexit = 50
+        }
+        Twork = Int(Double(Pkexit)*V)/Int(Double(Q)*Kszh)
         //-------/--------------//
-        Tall = ((Pmin - Pust)*V)/Int(Double(Q*Kszh))// Общее время работы
+        Tall = Int(Double(Pmin - Pust)*V)/Int(Double(Q)*Kszh)// Общее время работы
         //-------/-------------//
+        if Hearth == true {
             let P1pad = P1 - P1Hearth
             let P2pad = P2 - P2Hearth
-            let PPadMax = [P1pad,P2pad]
-            let PminHearth = [P1Hearth,P2Hearth]
+            let PPadMax = [P1pad,P2pad].max()!
+            let PminHearth = [P1Hearth,P2Hearth].min()!
             switch Complexity {
-                case false: PkexitH = 2*PPadMax.max()! + Pust
-                case true:  PkexitH = Int(1.5*Double(PPadMax.max()!)) + Pust
+                case true: PkexitH = 2*PPadMax + Pust
+                case false:  PkexitH = Int(1.5*Double(PPadMax)) + Pust
             }
-            THearthWork = ((PminHearth.min()!-PkexitH)*V)/Int(Double(Q*Kszh))
+            THearthWork = Int(Double(PminHearth-PkexitH)*V)/Int(Double(Q)*Kszh)
         }
+    }
     func CalculationThreeFireFighter(){
         let Pmin = [P1,P2,P3].min()!
         //--------//------
@@ -69,9 +72,9 @@ class calculations {
         if Pkexit < 50 {
             Pkexit = 50
         }
-        Twork = (Pkexit*V)/Int(Double(Q*Kszh))
+        Twork = Int(Double(Pkexit)*V)/Int(Double(Q)*Kszh)
         //-------/--------------//
-        Tall = ((Pmin - Pust)*V)/Int(Double(Q*Kszh))// Общее время работы
+        Tall = Int(Double(Pmin - Pust)*V)/Int(Double(Q)*Kszh)// Общее время работы
         //-------/-------------//
         let P1pad = P1 - P1Hearth
         let P2pad = P2 - P2Hearth
@@ -80,10 +83,10 @@ class calculations {
         let PPadMax = [P1pad,P2pad,P3pad].max()!
         let PminHearth = [P1Hearth,P2Hearth,P3Hearth]
         switch Complexity {
-            case false: PkexitH = 2*PPadMax + Pust
-            case true:  PkexitH = Int(1.5*Double(PPadMax)) + Pust
+        case true: PkexitH = 2*PPadMax + Pust
+        case false:  PkexitH = Int(1.5*Double(PPadMax)) + Pust
         }
-        THearthWork = ((PminHearth.min()!-PkexitH)*V)/Int(Double(Q*Kszh))
+        THearthWork = Int(Double(PminHearth.min()!-PkexitH)*V)/Int(Double(Q)*Kszh)
     }
     func CalculationFourFireFighter(){
         let Pmin = [P1,P2,P3,P4].min()!
@@ -96,9 +99,9 @@ class calculations {
         if Pkexit < 50 {
             Pkexit = 50
         }
-        Twork = (Pkexit*V)/Int(Double(Q*Kszh))
+        Twork = Int(Double(Pkexit)*V)/Int(Double(Q*Kszh))
         //-------/--------------//
-        Tall = ((Pmin - Pust)*V)/Int(Double(Q*Kszh))// Общее время работы
+        Tall = Int(Double(Pmin - Pust)*V)/Int(Double(Q*Kszh))// Общее время работы
         //-------/-------------//
         let P1pad = P1 - P1Hearth
         let P2pad = P2 - P2Hearth
@@ -108,10 +111,10 @@ class calculations {
         let PPadMax = [P1pad,P2pad,P3pad,P4pad].max()!
         let PminHearth = [P1Hearth,P2Hearth,P3Hearth,P4Hearth].min()!
         switch Complexity {
-            case false: PkexitH = 2*PPadMax + Pust
-            case true:  PkexitH = Int(1.5*Double(PPadMax)) + Pust
+        case true: PkexitH = 2*PPadMax + Pust
+        case false:  PkexitH = Int(1.5*Double(PPadMax)) + Pust
         }
-        THearthWork = ((PminHearth-PkexitH)*V)/Int(Double(Q*Kszh))
+        THearthWork = Int(Double(PminHearth-PkexitH)*V)/Int(Double(Q)*Kszh)
     }
     func CalculationFiveFireFighter(){
         let Pmin = [P1,P2,P3,P4,P5].min()!
@@ -124,9 +127,9 @@ class calculations {
         if Pkexit < 50 {
             Pkexit = 50
         }
-        Twork = (Pkexit*V)/Int(Double(Q*Kszh))
+        Twork = Int(Double(Pkexit)*V)/Int(Double(Q)*Kszh)
         //-------/--------------//
-        Tall = ((Pmin - Pust)*V)/Int(Double(Q*Kszh))// Общее время работы
+        Tall = Int(Double(Pmin - Pust)*V)/Int(Double(Q)*Kszh)// Общее время работы
         //-------/-------------//
         let P1pad = P1 - P1Hearth
         let P2pad = P2 - P2Hearth
@@ -137,10 +140,10 @@ class calculations {
         let PPadMax = [P1pad,P2pad,P3pad,P4pad,P5pad].max()!
         let PminHearth = [P1Hearth,P2Hearth,P3Hearth,P4Hearth,P5Hearth].min()!
         switch Complexity {
-            case false: PkexitH = 2*PPadMax + Pust
-            case true:  PkexitH = Int(1.5*Double(PPadMax)) + Pust
+        case true: PkexitH = 2*PPadMax + Pust
+        case false:  PkexitH = Int(1.5*Double(PPadMax)) + Pust
         }
-        THearthWork = ((PminHearth-PkexitH)*V)/Int(Double(Q*Kszh))
+        THearthWork = Int(Double(PminHearth-PkexitH)*V)/Int(Double(Q)*Kszh)
     }
-    
 }
+

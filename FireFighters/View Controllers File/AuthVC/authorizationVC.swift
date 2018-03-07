@@ -1,5 +1,4 @@
 import UIKit
-import MBProgressHUD
 import FirebaseAuth
 import Firebase
 class authorizationVC: UIViewController, UITextFieldDelegate{
@@ -17,6 +16,15 @@ class authorizationVC: UIViewController, UITextFieldDelegate{
         passwordView.delegate = self
         customClass.CustomButton(nameBut: "Авторизироваться", buttons: authButtonStyle)
         loadActivity.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        loginView.text = ""
+        passwordView.text = ""
+        loadActivity.isHidden = true
+        customClass.CustomButton(nameBut: "Авторизироваться", buttons: authButtonStyle)
+        print(userCD.userName)
     }
     @IBAction func authorizationButton(_ sender: Any) {
         Auth.auth().signIn(withEmail: loginView.text!, password: passwordView.text!) { [weak self](user, error) in
@@ -72,7 +80,7 @@ fileprivate func fetchFirebase() {
             self?.userCD.userChange = value?["changeNum"] as? Int ?? 0
             self?.userCD.userBirthday = value?["birthDay"] as? String ?? ""
             self?.userCD.userUnitType = value?["unitType"] as? String ?? ""
-            self?.userCD.userVBallons = value?["vBallons"] as? Int ?? 0
+            self?.userCD.userVBallons = value?["vBallons"] as? Double ?? 0.0
             self?.userCD.userAirFlow = value?["airFlow"] as? Double ?? 0.0
             self?.userCD.userAspectRatio = value?["aspectRatio"] as? Double ?? 0.0
             self?.userCD.userGearboxOperation = value?["gearboxOperation"] as? Int ?? 0

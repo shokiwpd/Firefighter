@@ -1,5 +1,5 @@
 import UIKit
-import MBProgressHUD
+//import MBProgressHUD
 import Firebase
 
 
@@ -29,6 +29,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Регистрация"
         CustomClass.CustomButton(nameBut: "Сохранить", buttons: saveButton)
         self.view.backgroundColor = UIColor.blue
         guard let currentUser = Auth.auth().currentUser else { return }
@@ -86,7 +87,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         super.touchesBegan(touches, with: event)
     }
     
-    func checkInfoWork(changeNum: Int, partNumb: String, position: String,vBallon: Int, airFlow: Int, AspectRatio: Int,GearboxOperation: Int ){
+    func checkInfoWork(changeNum: Int, partNumb: String, position: String,vBallon: Double, airFlow: Double, AspectRatio: Double,GearboxOperation: Int ){
         switch partNumb{
         case "":
                 errorsMassages(errors: "Вы не указали номер своей части!")
@@ -108,7 +109,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                     userInformSave.userChange = Int(changeNum)
                     userInformSave.userBirthday = birthDay
                     userInformSave.userPhoto = userPhoto
-                    userInformSave.userVBallons = Int(vBallon)
+                    userInformSave.userVBallons = Double(vBallon)
                     userInformSave.userAirFlow = Double(airFlow)
                     userInformSave.userAspectRatio = Double(AspectRatio)
                     userInformSave.userGearboxOperation = GearboxOperation
@@ -122,7 +123,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
 
     @IBAction func acceptSaveButton(_ sender: Any) {
-        checkInfoWork(changeNum: Int(ChangeNum.text!)!, partNumb: partNumb.text!, position: PositionName, vBallon: Int(vBallons.text!)!, airFlow: Int(AirFlow.text!)!, AspectRatio: Int(AspectRatio.text!)!, GearboxOperation: Int(GearboxOperation.text!)!)
+        checkInfoWork(changeNum: Int(ChangeNum.text!)!, partNumb: partNumb.text!, position: PositionName, vBallon: Double(vBallons.text!)!, airFlow: Double(AirFlow.text!)!, AspectRatio: Double(AspectRatio.text!)!, GearboxOperation: Int(GearboxOperation.text!)!)
     }
     private func nextVC() {
         let Vc = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UITabBarController

@@ -18,6 +18,10 @@
 		E90894F01FC48593001DEE07 /* firstStoryBoards.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E90894EF1FC48593001DEE07 /* firstStoryBoards.storyboard */; };
 		E918A4771FF4181E00BD8240 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E918A4761FF4181E00BD8240 /* Podfile */; };
 		E91C40412013CFF2003A3B43 /* userFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91C40402013CFF2003A3B43 /* userFB.swift */; };
+		E920DC382046C71400E53C69 /* NoWorkHearthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E920DC372046C71400E53C69 /* NoWorkHearthVC.swift */; };
+		E920DC3F2046EA9A00E53C69 /* Calculation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E920DC3D2046EA9A00E53C69 /* Calculation+CoreDataClass.swift */; };
+		E920DC402046EA9A00E53C69 /* Calculation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E920DC3E2046EA9A00E53C69 /* Calculation+CoreDataProperties.swift */; };
+		E920DC422046F65200E53C69 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E920DC412046F65200E53C69 /* ResultViewController.swift */; };
 		E923873C1FE3D5D600AA8078 /* CustomNavContr.swift in Sources */ = {isa = PBXBuildFile; fileRef = E923873B1FE3D5D600AA8078 /* CustomNavContr.swift */; };
 		E923ED6A1FF16C2200A319B6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E923ED691FF16C2200A319B6 /* ProfileViewController.swift */; };
 		E923ED6C1FF1738300A319B6 /* DocViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E923ED6B1FF1738300A319B6 /* DocViewController.swift */; };
@@ -59,6 +63,10 @@
 		E90894EF1FC48593001DEE07 /* firstStoryBoards.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = firstStoryBoards.storyboard; sourceTree = "<group>"; };
 		E918A4761FF4181E00BD8240 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E91C40402013CFF2003A3B43 /* userFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userFB.swift; sourceTree = "<group>"; };
+		E920DC372046C71400E53C69 /* NoWorkHearthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoWorkHearthVC.swift; sourceTree = "<group>"; };
+		E920DC3D2046EA9A00E53C69 /* Calculation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Calculation+CoreDataClass.swift"; path = "/Users/pavel/Desktop/FireFighters/FireFighters/Core Data File/Calculation+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		E920DC3E2046EA9A00E53C69 /* Calculation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Calculation+CoreDataProperties.swift"; path = "/Users/pavel/Desktop/FireFighters/FireFighters/Core Data File/Calculation+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		E920DC412046F65200E53C69 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		E923873B1FE3D5D600AA8078 /* CustomNavContr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavContr.swift; sourceTree = "<group>"; };
 		E923ED691FF16C2200A319B6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E923ED6B1FF1738300A319B6 /* DocViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +186,8 @@
 		E90894ED1FC48553001DEE07 /* Core Data File */ = {
 			isa = PBXGroup;
 			children = (
+				E920DC3D2046EA9A00E53C69 /* Calculation+CoreDataClass.swift */,
+				E920DC3E2046EA9A00E53C69 /* Calculation+CoreDataProperties.swift */,
 				E90894D81FC47F43001DEE07 /* FireFighters.xcdatamodeld */,
 				E9C788331FD82DE7009F98F2 /* UserProfile+CoreDataClass.swift */,
 				E9C788341FD82DE7009F98F2 /* UserProfile+CoreDataProperties.swift */,
@@ -248,6 +258,8 @@
 			isa = PBXGroup;
 			children = (
 				E977517D2041CF9C0004F400 /* SelectTimeFireFighter.swift */,
+				E920DC372046C71400E53C69 /* NoWorkHearthVC.swift */,
+				E920DC412046F65200E53C69 /* ResultViewController.swift */,
 				E977517F2041CFAA0004F400 /* TimerViewController.swift */,
 				E97751812041CFF60004F400 /* HearthViewController.swift */,
 			);
@@ -381,7 +393,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-FireFighters/Pods-FireFighters-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -389,7 +400,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -412,6 +422,7 @@
 				C93E98BE1FCDE28F00377B89 /* UICustomClass.swift in Sources */,
 				E9BEDB491FC4A3CF00DAD26E /* FirstViewController.swift in Sources */,
 				E9B278D3202CE8BC00FA89EE /* CalculationsFile.swift in Sources */,
+				E920DC3F2046EA9A00E53C69 /* Calculation+CoreDataClass.swift in Sources */,
 				E90894D21FC47F43001DEE07 /* AppDelegate.swift in Sources */,
 				E91C40412013CFF2003A3B43 /* userFB.swift in Sources */,
 				C93E98BC1FCC685D00377B89 /* FirstNextViewController.swift in Sources */,
@@ -423,8 +434,11 @@
 				E97751802041CFAA0004F400 /* TimerViewController.swift in Sources */,
 				E9C788351FD82DE7009F98F2 /* UserProfile+CoreDataClass.swift in Sources */,
 				E9A03AD91FF6BFF400E2B7D0 /* CalendarDayWork.swift in Sources */,
+				E920DC402046EA9A00E53C69 /* Calculation+CoreDataProperties.swift in Sources */,
 				E9524AF32011F94900E007C8 /* authorizationVC.swift in Sources */,
 				E90894DA1FC47F43001DEE07 /* FireFighters.xcdatamodeld in Sources */,
+				E920DC382046C71400E53C69 /* NoWorkHearthVC.swift in Sources */,
+				E920DC422046F65200E53C69 /* ResultViewController.swift in Sources */,
 				E9F31F521FDDB056001D74B9 /* MainViewController.swift in Sources */,
 				E97B9D251FF2BEA100542C6C /* CustomProfileCell.swift in Sources */,
 				E923873C1FE3D5D600AA8078 /* CustomNavContr.swift in Sources */,

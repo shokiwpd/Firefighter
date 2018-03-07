@@ -1,5 +1,5 @@
 import UIKit
-import MBProgressHUD
+//import MBProgressHUD
 
 class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate  {
     @IBOutlet weak var userPhotoView: UIImageView!
@@ -18,6 +18,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Регистрация"
         self.view.backgroundColor = UIColor.blue
         userPatronymicView.delegate = self
         userCityView.delegate = self

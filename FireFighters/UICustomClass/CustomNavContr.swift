@@ -7,15 +7,19 @@ class CustomNavContr: UINavigationController,UINavigationBarDelegate {
         delegate = self
     }
     func navBarStyle(navCustom: UINavigationBar){
-        navCustom.backgroundColor = .blue
+        navCustom.barStyle = .black
     }
     func navItemStyle(itemStyle: UINavigationItem){
-        itemStyle.titleView = UIImageView(image: UIImage(named: "logo.png"))
+        //itemStyle.titleView = UIImageView(image: UIImage(named: "logo.png"))
+    }
+    func navigarionControllers(controlNav: UINavigationController){
+        controlNav.navigationBar.prefersLargeTitles = true
     }
 }
 extension CustomNavContr: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         navItemStyle(itemStyle: viewController.navigationItem)
         navBarStyle(navCustom: navigationBar)
+        navigarionControllers(controlNav: navigationController)
     }
 }

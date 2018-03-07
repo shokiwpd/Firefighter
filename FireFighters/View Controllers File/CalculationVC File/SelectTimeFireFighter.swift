@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelectTimeFireFighter: UIViewController {
+class SelectTimeFireFighter: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var FireFighter1: UITextField!
     @IBOutlet weak var FireFighter2: UITextField!
     @IBOutlet weak var FireFighter3: UITextField!
@@ -20,13 +20,13 @@ class SelectTimeFireFighter: UIViewController {
     @IBOutlet weak var TimeOn: UIDatePicker!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var calculationButton: UIButton!
-    let calculationsClass = calculations()
-    var status = false //На пожаре или нет
-    var numberFirefighter = 3// число пожарных
+    let CustomUI = UICustomClass()
+    var status = false
+    let CalData = CalculationInfo.CalculationInform
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(status)
-        switch numberFirefighter {
+        
+        switch CalData.numberFireFighter{
         case 2:
             FireFighter3.isHidden = true
             FireFighter4.isHidden = true
@@ -47,77 +47,69 @@ class SelectTimeFireFighter: UIViewController {
         }
         switch status {
         case true:
-            startButton.setTitle("Вход в НДДС", for: .normal)
+            CustomUI.CustomButton(nameBut: "Вход в НДДС", buttons: startButton)
             calculationButton.isHidden = true
         case false:
             startButton.isHidden = true
-            calculationButton.setTitle("Рассчитать", for: .normal)
+            CustomUI.CustomButton(nameBut: "Рассчитать", buttons: calculationButton)
         }
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        CustomUI.keyboardStepAndHidden(viewVC: view, step: false)
+        textField.resignFirstResponder()
+        return true
     }
-
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        CustomUI.keyboardStepAndHidden(viewVC: view, step: true)
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if (touches.first) != nil{
+            view.endEditing(true)
+            CustomUI.keyboardStepAndHidden(viewVC: view, step: false)
+        }
+        super.touchesBegan(touches, with: event)
+    }
     @IBAction func actionStartButton(_ sender: Any) { //Если на пожаре
-//        switch numberFirefighter {
-//        case 2:
-//            calculationsClass.P1 = Int(FireFighter1.text!)!
-//            calculationsClass.P2 = Int(FireFighter2.text!)!
-//        case 3:
-//            calculationsClass.P1 = Int(FireFighter1.text!)!
-//            calculationsClass.P2 = Int(FireFighter2.text!)!
-//            calculationsClass.P3 = Int(FireFighter3.text!)!
-//        case 4:
-//            calculationsClass.P1 = Int(FireFighter1.text!)!
-//            calculationsClass.P2 = Int(FireFighter2.text!)!
-//            calculationsClass.P3 = Int(FireFighter3.text!)!
-//            calculationsClass.P4 = Int(FireFighter4.text!)!
-//        case 5:
-//            calculationsClass.P1 = Int(FireFighter1.text!)!
-//            calculationsClass.P2 = Int(FireFighter2.text!)!
-//            calculationsClass.P3 = Int(FireFighter3.text!)!
-//            calculationsClass.P4 = Int(FireFighter4.text!)!
-//            calculationsClass.P5 = Int(FireFighter5.text!)!
-//        default:
-//            print("No numb")
-//        }
+//        saveData()
     }
  
     @IBAction func actionNoWork(_ sender: Any) { //простой расчет
-            let errorName = "Вы не указали давление пожарных"
-                switch numberFirefighter {
-                case 2:
-                    guard FireFighter1.text != "",FireFighter2.text != "" else {alertAction(errors: errorName)
-                        return}
-                    calculationsClass.P1 = Int(FireFighter1.text!)!
-                    calculationsClass.P2 = Int(FireFighter2.text!)!
-                case 3:
-                    guard FireFighter1.text != "",FireFighter2.text != "", FireFighter3.text != "" else {alertAction(errors: errorName)
-                        return}
-                    calculationsClass.P1 = Int(FireFighter1.text!)!
-                    calculationsClass.P2 = Int(FireFighter2.text!)!
-                    calculationsClass.P3 = Int(FireFighter3.text!)!
-                case 4:
-                    guard FireFighter1.text != "",FireFighter2.text != "",FireFighter3.text != "",FireFighter4.text != "" else {alertAction(errors: errorName)
-                        return}
-                    calculationsClass.P1 = Int(FireFighter1.text!)!
-                    calculationsClass.P2 = Int(FireFighter2.text!)!
-                    calculationsClass.P3 = Int(FireFighter3.text!)!
-                    calculationsClass.P4 = Int(FireFighter4.text!)!
-                case 5:
-                    guard FireFighter1.text != "",FireFighter2.text != "",FireFighter3.text != "",FireFighter4.text != "", FireFighter5.text != "" else {alertAction(errors:errorName)
-                        return}
-                    calculationsClass.P1 = Int(FireFighter1.text!)!
-                    calculationsClass.P2 = Int(FireFighter2.text!)!
-                    calculationsClass.P3 = Int(FireFighter3.text!)!
-                    calculationsClass.P4 = Int(FireFighter4.text!)!
-                    calculationsClass.P5 = Int(FireFighter5.text!)!
-                default:
-                    print("No numb")
-                }
+        saveData()
+    }
+private func saveData() {
+        let errorName = "Вы не указали давление пожарных"
+        switch CalData.numberFireFighter {
+        case 2:
+            guard FireFighter1.text != "",FireFighter2.text != "" else {alertAction(errors: errorName)
+                return}
+            CalData.FireFighter1 = Int(FireFighter1.text!)!
+            CalData.FireFighter2 = Int(FireFighter2.text!)!
+        case 3:
+            guard FireFighter1.text != "",FireFighter2.text != "", FireFighter3.text != "" else {alertAction(errors: errorName)
+                return}
+            CalData.FireFighter1 = Int(FireFighter1.text!)!
+            CalData.FireFighter2 = Int(FireFighter2.text!)!
+            CalData.FireFighter3 = Int(FireFighter3.text!)!
+        case 4:
+            guard FireFighter1.text != "",FireFighter2.text != "",FireFighter3.text != "",FireFighter4.text != "" else {alertAction(errors: errorName)
+                return}
+            CalData.FireFighter1 = Int(FireFighter1.text!)!
+            CalData.FireFighter2 = Int(FireFighter2.text!)!
+            CalData.FireFighter3 = Int(FireFighter3.text!)!
+            CalData.FireFighter4 = Int(FireFighter4.text!)!
+        case 5:
+            guard FireFighter1.text != "",FireFighter2.text != "",FireFighter3.text != "",FireFighter4.text != "", FireFighter5.text != "" else {alertAction(errors:errorName)
+                return}
+            CalData.FireFighter1 = Int(FireFighter1.text!)!
+            CalData.FireFighter2 = Int(FireFighter2.text!)!
+            CalData.FireFighter3 = Int(FireFighter3.text!)!
+            CalData.FireFighter4 = Int(FireFighter4.text!)!
+            CalData.FireFighter5 = Int(FireFighter5.text!)!
+        default:
+            print("No numb")
+        }
     }
     func alertAction(errors: String!) {
         let AC = UIAlertController(title: "Внимание", message: errors, preferredStyle: .alert)
@@ -125,14 +117,5 @@ class SelectTimeFireFighter: UIViewController {
         AC.addAction(AlAc)
         present(AC, animated: true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
