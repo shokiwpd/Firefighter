@@ -15,6 +15,7 @@ let DataBase = UserProfile.userInform
     let CaclClass = CalculationInfo.CalculationInform
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Расчеты"
         CaclClass.claenData()
         CustomUI.CustomButton(nameBut: "Далее", buttons: nextButton)
     }

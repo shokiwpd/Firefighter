@@ -7,6 +7,8 @@ class ProfileViewController: UITableViewController {
     let userInfo = UserProfile.userInform
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Профиль"
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
     var statusTextLabel = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Главная"
         for (Data, karaul) in MonthWorkClass.Month(MonthNum: todayDate()) {
             if Data == TimersClass.todayDate(){
                 print(Data, karaul)

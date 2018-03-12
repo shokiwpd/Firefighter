@@ -24,8 +24,8 @@ class authorizationVC: UIViewController, UITextFieldDelegate{
         passwordView.text = ""
         loadActivity.isHidden = true
         customClass.CustomButton(nameBut: "Авторизироваться", buttons: authButtonStyle)
-        print(userCD.userName)
     }
+    
     @IBAction func authorizationButton(_ sender: Any) {
         Auth.auth().signIn(withEmail: loginView.text!, password: passwordView.text!) { [weak self](user, error) in
             if error != nil {

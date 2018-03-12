@@ -117,5 +117,19 @@ private func saveData() {
         AC.addAction(AlAc)
         present(AC, animated: true, completion: nil)
     }
+    @IBAction func printTexts(_ sender: Any) {
+        
+        let x = 0.0
+        let y = TimeOn.countDownDuration
+        let Time = "test\(x+y) two test \(x)"
+        print(Time)
+        let z = 10.0
+        let time2 = "test\(z+y)"
+        print(time2)
 
+    }
+    
+    @IBAction func testingS(_ sender: Any) {
+    }
+    
 }

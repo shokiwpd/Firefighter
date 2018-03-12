@@ -19,6 +19,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Регистрация"
+        //self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target:  nil, action: nil)
         self.view.backgroundColor = UIColor.blue
         userPatronymicView.delegate = self
         userCityView.delegate = self
@@ -46,19 +47,15 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         super.touchesBegan(touches, with: event)
     }
     @IBAction func nextViewSelButton(_ sender: Any) {
-        guard userNameView.text != "",userPatronymicView.text! != "",userCityView.text! != ""  else {
-            nextView = false
-            if userNameView.text == ""{ errorsMassages(errors: "Вы не указали свое имя!")}
-                else if userPatronymicView.text == "" {errorsMassages(errors: "Вы не указали своё Отчество!")}
-                    else if userCityView.text == ""{errorsMassages(errors: "Вы не указали свой город!")}
-            return
-        }
-        nextView = true
+
+        guard userNameView.text != "" else {return  errorsMassages(errors: "Вы не указали свое имя!")}
+        guard userPatronymicView.text != "" else {return errorsMassages(errors: "Вы не указали своё Отчество!")}
+        guard userCityView.text != "" else {return errorsMassages(errors: "Вы не указали свой город!")}
         view.endEditing(true)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch nextView {
-        case true:
+//        switch nextView {
+//        case true:
             if segue.identifier == "NextVC"{
                 let NextView = segue.destination as! FirstNextViewController
                     NextView.name = userNameView.text!
@@ -67,9 +64,9 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                     NextView.birthDay = getUserBirthday(date: userBirthdayPicker.date)
                     NextView.userPhoto = userPhotoView.image!
             }
-        case false:
-            print("Errors")
-        }
+//        case false:
+//            print("Errors")
+//        }
     }
     func getUserBirthday(date: Date) -> String!{
         let Forrmated = DateFormatter()
@@ -78,6 +75,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         return formatedDate
     }
     func errorsMassages(errors: String!){
+        CustomClass.keyboardStepAndHidden(viewVC: view, step: false)
         let AlertView = UIAlertController(title: "Внимание", message: errors, preferredStyle: .alert)
         AlertView.addAction(UIAlertAction(title: "Хорошо", style: .default, handler: nil))
         present(AlertView, animated: true, completion: nil)

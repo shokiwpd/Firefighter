@@ -1,6 +1,5 @@
 import Foundation
 import UIKit
-//import MBProgressHUD
 
 class UICustomClass{
     func CustomButton(nameBut: String, buttons: UIButton){
@@ -38,16 +37,5 @@ class UICustomClass{
             }
         }, completion: nil)
     }
-//
-//    func CustomLoadView(text: String, view: UIView, Hidden: Bool){
-//        let load = MBProgressHUD.showAdded(to: view, animated: true)
-//        load.animationType = .fade
-//        load.backgroundView.color = UIColor.blue
-//        //load.labelText = text
-//        load.backgroundView.style = .blur
-//        load.tintColor = UIColor.red
-//        load.minShowTime = 2
-//        load.isHidden = Hidden
-//    }
-
 }
+

@@ -15,21 +15,12 @@ class LoginPassVC: UIViewController,UITextFieldDelegate {
         title = "Регистрация"
     }
     @IBAction func createUsers(_ sender: Any) {
-        if passCheck.text != createPassw.text {
-            self.alertAction(errors:"Пароли не совподают или вы допустили ошибку в пароле")
-        } else {
+        guard createPassw.text == passCheck.text else { return (self.alertAction(errors:"Пароли не совподают или вы допустили ошибку в пароле"))}
         Auth.auth().createUser(withEmail: createLogin.text!, password: createPassw.text!, completion:  {[weak self](user, error) in
-            if error != nil {
-                self?.alertAction(errors: error?.localizedDescription)
-                return
-            }
-            if user != nil {
-                 self?.performSegue(withIdentifier: "nextView", sender: nil)
-                 return
-            }
-            self?.alertAction(errors: error?.localizedDescription)
+            guard error == nil else { return (self?.alertAction(errors: error?.localizedDescription))! }
+            guard user != nil else { return (self?.alertAction(errors: error?.localizedDescription))! }
+            self?.performSegue(withIdentifier: "nextView", sender: nil)
         })
-    }
     }
     
     

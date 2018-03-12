@@ -16,6 +16,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     //MARK: Var
     let userInformSave = UserProfile.userInform
     let CustomClass = UICustomClass()
+    let uploadRef = Storage()
     let PositionSel = ["Пожарный","Командир отделения","Нач.караула","ПНЧ","Диспетчер"]
     var PositionName = "Пожарный"
     var user: Users!
@@ -25,7 +26,6 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     var city: String!
     var birthDay: String!
     var userPhoto: UIImage!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,8 +64,8 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     func selUnitType(type: UISegmentedControl) -> String!{
         var types = ""
         switch type.selectedSegmentIndex {
-        case 0: types = "ДАСВ"
-        case 1: types = "ДАСК"
+            case 0: types = "ДАСВ"
+            case 1: types = "ДАСК"
         default:
             print("Errors")
         }
@@ -81,6 +81,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if (touches.first) != nil{
+            
             view.endEditing(true)
             CustomClass.keyboardStepAndHidden(viewVC: view, step: false)
         }
@@ -88,41 +89,40 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
     
     func checkInfoWork(changeNum: Int, partNumb: String, position: String,vBallon: Double, airFlow: Double, AspectRatio: Double,GearboxOperation: Int ){
-        switch partNumb{
-        case "":
-                errorsMassages(errors: "Вы не указали номер своей части!")
-        default:
-            switch changeNum{
-            case 0:
-                errorsMassages(errors: "Вы не указали свою дежурную смену(Караул)!")
-            default:
-                switch position {
-                    case "":
-                    errorsMassages(errors: "Ошибка выбора!")
-                    default:
-                    userInformSave.userUnitType = selUnitType(type: userUnitTypeSel)
-                    userInformSave.userName = name
-                    userInformSave.userPatronymic = Patronymic
-                    userInformSave.userCity = city
-                    userInformSave.userPosition = position
-                    userInformSave.userPartNum = partNumb
-                    userInformSave.userChange = Int(changeNum)
-                    userInformSave.userBirthday = birthDay
-                    userInformSave.userPhoto = userPhoto
-                    userInformSave.userVBallons = Double(vBallon)
-                    userInformSave.userAirFlow = Double(airFlow)
-                    userInformSave.userAspectRatio = Double(AspectRatio)
-                    userInformSave.userGearboxOperation = GearboxOperation
-                    let saveDataBase = userInfoFIR(UsersID: user.uid, Name: name, Patronymic: Patronymic, City: city, Position: position, PartNumb: partNumb, ChangeNum: Int(changeNum) as NSNumber, BirthDay: birthDay, UnitType: selUnitType(type: userUnitTypeSel),vballons: vBallon as NSNumber, AspectRatio: AspectRatio as NSNumber, AirFlow: airFlow as NSNumber, GearboxOperation: GearboxOperation as NSNumber)
-                    let infoRef = self.ref.child(user.uid)
-                    infoRef.setValue(saveDataBase.convertDataBase())
-                    nextVC()
-                }
-            }
-        }
+        guard changeNum != 0 else{ return errorsMassages(errors: "Вы не указали свою дежурную смену(Караул)!")}
+        guard partNumb != "" else {return errorsMassages(errors: "Вы не указали номер своей части!")}
+        guard position != "" else {return errorsMassages(errors: "Вы не точно указали свою должность!")}
+        guard vBallon != 0.0 else {return errorsMassages(errors: "Укажите объем баллона!")}
+        guard airFlow != 0.0 else {return errorsMassages(errors: "Укажите средний расход воздуха в вашем подразделении!")}
+        guard AspectRatio != 0.0 else {return errorsMassages(errors: "Укажите коэффициент сжатия воздуха(Уточните на базе ГДЗС или мастера ГДЗС)")}
+        guard GearboxOperation != 0 else {return errorsMassages(errors: "Укажите давление для стабильной работы редуктора!")}
+            userInformSave.userUnitType = selUnitType(type: userUnitTypeSel)
+            userInformSave.userName = name
+            userInformSave.userPatronymic = Patronymic
+            userInformSave.userCity = city
+            userInformSave.userPosition = position
+            userInformSave.userPartNum = partNumb
+            userInformSave.userChange = Int(changeNum)
+            userInformSave.userBirthday = birthDay
+            userInformSave.userPhoto = userPhoto
+            userInformSave.userVBallons = Double(vBallon)
+            userInformSave.userAirFlow = Double(airFlow)
+            userInformSave.userAspectRatio = Double(AspectRatio)
+            userInformSave.userGearboxOperation = GearboxOperation
+            let saveDataBase = userInfoFIR(UsersID: user.uid, Name: name, Patronymic: Patronymic, City: city, Position: position, PartNumb: partNumb, ChangeNum: Int(changeNum) as NSNumber, BirthDay: birthDay, UnitType: selUnitType(type: userUnitTypeSel),vballons: vBallon as NSNumber, AspectRatio: AspectRatio as NSNumber, AirFlow: airFlow as NSNumber, GearboxOperation: GearboxOperation as NSNumber)
+            let infoRef = self.ref.child(user.uid)
+                infoRef.setValue(saveDataBase.convertDataBase())
+            nextVC()
+
     }
 
     @IBAction func acceptSaveButton(_ sender: Any) {
+        guard ChangeNum.text != "" else{ return errorsMassages(errors: "Вы не указали свою дежурную смену(Караул)!")}
+        guard partNumb.text != "" else {return errorsMassages(errors: "Вы не указали номер своей части!")}
+        guard vBallons.text != "" else {return errorsMassages(errors: "Укажите объем баллона!")}
+        guard AirFlow.text != "" else {return errorsMassages(errors: "Укажите средний расход воздуха в вашем подразделении!")}
+        guard AspectRatio.text != "" else {return errorsMassages(errors: "Укажите коэффициент сжатия воздуха(Уточните на базе ГДЗС или мастера ГДЗС)")}
+        guard GearboxOperation.text != "" else {return errorsMassages(errors: "Укажите давление для стабильной работы редуктора!")}
         checkInfoWork(changeNum: Int(ChangeNum.text!)!, partNumb: partNumb.text!, position: PositionName, vBallon: Double(vBallons.text!)!, airFlow: Double(AirFlow.text!)!, AspectRatio: Double(AspectRatio.text!)!, GearboxOperation: Int(GearboxOperation.text!)!)
     }
     private func nextVC() {

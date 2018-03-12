@@ -11,6 +11,7 @@ class CustomNavContr: UINavigationController,UINavigationBarDelegate {
     }
     func navItemStyle(itemStyle: UINavigationItem){
         //itemStyle.titleView = UIImageView(image: UIImage(named: "logo.png"))
+        itemStyle.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     func navigarionControllers(controlNav: UINavigationController){
         controlNav.navigationBar.prefersLargeTitles = true
