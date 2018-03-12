@@ -10,7 +10,6 @@ class CustomNavContr: UINavigationController,UINavigationBarDelegate {
         navCustom.barStyle = .black
     }
     func navItemStyle(itemStyle: UINavigationItem){
-        //itemStyle.titleView = UIImageView(image: UIImage(named: "logo.png"))
         itemStyle.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     func navigarionControllers(controlNav: UINavigationController){

@@ -62,23 +62,24 @@ class NoWorkHearthVC: UIViewController,UITextFieldDelegate {
         }
         super.touchesBegan(touches, with: event)
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    @IBAction func noHearthCalculation(_ sender: Any) {
-        HeartViewSel = false
-    }
-    @IBAction func yesHearthCalculation(_ sender: Any) {
-        HeartViewSel = true
-        saveData()
+
+    @IBAction func heartSearchResult(result: UIButton){
+        switch result.tag {
+        case 0:
+            HeartViewSel = false
+        case 1:
+            HeartViewSel = true
+            saveData()
+        default:
+            print("Error select")
+        }
     }
     private func saveData() {
         let errorName = "Вы не указали давление пожарных"
         switch CalData.numberFireFighter {
         case 2:
-            guard HearthFF1.text != "",HearthFF2.text != "" else {alertAction(errors: errorName)
-                return}
+            guard HearthFF1.text != "" else {return alertAction(errors: errorName)}
+            guard HearthFF2.text != "" else {return alertAction(errors: errorName)}
             CalData.p1Hearth = Int(HearthFF1.text!)!
             CalData.p2Hearth  = Int(HearthFF2.text!)!
         case 3:
@@ -113,10 +114,10 @@ private func alertAction(errors: String!) {
         present(AC, animated: true, completion: nil)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ResultSegue"{
+        if segue.identifier == "NoHearth"{
             let NextView = segue.destination as! ResultViewController
             NextView.HeartStatus = false
-        } else if segue.identifier == "ResultsSegue" {
+        } else if segue.identifier == "YesHearth" {
             let NextView = segue.destination as! ResultViewController
             NextView.HeartStatus = true
         }

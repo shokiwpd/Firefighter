@@ -9,10 +9,8 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     @IBOutlet weak var userBirthdayPicker: UIDatePicker!
     @IBOutlet weak var nextViewButton: UIButton!
     @IBOutlet weak var selPhotoButton: UIButton!
-    
     //MARK: Var
     let CustomClass = UICustomClass()
-    var nextView = false
     let userInformSave = UserProfile.userInform
     var isProfileEdit = false
 
@@ -54,8 +52,6 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         view.endEditing(true)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        switch nextView {
-//        case true:
             if segue.identifier == "NextVC"{
                 let NextView = segue.destination as! FirstNextViewController
                     NextView.name = userNameView.text!
@@ -64,9 +60,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                     NextView.birthDay = getUserBirthday(date: userBirthdayPicker.date)
                     NextView.userPhoto = userPhotoView.image!
             }
-//        case false:
-//            print("Errors")
-//        }
+
     }
     func getUserBirthday(date: Date) -> String!{
         let Forrmated = DateFormatter()

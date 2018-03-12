@@ -6,9 +6,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AppleSDGothicNeo.ttc">
+            <string>AppleSDGothicNeo-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -18,20 +24,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LauncScreen" translatesAutoresizingMaskIntoConstraints="NO" id="60p-VT-VOy">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconLS.png" translatesAutoresizingMaskIntoConstraints="NO" id="pHH-jT-Eu0">
+                                <rect key="frame" x="102" y="85" width="170" height="170"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="I86-YU-3oq"/>
-                                    <constraint firstAttribute="height" constant="667" id="rqO-9J-ZRz"/>
+                                    <constraint firstAttribute="width" constant="170" id="baG-X8-dfp"/>
+                                    <constraint firstAttribute="height" constant="170" id="r1Q-d9-Ewq"/>
+                                    <constraint firstAttribute="width" secondItem="pHH-jT-Eu0" secondAttribute="height" multiplier="1:1" id="ujK-Dp-230"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Автор Павел Уланов 2018г." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHr-51-iPE">
+                                <rect key="frame" x="128" y="635" width="118" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="YHr-51-iPE" secondAttribute="height" multiplier="59:6" id="k9o-f5-WML"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="60p-VT-VOy" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="NiA-VU-xYe"/>
-                            <constraint firstItem="60p-VT-VOy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VXV-GV-vRK"/>
-                            <constraint firstItem="60p-VT-VOy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ez9-PO-Oks"/>
-                            <constraint firstItem="60p-VT-VOy" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="puf-55-glt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pHH-jT-Eu0" secondAttribute="trailing" constant="103" id="5Kd-SC-jRj"/>
+                            <constraint firstAttribute="bottom" secondItem="YHr-51-iPE" secondAttribute="bottom" constant="20" symbolic="YES" id="7B0-ig-CeG"/>
+                            <constraint firstItem="pHH-jT-Eu0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="65" id="LL0-cl-sbR"/>
+                            <constraint firstItem="YHr-51-iPE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="128" id="TtE-aE-FX4"/>
+                            <constraint firstItem="pHH-jT-Eu0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="102" id="euk-C8-at5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YHr-51-iPE" secondAttribute="trailing" constant="129" id="hyO-su-1pK"/>
+                            <constraint firstItem="YHr-51-iPE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="l5y-3Z-tVA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -42,6 +61,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LauncScreen" width="125" height="222"/>
+        <image name="iconLS.png" width="400" height="400"/>
     </resources>
 </document>
