@@ -2,7 +2,7 @@ import UIKit
 import FirebaseAuth
 class ProfileViewController: UITableViewController {
 
-    let SelUsersCell = ["Личные данные","Рабочие данные","Мед.комиссии","Сосотояние здоровья","Сменить пользователя"]
+    let SelUsersCell = ["Личные данные","Рабочие данные","Сменить пользователя"]
     let icon = [""]
     let userInfo = UserProfile.userInform
     override func viewDidLoad() {
@@ -47,12 +47,6 @@ class ProfileViewController: UITableViewController {
             cell.iconCell.image = #imageLiteral(resourceName: "userWorkInfo")
         case 2:
             cell.labelViewCell.text = SelUsersCell[indexPath.row]
-            cell.iconCell.image = #imageLiteral(resourceName: "userHealtComis")
-        case 3:
-            cell.labelViewCell.text = SelUsersCell[indexPath.row]
-            cell.iconCell.image = #imageLiteral(resourceName: "userHealt")
-        case 4:
-            cell.labelViewCell.text = SelUsersCell[indexPath.row]
             cell.iconCell.image = #imageLiteral(resourceName: "logOut")
         default:
             print("hz")
@@ -66,10 +60,6 @@ class ProfileViewController: UITableViewController {
             print(1)
         case 1:
             print(2)
-        case 2:
-            print(3)
-        case 3:
-            print(4)
         default:
             alertAction()
         }

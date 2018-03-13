@@ -125,7 +125,7 @@ class UserProfile {
          userPartNum = nil
          userPosition = nil
          userChange = nil
-         //userPhoto = nil
+         userPhoto = #imageLiteral(resourceName: "defPhoto")
          userUnitType = ""
          userVBallons = 0.0
          userAspectRatio = 0.0

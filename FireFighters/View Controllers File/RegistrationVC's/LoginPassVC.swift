@@ -9,7 +9,6 @@ class LoginPassVC: UIViewController,UITextFieldDelegate {
     let customClass = UICustomClass()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.blue
         customClass.CustomButton(nameBut: "Далее", buttons: customButton)
         createPassw.delegate = self
         title = "Регистрация"

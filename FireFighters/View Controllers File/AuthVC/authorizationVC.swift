@@ -9,6 +9,9 @@ class authorizationVC: UIViewController, UITextFieldDelegate{
     let offlineAuth = false
     let customClass = UICustomClass()
     var userInfo = UserProfile.userInform
+    var imageDownloadRef: StorageReference {
+        return Storage.storage().reference().child("userPhoto")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         loginView.delegate = self
@@ -65,9 +68,17 @@ class authorizationVC: UIViewController, UITextFieldDelegate{
 
 fileprivate func fetchFirebase() {
     let getUserID: String! = Auth.auth().currentUser?.uid
+    let uploadUserPhoto = self.imageDownloadRef.child("\(getUserID!).png")
     let queue = DispatchQueue.main
     queue.async {
         guard getUserID != nil else { return }
+        let DownloadImage = uploadUserPhoto.getData(maxSize: 1024 * 1024 * 12) { (data, error) in
+            if let data = data {
+                let image = UIImage(data: data)
+                self.userInfo.userPhoto = image!
+            }
+            print(error ?? "Errors no")
+        }
         Database.database().reference().child("firefighter").child(getUserID).observeSingleEvent(of: .value) {[weak self](snapshot) in
             let value = snapshot.value as? NSDictionary
             self?.userInfo.userName = value?["name"] as? String ?? ""
@@ -82,8 +93,10 @@ fileprivate func fetchFirebase() {
             self?.userInfo.userAirFlow = value?["airFlow"] as? Double ?? 0.0
             self?.userInfo.userAspectRatio = value?["aspectRatio"] as? Double ?? 0.0
             self?.userInfo.userGearboxOperation = value?["gearboxOperation"] as? Int ?? 0
+            DownloadImage.resume()
             self?.nextViewContr(nameVC: "MainStoryboard", typeVC: "main")
           }
         }
     }
 }
+

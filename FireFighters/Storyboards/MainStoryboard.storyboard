@@ -499,7 +499,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7R-6p-fne">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7R-6p-fne">
                                 <rect key="frame" x="65" y="496" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Test"/>
@@ -507,7 +507,7 @@
                                     <action selector="testingS:" destination="NiY-hx-QdO" eventType="touchUpInside" id="Ejw-sh-v16"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7W-1J-yT9">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7W-1J-yT9">
                                 <rect key="frame" x="144" y="496" width="32" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Print"/>
@@ -973,7 +973,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o6C-uK-Fe7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="106.875" y="1723.943661971831"/>
+            <point key="canvasLocation" x="-534" y="1712"/>
         </scene>
         <!--Result View Controller-->
         <scene sceneID="gcq-MO-yas">
@@ -1019,7 +1019,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u6g-Is-AFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1132.5" y="1712.323943661972"/>
+            <point key="canvasLocation" x="285" y="1712"/>
         </scene>
         <!--Main-->
         <scene sceneID="abj-Hk-T9I">

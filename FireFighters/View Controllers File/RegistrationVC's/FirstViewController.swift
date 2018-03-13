@@ -17,8 +17,6 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Регистрация"
-        //self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target:  nil, action: nil)
-        self.view.backgroundColor = UIColor.blue
         userPatronymicView.delegate = self
         userCityView.delegate = self
         isProfileEdit ? CustomClass.CustomButton(nameBut: "Сохранить", buttons: nextViewButton) : CustomClass.CustomButton(nameBut: "Продолжить", buttons: nextViewButton)
