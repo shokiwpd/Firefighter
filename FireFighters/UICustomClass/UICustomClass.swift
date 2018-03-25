@@ -37,5 +37,18 @@ class UICustomClass{
             }
         }, completion: nil)
     }
+    func backgraundView()-> UIView! {
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "launchScreen.png")
+        backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
+        return backgroundImage
+    }
+    func blurringScreen(view: UIView) -> UIView!{
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = view.bounds
+        blurView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        return blurView
+    }
 }
 

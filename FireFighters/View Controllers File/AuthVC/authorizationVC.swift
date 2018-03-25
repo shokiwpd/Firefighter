@@ -2,8 +2,29 @@ import UIKit
 import FirebaseAuth
 import Firebase
 class authorizationVC: UIViewController, UITextFieldDelegate{
-    @IBOutlet weak var loginView: UITextField!
-    @IBOutlet weak var passwordView: UITextField!
+    @IBOutlet weak var loginView: UITextField! {
+        didSet {
+            loginView.backgroundColor = UIColor.clear
+           
+        }
+    }
+    @IBOutlet weak var passwordView: UITextField! {
+        didSet {
+            passwordView.backgroundColor = UIColor.clear
+
+        }
+    }
+    var textFieldCustom: CAShapeLayer! {
+        didSet {
+            textFieldCustom.fillColor = nil
+            textFieldCustom.lineCap = "round"
+            textFieldCustom.lineWidth = 2
+            textFieldCustom.strokeColor = UIColor.black.cgColor
+            textFieldCustom.strokeEnd = 1
+        }
+    }
+    
+    
     @IBOutlet weak var authButtonStyle: UIButton!
     @IBOutlet weak var loadActivity: UIActivityIndicatorView!
     let offlineAuth = false
@@ -14,11 +35,20 @@ class authorizationVC: UIViewController, UITextFieldDelegate{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loginView.frame = CGRect(x: 25, y: 150, width: self.view.frame.size.width - 50, height: 50)
+        self.passwordView.frame = CGRect(x: 25, y: 210, width: self.view.frame.size.width - 50 , height: 50)
+        self.authButtonStyle.frame = CGRect(x: 25, y: 285, width: self.view.frame.size.width - 50, height: 50)
+        print(self.view.frame.size.width)
+        print(self.passwordView.frame.size.width)
+        print(passwordView.frame)
+        self.view.insertSubview(customClass.backgraundView(), at: 0)
+        self.view.insertSubview(customClass.blurringScreen(view: view), at: 1)
         loginView.delegate = self
         passwordView.delegate = self
         customClass.CustomButton(nameBut: "Авторизироваться", buttons: authButtonStyle)
         loadActivity.isHidden = true
         loadActivity.color = UIColor.blue
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,7 +60,8 @@ class authorizationVC: UIViewController, UITextFieldDelegate{
     }
     
     @IBAction func authorizationButton(_ sender: Any) {
-        guard loginView.text != "" else {return alertAction(errors: "Укажите логин или зарегистрируйтесь!")}
+        
+        guard loginView.text != "" else {return alertAction(errors: "Укажите свой логин!")}
         guard passwordView.text != "" else {return alertAction(errors: "Вы забыли указать пароль")}
         Auth.auth().signIn(withEmail: loginView.text!, password: passwordView.text!) { [weak self](user, error) in
             guard error == nil else { return (self?.alertAction(errors: "Ошибка пароля или Ваш аккаунт был удален(Точную информацию уточните у Разработчика)"))!}
@@ -42,7 +73,8 @@ class authorizationVC: UIViewController, UITextFieldDelegate{
         }
     }
     @IBAction func registrationButton(_ sender: Any) {
-        nextViewContr(nameVC: "firstStoryBoards", typeVC: "register")
+        //nextViewContr(nameVC: "firstStoryBoards", typeVC: "register")
+        print("Password")
     }
     func nextViewContr(nameVC: String, typeVC: String) {
         switch typeVC {

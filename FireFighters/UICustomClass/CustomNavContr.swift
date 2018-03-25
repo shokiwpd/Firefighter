@@ -8,6 +8,7 @@ class CustomNavContr: UINavigationController,UINavigationBarDelegate {
     }
     func navBarStyle(navCustom: UINavigationBar){
         navCustom.barStyle = .black
+        
     }
     func navItemStyle(itemStyle: UINavigationItem){
         itemStyle.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)

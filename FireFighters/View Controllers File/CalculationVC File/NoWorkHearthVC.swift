@@ -25,6 +25,8 @@ class NoWorkHearthVC: UIViewController,UITextFieldDelegate {
     var HeartViewSel: Bool!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.insertSubview(CustomUI.backgraundView(), at: 0)
+        self.view.insertSubview(CustomUI.blurringScreen(view: view), at: 1)
         switch CalData.numberFireFighter {
         case 2:
             HearthFF3.isHidden = true

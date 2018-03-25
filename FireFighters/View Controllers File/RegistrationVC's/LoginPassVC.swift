@@ -34,6 +34,7 @@ class LoginPassVC: UIViewController,UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if (touches.first) != nil{
             view.endEditing(true)
+            
             customClass.keyboardStepAndHidden(viewVC: view, step: false)
         }
         super.touchesBegan(touches, with: event)

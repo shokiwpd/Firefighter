@@ -25,6 +25,8 @@ class SelectTimeFireFighter: UIViewController,UITextFieldDelegate {
     let CalData = CalculationInfo.CalculationInform
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.insertSubview(CustomUI.backgraundView(), at: 0)
+        self.view.insertSubview(CustomUI.blurringScreen(view: view), at: 1)
         switch CalData.numberFireFighter{
         case 2:
             FireFighter3.isHidden = true

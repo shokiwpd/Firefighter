@@ -13,9 +13,12 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var viewResultCalc: UIButton!
     let CalcData = CalculationInfo.CalculationInform
     let CalcFunc = calculations()
+    let CustomUI = UICustomClass()
     var HeartStatus = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.insertSubview(CustomUI.backgraundView(), at: 0)
+        self.view.insertSubview(CustomUI.blurringScreen(view: view), at: 1)
         resul()
     }
     func resul() {

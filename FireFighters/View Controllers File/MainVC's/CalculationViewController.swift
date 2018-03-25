@@ -15,7 +15,8 @@ let DataBase = UserProfile.userInform
     let CaclClass = CalculationInfo.CalculationInform
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.insertSubview(CustomUI.backgraundView(), at: 0)
+        self.view.insertSubview(CustomUI.blurringScreen(view: view), at: 1)
         title = "Расчеты"
         CaclClass.claenData()
         CustomUI.CustomButton(nameBut: "Далее", buttons: nextButton)

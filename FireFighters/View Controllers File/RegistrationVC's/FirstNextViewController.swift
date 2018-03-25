@@ -93,6 +93,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     func checkInfoWork(changeNum: Int, partNumb: String, position: String,vBallon: Double, airFlow: Double, AspectRatio: Double,GearboxOperation: Int ){
         guard changeNum != 0 else{ return errorsMassages(errors: "Вы не указали свою дежурную смену(Караул)!")}
+        guard changeNum < 4  else{ return errorsMassages(errors: "Вы указали не существующую смену")}
         guard partNumb != "" else {return errorsMassages(errors: "Вы не указали номер своей части!")}
         guard position != "" else {return errorsMassages(errors: "Вы не точно указали свою должность!")}
         guard vBallon != 0.0 else {return errorsMassages(errors: "Укажите объем баллона!")}

@@ -16,6 +16,7 @@
 		E90894DC1FC47F43001DEE07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E90894DB1FC47F43001DEE07 /* Assets.xcassets */; };
 		E90894EA1FC48401001DEE07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E90894E91FC48401001DEE07 /* LaunchScreen.storyboard */; };
 		E90894F01FC48593001DEE07 /* firstStoryBoards.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E90894EF1FC48593001DEE07 /* firstStoryBoards.storyboard */; };
+		E9100AB7205DA83000F488CD /* AuthAndRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9100AB6205DA83000F488CD /* AuthAndRegistrationView.swift */; };
 		E918A4771FF4181E00BD8240 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E918A4761FF4181E00BD8240 /* Podfile */; };
 		E91C40412013CFF2003A3B43 /* userFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91C40402013CFF2003A3B43 /* userFB.swift */; };
 		E920DC382046C71400E53C69 /* NoWorkHearthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E920DC372046C71400E53C69 /* NoWorkHearthVC.swift */; };
@@ -37,6 +38,7 @@
 		E97751822041CFF60004F400 /* HearthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97751812041CFF60004F400 /* HearthViewController.swift */; };
 		E978EAED1FEED7B700197057 /* CalculationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E978EAEC1FEED7B700197057 /* CalculationViewController.swift */; };
 		E97B9D251FF2BEA100542C6C /* CustomProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97B9D241FF2BEA100542C6C /* CustomProfileCell.swift */; };
+		E985C1B72066A5D8007A2490 /* UIAlertCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985C1B62066A5D8007A2490 /* UIAlertCustom.swift */; };
 		E9A03AD91FF6BFF400E2B7D0 /* CalendarDayWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A03AD81FF6BFF400E2B7D0 /* CalendarDayWork.swift */; };
 		E9AA3E361FF69D8400CFC2C6 /* GuardClassFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA3E351FF69D8400CFC2C6 /* GuardClassFile.swift */; };
 		E9B278D3202CE8BC00FA89EE /* CalculationsFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B278D2202CE8BC00FA89EE /* CalculationsFile.swift */; };
@@ -61,6 +63,8 @@
 		E90894E01FC47F43001DEE07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E90894E91FC48401001DEE07 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E90894EF1FC48593001DEE07 /* firstStoryBoards.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = firstStoryBoards.storyboard; sourceTree = "<group>"; };
+		E9100AB6205DA83000F488CD /* AuthAndRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAndRegistrationView.swift; sourceTree = "<group>"; };
+		E913E3EC2062E3340094EEB2 /* signpainter-housescript.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "signpainter-housescript.ttf"; sourceTree = "<group>"; };
 		E918A4761FF4181E00BD8240 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E91C40402013CFF2003A3B43 /* userFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userFB.swift; sourceTree = "<group>"; };
 		E920DC372046C71400E53C69 /* NoWorkHearthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoWorkHearthVC.swift; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 		E97751812041CFF60004F400 /* HearthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearthViewController.swift; sourceTree = "<group>"; };
 		E978EAEC1FEED7B700197057 /* CalculationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationViewController.swift; sourceTree = "<group>"; };
 		E97B9D241FF2BEA100542C6C /* CustomProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProfileCell.swift; sourceTree = "<group>"; };
+		E985C1B62066A5D8007A2490 /* UIAlertCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertCustom.swift; sourceTree = "<group>"; };
 		E9A03AD81FF6BFF400E2B7D0 /* CalendarDayWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayWork.swift; sourceTree = "<group>"; };
 		E9AA3E351FF69D8400CFC2C6 /* GuardClassFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardClassFile.swift; sourceTree = "<group>"; };
 		E9B278D2202CE8BC00FA89EE /* CalculationsFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationsFile.swift; sourceTree = "<group>"; };
@@ -148,6 +153,7 @@
 				E90894D11FC47F43001DEE07 /* AppDelegate.swift */,
 				E9347B48201108BD00B20980 /* GoogleService-Info.plist */,
 				E90894E01FC47F43001DEE07 /* Info.plist */,
+				E913E3EC2062E3340094EEB2 /* signpainter-housescript.ttf */,
 				E90894DB1FC47F43001DEE07 /* Assets.xcassets */,
 				E90894E91FC48401001DEE07 /* LaunchScreen.storyboard */,
 			);
@@ -201,6 +207,7 @@
 				C93E98BD1FCDE28F00377B89 /* UICustomClass.swift */,
 				E923873B1FE3D5D600AA8078 /* CustomNavContr.swift */,
 				E97B9D241FF2BEA100542C6C /* CustomProfileCell.swift */,
+				E985C1B62066A5D8007A2490 /* UIAlertCustom.swift */,
 			);
 			path = UICustomClass;
 			sourceTree = "<group>";
@@ -208,6 +215,7 @@
 		E9289FE22025C4C500805C95 /* AuthVC */ = {
 			isa = PBXGroup;
 			children = (
+				E9100AB6205DA83000F488CD /* AuthAndRegistrationView.swift */,
 				E9524AF22011F94900E007C8 /* authorizationVC.swift */,
 			);
 			path = AuthVC;
@@ -393,6 +401,8 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-FireFighters/Pods-FireFighters-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/RAMAnimatedTabBarController/RAMAnimatedTabBarController.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -400,6 +410,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RAMAnimatedTabBarController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -419,6 +431,7 @@
 				E9AA3E361FF69D8400CFC2C6 /* GuardClassFile.swift in Sources */,
 				E9C788361FD82DE7009F98F2 /* UserProfile+CoreDataProperties.swift in Sources */,
 				E978EAED1FEED7B700197057 /* CalculationViewController.swift in Sources */,
+				E9100AB7205DA83000F488CD /* AuthAndRegistrationView.swift in Sources */,
 				C93E98BE1FCDE28F00377B89 /* UICustomClass.swift in Sources */,
 				E9BEDB491FC4A3CF00DAD26E /* FirstViewController.swift in Sources */,
 				E9B278D3202CE8BC00FA89EE /* CalculationsFile.swift in Sources */,
@@ -427,6 +440,7 @@
 				E91C40412013CFF2003A3B43 /* userFB.swift in Sources */,
 				E9D7F3F120572E22003C4639 /* Calculation+CoreDataProperties.swift in Sources */,
 				C93E98BC1FCC685D00377B89 /* FirstNextViewController.swift in Sources */,
+				E985C1B72066A5D8007A2490 /* UIAlertCustom.swift in Sources */,
 				E9524AF52011FF8800E007C8 /* LoginPassVC.swift in Sources */,
 				E977517E2041CF9C0004F400 /* SelectTimeFireFighter.swift in Sources */,
 				E923ED6A1FF16C2200A319B6 /* ProfileViewController.swift in Sources */,
