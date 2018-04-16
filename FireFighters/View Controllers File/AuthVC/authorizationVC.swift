@@ -1,31 +1,60 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import MBProgressHUD
+import CoreGraphics
+
 class authorizationVC: UIViewController, UITextFieldDelegate{
+    @IBOutlet weak var titleLabel: UILabel!{
+        didSet {
+            titleLabel.font = UIFont(name: "signpainter-housescript", size: 47)
+        }
+    }
     @IBOutlet weak var loginView: UITextField! {
         didSet {
             loginView.backgroundColor = UIColor.clear
-           
+            loginView.borderStyle = .none
         }
     }
     @IBOutlet weak var passwordView: UITextField! {
         didSet {
             passwordView.backgroundColor = UIColor.clear
-
+            passwordView.borderStyle = .none
         }
     }
-    var textFieldCustom: CAShapeLayer! {
+    var loginLine: CAShapeLayer! {
         didSet {
-            textFieldCustom.fillColor = nil
-            textFieldCustom.lineCap = "round"
-            textFieldCustom.lineWidth = 2
-            textFieldCustom.strokeColor = UIColor.black.cgColor
-            textFieldCustom.strokeEnd = 1
+            loginLine.fillColor = nil
+            loginLine.lineCap = "round"
+            loginLine.lineWidth = 3
+            loginLine.strokeColor = UIColor.gray.cgColor
+            loginLine.strokeEnd = 1
         }
     }
+    var passwordLine: CAShapeLayer! {
+        didSet {
+            passwordLine.fillColor = nil
+            passwordLine.lineCap = "round"
+            passwordLine.lineWidth = 3
+            passwordLine.strokeColor = UIColor.gray.cgColor
+            passwordLine.strokeEnd = 1
+        }
+    }
+    var buttonGardients: CAGradientLayer! {
+        didSet {
+            buttonGardients.colors = [UIColor.white.cgColor, UIColor.gray.cgColor]
+            buttonGardients.startPoint = CGPoint(x: 0, y: 0)
+            buttonGardients.endPoint = CGPoint(x: 0, y: 1)
+        }
+    }
+
     
     
-    @IBOutlet weak var authButtonStyle: UIButton!
+    @IBOutlet weak var authButtonStyle: UIButton! {
+        didSet {
+            authButtonStyle.clipsToBounds = true
+        }
+    }
     @IBOutlet weak var loadActivity: UIActivityIndicatorView!
     let offlineAuth = false
     let customClass = UICustomClass()
@@ -35,28 +64,44 @@ class authorizationVC: UIViewController, UITextFieldDelegate{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loginView.frame = CGRect(x: 25, y: 150, width: self.view.frame.size.width - 50, height: 50)
-        self.passwordView.frame = CGRect(x: 25, y: 210, width: self.view.frame.size.width - 50 , height: 50)
-        self.authButtonStyle.frame = CGRect(x: 25, y: 285, width: self.view.frame.size.width - 50, height: 50)
-        print(self.view.frame.size.width)
-        print(self.passwordView.frame.size.width)
-        print(passwordView.frame)
-        self.view.insertSubview(customClass.backgraundView(), at: 0)
-        self.view.insertSubview(customClass.blurringScreen(view: view), at: 1)
         loginView.delegate = self
         passwordView.delegate = self
         customClass.CustomButton(nameBut: "Авторизироваться", buttons: authButtonStyle)
         loadActivity.isHidden = true
         loadActivity.color = UIColor.blue
-        
+            self.authButtonStyle.layer.cornerRadius = authButtonStyle.frame.height / 2
+            self.loginView.frame = CGRect(x: 25, y: 150, width: self.view.frame.size.width - 50, height: 30)
+            self.passwordView.frame = CGRect(x: 25, y: 210, width: self.view.frame.size.width - 50 , height: 30)
+            self.authButtonStyle.frame = CGRect(x: 25, y: 285, width: self.view.frame.size.width - 50, height: 50)
+            self.titleLabel.frame = CGRect(x: 25, y: 65, width: self.view.frame.size.width - 50, height: 35)
+        print(self.view.frame.size.width / 2)
+        self.view.insertSubview(customClass.backgraundView(), at: 0)
+        self.view.insertSubview(customClass.blurringScreen(view: view), at: 1)
+        buttonGardients = CAGradientLayer()
+        buttonGardients.frame = CGRect(x: 0, y: 0, width: authButtonStyle.frame.size.width, height: authButtonStyle.frame.size.height)
+        authButtonStyle.layer.insertSublayer(buttonGardients, at: 0)
+        loginLine = CAShapeLayer()
+        passwordLine = CAShapeLayer()
+        loginView.layer.addSublayer(loginLine)
+        passwordView.layer.addSublayer(passwordLine)
+        customTextField(shape: loginLine, textFields: loginView)
+        customTextField(shape: passwordLine, textFields: passwordView)
+        print("x\(view.frame.width) x/2\(view.frame.width / 2)")
+        print("y\(view.frame.height)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         loginView.text = ""
         passwordView.text = ""
-        loadActivity.isHidden = true
         customClass.CustomButton(nameBut: "Авторизироваться", buttons: authButtonStyle)
+    }
+    func customTextField(shape: CAShapeLayer, textFields: UITextField) {
+        shape.frame = textFields.bounds
+        let patching = UIBezierPath()
+        patching.move(to: CGPoint(x: 0, y: textFields.frame.size.height))
+        patching.addLine(to: CGPoint(x: textFields.frame.size.width, y: textFields.frame.size.height))
+        shape.path = patching.cgPath
     }
     
     @IBAction func authorizationButton(_ sender: Any) {
@@ -67,8 +112,7 @@ class authorizationVC: UIViewController, UITextFieldDelegate{
             guard error == nil else { return (self?.alertAction(errors: "Ошибка пароля или Ваш аккаунт был удален(Точную информацию уточните у Разработчика)"))!}
             guard user != nil else { return }
                 (self?.customClass.CustomButton(nameBut: "", buttons: (self?.authButtonStyle)!))!
-                self?.loadActivity.isHidden = false
-                self?.loadActivity.startAnimating()
+                self?.progressView()
                 self?.fetchFirebase()
         }
     }
@@ -101,16 +145,20 @@ class authorizationVC: UIViewController, UITextFieldDelegate{
 fileprivate func fetchFirebase() {
     let getUserID: String! = Auth.auth().currentUser?.uid
     let uploadUserPhoto = self.imageDownloadRef.child("\(getUserID!).png")
+    var userImage = UIImage()
     let queue = DispatchQueue.main
     queue.async {
         guard getUserID != nil else { return }
         let DownloadImage = uploadUserPhoto.getData(maxSize: 1024 * 1024 * 12) { (data, error) in
             if let data = data {
-                let image = UIImage(data: data)
-                self.userInfo.userPhoto = image!
+                userImage = UIImage(data: data)!
+                
             }
+    
             print(error ?? "Errors no")
         }
+        DownloadImage.observe(.progress, handler: { (snapshot) in
+            if snapshot.progress?.fractionCompleted == 1.0 {
         Database.database().reference().child("firefighter").child(getUserID).observeSingleEvent(of: .value) {[weak self](snapshot) in
             let value = snapshot.value as? NSDictionary
             self?.userInfo.userName = value?["name"] as? String ?? ""
@@ -125,10 +173,19 @@ fileprivate func fetchFirebase() {
             self?.userInfo.userAirFlow = value?["airFlow"] as? Double ?? 0.0
             self?.userInfo.userAspectRatio = value?["aspectRatio"] as? Double ?? 0.0
             self?.userInfo.userGearboxOperation = value?["gearboxOperation"] as? Int ?? 0
-            DownloadImage.resume()
             self?.nextViewContr(nameVC: "MainStoryboard", typeVC: "main")
+            self?.userInfo.userPhoto = userImage
+            
           }
+    }
+    
+    })
         }
+    }
+    func progressView(){
+        let Load = MBProgressHUD.showAdded(to: self.view, animated: true)
+        Load.mode = MBProgressHUDMode.indeterminate
+        Load.labelText = "Готовим данные"
     }
 }
 

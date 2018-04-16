@@ -39,7 +39,15 @@ class UICustomClass{
     }
     func backgraundView()-> UIView! {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        print("backgraund\(UIScreen.main.bounds)")
         backgroundImage.image = UIImage(named: "launchScreen.png")
+        backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
+        return backgroundImage
+    }
+    func backgraundRegistration()-> UIView! {
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        print("backgraund\(UIScreen.main.bounds)")
+        backgroundImage.image = UIImage(named: "registScreen.jpg")
         backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
         return backgroundImage
     }
@@ -50,5 +58,12 @@ class UICustomClass{
         blurView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         return blurView
     }
+    func customTextField(shape: CAShapeLayer, textFields: UITextField) {
+        shape.frame = textFields.bounds
+        let patching = UIBezierPath()
+        patching.move(to: CGPoint(x: 0, y: textFields.frame.size.height))
+        patching.addLine(to: CGPoint(x: textFields.frame.size.width, y: textFields.frame.size.height))
+        shape.path = patching.cgPath
+    }
+    
 }
-

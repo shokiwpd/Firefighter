@@ -16,6 +16,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.insertSubview(CustomClass.backgraundRegistration(), at: 0)
         title = "Регистрация"
         userPatronymicView.delegate = self
         userCityView.delegate = self
@@ -43,10 +44,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         super.touchesBegan(touches, with: event)
     }
     @IBAction func nextViewSelButton(_ sender: Any) {
-
+    
         guard userNameView.text != "" else {return  errorsMassages(errors: "Вы не указали свое имя!")}
         guard userPatronymicView.text != "" else {return errorsMassages(errors: "Вы не указали своё Отчество!")}
         guard userCityView.text != "" else {return errorsMassages(errors: "Вы не указали свой город!")}
+        
         view.endEditing(true)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

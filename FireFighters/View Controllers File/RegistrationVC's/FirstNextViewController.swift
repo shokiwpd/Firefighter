@@ -34,6 +34,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Регистрация"
+        self.view.insertSubview(CustomClass.backgraundRegistration(), at: 0)
         CustomClass.CustomButton(nameBut: "Сохранить", buttons: saveButton)
         guard let currentUser = Auth.auth().currentUser else { return }
         user = Users(user: currentUser)

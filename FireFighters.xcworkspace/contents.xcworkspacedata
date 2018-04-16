@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/pavel/Desktop/FireFighters/FireFighters/Core Data File/Calculation+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/pavel/Desktop/FireFighters/FireFighters/Core Data File/Calculation+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
       location = "group:FireFighters.xcodeproj">
    </FileRef>
    <FileRef

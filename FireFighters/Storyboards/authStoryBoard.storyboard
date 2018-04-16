@@ -148,6 +148,7 @@
                         <outlet property="loadActivity" destination="2Vi-Vz-gML" id="O75-Gn-89H"/>
                         <outlet property="loginView" destination="hQY-f9-6wV" id="sle-0F-wzD"/>
                         <outlet property="passwordView" destination="2YO-GW-zrW" id="YMT-Xd-J3a"/>
+                        <outlet property="titleLabel" destination="tb8-61-ayG" id="Cog-mq-4Ku"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Q2-5x-Nkb" userLabel="First Responder" sceneMemberID="firstResponder"/>

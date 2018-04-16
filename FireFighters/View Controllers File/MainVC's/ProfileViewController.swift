@@ -2,13 +2,14 @@ import UIKit
 import FirebaseAuth
 class ProfileViewController: UITableViewController {
     let SelUsersCell = ["Личные данные","Рабочие данные","Сменить пользователя"]
-    let Comments = ["Смена И.О,города и дня рождения","Смена данных о работе"]
+    let Comments = ["Смена города","Смена данных о работе",""]
     let customClass = UICustomClass()
     let icon = [""]
     let userInfo = UserProfile.userInform
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Профиль"
+        
 //        self.view.insertSubview(customClass.backgraundView(), at: 1)
 //        self.view.insertSubview(customClass.blurringScreen(view: view), at: 2)
         // Uncomment the following line to preserve selection between presentations
@@ -51,6 +52,7 @@ class ProfileViewController: UITableViewController {
             cell.iconCell.image = #imageLiteral(resourceName: "userWorkInfo")
         case 2:
             cell.labelViewCell.text = SelUsersCell[indexPath.row]
+            cell.commentLabel.text = Comments[indexPath.row]
             cell.iconCell.image = #imageLiteral(resourceName: "logOut")
         default:
             print("hz")

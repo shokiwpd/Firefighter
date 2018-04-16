@@ -20,6 +20,20 @@ class SelectTimeFireFighter: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var TimeOn: UIDatePicker!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var calculationButton: UIButton!
+    var buttonGardients: CAGradientLayer! {
+        didSet {
+            buttonGardients.colors = [UIColor.white.cgColor, UIColor.gray.cgColor]
+            buttonGardients.startPoint = CGPoint(x: 0, y: 0)
+            buttonGardients.endPoint = CGPoint(x: 0, y: 1)
+        }
+    }
+    var buttonGardients2: CAGradientLayer! {
+        didSet {
+            buttonGardients.colors = [UIColor.white.cgColor, UIColor.gray.cgColor]
+            buttonGardients.startPoint = CGPoint(x: 0, y: 0)
+            buttonGardients.endPoint = CGPoint(x: 0, y: 1)
+        }
+    }
     let CustomUI = UICustomClass()
     var status = false
     let CalData = CalculationInfo.CalculationInform
@@ -27,6 +41,14 @@ class SelectTimeFireFighter: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         self.view.insertSubview(CustomUI.backgraundView(), at: 0)
         self.view.insertSubview(CustomUI.blurringScreen(view: view), at: 1)
+        buttonGardients = CAGradientLayer()
+        buttonGardients.frame = CGRect(x: 0, y: 0, width: startButton.frame.size.width, height: startButton.frame.size.height)
+        startButton.layer.insertSublayer(buttonGardients, at: 0)
+        buttonGardients2 = CAGradientLayer()
+        buttonGardients2.frame = CGRect(x: 0, y: 0, width: calculationButton.frame.size.width, height: calculationButton.frame.size.height)
+        calculationButton.layer.insertSublayer(buttonGardients2, at: 0)
+        
+        
         switch CalData.numberFireFighter{
         case 2:
             FireFighter3.isHidden = true
@@ -49,10 +71,12 @@ class SelectTimeFireFighter: UIViewController,UITextFieldDelegate {
         switch status {
         case true:
             CustomUI.CustomButton(nameBut: "Вход в НДДС", buttons: startButton)
+            
             calculationButton.isHidden = true
         case false:
             startButton.isHidden = true
-            CustomUI.CustomButton(nameBut: "Рассчитать", buttons: calculationButton)
+            calculationButton.setTitle("Рассчитать", for: .normal)
+            //CustomUI.CustomButton(nameBut: "Рассчитать", buttons: calculationButton)
         }
         // Do any additional setup after loading the view.
     }
