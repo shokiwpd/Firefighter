@@ -113,7 +113,23 @@ public class CalculationInfo {
             CalculationData.setValue(newValue, forKey: "complexityStatus")
         }
     }
-    
+    var inputTime: Date! {
+        get {
+            return CalculationData.value(forKey: "inputTime") as? Date
+        }
+        set {
+            CalculationData.setValue(newValue, forKey: "inputTime")
+        }
+    }
+    var heartFoundTime: Date! {
+        get {
+            return CalculationData.value(forKey: "heartFoundTime") as? Date
+
+        }
+        set {
+            CalculationData.setValue(newValue, forKey: "heartFoundTime")
+        }
+    }
     
     func claenData(){
         FireFighter1 = nil

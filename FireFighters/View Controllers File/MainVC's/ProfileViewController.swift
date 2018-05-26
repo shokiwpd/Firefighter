@@ -4,7 +4,6 @@ class ProfileViewController: UITableViewController {
     let SelUsersCell = ["Личные данные","Рабочие данные","Сменить пользователя"]
     let Comments = ["Смена города","Смена данных о работе",""]
     let customClass = UICustomClass()
-    let icon = [""]
     let userInfo = UserProfile.userInform
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,27 +44,24 @@ class ProfileViewController: UITableViewController {
         case 0:
             cell.labelViewCell.text = SelUsersCell[indexPath.row]
             cell.commentLabel.text = Comments[indexPath.row]
-            cell.iconCell.image = userInfo.userPhoto
         case 1:
             cell.labelViewCell.text = SelUsersCell[indexPath.row]
             cell.commentLabel.text = Comments[indexPath.row]
-            cell.iconCell.image = #imageLiteral(resourceName: "userWorkInfo")
         case 2:
             cell.labelViewCell.text = SelUsersCell[indexPath.row]
             cell.commentLabel.text = Comments[indexPath.row]
-            cell.iconCell.image = #imageLiteral(resourceName: "logOut")
         default:
             print("hz")
         }
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let Cell:CustomProfileCell!
+       // let Cell:CustomProfileCell!
         switch indexPath.row{
         case 0:
-            print(1)
+            segueStoryBoard(nameSB: "ProfileEditBoard")
         case 1:
-            print(2)
+            segueStoryBoard(nameSB: "WorkInfoEdithBoard")
         default:
             alertAction()
         }
@@ -87,61 +83,19 @@ class ProfileViewController: UITableViewController {
         } catch {
             print("Fig vam")
         }
-        nextViewContr()
+        segueStoryBoard(nameSB: "authStoryBoard")
     }
-    
-    
-    
-    
-    
-    func nextViewContr() {
-            let Vc = UIStoryboard(name: "authStoryBoard", bundle: nil).instantiateInitialViewController() as! AuthAndRegistrationView
-            present(Vc, animated: true, completion: nil)
-
+    func segueStoryBoard(nameSB: String!) {
+        switch nameSB {
+        case "ProfileEditBoard": let Vc = UIStoryboard(name: nameSB, bundle: nil).instantiateInitialViewController() as! EditProfileInfoVC
+                present(Vc, animated: true, completion: nil)
+        case "authStoryBoard": let Vc = UIStoryboard(name: nameSB, bundle: nil).instantiateInitialViewController() as! AuthAndRegistrationView
+                present(Vc, animated: true, completion: nil)
+        case "WorkInfoEdithBoard": let Vc = UIStoryboard(name: nameSB, bundle: nil).instantiateInitialViewController() as! WorkInfoEdithVC
+                present(Vc, animated: true, completion: nil)
+        default: break
         }
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
     }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

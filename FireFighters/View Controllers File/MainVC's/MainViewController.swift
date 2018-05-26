@@ -16,8 +16,8 @@ class MainViewController: UIViewController,UICollectionViewDelegate {
     @IBOutlet weak var InformationCollection: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.insertSubview(CustomView.backgraundView(), at: 0)
-        self.view.insertSubview(CustomView.blurringScreen(view: view), at: 1)
+        self.view.insertSubview(view.backgraundView(), at: 0)
+        self.view.insertSubview(view.blurringScreen(), at: 1)
         title = "Главная"
         profileImage.image = userInfo.userPhoto
         welcomeMessage.text = "Здравствуйте \(String(userInfo.userName)) \(String(userInfo.userPatronymic))"

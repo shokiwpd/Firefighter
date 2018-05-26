@@ -19,14 +19,43 @@ class NoWorkHearthVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var FireFighterLabel5: UILabel!
     @IBOutlet weak var noHearth: UIButton!
     @IBOutlet weak var yesHearth: UIButton!
+    @IBOutlet weak var ArrivalTimeHearth: UIDatePicker!
     let CustomUI = UICustomClass()
     let CalData = CalculationInfo.CalculationInform
     let numberFirefighter = 2
     var HeartViewSel: Bool!
+    var noHearthButtonGardients: CAGradientLayer! {
+        didSet {
+            noHearthButtonGardients.colors = [UIColor.white.cgColor, UIColor.gray.cgColor]
+            noHearthButtonGardients.startPoint = CGPoint(x: 0, y: 0)
+            noHearthButtonGardients.endPoint = CGPoint(x: 0, y: 1)
+        }
+    }
+    var yesHearthButtonGardients: CAGradientLayer! {
+        didSet {
+            yesHearthButtonGardients.colors = [UIColor.white.cgColor, UIColor.gray.cgColor]
+            yesHearthButtonGardients.startPoint = CGPoint(x: 0, y: 0)
+            yesHearthButtonGardients.endPoint = CGPoint(x: 0, y: 1)
+        }
+    }
+    override func viewDidLayoutSubviews() {
+        noHearthButtonGardients = CAGradientLayer()
+        yesHearthButtonGardients = CAGradientLayer()
+        noHearthButtonGardients.frame = CGRect(x: 0, y: 0, width: noHearth.frame.size.width, height: noHearth.frame.size.height)
+        yesHearthButtonGardients.frame = CGRect(x: 0, y: 0, width: yesHearth.frame.size.width, height: yesHearth.frame.size.height)
+        noHearth.layer.insertSublayer(noHearthButtonGardients, at: 0)
+        yesHearth.layer.insertSublayer(yesHearthButtonGardients, at: 0)
+        yesHearth.layer.cornerRadius = 10
+        yesHearth.clipsToBounds = true
+        noHearth.layer.cornerRadius = 10
+        noHearth.clipsToBounds = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.insertSubview(CustomUI.backgraundView(), at: 0)
-        self.view.insertSubview(CustomUI.blurringScreen(view: view), at: 1)
+        ArrivalTimeHearth.date = CalData.inputTime
+        self.view.insertSubview(view.backgraundView(), at: 0)
+        self.view.insertSubview(view.blurringScreen(), at: 1)
         switch CalData.numberFireFighter {
         case 2:
             HearthFF3.isHidden = true
@@ -44,10 +73,10 @@ class NoWorkHearthVC: UIViewController,UITextFieldDelegate {
             HearthFF5.isHidden = true
             FireFighterLabel5.isHidden = true
         default:
-            print("Error Select")
+            print("All form view")
         }
-        CustomUI.CustomButton(nameBut: "Без очага", buttons: noHearth)
-        CustomUI.CustomButton(nameBut: "Очаг найден", buttons: yesHearth)
+        noHearth.customButtonColor(radius: 10, nameBut: "Без очага", titleColor: .black, shadowColors: UIColor.black.cgColor)
+        yesHearth.customButtonColor(radius: 10, nameBut: "Очаг найден", titleColor: .black, shadowColors: UIColor.black.cgColor)
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         CustomUI.keyboardStepAndHidden(viewVC: view, step: false)
@@ -73,23 +102,24 @@ class NoWorkHearthVC: UIViewController,UITextFieldDelegate {
             HeartViewSel = true
             saveData()
         default:
-            print("Error select")
+            print("All form view")
         }
     }
     private func saveData() {
         let errorName = "Вы не указали давление пожарных"
         switch CalData.numberFireFighter {
         case 2:
-            guard HearthFF1.text != "" else {return alertAction(errors: errorName)}
-            guard HearthFF2.text != "" else {return alertAction(errors: errorName)}
+            guard HearthFF1.text != "",HearthFF2.text != "" else {return alertAction(errors: errorName)}
             CalData.p1Hearth = Int(HearthFF1.text!)!
             CalData.p2Hearth  = Int(HearthFF2.text!)!
+            CalData.heartFoundTime = ArrivalTimeHearth.date
         case 3:
             guard HearthFF1.text != "",HearthFF2.text != "", HearthFF3.text != "" else {alertAction(errors: errorName)
                 return}
             CalData.p1Hearth = Int(HearthFF1.text!)!
             CalData.p2Hearth = Int(HearthFF2.text!)!
             CalData.p3Hearth = Int(HearthFF3.text!)!
+            CalData.heartFoundTime = ArrivalTimeHearth.date
         case 4:
             guard HearthFF1.text != "",HearthFF2.text != "",HearthFF3.text != "",HearthFF4.text != "" else {alertAction(errors: errorName)
                 return}
@@ -97,6 +127,7 @@ class NoWorkHearthVC: UIViewController,UITextFieldDelegate {
             CalData.p2Hearth = Int(HearthFF2.text!)!
             CalData.p3Hearth = Int(HearthFF3.text!)!
             CalData.p4Hearth = Int(HearthFF4.text!)!
+            CalData.heartFoundTime = ArrivalTimeHearth.date
         case 5:
             guard HearthFF1.text != "",HearthFF2.text != "",HearthFF3.text != "",HearthFF4.text != "", HearthFF5.text != "" else {alertAction(errors:errorName)
                 return}
@@ -105,6 +136,7 @@ class NoWorkHearthVC: UIViewController,UITextFieldDelegate {
             CalData.p3Hearth = Int(HearthFF3.text!)!
             CalData.p4Hearth = Int(HearthFF4.text!)!
             CalData.p5Hearth = Int(HearthFF5.text!)!
+            CalData.heartFoundTime = ArrivalTimeHearth.date
         default:
             print("No numb")
         }

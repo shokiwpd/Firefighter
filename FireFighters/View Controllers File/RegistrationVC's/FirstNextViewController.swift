@@ -30,19 +30,32 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     var imageReferencs: StorageReference {
         return Storage.storage().reference().child("userPhoto")
     }
-    
+    var saveDataButtonGardient: CAGradientLayer! {
+        didSet {
+            saveDataButtonGardient.colors = [UIColor.white.cgColor, UIColor.gray.cgColor]
+            saveDataButtonGardient.startPoint = CGPoint(x: 0, y: 0)
+            saveDataButtonGardient.endPoint = CGPoint(x: 0, y: 1)
+        }
+    }
+    override func viewDidLayoutSubviews() {
+        self.view.insertSubview(view.backgraundRegistration(), at: 0)
+        saveDataButtonGardient = CAGradientLayer()
+        saveDataButtonGardient.frame = CGRect(x: 0, y: 0, width: saveButton.frame.size.width, height: saveButton.frame.size.height)
+        saveButton.layer.insertSublayer(saveDataButtonGardient, at: 0)
+        saveButton.clipsToBounds = true
+        saveButton.layer.cornerRadius = 10
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Регистрация"
-        self.view.insertSubview(CustomClass.backgraundRegistration(), at: 0)
-        CustomClass.CustomButton(nameBut: "Сохранить", buttons: saveButton)
-        guard let currentUser = Auth.auth().currentUser else { return }
-        user = Users(user: currentUser)
-        ref = Database.database().reference(withPath: "firefighter")
         vBallons.delegate = self
         AspectRatio.delegate = self
         AirFlow.delegate = self
         GearboxOperation.delegate = self
+        title = "Регистрация"
+        saveButton.customButtonColor(radius: 10, nameBut: "Сохранить", titleColor: .black, shadowColors: UIColor.black.cgColor)
+        guard let currentUser = Auth.auth().currentUser else { return }
+        user = Users(user: currentUser)
+        ref = Database.database().reference(withPath: "firefighter")
     }
     //MARK: PickerView
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -94,7 +107,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     func checkInfoWork(changeNum: Int, partNumb: String, position: String,vBallon: Double, airFlow: Double, AspectRatio: Double,GearboxOperation: Int ){
         guard changeNum != 0 else{ return errorsMassages(errors: "Вы не указали свою дежурную смену(Караул)!")}
-        guard changeNum < 4  else{ return errorsMassages(errors: "Вы указали не существующую смену")}
+        guard changeNum < 5  else{ return errorsMassages(errors: "Вы указали не существующую смену")}
         guard partNumb != "" else {return errorsMassages(errors: "Вы не указали номер своей части!")}
         guard position != "" else {return errorsMassages(errors: "Вы не точно указали свою должность!")}
         guard vBallon != 0.0 else {return errorsMassages(errors: "Укажите объем баллона!")}

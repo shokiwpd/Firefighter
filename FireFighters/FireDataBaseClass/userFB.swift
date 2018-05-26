@@ -2,6 +2,7 @@ import Foundation
 import Firebase
 
 struct Users {
+    var AutInfo = Auth.auth().currentUser?.uid
     let uid:String
     let email:String
     

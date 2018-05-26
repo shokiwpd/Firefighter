@@ -2,51 +2,35 @@ import UIKit
 import Firebase
 
 class LoginPassVC: UIViewController,UITextFieldDelegate {
-    @IBOutlet weak var createLogin: UITextField! {
-        didSet {
-            createLogin.backgroundColor = UIColor.clear
-            createLogin.borderStyle = .none
-        }
-    }
-    @IBOutlet weak var createPassw: UITextField! {
-        didSet {
-            createPassw.backgroundColor = UIColor.clear
-            createPassw.borderStyle = .none
-        }
-    }
+    @IBOutlet weak var createLogin: UITextField!
+    @IBOutlet weak var createPassw: UITextField!
     @IBOutlet weak var passCheck: UITextField!
-        {
+    @IBOutlet weak var customButton: UIButton! {
         didSet {
-            passCheck.backgroundColor = UIColor.clear
-            passCheck.borderStyle = .none
+            customButton.layer.shadowColor = UIColor.black.cgColor
+            customButton.layer.shadowOpacity = 1.0
         }
     }
-    @IBOutlet weak var customButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    
     var eMailField: CAShapeLayer! {
         didSet {
-            eMailField.fillColor = nil
-            eMailField.lineCap = "round"
-            eMailField.lineWidth = 2
-            eMailField.strokeColor = UIColor.black.cgColor
-            eMailField.strokeEnd = 1
+            eMailField.layerLine(strokeColors: UIColor.black.cgColor)
         }
     }
     var passField1: CAShapeLayer! {
         didSet {
-            passField1.fillColor = nil
-            passField1.lineCap = "round"
-            passField1.lineWidth = 2
-            passField1.strokeColor = UIColor.black.cgColor
-            passField1.strokeEnd = 1
+            passField1.layerLine(strokeColors: UIColor.black.cgColor)
         }
     }
     var passField2: CAShapeLayer! {
         didSet {
-            passField2.fillColor = nil
-            passField2.lineCap = "round"
-            passField2.lineWidth = 2
-            passField2.strokeColor = UIColor.black.cgColor
-            passField2.strokeEnd = 1
+            passField2.layerLine(strokeColors: UIColor.black.cgColor)
+        }
+    }
+    var nextViewButtonGardient: CAGradientLayer! {
+        didSet {
+            nextViewButtonGardient.gradientsColor()
         }
     }
     let customClass = UICustomClass()
@@ -58,14 +42,20 @@ class LoginPassVC: UIViewController,UITextFieldDelegate {
                 createLogin.layer.addSublayer(eMailField)
                 createPassw.layer.addSublayer(passField1)
                 passCheck.layer.addSublayer(passField2)
-                    customTextField(shape: eMailField, textFields: createLogin)
-                    customTextField(shape: passField1, textFields: createPassw)
-                    customTextField(shape: passField2, textFields: passCheck)
+        createLogin.lineToTextField(shape: eMailField)
+        createPassw.lineToTextField(shape: passField1)
+        passCheck.lineToTextField(shape: passField2)
+        nextViewButtonGardient = CAGradientLayer()
+        nextViewButtonGardient.frame = CGRect(x: 0, y: 0, width: customButton.frame.size.width, height: customButton.frame.size.height)
+        customButton.layer.insertSublayer(nextViewButtonGardient, at: 0)
+        customButton.customButtonColor(radius: 10, nameBut: "Далее", titleColor: .black, shadowColors: UIColor.black.cgColor)
+        cancelButton.customButtonColor(radius: 10, nameBut: "Отмена", titleColor: .black, shadowColors: UIColor.clear.cgColor)
+        customButton.clipsToBounds = true
+        customButton.layer.cornerRadius = 10
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.insertSubview(customClass.backgraundRegistration(), at: 0)
-        customClass.CustomButton(nameBut: "Далее", buttons: customButton)
+        self.view.insertSubview(view.backgraundRegistration(), at: 0)
         createPassw.delegate = self
         title = "Регистрация"
     }
@@ -78,6 +68,9 @@ class LoginPassVC: UIViewController,UITextFieldDelegate {
         })
     }
     
+    @IBAction func cancelRegitration(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         customClass.keyboardStepAndHidden(viewVC: view, step: false)

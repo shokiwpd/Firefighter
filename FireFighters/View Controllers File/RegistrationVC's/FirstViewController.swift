@@ -10,17 +10,28 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     @IBOutlet weak var nextViewButton: UIButton!
     @IBOutlet weak var selPhotoButton: UIButton!
     //MARK: Var
+    var nextButtonGardient: CAGradientLayer! {
+        didSet {
+            nextButtonGardient.colors = [UIColor.white.cgColor, UIColor.gray.cgColor]
+            nextButtonGardient.startPoint = CGPoint(x: 0, y: 0)
+            nextButtonGardient.endPoint = CGPoint(x: 0, y: 1)
+        }
+    }
     let CustomClass = UICustomClass()
     let userInformSave = UserProfile.userInform
-    var isProfileEdit = false
-
+    override func viewDidLayoutSubviews() {
+        nextButtonGardient = CAGradientLayer()
+        nextButtonGardient.frame = CGRect(x: 0, y: 0, width: nextViewButton.frame.size.width, height: nextViewButton.frame.size.height)
+        nextViewButton.layer.insertSublayer(nextButtonGardient, at: 0)
+        nextViewButton.clipsToBounds = true
+        nextViewButton.layer.cornerRadius = 10
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.insertSubview(CustomClass.backgraundRegistration(), at: 0)
+        self.view.insertSubview(view.backgraundRegistration(), at: 0)
         title = "Регистрация"
         userPatronymicView.delegate = self
         userCityView.delegate = self
-        isProfileEdit ? CustomClass.CustomButton(nameBut: "Сохранить", buttons: nextViewButton) : CustomClass.CustomButton(nameBut: "Продолжить", buttons: nextViewButton)
         CustomClass.customDataPicker(dataPicker: userBirthdayPicker)
         CustomClass.CustomTextField(textField: userNameView, nextBut: true)
         CustomClass.CustomTextField(textField: userPatronymicView, nextBut: true)
@@ -44,7 +55,6 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         super.touchesBegan(touches, with: event)
     }
     @IBAction func nextViewSelButton(_ sender: Any) {
-    
         guard userNameView.text != "" else {return  errorsMassages(errors: "Вы не указали свое имя!")}
         guard userPatronymicView.text != "" else {return errorsMassages(errors: "Вы не указали своё Отчество!")}
         guard userCityView.text != "" else {return errorsMassages(errors: "Вы не указали свой город!")}

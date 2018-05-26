@@ -1,25 +1,39 @@
-
-
+import Foundation
 import UIKit
 class CalculationViewController: UIViewController {
-let DataBase = UserProfile.userInform
-    
     @IBOutlet weak var statusFire: UISwitch!
     @IBOutlet weak var ComplexityStatus: UISwitch!
     @IBOutlet weak var numberFireFighter: UISlider!
     @IBOutlet weak var nuberFirfighterNow: UILabel!
     @IBOutlet weak var nextButton: UIButton!
+    let DataBase = UserProfile.userInform
     var statusFireBool = false
     var Complexity = false
     let CustomUI = UICustomClass()
     let CaclClass = CalculationInfo.CalculationInform
+    //MARK: Gardients for Button
+    var buttonGardients: CAGradientLayer! {
+        didSet {
+            buttonGardients.colors = [UIColor.white.cgColor, UIColor.gray.cgColor]
+            buttonGardients.startPoint = CGPoint(x: 0, y: 0)
+            buttonGardients.endPoint = CGPoint(x: 0, y: 1)
+        }
+    }
+    //MARK: Load first layout
+    override func viewDidLayoutSubviews() {
+        self.view.insertSubview(view.backgraundView(), at: 0)
+        self.view.insertSubview(view.blurringScreen(), at: 1)
+        buttonGardients = CAGradientLayer()
+        buttonGardients.frame = CGRect(x: 0, y: 0, width: nextButton.frame.size.width, height: nextButton.frame.size.height)
+        nextButton.layer.insertSublayer(buttonGardients, at: 0)
+        nextButton.layer.cornerRadius = 10
+        nextButton.clipsToBounds = true
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.insertSubview(CustomUI.backgraundView(), at: 0)
-        self.view.insertSubview(CustomUI.blurringScreen(view: view), at: 1)
         title = "Расчеты"
         CaclClass.claenData()
-        CustomUI.CustomButton(nameBut: "Далее", buttons: nextButton)
+        nextButton.setTitle("Далее", for: .normal)
     }
     func switchStatus(switcher: UISwitch)->Bool! {
         switch switcher.isOn {
@@ -34,9 +48,9 @@ let DataBase = UserProfile.userInform
         statusFireBool = switchStatus(switcher: statusFire)
         switch statusFireBool {
         case true:
-            CustomUI.CustomButton(nameBut: "Включение", buttons: nextButton)
+            nextButton.setTitle("Включение", for: .normal)
         case false:
-            CustomUI.CustomButton(nameBut: "Далее", buttons: nextButton)
+            nextButton.setTitle("Далее", for: .normal)
         }
     }
     @IBAction func actionComplexityStatus(_ sender: Any) {
@@ -51,7 +65,6 @@ let DataBase = UserProfile.userInform
     @IBAction func actionNextButton(_ sender: Any) {
         CaclClass.numberFireFighter = Int(numberFireFighter.value)
         CaclClass.complexityStatus = Complexity
-        print(Complexity)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

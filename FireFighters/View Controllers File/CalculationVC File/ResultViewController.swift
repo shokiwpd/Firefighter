@@ -14,13 +14,18 @@ class ResultViewController: UIViewController {
     let CalcData = CalculationInfo.CalculationInform
     let CalcFunc = calculations()
     let CustomUI = UICustomClass()
+    let resultTextClass = resultText()
+    let textDecision = SettlementSolution()
     var HeartStatus = false
+    var DecisionProgressText = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.insertSubview(CustomUI.backgraundView(), at: 0)
-        self.view.insertSubview(CustomUI.blurringScreen(view: view), at: 1)
+        self.view.insertSubview(view.backgraundView(), at: 0)
+        self.view.insertSubview(view.blurringScreen(), at: 1)
         resul()
     }
+
+
     func resul() {
         switch CalcData.numberFireFighter {
         case 2:
@@ -30,11 +35,8 @@ class ResultViewController: UIViewController {
                 CalcFunc.P2 = CalcData.FireFighter2
                 CalcFunc.Complexity = CalcData.complexityStatus
                 CalcFunc.CalculationTwoFireFighter()
-                resultView.text = """
-                Максимальное падение воздуха:\(CalcFunc.Pmax!) Бар
-                Общее время работы:\(CalcFunc.Tall!) Мин
-                Давление при котором надо выходить:\(CalcFunc.Pkexit!) Бар
-                """
+                resultView.text = resultTextClass.isNoFound(Pexit: CalcFunc.Pkexit!, delT: CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Twork)!, approximateTimeExit: CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Tall)!)
+                DecisionProgressText = textDecision.ifNoFoundHearth(Pmin: CalcFunc.Pmin, Pred: CalcFunc.Pust, Vbal: CalcFunc.V, Qair: Int(CalcFunc.Q), Kzh: CalcFunc.Kszh, Tall: CalcFunc.Tall, Pmax: CalcFunc.Pmax, Pexit: CalcFunc.Pkexit, Twork: CalcFunc.Twork, Compl: CalcFunc.Complexity, timeOn: CalcData.inputTime.TimeFormat, TimeExit: CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Tall)!, TimeExitWork:CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Twork)!)
             case true:
                 CalcFunc.P1 = CalcData.FireFighter1
                 CalcFunc.P2 = CalcData.FireFighter2
@@ -43,13 +45,11 @@ class ResultViewController: UIViewController {
                 CalcFunc.Complexity = CalcData.complexityStatus
                 CalcFunc.Hearth = true
                 CalcFunc.CalculationTwoFireFighter()
-                resultView.text = """
-                Максимальное падение воздуха:\(CalcFunc.Pmax!) Бар
-                Общее время работы:\(CalcFunc.Tall!) Мин
-                Давление при котором надо выходить:\(CalcFunc.Pkexit!) Бар
-                Время работы:\(CalcFunc.Twork!) Мин
-                Время работы у очага:\(CalcFunc.THearthWork!) Мин
-                Контрольное давление при котором надо выходить при котором надо выходить:\(CalcFunc.PkexitH!) Бар
+                resultView.text = resultTextClass.isFound(Pexit: CalcFunc.PkexitH, timeWork: CalcFunc.THearthWork, approximateTimeExit: CalcFunc.calculationsTime(time: CalcData.heartFoundTime, toTime: CalcFunc.THearthWork)!)
+                DecisionProgressText = """
+                \(textDecision.ifNoFoundHearth(Pmin: CalcFunc.Pmin, Pred: CalcFunc.Pust, Vbal: CalcFunc.V, Qair: Int(CalcFunc.Q), Kzh: CalcFunc.Kszh, Tall: CalcFunc.Tall, Pmax: CalcFunc.Pmax, Pexit: CalcFunc.Pkexit, Twork: CalcFunc.Twork, Compl: CalcFunc.Complexity, timeOn: CalcData.inputTime.TimeFormat, TimeExit: CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Tall)!, TimeExitWork:CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Twork)!)!)
+                \(textDecision.calculationOfAir(ffInt: CalcData.numberFireFighter, ff1: CalcData.FireFighter1, ff2: CalcData.FireFighter2, ff3: CalcData.FireFighter3, ff4: CalcData.FireFighter4, ff5: CalcData.FireFighter5, ffp1: CalcData.p1Hearth, ffp2: CalcData.p2Hearth, ffp3: CalcData.p3Hearth, ffp4: CalcData.p4Hearth, ffp5: CalcData.p5Hearth)!)
+                \(textDecision.ochag(booling: CalcFunc.Complexity, Pmax: CalcFunc.PPadMax, Pmin: CalcFunc.PminHearth, Vb: Int(CalcFunc.V), Q: Int(CalcFunc.Q), Kzh: Int(CalcFunc.Kszh), StabilWork: CalcFunc.Pust, THearthWorks: CalcFunc.THearthWork, PmaxD: CalcFunc.PkexitH, TimeHearts: CalcData.heartFoundTime.TimeFormat, TimeWork: CalcFunc.calculationsTime(time: CalcData.heartFoundTime, toTime: CalcFunc.THearthWork))!)
                 """
             }
         case 3:
@@ -60,11 +60,8 @@ class ResultViewController: UIViewController {
                 CalcFunc.P3 = CalcData.FireFighter3
                 CalcFunc.Complexity = CalcData.complexityStatus
                 CalcFunc.CalculationThreeFireFighter()
-                resultView.text = """
-                Максимальное падение воздуха:\(CalcFunc.Pmax!) Бар
-                Общее время работы:\(CalcFunc.Tall!) Мин
-                Давление при котором надо выходить:\(CalcFunc.Pkexit!) Бар
-                """
+                resultView.text = resultTextClass.isNoFound(Pexit: CalcFunc.Pkexit!, delT: CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Twork)!, approximateTimeExit: CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Tall)!)
+                DecisionProgressText = textDecision.ifNoFoundHearth(Pmin: CalcFunc.Pmin, Pred: CalcFunc.Pust, Vbal: CalcFunc.V, Qair: Int(CalcFunc.Q), Kzh: CalcFunc.Kszh, Tall: CalcFunc.Tall, Pmax: CalcFunc.Pmax, Pexit: CalcFunc.Pkexit, Twork: CalcFunc.Twork, Compl: CalcFunc.Complexity, timeOn: CalcData.inputTime.TimeFormat, TimeExit: CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Tall)!, TimeExitWork:CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Twork)!)
             case true:
                 CalcFunc.P1 = CalcData.FireFighter1
                 CalcFunc.P2 = CalcData.FireFighter2
@@ -75,13 +72,11 @@ class ResultViewController: UIViewController {
                 CalcFunc.Complexity = CalcData.complexityStatus
                 CalcFunc.Hearth = true
                 CalcFunc.CalculationThreeFireFighter()
-                resultView.text = """
-                Максимальное падение воздуха:\(CalcFunc.Pmax!) Бар
-                Общее время работы:\(CalcFunc.Tall!) Мин
-                Давление при котором надо выходить:\(CalcFunc.Pkexit!) Бар
-                Время работы:\(CalcFunc.Twork!) Мин
-                Время работы у очага:\(CalcFunc.THearthWork!) Мин
-                Контрольное давление при котором надо выходить при котором надо выходить:\(CalcFunc.PkexitH!) Бар
+                resultView.text = resultTextClass.isFound(Pexit: CalcFunc.PkexitH, timeWork: CalcFunc.THearthWork, approximateTimeExit: CalcFunc.calculationsTime(time: CalcData.heartFoundTime, toTime: CalcFunc.THearthWork)!)
+                DecisionProgressText = """
+                \(textDecision.ifNoFoundHearth(Pmin: CalcFunc.Pmin, Pred: CalcFunc.Pust, Vbal: CalcFunc.V, Qair: Int(CalcFunc.Q), Kzh: CalcFunc.Kszh, Tall: CalcFunc.Tall, Pmax: CalcFunc.Pmax, Pexit: CalcFunc.Pkexit, Twork: CalcFunc.Twork, Compl: CalcFunc.Complexity, timeOn: CalcData.inputTime.TimeFormat, TimeExit: CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Tall)!, TimeExitWork:CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Twork)!)!)
+                \(textDecision.calculationOfAir(ffInt: CalcData.numberFireFighter, ff1: CalcData.FireFighter1, ff2: CalcData.FireFighter2, ff3: CalcData.FireFighter3, ff4: CalcData.FireFighter4, ff5: CalcData.FireFighter5, ffp1: CalcData.p1Hearth, ffp2: CalcData.p2Hearth, ffp3: CalcData.p3Hearth, ffp4: CalcData.p4Hearth, ffp5: CalcData.p5Hearth)!)
+                \(textDecision.ochag(booling: CalcFunc.Complexity, Pmax: CalcFunc.PPadMax, Pmin: CalcFunc.PminHearth, Vb: Int(CalcFunc.V), Q: Int(CalcFunc.Q), Kzh: Int(CalcFunc.Kszh), StabilWork: CalcFunc.Pust, THearthWorks: CalcFunc.THearthWork, PmaxD: CalcFunc.PkexitH, TimeHearts: CalcData.heartFoundTime.TimeFormat, TimeWork: CalcFunc.calculationsTime(time: CalcData.heartFoundTime, toTime: CalcFunc.THearthWork))!)
                 """
             }
         case 4:
@@ -93,11 +88,9 @@ class ResultViewController: UIViewController {
                 CalcFunc.P4 = CalcData.FireFighter4
                 CalcFunc.Complexity = CalcData.complexityStatus
                 CalcFunc.CalculationFourFireFighter()
-                resultView.text = """
-                Максимальное падение воздуха:\(CalcFunc.Pmax!) Бар
-                Общее время работы:\(CalcFunc.Tall!) Мин
-                Давление при котором надо выходить:\(CalcFunc.Pkexit!) Бар
-                """
+                resultView.text = resultTextClass.isNoFound(Pexit: CalcFunc.Pkexit!, delT: CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Twork)!, approximateTimeExit: CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Tall)!)
+                DecisionProgressText = textDecision.ifNoFoundHearth(Pmin: CalcFunc.Pmin, Pred: CalcFunc.Pust, Vbal: CalcFunc.V, Qair: Int(CalcFunc.Q), Kzh: CalcFunc.Kszh, Tall: CalcFunc.Tall, Pmax: CalcFunc.Pmax, Pexit: CalcFunc.Pkexit, Twork: CalcFunc.Twork, Compl: CalcFunc.Complexity, timeOn: CalcData.inputTime.TimeFormat, TimeExit: CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Tall)!, TimeExitWork:CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Twork)!)
+                
             case true:
                 CalcFunc.P1 = CalcData.FireFighter1
                 CalcFunc.P2 = CalcData.FireFighter2
@@ -110,13 +103,11 @@ class ResultViewController: UIViewController {
                 CalcFunc.Complexity = CalcData.complexityStatus
                 CalcFunc.Hearth = true
                 CalcFunc.CalculationFourFireFighter()
-                resultView.text = """
-                Максимальное падение воздуха:\(CalcFunc.Pmax!) Бар
-                Общее время работы:\(CalcFunc.Tall!) Мин
-                Давление при котором надо выходить:\(CalcFunc.Pkexit!) Бар
-                Время работы:\(CalcFunc.Twork!) Мин
-                Время работы у очага:\(CalcFunc.THearthWork!) Мин
-                Контрольное давление при котором надо выходить при котором надо выходить:\(CalcFunc.PkexitH!) Бар
+                resultView.text = resultTextClass.isFound(Pexit: CalcFunc.PkexitH, timeWork: CalcFunc.THearthWork, approximateTimeExit: CalcFunc.calculationsTime(time: CalcData.heartFoundTime, toTime: CalcFunc.THearthWork)!)
+                DecisionProgressText = """
+                \(textDecision.ifNoFoundHearth(Pmin: CalcFunc.Pmin, Pred: CalcFunc.Pust, Vbal: CalcFunc.V, Qair: Int(CalcFunc.Q), Kzh: CalcFunc.Kszh, Tall: CalcFunc.Tall, Pmax: CalcFunc.Pmax, Pexit: CalcFunc.Pkexit, Twork: CalcFunc.Twork, Compl: CalcFunc.Complexity, timeOn: CalcData.inputTime.TimeFormat, TimeExit: CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Tall)!, TimeExitWork:CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Twork)!)!)
+                \(textDecision.calculationOfAir(ffInt: CalcData.numberFireFighter, ff1: CalcData.FireFighter1, ff2: CalcData.FireFighter2, ff3: CalcData.FireFighter3, ff4: CalcData.FireFighter4, ff5: CalcData.FireFighter5, ffp1: CalcData.p1Hearth, ffp2: CalcData.p2Hearth, ffp3: CalcData.p3Hearth, ffp4: CalcData.p4Hearth, ffp5: CalcData.p5Hearth)!)
+                \(textDecision.ochag(booling: CalcFunc.Complexity, Pmax: CalcFunc.PPadMax, Pmin: CalcFunc.PminHearth, Vb: Int(CalcFunc.V), Q: Int(CalcFunc.Q), Kzh: Int(CalcFunc.Kszh), StabilWork: CalcFunc.Pust, THearthWorks: CalcFunc.THearthWork, PmaxD: CalcFunc.PkexitH, TimeHearts: CalcData.heartFoundTime.TimeFormat, TimeWork: CalcFunc.calculationsTime(time: CalcData.heartFoundTime, toTime: CalcFunc.THearthWork))!)
                 """
             }
         case 5:
@@ -129,11 +120,8 @@ class ResultViewController: UIViewController {
                 CalcFunc.P5 = CalcData.FireFighter5
                 CalcFunc.Complexity = CalcData.complexityStatus
                 CalcFunc.CalculationFiveFireFighter()
-                resultView.text = """
-                Максимальное падение воздуха:\(CalcFunc.Pmax!) Бар
-                Общее время работы:\(CalcFunc.Tall!) Мин
-                Давление при котором надо выходить:\(CalcFunc.Pkexit!) Бар
-                """
+                resultView.text = resultTextClass.isNoFound(Pexit: CalcFunc.Pkexit!, delT: CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Twork)!, approximateTimeExit: CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Tall)!)
+                DecisionProgressText = textDecision.ifNoFoundHearth(Pmin: CalcFunc.Pmin, Pred: CalcFunc.Pust, Vbal: CalcFunc.V, Qair: Int(CalcFunc.Q), Kzh: CalcFunc.Kszh, Tall: CalcFunc.Tall, Pmax: CalcFunc.Pmax, Pexit: CalcFunc.Pkexit, Twork: CalcFunc.Twork, Compl: CalcFunc.Complexity, timeOn: CalcData.inputTime.TimeFormat, TimeExit: CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Tall)!, TimeExitWork:CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Twork)!)
             case true:
                 CalcFunc.P1 = CalcData.FireFighter1
                 CalcFunc.P2 = CalcData.FireFighter2
@@ -148,25 +136,25 @@ class ResultViewController: UIViewController {
                 CalcFunc.Complexity = CalcData.complexityStatus
                 CalcFunc.Hearth = true
                 CalcFunc.CalculationFiveFireFighter()
-                resultView.text = """
-                Максимальное падение воздуха:\(CalcFunc.Pmax!) Бар
-                Общее время работы:\(CalcFunc.Tall!) Мин
-                Давление при котором надо выходить:\(CalcFunc.Pkexit!) Бар
-                Время работы:\(CalcFunc.Twork!) Мин
-                Время работы у очага:\(CalcFunc.THearthWork!) Мин
-                Контрольное давление при котором надо выходить при котором надо выходить:\(CalcFunc.PkexitH!) Бар
+                resultView.text = resultTextClass.isFound(Pexit: CalcFunc.PkexitH, timeWork: CalcFunc.THearthWork, approximateTimeExit: CalcFunc.calculationsTime(time: CalcData.heartFoundTime, toTime: CalcFunc.THearthWork)!)
+                DecisionProgressText = """
+                \(textDecision.ifNoFoundHearth(Pmin: CalcFunc.Pmin, Pred: CalcFunc.Pust, Vbal: CalcFunc.V, Qair: Int(CalcFunc.Q), Kzh: CalcFunc.Kszh, Tall: CalcFunc.Tall, Pmax: CalcFunc.Pmax, Pexit: CalcFunc.Pkexit, Twork: CalcFunc.Twork, Compl: CalcFunc.Complexity, timeOn: CalcData.inputTime.TimeFormat, TimeExit: CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Tall)!, TimeExitWork:CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Twork)!)!)
+                \(textDecision.calculationOfAir(ffInt: CalcData.numberFireFighter, ff1: CalcData.FireFighter1, ff2: CalcData.FireFighter2, ff3: CalcData.FireFighter3, ff4: CalcData.FireFighter4, ff5: CalcData.FireFighter5, ffp1: CalcData.p1Hearth, ffp2: CalcData.p2Hearth, ffp3: CalcData.p3Hearth, ffp4: CalcData.p4Hearth, ffp5: CalcData.p5Hearth)!)
+                \(textDecision.ochag(booling: CalcFunc.Complexity, Pmax: CalcFunc.PPadMax, Pmin: CalcFunc.PminHearth, Vb: Int(CalcFunc.V), Q: Int(CalcFunc.Q), Kzh: Int(CalcFunc.Kszh), StabilWork: CalcFunc.Pust, THearthWorks: CalcFunc.THearthWork, PmaxD: CalcFunc.PkexitH, TimeHearts: CalcData.heartFoundTime.TimeFormat, TimeWork: CalcFunc.calculationsTime(time: CalcData.heartFoundTime, toTime: CalcFunc.THearthWork))!)
                 """
             }
         default:
             print("Test")
         }
-        
-        
-        
-        
+
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ResultSegue"{
+            let resultSeg = segue.destination as! DecisionProgressVC
+            resultSeg.resultTextClass = DecisionProgressText
+        }
+    }
 }
 
 

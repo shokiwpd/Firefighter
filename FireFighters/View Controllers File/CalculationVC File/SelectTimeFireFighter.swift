@@ -20,35 +20,41 @@ class SelectTimeFireFighter: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var TimeOn: UIDatePicker!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var calculationButton: UIButton!
-    var buttonGardients: CAGradientLayer! {
+    //MARK: Гардиенты для кнопок
+    var startButtonGardients: CAGradientLayer! {
         didSet {
-            buttonGardients.colors = [UIColor.white.cgColor, UIColor.gray.cgColor]
-            buttonGardients.startPoint = CGPoint(x: 0, y: 0)
-            buttonGardients.endPoint = CGPoint(x: 0, y: 1)
+            startButtonGardients.colors = [UIColor.white.cgColor, UIColor.gray.cgColor]
+            startButtonGardients.startPoint = CGPoint(x: 0, y: 0)
+            startButtonGardients.endPoint = CGPoint(x: 0, y: 1)
         }
     }
-    var buttonGardients2: CAGradientLayer! {
+    var calculationButtonGardients: CAGradientLayer! {
         didSet {
-            buttonGardients.colors = [UIColor.white.cgColor, UIColor.gray.cgColor]
-            buttonGardients.startPoint = CGPoint(x: 0, y: 0)
-            buttonGardients.endPoint = CGPoint(x: 0, y: 1)
+            calculationButtonGardients.colors = [UIColor.white.cgColor, UIColor.gray.cgColor]
+            calculationButtonGardients.startPoint = CGPoint(x: 0, y: 0)
+            calculationButtonGardients.endPoint = CGPoint(x: 0, y: 1)
         }
     }
     let CustomUI = UICustomClass()
     var status = false
     let CalData = CalculationInfo.CalculationInform
+    //MARK: Загрзка графической части
+    override func viewDidLayoutSubviews() {
+        self.view.insertSubview(view.backgraundView(), at: 0)
+        self.view.insertSubview(view.blurringScreen(), at: 1)
+        startButtonGardients = CAGradientLayer()
+        startButtonGardients.frame = CGRect(x: 0, y: 0, width: startButton.frame.size.width, height: startButton.frame.size.height)
+        startButton.layer.insertSublayer(startButtonGardients, at: 0)
+            calculationButtonGardients = CAGradientLayer()
+            calculationButtonGardients.frame = CGRect(x: 0, y: 0, width: calculationButton.frame.size.width, height: calculationButton.frame.size.height)
+            calculationButton.layer.insertSublayer(calculationButtonGardients, at: 0)
+        calculationButton.layer.cornerRadius = 10
+        calculationButton.clipsToBounds = true
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.insertSubview(CustomUI.backgraundView(), at: 0)
-        self.view.insertSubview(CustomUI.blurringScreen(view: view), at: 1)
-        buttonGardients = CAGradientLayer()
-        buttonGardients.frame = CGRect(x: 0, y: 0, width: startButton.frame.size.width, height: startButton.frame.size.height)
-        startButton.layer.insertSublayer(buttonGardients, at: 0)
-        buttonGardients2 = CAGradientLayer()
-        buttonGardients2.frame = CGRect(x: 0, y: 0, width: calculationButton.frame.size.width, height: calculationButton.frame.size.height)
-        calculationButton.layer.insertSublayer(buttonGardients2, at: 0)
-        
-        
+        startButton.isHidden = true
         switch CalData.numberFireFighter{
         case 2:
             FireFighter3.isHidden = true
@@ -66,17 +72,17 @@ class SelectTimeFireFighter: UIViewController,UITextFieldDelegate {
             FireFighter5.isHidden = true
             FireFighterLabel5.isHidden = true
         default:
-            print("Error Select")
+            print("All form view")
         }
         switch status {
         case true:
-            CustomUI.CustomButton(nameBut: "Вход в НДДС", buttons: startButton)
+           // CustomUI.CustomButton(nameBut: "Вход в НДДС", buttons: startButton)
             
             calculationButton.isHidden = true
         case false:
             startButton.isHidden = true
             calculationButton.setTitle("Рассчитать", for: .normal)
-            //CustomUI.CustomButton(nameBut: "Рассчитать", buttons: calculationButton)
+            calculationButton.setTitleColor(UIColor.black, for: .normal)
         }
         // Do any additional setup after loading the view.
     }
@@ -111,12 +117,14 @@ private func saveData() {
                 return}
             CalData.FireFighter1 = Int(FireFighter1.text!)!
             CalData.FireFighter2 = Int(FireFighter2.text!)!
+            CalData.inputTime = TimeOn.date
         case 3:
             guard FireFighter1.text != "",FireFighter2.text != "", FireFighter3.text != "" else {alertAction(errors: errorName)
                 return}
             CalData.FireFighter1 = Int(FireFighter1.text!)!
             CalData.FireFighter2 = Int(FireFighter2.text!)!
             CalData.FireFighter3 = Int(FireFighter3.text!)!
+            CalData.inputTime = TimeOn.date
         case 4:
             guard FireFighter1.text != "",FireFighter2.text != "",FireFighter3.text != "",FireFighter4.text != "" else {alertAction(errors: errorName)
                 return}
@@ -124,6 +132,7 @@ private func saveData() {
             CalData.FireFighter2 = Int(FireFighter2.text!)!
             CalData.FireFighter3 = Int(FireFighter3.text!)!
             CalData.FireFighter4 = Int(FireFighter4.text!)!
+            CalData.inputTime = TimeOn.date
         case 5:
             guard FireFighter1.text != "",FireFighter2.text != "",FireFighter3.text != "",FireFighter4.text != "", FireFighter5.text != "" else {alertAction(errors:errorName)
                 return}
@@ -132,6 +141,7 @@ private func saveData() {
             CalData.FireFighter3 = Int(FireFighter3.text!)!
             CalData.FireFighter4 = Int(FireFighter4.text!)!
             CalData.FireFighter5 = Int(FireFighter5.text!)!
+            CalData.inputTime = TimeOn.date
         default:
             print("No numb")
         }
@@ -141,20 +151,5 @@ private func saveData() {
         let AlAc = UIAlertAction(title: "ОК", style: .default, handler: nil)
         AC.addAction(AlAc)
         present(AC, animated: true, completion: nil)
-    }
-    @IBAction func printTexts(_ sender: Any) {
-        
-        let x = 0.0
-        let y = TimeOn.countDownDuration
-        let Time = "test\(x+y) two test \(x)"
-        print(Time)
-        let z = 10.0
-        let time2 = "test\(z+y)"
-        print(time2)
-
-    }
-    
-    @IBAction func testingS(_ sender: Any) {
-    }
-    
+    }  
 }
