@@ -77,7 +77,7 @@ class SettlementSolution {
         return label
     }
     //1.Сложность 2. Максимальное падение 3. Минимальное у очага 4. Объем баллонов 5. Средний расход 6. Коэф сжатия 7. РЕдуктор  8. Время работы у очага 9. Максимальное падение для выхода
-    func ochag(booling:Bool, Pmax: Int, Pmin: Int, Vb: Int, Q: Int,Kzh: Int, StabilWork: Int,THearthWorks: Int, PmaxD: Int, TimeHearts: String, TimeWork: String)-> String! {
+    func ochag(booling:Bool, Pmax: Int, Pmin: Int, Vb: Int, Q: Int,Kzh: Double, StabilWork: Int,THearthWorks: Int, PmaxD: Int, TimeHearts: String, TimeWork: String)-> String! {
         var Pexit = ""
         switch booling {
         case true: Pexit = "Pмакс.пад + Pмакс.пад + \(StabilWork) = 2 * Pмакс.пад + \(StabilWork) = 2 * \(Pmax) + \(StabilWork) = \(PmaxD) Bar"
@@ -88,7 +88,7 @@ class SettlementSolution {
         let x = """
         8. Рк.вых = \(Pexit)
         
-        9. ∆Траб.оч = (Рмин.у.оч - Рк.вых)*Vбал/Q * Ксж = (\(Pmin) - \(Pexit))/\(Vb)/ (\(Q) * \(Kzh)) = \(THearthWorks) Мин
+        9. ∆Траб.оч = (Рмин.у.оч - Рк.вых)*Vбал/Q * Ксж = ((\(Pmin) - \(PmaxD))/\(Vb)) / (\(Q) * \(Kzh)) = \(THearthWorks) Мин
 
         10. Тк.вых = Ту.оч + ∆Траб.оч = \(TimeHearts) + \(THearthWorks) = \(TimeWork)
         

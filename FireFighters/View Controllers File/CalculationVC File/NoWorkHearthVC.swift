@@ -78,21 +78,7 @@ class NoWorkHearthVC: UIViewController,UITextFieldDelegate {
         noHearth.customButtonColor(radius: 10, nameBut: "Без очага", titleColor: .black, shadowColors: UIColor.black.cgColor)
         yesHearth.customButtonColor(radius: 10, nameBut: "Очаг найден", titleColor: .black, shadowColors: UIColor.black.cgColor)
     }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        CustomUI.keyboardStepAndHidden(viewVC: view, step: false)
-        textField.resignFirstResponder()
-        return true
-    }
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        CustomUI.keyboardStepAndHidden(viewVC: view, step: true)
-    }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if (touches.first) != nil{
-            view.endEditing(true)
-            CustomUI.keyboardStepAndHidden(viewVC: view, step: false)
-        }
-        super.touchesBegan(touches, with: event)
-    }
+
 
     @IBAction func heartSearchResult(result: UIButton){
         switch result.tag {

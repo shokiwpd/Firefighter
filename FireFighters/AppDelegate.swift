@@ -9,6 +9,9 @@
 import UIKit
 import CoreData
 import Firebase
+import IQKeyboardManagerSwift
+import UserNotifications
+import Reachability
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,11 +19,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var DeviceInfo: UIDevice!
     var DeviceOreintation: UIDeviceOrientation!
+    var connectStatus = Reachability()!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+            (granted, error) in
+            //Parse errors and track state
+        }
+        application.registerForRemoteNotifications()
+        IQKeyboardManager.shared.enable = true
         FirebaseApp.configure()
+        
         window = UIWindow(frame: UIScreen.main.bounds)
-        if Auth.auth().currentUser == nil {
+        if (Auth.auth().currentUser?.uid) == nil {
             window?.rootViewController = UIStoryboard(name: "authStoryBoard", bundle: nil).instantiateInitialViewController() as! AuthAndRegistrationView
         } else {
             if UserProfile.userInform.userName.isEmpty{
@@ -52,7 +63,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         self.saveContext()
     }
-
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        print(deviceTokenString)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // Print message ID.
+        if let messageID = userInfo["alert"] {
+            print("Message ID: \(messageID)")
+        }
+        
+        // Print full message.
+        print("%@", userInfo)
+        print(userInfo)
+        completionHandler(UIBackgroundFetchResult.newData)
+    }
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {

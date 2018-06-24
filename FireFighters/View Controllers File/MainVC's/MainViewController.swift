@@ -1,7 +1,7 @@
 import UIKit
 import Firebase
 @IBDesignable
-class MainViewController: UIViewController,UICollectionViewDelegate {
+class MainViewController: UIViewController,UICollectionViewDelegate,getTockenUser {
     let userInfo = UserProfile.userInform
     let CustomView = UICustomClass()
     let MonthWorkClass = MonthWork()
@@ -16,19 +16,24 @@ class MainViewController: UIViewController,UICollectionViewDelegate {
     @IBOutlet weak var InformationCollection: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self.view.insertSubview(view.backgraundView(), at: 0)
         self.view.insertSubview(view.blurringScreen(), at: 1)
         title = "Главная"
         profileImage.image = userInfo.userPhoto
         welcomeMessage.text = "Здравствуйте \(String(userInfo.userName)) \(String(userInfo.userPatronymic))"
-
+        
     }
     override func viewDidLayoutSubviews() {
-        self.profileImage.layer.cornerRadius = self.profileImage.bounds.size.width / 2.0
-        self.profileImage.clipsToBounds = true
+        profileImage.circleImage()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        Database.database().reference().child("firefighter").child(self.userTocken!).observeSingleEvent(of: .value) {[weak self](snapshot) in
+            let value = snapshot.value as? NSDictionary
+            self?.statusTextLabel = value?["name"] as? String ?? "FuckYou"
+        }
+        print(statusTextLabel)
 //        self.profileImage.layer.cornerRadius = self.profileImage.bounds.size.width / 2.0
 //        self.profileImage.clipsToBounds = true
     }

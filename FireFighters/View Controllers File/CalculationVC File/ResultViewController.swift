@@ -12,7 +12,7 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var resultView: UILabel!
     @IBOutlet weak var viewResultCalc: UIButton!
     let CalcData = CalculationInfo.CalculationInform
-    let CalcFunc = calculations()
+    let CalcFunc = calculationAir()
     let CustomUI = UICustomClass()
     let resultTextClass = resultText()
     let textDecision = SettlementSolution()
@@ -49,7 +49,7 @@ class ResultViewController: UIViewController {
                 DecisionProgressText = """
                 \(textDecision.ifNoFoundHearth(Pmin: CalcFunc.Pmin, Pred: CalcFunc.Pust, Vbal: CalcFunc.V, Qair: Int(CalcFunc.Q), Kzh: CalcFunc.Kszh, Tall: CalcFunc.Tall, Pmax: CalcFunc.Pmax, Pexit: CalcFunc.Pkexit, Twork: CalcFunc.Twork, Compl: CalcFunc.Complexity, timeOn: CalcData.inputTime.TimeFormat, TimeExit: CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Tall)!, TimeExitWork:CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Twork)!)!)
                 \(textDecision.calculationOfAir(ffInt: CalcData.numberFireFighter, ff1: CalcData.FireFighter1, ff2: CalcData.FireFighter2, ff3: CalcData.FireFighter3, ff4: CalcData.FireFighter4, ff5: CalcData.FireFighter5, ffp1: CalcData.p1Hearth, ffp2: CalcData.p2Hearth, ffp3: CalcData.p3Hearth, ffp4: CalcData.p4Hearth, ffp5: CalcData.p5Hearth)!)
-                \(textDecision.ochag(booling: CalcFunc.Complexity, Pmax: CalcFunc.PPadMax, Pmin: CalcFunc.PminHearth, Vb: Int(CalcFunc.V), Q: Int(CalcFunc.Q), Kzh: Int(CalcFunc.Kszh), StabilWork: CalcFunc.Pust, THearthWorks: CalcFunc.THearthWork, PmaxD: CalcFunc.PkexitH, TimeHearts: CalcData.heartFoundTime.TimeFormat, TimeWork: CalcFunc.calculationsTime(time: CalcData.heartFoundTime, toTime: CalcFunc.THearthWork))!)
+                \(textDecision.ochag(booling: CalcFunc.Complexity, Pmax: CalcFunc.PPadMax, Pmin: CalcFunc.PminHearth, Vb: Int(CalcFunc.V), Q: Int(CalcFunc.Q), Kzh: CalcFunc.Kszh, StabilWork: CalcFunc.Pust, THearthWorks: CalcFunc.THearthWork, PmaxD: CalcFunc.PkexitH, TimeHearts: CalcData.heartFoundTime.TimeFormat, TimeWork: CalcFunc.calculationsTime(time: CalcData.heartFoundTime, toTime: CalcFunc.THearthWork))!)
                 """
             }
         case 3:
@@ -76,7 +76,7 @@ class ResultViewController: UIViewController {
                 DecisionProgressText = """
                 \(textDecision.ifNoFoundHearth(Pmin: CalcFunc.Pmin, Pred: CalcFunc.Pust, Vbal: CalcFunc.V, Qair: Int(CalcFunc.Q), Kzh: CalcFunc.Kszh, Tall: CalcFunc.Tall, Pmax: CalcFunc.Pmax, Pexit: CalcFunc.Pkexit, Twork: CalcFunc.Twork, Compl: CalcFunc.Complexity, timeOn: CalcData.inputTime.TimeFormat, TimeExit: CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Tall)!, TimeExitWork:CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Twork)!)!)
                 \(textDecision.calculationOfAir(ffInt: CalcData.numberFireFighter, ff1: CalcData.FireFighter1, ff2: CalcData.FireFighter2, ff3: CalcData.FireFighter3, ff4: CalcData.FireFighter4, ff5: CalcData.FireFighter5, ffp1: CalcData.p1Hearth, ffp2: CalcData.p2Hearth, ffp3: CalcData.p3Hearth, ffp4: CalcData.p4Hearth, ffp5: CalcData.p5Hearth)!)
-                \(textDecision.ochag(booling: CalcFunc.Complexity, Pmax: CalcFunc.PPadMax, Pmin: CalcFunc.PminHearth, Vb: Int(CalcFunc.V), Q: Int(CalcFunc.Q), Kzh: Int(CalcFunc.Kszh), StabilWork: CalcFunc.Pust, THearthWorks: CalcFunc.THearthWork, PmaxD: CalcFunc.PkexitH, TimeHearts: CalcData.heartFoundTime.TimeFormat, TimeWork: CalcFunc.calculationsTime(time: CalcData.heartFoundTime, toTime: CalcFunc.THearthWork))!)
+                \(textDecision.ochag(booling: CalcFunc.Complexity, Pmax: CalcFunc.PPadMax, Pmin: CalcFunc.PminHearth, Vb: Int(CalcFunc.V), Q: Int(CalcFunc.Q), Kzh: CalcFunc.Kszh, StabilWork: CalcFunc.Pust, THearthWorks: CalcFunc.THearthWork, PmaxD: CalcFunc.PkexitH, TimeHearts: CalcData.heartFoundTime.TimeFormat, TimeWork: CalcFunc.calculationsTime(time: CalcData.heartFoundTime, toTime: CalcFunc.THearthWork))!)
                 """
             }
         case 4:
@@ -107,7 +107,7 @@ class ResultViewController: UIViewController {
                 DecisionProgressText = """
                 \(textDecision.ifNoFoundHearth(Pmin: CalcFunc.Pmin, Pred: CalcFunc.Pust, Vbal: CalcFunc.V, Qair: Int(CalcFunc.Q), Kzh: CalcFunc.Kszh, Tall: CalcFunc.Tall, Pmax: CalcFunc.Pmax, Pexit: CalcFunc.Pkexit, Twork: CalcFunc.Twork, Compl: CalcFunc.Complexity, timeOn: CalcData.inputTime.TimeFormat, TimeExit: CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Tall)!, TimeExitWork:CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Twork)!)!)
                 \(textDecision.calculationOfAir(ffInt: CalcData.numberFireFighter, ff1: CalcData.FireFighter1, ff2: CalcData.FireFighter2, ff3: CalcData.FireFighter3, ff4: CalcData.FireFighter4, ff5: CalcData.FireFighter5, ffp1: CalcData.p1Hearth, ffp2: CalcData.p2Hearth, ffp3: CalcData.p3Hearth, ffp4: CalcData.p4Hearth, ffp5: CalcData.p5Hearth)!)
-                \(textDecision.ochag(booling: CalcFunc.Complexity, Pmax: CalcFunc.PPadMax, Pmin: CalcFunc.PminHearth, Vb: Int(CalcFunc.V), Q: Int(CalcFunc.Q), Kzh: Int(CalcFunc.Kszh), StabilWork: CalcFunc.Pust, THearthWorks: CalcFunc.THearthWork, PmaxD: CalcFunc.PkexitH, TimeHearts: CalcData.heartFoundTime.TimeFormat, TimeWork: CalcFunc.calculationsTime(time: CalcData.heartFoundTime, toTime: CalcFunc.THearthWork))!)
+                \(textDecision.ochag(booling: CalcFunc.Complexity, Pmax: CalcFunc.PPadMax, Pmin: CalcFunc.PminHearth, Vb: Int(CalcFunc.V), Q: Int(CalcFunc.Q), Kzh: CalcFunc.Kszh, StabilWork: CalcFunc.Pust, THearthWorks: CalcFunc.THearthWork, PmaxD: CalcFunc.PkexitH, TimeHearts: CalcData.heartFoundTime.TimeFormat, TimeWork: CalcFunc.calculationsTime(time: CalcData.heartFoundTime, toTime: CalcFunc.THearthWork))!)
                 """
             }
         case 5:
@@ -140,7 +140,7 @@ class ResultViewController: UIViewController {
                 DecisionProgressText = """
                 \(textDecision.ifNoFoundHearth(Pmin: CalcFunc.Pmin, Pred: CalcFunc.Pust, Vbal: CalcFunc.V, Qair: Int(CalcFunc.Q), Kzh: CalcFunc.Kszh, Tall: CalcFunc.Tall, Pmax: CalcFunc.Pmax, Pexit: CalcFunc.Pkexit, Twork: CalcFunc.Twork, Compl: CalcFunc.Complexity, timeOn: CalcData.inputTime.TimeFormat, TimeExit: CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Tall)!, TimeExitWork:CalcFunc.calculationsTime(time: CalcData.inputTime, toTime: CalcFunc.Twork)!)!)
                 \(textDecision.calculationOfAir(ffInt: CalcData.numberFireFighter, ff1: CalcData.FireFighter1, ff2: CalcData.FireFighter2, ff3: CalcData.FireFighter3, ff4: CalcData.FireFighter4, ff5: CalcData.FireFighter5, ffp1: CalcData.p1Hearth, ffp2: CalcData.p2Hearth, ffp3: CalcData.p3Hearth, ffp4: CalcData.p4Hearth, ffp5: CalcData.p5Hearth)!)
-                \(textDecision.ochag(booling: CalcFunc.Complexity, Pmax: CalcFunc.PPadMax, Pmin: CalcFunc.PminHearth, Vb: Int(CalcFunc.V), Q: Int(CalcFunc.Q), Kzh: Int(CalcFunc.Kszh), StabilWork: CalcFunc.Pust, THearthWorks: CalcFunc.THearthWork, PmaxD: CalcFunc.PkexitH, TimeHearts: CalcData.heartFoundTime.TimeFormat, TimeWork: CalcFunc.calculationsTime(time: CalcData.heartFoundTime, toTime: CalcFunc.THearthWork))!)
+                \(textDecision.ochag(booling: CalcFunc.Complexity, Pmax: CalcFunc.PPadMax, Pmin: CalcFunc.PminHearth, Vb: Int(CalcFunc.V), Q: Int(CalcFunc.Q), Kzh: CalcFunc.Kszh, StabilWork: CalcFunc.Pust, THearthWorks: CalcFunc.THearthWork, PmaxD: CalcFunc.PkexitH, TimeHearts: CalcData.heartFoundTime.TimeFormat, TimeWork: CalcFunc.calculationsTime(time: CalcData.heartFoundTime, toTime: CalcFunc.THearthWork))!)
                 """
             }
         default:

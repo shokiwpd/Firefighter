@@ -5,7 +5,7 @@
 //  Created by Павел on 09.02.18.
 //  Copyright © 2018 Павел. All rights reserved.
 import Foundation
-class calculations {
+class calculationAir {
     //Рабочие данные пожарных
     let calculateCoreData = UserProfile.userInform
     lazy var P1 = 0//Пожарный 1

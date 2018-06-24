@@ -1,5 +1,4 @@
 import UIKit
-//import MBProgressHUD
 
 class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate  {
     @IBOutlet weak var userPhotoView: UIImageView!
@@ -10,54 +9,35 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     @IBOutlet weak var nextViewButton: UIButton!
     @IBOutlet weak var selPhotoButton: UIButton!
     //MARK: Var
-    var nextButtonGardient: CAGradientLayer! {
-        didSet {
-            nextButtonGardient.colors = [UIColor.white.cgColor, UIColor.gray.cgColor]
-            nextButtonGardient.startPoint = CGPoint(x: 0, y: 0)
-            nextButtonGardient.endPoint = CGPoint(x: 0, y: 1)
-        }
-    }
+    var nextButtonGardient = CAGradientLayer()
     let CustomClass = UICustomClass()
     let userInformSave = UserProfile.userInform
+    
     override func viewDidLayoutSubviews() {
-        nextButtonGardient = CAGradientLayer()
-        nextButtonGardient.frame = CGRect(x: 0, y: 0, width: nextViewButton.frame.size.width, height: nextViewButton.frame.size.height)
+        nextButtonGardient.gardientButton(w: nextViewButton.frame.size.width, h: nextViewButton.frame.size.height)
         nextViewButton.layer.insertSublayer(nextButtonGardient, at: 0)
         nextViewButton.clipsToBounds = true
         nextViewButton.layer.cornerRadius = 10
+//        self.view.insertSubview(view.backgraundRegistration(), at: 0)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.insertSubview(view.backgraundRegistration(), at: 0)
         title = "Регистрация"
         userPatronymicView.delegate = self
         userCityView.delegate = self
-        CustomClass.customDataPicker(dataPicker: userBirthdayPicker)
+        userBirthdayPicker.customDataPicker()
         CustomClass.CustomTextField(textField: userNameView, nextBut: true)
         CustomClass.CustomTextField(textField: userPatronymicView, nextBut: true)
         CustomClass.CustomTextField(textField: userCityView, nextBut: false)
         userPhotoView.layer.cornerRadius = 10
     }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        CustomClass.keyboardStepAndHidden(viewVC: view, step: false)
-        textField.resignFirstResponder()
-        return true
-    }
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        CustomClass.keyboardStepAndHidden(viewVC: view, step: true)
-    }
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if (touches.first) != nil{
-            view.endEditing(true)
-            CustomClass.keyboardStepAndHidden(viewVC: view, step: false)
-        }
-        super.touchesBegan(touches, with: event)
-    }
+
+
     @IBAction func nextViewSelButton(_ sender: Any) {
-        guard userNameView.text != "" else {return  errorsMassages(errors: "Вы не указали свое имя!")}
-        guard userPatronymicView.text != "" else {return errorsMassages(errors: "Вы не указали своё Отчество!")}
-        guard userCityView.text != "" else {return errorsMassages(errors: "Вы не указали свой город!")}
+        guard userNameView.text != "" else {return  AlertView(text: "Вы не указали свое имя!")}
+        guard userPatronymicView.text != "" else {return AlertView(text: "Вы не указали своё Отчество!")}
+        guard userCityView.text != "" else {return AlertView(text: "Вы не указали свой город!")}
         
         view.endEditing(true)
     }
@@ -78,12 +58,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         let formatedDate = Forrmated.string(from: date)
         return formatedDate
     }
-    func errorsMassages(errors: String!){
-        CustomClass.keyboardStepAndHidden(viewVC: view, step: false)
-        let AlertView = UIAlertController(title: "Внимание", message: errors, preferredStyle: .alert)
-        AlertView.addAction(UIAlertAction(title: "Хорошо", style: .default, handler: nil))
-        present(AlertView, animated: true, completion: nil)
-    }
+    
     @IBAction func selectPhoto(_ sender: Any) {
         selectPhotoAlert()
     }

@@ -21,20 +21,8 @@ class SelectTimeFireFighter: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var calculationButton: UIButton!
     //MARK: Гардиенты для кнопок
-    var startButtonGardients: CAGradientLayer! {
-        didSet {
-            startButtonGardients.colors = [UIColor.white.cgColor, UIColor.gray.cgColor]
-            startButtonGardients.startPoint = CGPoint(x: 0, y: 0)
-            startButtonGardients.endPoint = CGPoint(x: 0, y: 1)
-        }
-    }
-    var calculationButtonGardients: CAGradientLayer! {
-        didSet {
-            calculationButtonGardients.colors = [UIColor.white.cgColor, UIColor.gray.cgColor]
-            calculationButtonGardients.startPoint = CGPoint(x: 0, y: 0)
-            calculationButtonGardients.endPoint = CGPoint(x: 0, y: 1)
-        }
-    }
+    var startButtonGardients = CAGradientLayer()
+    var calculationButtonGardients = CAGradientLayer()
     let CustomUI = UICustomClass()
     var status = false
     let CalData = CalculationInfo.CalculationInform
@@ -42,11 +30,9 @@ class SelectTimeFireFighter: UIViewController,UITextFieldDelegate {
     override func viewDidLayoutSubviews() {
         self.view.insertSubview(view.backgraundView(), at: 0)
         self.view.insertSubview(view.blurringScreen(), at: 1)
-        startButtonGardients = CAGradientLayer()
-        startButtonGardients.frame = CGRect(x: 0, y: 0, width: startButton.frame.size.width, height: startButton.frame.size.height)
-        startButton.layer.insertSublayer(startButtonGardients, at: 0)
-            calculationButtonGardients = CAGradientLayer()
-            calculationButtonGardients.frame = CGRect(x: 0, y: 0, width: calculationButton.frame.size.width, height: calculationButton.frame.size.height)
+        startButtonGardients.gardientButton(w: startButton.frame.size.width,h: startButton.frame.size.height)
+        calculationButtonGardients.gardientButton(w: calculationButton.frame.size.width, h: calculationButton.frame.size.height)
+            startButton.layer.insertSublayer(startButtonGardients, at: 0)
             calculationButton.layer.insertSublayer(calculationButtonGardients, at: 0)
         calculationButton.layer.cornerRadius = 10
         calculationButton.clipsToBounds = true
@@ -87,21 +73,6 @@ class SelectTimeFireFighter: UIViewController,UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        CustomUI.keyboardStepAndHidden(viewVC: view, step: false)
-        textField.resignFirstResponder()
-        return true
-    }
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        CustomUI.keyboardStepAndHidden(viewVC: view, step: true)
-    }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if (touches.first) != nil{
-            view.endEditing(true)
-            CustomUI.keyboardStepAndHidden(viewVC: view, step: false)
-        }
-        super.touchesBegan(touches, with: event)
-    }
     @IBAction func actionStartButton(_ sender: Any) { //Если на пожаре
 //        saveData()
     }

@@ -2,7 +2,6 @@ import Foundation
 import Firebase
 
 struct userInfoFIR {
-    var userID: String!
     var name: String!
     var patronymic: String!
     var city: String!
@@ -17,8 +16,7 @@ struct userInfoFIR {
     var gearboxOperation: NSNumber
     var ref: DatabaseReference?
     
-    init(UsersID: String!,Name: String!,Patronymic: String!,City: String!,Position: String!,PartNumb: String!,ChangeNum: NSNumber!,BirthDay: String!,UnitType: String!,vballons: NSNumber!, AspectRatio: NSNumber!, AirFlow: NSNumber!, GearboxOperation: NSNumber!){
-        self.userID = UsersID
+    init(Name: String!,Patronymic: String!,City: String!,Position: String!,PartNumb: String!,ChangeNum: NSNumber!,BirthDay: String!,UnitType: String!,vballons: NSNumber!, AspectRatio: NSNumber!, AirFlow: NSNumber!, GearboxOperation: NSNumber!){
         self.name = Name
         self.patronymic = Patronymic
         self.city = City
@@ -35,7 +33,6 @@ struct userInfoFIR {
     }
         init(snapshot:DataSnapshot) {
             let snapshotValue = snapshot.value as! [String: AnyObject]
-            userID = snapshotValue["userID"] as! String
             name = snapshotValue["name"] as! String
             patronymic = snapshotValue["patronymic"] as! String
             city = snapshotValue["city"] as! String
@@ -54,3 +51,6 @@ struct userInfoFIR {
         return ["name":name,"patronymic":patronymic, "city":city,"position":position,"partNumb":partNumb,"changeNum":changeNum,"birthDay":birthDay,"unitType":unitType,"vBallons":vBallons, "aspectRatio":aspectRatio,"airFlow":airFlow, "gearboxOperation":gearboxOperation]
     }
 }
+
+
+

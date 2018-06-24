@@ -1,5 +1,7 @@
 [![header](./header.png)](https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=animated-tab-bar-logo)
-[![Animation](https://raw.githubusercontent.com/Ramotion/animated-tab-bar/master/Screenshots/animatedTabBar.gif)](https://dribbble.com/shots/1766396-Animated-Tab-Bar-Icons)
+<img src="https://github.com/Ramotion/animated-tab-bar/blob/master/Screenshots/animatedTabBar.gif" width="600" height="450" />
+<br><br/>
+
 # Animated-tab-bar
 [![CocoaPods](https://img.shields.io/cocoapods/p/RAMAnimatedTabBarController.svg)](http://cocoapods.org/pods/RAMAnimatedTabBarController)
 [![CocoaPods](https://img.shields.io/cocoapods/v/RAMAnimatedTabBarController.svg)](http://cocoapods.org/pods/RAMAnimatedTabBarController)
@@ -7,6 +9,7 @@
 [![Swift 4.0](https://img.shields.io/badge/Swift-4.0-green.svg?style=flat)](https://developer.apple.com/swift/)
 [![Twitter](https://img.shields.io/badge/Twitter-@Ramotion-blue.svg?style=flat)](http://twitter.com/Ramotion)
 [![Travis](https://img.shields.io/travis/Ramotion/animated-tab-bar.svg)](https://travis-ci.org/Ramotion/animated-tab-bar)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/Ramotion)
 
 ## About
 This project is maintained by Ramotion, Inc.<br>

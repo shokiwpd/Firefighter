@@ -8,30 +8,28 @@
 
 import UIKit
 import CoreGraphics
+
 class AuthAndRegistrationView: UIViewController {
     //MARK: кастомные классы
     let customClass = UICustomClass()
     //MARK: Оутлеты и их настройки
     @IBOutlet weak var nameLabel: UILabel! {
         didSet {
-            nameLabel.font = UIFont(name: "signpainter-housescript", size: 47)
+            nameLabel.font = UIFont(name: "signpainter-housescript", size: nameLabel.font.pointSize)
+            nameLabel.text = "Огнеборцы"
+            print(nameLabel.font.pointSize)
         }
     }
     @IBOutlet weak var authorizationButton: UIButton!
     @IBOutlet weak var registrationButton: UIButton!
     //MARK: Гардиент
-    var buttonGardients: CAGradientLayer! {
-        didSet {
-            buttonGardients.gradientsColor()
-        }
-    }
+    var buttonGardients = CAGradientLayer()
     //MARK: Лайауты,фон
     override func viewDidLayoutSubviews() {
-        authorizationButton.customButtonColor(radius: 10, nameBut: "Войти", titleColor: .black, shadowColors: UIColor.black.cgColor)
-        registrationButton.customButtonClear(buttonColor: .clear, radius: 10, borderColors: UIColor.gray.cgColor, shadowColors: UIColor.black.cgColor, nameBut: "Зарегистрироваться")
+        authorizationButton.customButtonColor(radius: authorizationButton.bounds.height / 2, nameBut: "Войти", titleColor: .black, shadowColors: UIColor.black.cgColor)
+        registrationButton.customButtonClear(buttonColor: .clear, radius: 25, borderColors: UIColor.gray.cgColor, shadowColors: UIColor.black.cgColor, nameBut: "Регистрация")
         self.view.insertSubview(view.backgraundView(), at: 0)
-        buttonGardients = CAGradientLayer()
-        buttonGardients.frame = CGRect(x: 0, y: 0, width: authorizationButton.frame.size.width, height: authorizationButton.frame.size.height)
+        buttonGardients.gardientButton(w: authorizationButton.frame.size.width, h: authorizationButton.frame.size.height)
         authorizationButton.layer.insertSublayer(buttonGardients, at: 0)
     }
     override func viewDidLoad() {

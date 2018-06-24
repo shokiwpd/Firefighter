@@ -3,7 +3,7 @@ import CoreData
 import UIKit
 
 class UserProfile {
-    init() {}
+     init() {}
     static let userInform = UserProfile()
     static let sharedUserProfile = UserProfile.getProfileInfo()
     let usersInform = UserProfile.sharedUserProfile

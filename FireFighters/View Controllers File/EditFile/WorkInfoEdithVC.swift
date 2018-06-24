@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class WorkInfoEdithVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class WorkInfoEdithVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, getTockenUser {
     @IBOutlet weak var PartNumberEdit: UITextField!
     @IBOutlet weak var GuardEdit: UITextField!
     @IBOutlet weak var PositionEdit: UIPickerView!
@@ -22,12 +22,7 @@ class WorkInfoEdithVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     let CoreDataInfo = UserProfile()
     var CustomClass = UICustomClass()
     let PositionSel = ["Пожарный","Командир отделения","Нач.караула","ПНЧ","Диспетчер"]
-    var PositionName: String!
-    var user: Users!
-    var ref: DatabaseReference! {
-        return Database.database().reference(withPath: "firefighter")
-    }
-    
+    var PositionName: String!    
     var buttonGardients: CAGradientLayer! {
         didSet {
             buttonGardients.gradientsColor()
@@ -56,13 +51,11 @@ class WorkInfoEdithVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let currentUser = Auth.auth().currentUser else { return }
-        user = Users(user: currentUser)
-           PartNumberEdit.text = CoreDataInfo.userPartNum// partNumb
+        guard userTocken != "" else { return }
+        PartNumberEdit.text = CoreDataInfo.userPartNum// partNumb
         GuardEdit.text = String(CoreDataInfo.userChange) //changeNum
         PositionName = CoreDataInfo.userPosition
         ApparatusEdit.selectedSegmentIndex = getSegmentNum()  //getSegmentNum()
-        print(getSegmentNum())
         PositionEdit.selectRow(getPickerNum(), inComponent: 0, animated: true)
         VballonsEdit.text = String(CoreDataInfo.userVBallons)//vBallons
         coefficientEdit.text = String(CoreDataInfo.userAspectRatio)//aspectRatio
@@ -70,22 +63,6 @@ class WorkInfoEdithVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         GearBoxEdit.text = String(CoreDataInfo.userGearboxOperation)//gearboxOperation
         
         }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        CustomClass.keyboardStepAndHidden(viewVC: view, step: false)
-        textField.resignFirstResponder()
-        return true
-    }
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        CustomClass.keyboardStepAndHidden(viewVC: view, step: true)
-    }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if (touches.first) != nil{
-            
-            view.endEditing(true)
-            CustomClass.keyboardStepAndHidden(viewVC: view, step: false)
-        }
-        super.touchesBegan(touches, with: event)
-    }
     func selUnitType(type: UISegmentedControl) -> String!{
         var types = ""
         switch type.selectedSegmentIndex {
@@ -131,28 +108,28 @@ class WorkInfoEdithVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     }
     func editInform(part: String, Guard: Int,VBal: Double, Aspect: Double, Air: Double,GB: Int, posit: String, typeSel: String) {
         if CoreDataInfo.userPartNum != part {
-            self.ref?.child(user.uid).updateChildValues(["partNumb": part])
+            self.DataReference.child(userTocken!).updateChildValues(["partNumb": part])
             CoreDataInfo.userPartNum = part}
         if CoreDataInfo.userChange != Guard {
-            self.ref?.child(user.uid).updateChildValues(["changeNum": Guard])
+           self.DataReference.child(userTocken!).updateChildValues(["changeNum": Guard])
             CoreDataInfo.userChange = Guard}
         if CoreDataInfo.userVBallons != VBal {
-            self.ref?.child(user.uid).updateChildValues(["vBallons": VBal])
+            self.DataReference.child(userTocken!).updateChildValues(["vBallons": VBal])
             CoreDataInfo.userVBallons = VBal}
         if CoreDataInfo.userAspectRatio != Aspect{
-            self.ref?.child(user.uid).updateChildValues(["aspectRatio": Aspect])
+            self.DataReference.child(userTocken!).updateChildValues(["aspectRatio": Aspect])
             CoreDataInfo.userAspectRatio = Aspect}
         if CoreDataInfo.userAirFlow != Air{
-            self.ref?.child(user.uid).updateChildValues(["airFlow": Air])
+            self.DataReference.child(userTocken!).updateChildValues(["airFlow": Air])
             CoreDataInfo.userAirFlow = Air}
         if CoreDataInfo.userGearboxOperation != GB{
-            self.ref?.child(user.uid).updateChildValues(["gearboxOperation": GB])
+            self.DataReference.child(userTocken!).updateChildValues(["gearboxOperation": GB])
             CoreDataInfo.userGearboxOperation = GB}
         if CoreDataInfo.userPosition != posit {
-            self.ref?.child(user.uid).updateChildValues(["position": posit])
+            self.DataReference.child(userTocken!).updateChildValues(["position": posit])
             CoreDataInfo.userPosition = posit}
         if CoreDataInfo.userUnitType != typeSel {
-            self.ref?.child(user.uid).updateChildValues(["unitType": typeSel])
+            self.DataReference.child(userTocken!).updateChildValues(["unitType": typeSel])
             CoreDataInfo.userUnitType = typeSel}
     }
 }
