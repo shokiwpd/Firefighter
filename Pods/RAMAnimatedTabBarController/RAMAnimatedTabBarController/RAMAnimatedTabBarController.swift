@@ -121,6 +121,17 @@ open class RAMAnimatedTabBarItem: UITabBarItem {
 
         animation.selectedState(iconView!.icon, textLabel: iconView!.textLabel)
     }
+    
+    /**
+     Set deselected state without animation
+     */
+    open func deselectedState() {
+        guard animation != nil && iconView != nil else {
+            return
+        }
+        
+        animation.deselectedState(iconView!.icon, textLabel: iconView!.textLabel)
+    }
 }
 
 extension RAMAnimatedTabBarController {
@@ -257,7 +268,9 @@ open class RAMAnimatedTabBarController: UITabBarController {
         containers.values.forEach { $0.removeFromSuperview() }
         containers = createViewContainers()
 
-        createCustomIcons(containers)
+        if !containers.isEmpty {
+            createCustomIcons(containers)
+        }
     }
 
     // MARK: create methods
@@ -319,6 +332,9 @@ open class RAMAnimatedTabBarController: UITabBarController {
             if 0 == index { // selected first elemet
                 item.selectedState()
                 container.backgroundColor = (items as [RAMAnimatedTabBarItem])[index].bgSelectedColor
+            } else {
+                item.deselectedState()
+                container.backgroundColor = (items as [RAMAnimatedTabBarItem])[index].bgDefaultColor
             }
 
             item.image = nil
@@ -375,35 +391,44 @@ open class RAMAnimatedTabBarController: UITabBarController {
     }
 
     fileprivate func createViewContainers() -> [String: UIView] {
-
-        guard let items = tabBar.items else {
-            fatalError("add items in tabBar")
+        
+        guard let items = tabBar.items, items.count > 0 else {
+            return [:]
         }
 
         var containersDict: [String: UIView] = [:]
-
+        
         for index in 0 ..< items.count {
             let viewContainer = createViewContainer()
             containersDict["container\(index)"] = viewContainer
         }
-
+        
         var formatString = "H:|-(0)-[container0]"
         for index in 1 ..< items.count {
             formatString += "-(0)-[container\(index)(==container0)]"
         }
         formatString += "-(0)-|"
-        let constranints = NSLayoutConstraint.constraints(withVisualFormat: formatString,
+        
+        var constranints:[NSLayoutConstraint]!
+        
+        if UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft{
+            constranints = NSLayoutConstraint.constraints(withVisualFormat: formatString,
+                                                          options: NSLayoutFormatOptions.directionLeftToRight,
+                                                          metrics: nil,
+                                                          views: (containersDict as [String: AnyObject]))
+        }else{
+            constranints = NSLayoutConstraint.constraints(withVisualFormat: formatString,
                                                           options: NSLayoutFormatOptions.directionRightToLeft,
                                                           metrics: nil,
                                                           views: (containersDict as [String: AnyObject]))
+        }
         view.addConstraints(constranints)
-
+        
         return containersDict
     }
 
     fileprivate func createViewContainer() -> UIView {
         let viewContainer = UIView()
-        viewContainer.backgroundColor = UIColor.clear // for test
         viewContainer.translatesAutoresizingMaskIntoConstraints = false
         viewContainer.isExclusiveTouch = true
         view.addSubview(viewContainer)

@@ -11,21 +11,21 @@ import UIKit
 
 extension UIButton
 {
-    func customButtonColor(radius:CGFloat,nameBut: String, titleColor: UIColor, shadowColors: CGColor) {
+    func grayButton(nameBut: String) {
         self.layer.cornerRadius = self.bounds.height / 2
         self.setTitle(nameBut, for: .normal)
-        self.setTitleColor(titleColor, for: .normal)
+        self.setTitleColor(.black, for: .normal)
         self.clipsToBounds = true
-        self.layer.shadowColor = shadowColors
+        self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOpacity = 2.0
         self.titleLabel?.adjustsFontSizeToFitWidth = true
     }
-    func customButtonClear(buttonColor: UIColor,radius: CGFloat,borderColors: CGColor,shadowColors: CGColor,nameBut: String){
-        self.backgroundColor = buttonColor
+    func clearButton(nameBut: String){
+        self.backgroundColor = .clear
         self.layer.borderWidth = 2
-        self.layer.borderColor = borderColors
+        self.layer.borderColor =  UIColor.gray.cgColor
         self.layer.cornerRadius = self.bounds.height / 2
-        self.layer.shadowColor = shadowColors
+        self.layer.shadowColor =  UIColor.black.cgColor
         self.layer.shadowOpacity = 1.0
         self.setTitle(nameBut, for: .normal)
         self.titleLabel?.adjustsFontSizeToFitWidth = true

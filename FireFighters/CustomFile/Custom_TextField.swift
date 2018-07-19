@@ -20,4 +20,12 @@ extension UITextField {
         shape.path = patching.cgPath
         self.layer.addSublayer(shape)
     }
+    func keyboardKey(next: Bool){
+        self.autocorrectionType = .yes
+        self.borderStyle = .roundedRect
+        switch next {
+            case true: self.returnKeyType = .next
+            case false: self.returnKeyType = .done
+        }
+    }
 }

@@ -13,5 +13,8 @@ extension String {
     var forrmated: String {
         return self.replacingOccurrences(of: ",", with: ".", options: .literal, range: nil)
     }
+    var forrmater_text: String {
+        return self.replacingOccurrences(of: " ", with: "", options: .literal, range: nil)
+    }
 }
 

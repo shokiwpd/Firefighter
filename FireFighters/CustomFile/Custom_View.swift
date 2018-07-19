@@ -23,10 +23,4 @@ extension UIView {
         blurView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         return blurView
     }
-    func backgraundRegistration()-> UIView! {
-        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "registScreen.jpg")
-        backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
-        return backgroundImage
-    }
 }

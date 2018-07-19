@@ -130,6 +130,14 @@ public class CalculationInfo {
             CalculationData.setValue(newValue, forKey: "heartFoundTime")
         }
     }
+    var oxyAirFlow: Double! {
+        get {
+            return CalculationData.value(forKey: "oxyAirFlow") as? Double ?? 0.0
+        }
+        set {
+            CalculationData.setValue(newValue, forKey: "oxyAirFlow")
+        }
+    }
     
     func claenData(){
         FireFighter1 = nil

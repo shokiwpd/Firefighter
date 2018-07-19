@@ -95,9 +95,11 @@ private func fetchFirebase() {
     }
     //MARK: MBProgressHUD
     func progressView(){
+        
         let Load = MBProgressHUD.showAdded(to: self.view, animated: true)
         Load.mode = MBProgressHUDMode.indeterminate
         Load.label.text = "Готовим данные"
+        Load.isUserInteractionEnabled = false
     }
     private func registrationView() {
         let Vc = UIStoryboard(name: "userProfileSave", bundle: nil).instantiateInitialViewController() as! UINavigationController

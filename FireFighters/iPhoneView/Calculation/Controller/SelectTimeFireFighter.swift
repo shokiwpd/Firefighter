@@ -40,7 +40,7 @@ class SelectTimeFireFighter: UIViewController,UITextFieldDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-       print(loadData.string(forKey: "OxyAirFlow"))
+//       print(loadData.string(forKey: "OxyAirFlow"))
         startButton.isHidden = true
         switch CalData.numberFireFighter{
         case 2:
