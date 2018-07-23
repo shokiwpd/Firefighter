@@ -291,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				E905295A1FDBEA2E00647967 /* MainStoryboard.storyboard */,
+				E97B9D241FF2BEA100542C6C /* Custom_ProfileCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -443,7 +444,6 @@
 			isa = PBXGroup;
 			children = (
 				E923873B1FE3D5D600AA8078 /* CustomNavContr.swift */,
-				E97B9D241FF2BEA100542C6C /* Custom_ProfileCell.swift */,
 				96C9A13020C9BED300EC1B1F /* Custom_Image.swift */,
 				96C9A13220C9BEEF00EC1B1F /* Custom_Button.swift */,
 				96C9A13420C9BF3C00EC1B1F /* Custom_Date.swift */,

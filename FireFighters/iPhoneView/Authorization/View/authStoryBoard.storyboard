@@ -29,7 +29,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="q0k-oS-sRL" secondAttribute="height" multiplier="343:76" id="Nb4-oh-Yj7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SignPainterHouseScript" family="SignPainter HouseScript" pointSize="80"/>
+                                <fontDescription key="fontDescription" name="SignPainterHouseScript" family="SignPainter HouseScript" pointSize="190"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>

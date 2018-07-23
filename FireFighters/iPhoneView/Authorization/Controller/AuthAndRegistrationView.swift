@@ -12,9 +12,7 @@ class AuthAndRegistrationView: UIViewController {
     //MARK: Оутлеты и их настройки
     @IBOutlet weak var nameLabel: UILabel! {
         didSet {
-            nameLabel.font = UIFont(name: "signpainter-housescript", size: nameLabel.font.pointSize)
             nameLabel.text = "Огнеборцы"
-            print(nameLabel.font.pointSize)
         }
     }
     @IBOutlet weak var authorizationButton: UIButton!
@@ -26,6 +24,8 @@ class AuthAndRegistrationView: UIViewController {
         //Настройка внешнего вида кнопки
         authorizationButton.grayButton(nameBut: "Войти")
         registrationButton.clearButton(nameBut: "Регистрация")
+        
+        nameLabel.UIfontLabel(viewHeight: Double(view.bounds.height))
         //Фон без эффекта размытия
         self.view.insertSubview(view.backgraundView(), at: 0)
         //гардиент для кнопок
@@ -34,7 +34,7 @@ class AuthAndRegistrationView: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("iPhoneHeight \(view.bounds.height)")
     }
     //Кнопа на случай если возникли ошибки
     @IBAction func VKgroupURL(_ sender: Any) {

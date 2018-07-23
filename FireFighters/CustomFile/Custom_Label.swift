@@ -11,6 +11,17 @@ import UIKit
 
 
 extension UILabel {
-    func customFont() {
+    func UIfontLabel(viewHeight: Double) {
+        switch viewHeight {
+        case 568.0:
+            self.font = UIFont(name:  "signpainter-housescript", size: 150)//iPhone 5S,SE
+        case 667.0:
+            self.font = UIFont(name:  "signpainter-housescript", size: 180)//iPhone 6,7,8
+        case 736.0:
+            self.font = UIFont(name:  "signpainter-housescript", size: 200)//iPhone 6+,7+,8+
+        case 812.0:
+            self.font = UIFont(name:  "signpainter-housescript", size: 180)//iPhone X
+        default: print("_____")
+        }
     }
 }
