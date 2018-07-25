@@ -8,11 +8,7 @@ class authorizationVC: UIViewController, UITextFieldDelegate,getTockenUser{
 
     
     //MARK: Оутлеты и их настройки
-    @IBOutlet weak var titleLabel: UILabel!{
-        didSet {
-            titleLabel.font = UIFont(name: "signpainter-housescript", size: 47)
-        }
-    }
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var loginView: UITextField!
     @IBOutlet weak var passwordView: UITextField!
     @IBOutlet weak var authButtonStyle: UIButton!
@@ -28,6 +24,8 @@ class authorizationVC: UIViewController, UITextFieldDelegate,getTockenUser{
         //Фон с эффектом размытия
         self.view.insertSubview(view.backgraundView(), at: 0)
         self.view.insertSubview(view.blurringScreen(), at: 1)
+        //
+        titleLabel.LoginLabel(viewHeight: Double(view.bounds.height))
         //Кнопка с гардиентом
         buttonGardients.gardientButton(w: authButtonStyle.frame.size.width, h: authButtonStyle.frame.size.height)
         authButtonStyle.grayButton(nameBut: "Авторизироваться")
@@ -111,7 +109,7 @@ private func fetchFirebase() {
         present(Vc, animated: true, completion: nil)
     }
     func errorRegistration() {
-        let alert = UIAlertController(title: "Внимание!", message: "Возможно при регистрации у Вас возникла ошибка. Пожалуйста введите личный данные повторно!", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Внимание!", message: "Возможно при регистрации у Вас возникла ошибка. Пожалуйста введите личные данные повторно!", preferredStyle: .alert)
         let editAction = UIAlertAction(title: "Хорошо", style: .default) { _ in
             self.registrationView()
         }

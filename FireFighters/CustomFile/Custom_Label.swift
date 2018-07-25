@@ -24,4 +24,17 @@ extension UILabel {
         default: print("_____")
         }
     }
+    func LoginLabel(viewHeight: Double) {
+        switch viewHeight {
+        case 568.0:
+            self.font = UIFont(name:  "signpainter-housescript", size: 55)//iPhone 5S,SE
+        case 667.0:
+            self.font = UIFont(name:  "signpainter-housescript", size: 70)//iPhone 6,7,8
+        case 736.0:
+            self.font = UIFont(name:  "signpainter-housescript", size: 80)//iPhone 6+,7+,8+
+        case 812.0:
+            self.font = UIFont(name:  "signpainter-housescript", size: 68)//iPhone X
+        default: print("_____")
+        }
+    }
 }
