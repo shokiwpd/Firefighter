@@ -107,7 +107,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             userInformSave.userAirFlow = Double(airFlow)
             userInformSave.userAspectRatio = Double(AspectRatio)
             userInformSave.userGearboxOperation = GearboxOperation
-            guard let imageData = UIImageJPEGRepresentation(userPhoto, 5) else {return }
+            guard let imageData = userPhoto.jpegData(compressionQuality: 5) else {return }
             let uploadUserPhoto = self.imageReference.child("\(userTocken!).png")
         
         let uploadFileToFirebase = uploadUserPhoto.putData(imageData, metadata: nil) { (metadata, error) in

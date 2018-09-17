@@ -1,8 +1,8 @@
 import UIKit
 import FirebaseAuth
 class ProfileViewController: UITableViewController {
-    let SelUsersCell = ["Личные данные","Рабочие данные","Сменить пользователя"]
-    let Comments = ["Смена города","Смена данных о работе",""]
+    let SelUsersCell = ["Личные данные","Рабочие данные","Информация","Сменить пользователя"]
+    let Comments = ["Смена города","Смена данных о работе","Информация о приложении",""]
     let userInfo = UserProfile.userInform
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +49,9 @@ class ProfileViewController: UITableViewController {
         case 2:
             cell.labelViewCell.text = SelUsersCell[indexPath.row]
             cell.commentLabel.text = Comments[indexPath.row]
+        case 3:
+            cell.labelViewCell.text = SelUsersCell[indexPath.row]
+            cell.commentLabel.text = Comments[indexPath.row]
         default:
             print("hz")
         }
@@ -61,6 +64,8 @@ class ProfileViewController: UITableViewController {
             segueStoryBoard(nameSB: "ProfileEditBoard")
         case 1:
             segueStoryBoard(nameSB: "WorkInfoEdithBoard")
+        case 2:
+            AlertView(text: "Спасибо что пользуетесь данным приложением. Приложение находится в стадии Бета тестирования. Все предложения вы можете оставить группе в VK.Найти ссылку можете на странице приложения в AppStore. Надеюсь на хороший рейтинг. Чем выше ваша оценка,тем мне приятнее и появляется желание его делать.")
         default:
             alertAction()
         }
@@ -88,7 +93,7 @@ class ProfileViewController: UITableViewController {
         switch nameSB {
         case "ProfileEditBoard": let Vc = UIStoryboard(name: nameSB, bundle: nil).instantiateInitialViewController() as! EditProfileInfoVC
                 present(Vc, animated: true, completion: nil)
-        case "authStoryBoard": let Vc = UIStoryboard(name: nameSB, bundle: nil).instantiateInitialViewController() as! AuthAndRegistrationView
+        case "authStoryBoard": let Vc = UIStoryboard(name: nameSB, bundle: nil).instantiateInitialViewController() as! UINavigationController
                 present(Vc, animated: true, completion: nil)
         case "WorkInfoEdithBoard": let Vc = UIStoryboard(name: nameSB, bundle: nil).instantiateInitialViewController() as! WorkInfoEdithVC
                 present(Vc, animated: true, completion: nil)

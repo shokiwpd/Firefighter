@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>605915731767-i6skkuhgpf0koabscseieltt27mn82p3.apps.googleusercontent.com</string>
+	<string>304585193425-03fu6o44dhq21apd129ctpq2fd6vief2.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.605915731767-i6skkuhgpf0koabscseieltt27mn82p3</string>
+	<string>com.googleusercontent.apps.304585193425-03fu6o44dhq21apd129ctpq2fd6vief2</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBKpKGCs7SafhzkVtI9AX_NgVC8nZn2LSQ</string>
+	<string>AIzaSyD4WourQjZXRGYOF-LnNrl6i8P8pLEX9_I</string>
 	<key>GCM_SENDER_ID</key>
-	<string>605915731767</string>
+	<string>304585193425</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>Shoki-Dev.FireFighters</string>
 	<key>PROJECT_ID</key>
-	<string>firefighters-86c51</string>
+	<string>firefighter-a9a84</string>
 	<key>STORAGE_BUCKET</key>
-	<string>firefighters-86c51.appspot.com</string>
+	<string>firefighter-a9a84.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:605915731767:ios:72ab00417342e6aa</string>
+	<string>1:304585193425:ios:72ab00417342e6aa</string>
 	<key>DATABASE_URL</key>
-	<string>https://firefighters-86c51.firebaseio.com</string>
+	<string>https://firefighter-a9a84.firebaseio.com</string>
 </dict>
 </plist>

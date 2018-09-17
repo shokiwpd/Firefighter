@@ -21,7 +21,7 @@ class authorizationVC: UIViewController, UITextFieldDelegate,getTockenUser{
     let receivingData = loadFirebaseData()
     //MARK: Лойауты и фон
     override func viewDidLayoutSubviews() {
-        //Фон с эффектом размытия
+        //Фон с эффектом размытия 
         self.view.insertSubview(view.backgraundView(), at: 0)
         self.view.insertSubview(view.blurringScreen(), at: 1)
         //
@@ -42,7 +42,12 @@ class authorizationVC: UIViewController, UITextFieldDelegate,getTockenUser{
         super.viewDidLoad()
         loginView.delegate = self
         passwordView.delegate = self
+        title = ""
     }
+
+    
+    
+    
     //MARK: Проверка всех полей и базы данных FireBase
     @IBAction func authorizationButton(_ sender: Any) {
         guard loginView.text != "" else {return AlertView(text: "Укажите свой логин!")}
@@ -55,13 +60,25 @@ class authorizationVC: UIViewController, UITextFieldDelegate,getTockenUser{
             self?.saveLoginAndPass(Login: (self?.loginView.text!)!, Password: (self?.passwordView.text!)!)  //сохранение логина и пароля
         }
     }
-    //MARK: Будущее восстановление пароля
-    @IBAction func cancelButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil) // Отмена входа
-    }
+    //MARK: Восстановление пароля
+
     @IBAction func registrationButton(_ sender: Any) {
-        //nextViewContr(nameVC: "firstStoryBoards", typeVC: "register") // Восстановление пароля
-        print("Password")
+        let PasswordResetAlert = UIAlertController(title: "Внимание", message: "Хотите сбросить пароль?", preferredStyle: .alert)
+        PasswordResetAlert.addTextField { (TextFieldes) in
+            if self.loginView.text != "" {
+                TextFieldes.text = self.loginView.text
+            } else {
+                TextFieldes.text = ""
+            }}
+        PasswordResetAlert.addAction(UIAlertAction.init(title: "Восставновить", style: .default, handler: { (action) in
+           let Passwords = PasswordResetAlert.textFields![0] as UITextField
+                    Auth.auth().sendPasswordReset(withEmail: Passwords.text!) { error in
+                        if error != nil {
+                            self.AlertView(text: "Пустая форма или нет пользователя с данной электронной почтой")
+                        }
+            }}))
+        PasswordResetAlert.addAction(UIAlertAction.init(title: "Отмена", style: .cancel, handler: nil))
+        present(PasswordResetAlert, animated: true, completion: nil)
     }
 
 

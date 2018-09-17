@@ -48,7 +48,7 @@ class calculationAir {
         if Pkexit < 50 {
             Pkexit = 50
         }
-        Twork = Int(Double(Pkexit)*V)/Int(Double(Q)*Kszh)
+        Twork = Int(Double(Pmax)*V)/Int(Double(Q)*Kszh)
         //-------/--------------//
         Tall = Int(Double(Pmin - Pust)*V)/Int(Double(Q)*Kszh)// Общее время работы
         //-------/-------------//
@@ -75,7 +75,7 @@ class calculationAir {
         if Pkexit < 50 {
             Pkexit = 50
         }
-        Twork = Int(Double(Pkexit)*V)/Int(Double(Q)*Kszh)
+        Twork = Int(Double(Pmax)*V)/Int(Double(Q)*Kszh)
         //-------/--------------//
         Tall = Int(Double(Pmin - Pust)*V)/Int(Double(Q)*Kszh)// Общее время работы
         //-------/-------------//
@@ -102,7 +102,7 @@ class calculationAir {
         if Pkexit < 50 {
             Pkexit = 50
         }
-        Twork = Int(Double(Pkexit)*V)/Int(Double(Q*Kszh))
+        Twork = Int(Double(Pmax)*V)/Int(Double(Q*Kszh))
         //-------/--------------//
         Tall = Int(Double(Pmin - Pust)*V)/Int(Double(Q*Kszh))// Общее время работы
         //-------/-------------//
@@ -130,7 +130,7 @@ class calculationAir {
         if Pkexit < 50 {
             Pkexit = 50
         }
-        Twork = Int(Double(Pkexit)*V)/Int(Double(Q)*Kszh)
+        Twork = Int(Double(Pmax)*V)/Int(Double(Q)*Kszh)
         //-------/--------------//
         Tall = Int(Double(Pmin - Pust)*V)/Int(Double(Q)*Kszh)// Общее время работы
         //-------/-------------//

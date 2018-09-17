@@ -13,7 +13,7 @@ extension UIView {
     func backgraundView()-> UIView! {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "launchScreen.png")
-        backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
+        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
         return backgroundImage
     }
     func blurringScreen() -> UIView!{

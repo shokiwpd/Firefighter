@@ -72,7 +72,7 @@ class UserProfile {
             return UIImage(named: "defPhoto")!
         }
         set {
-            usersInform.setValue(UIImageJPEGRepresentation(newValue, 0.5), forKey: "userPhoto")
+            usersInform.setValue(newValue.jpegData(compressionQuality: 0.5), forKey: "userPhoto")
         }
     }
     var userUnitType: String {

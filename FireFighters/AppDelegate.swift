@@ -23,21 +23,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var DeviceOreintation: UIDeviceOrientation!
     var connectStatus = Reachability()!
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
             (granted, error) in
             //Parse errors and track state
         }
         application.registerForRemoteNotifications()
-        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enable = false
         FirebaseApp.configure()
         
         window = UIWindow(frame: UIScreen.main.bounds)
         if (Auth.auth().currentUser?.uid) == nil {
-            window?.rootViewController = UIStoryboard(name: "authStoryBoard", bundle: nil).instantiateInitialViewController() as! AuthAndRegistrationView
+            window?.rootViewController = UIStoryboard(name: "authStoryBoard", bundle: nil).instantiateInitialViewController() as! UINavigationController
         } else {
             if UserProfile.userInform.userName.isEmpty{
-            window?.rootViewController = UIStoryboard(name: "authStoryBoard", bundle: nil).instantiateInitialViewController() as! AuthAndRegistrationView
+            window?.rootViewController = UIStoryboard(name: "authStoryBoard", bundle: nil).instantiateInitialViewController() as! UINavigationController
         } else {
             window?.rootViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UITabBarController
         }

@@ -52,11 +52,16 @@ class NoWorkHearthVC: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        HearthFF1.delegate = self
+        
+        
         ArrivalTimeHearth.date = CalData.inputTime
         self.view.insertSubview(view.backgraundView(), at: 0)
         self.view.insertSubview(view.blurringScreen(), at: 1)
         switch CalData.numberFireFighter {
         case 2:
+            HearthFF1.delegate = self
+            HearthFF2.delegate = self
             HearthFF3.isHidden = true
             HearthFF4.isHidden = true
             HearthFF5.isHidden = true
@@ -64,17 +69,29 @@ class NoWorkHearthVC: UIViewController,UITextFieldDelegate {
             FireFighterLabel4.isHidden = true
             FireFighterLabel5.isHidden = true
         case 3:
+            HearthFF1.delegate = self
+            HearthFF2.delegate = self
+            HearthFF3.delegate = self
             HearthFF4.isHidden = true
             HearthFF5.isHidden = true
             FireFighterLabel4.isHidden = true
             FireFighterLabel5.isHidden = true
         case 4:
+            HearthFF1.delegate = self
+            HearthFF2.delegate = self
+            HearthFF3.delegate = self
+            HearthFF4.delegate = self
             HearthFF5.isHidden = true
             FireFighterLabel5.isHidden = true
         default:
+            HearthFF1.delegate = self
+            HearthFF2.delegate = self
+            HearthFF3.delegate = self
+            HearthFF4.delegate = self
+            HearthFF5.delegate = self
             print("All form view")
         }
-        noHearth.grayButton(nameBut: "Без очага")
+        noHearth.grayButton(nameBut: "Очаг не найден")
         yesHearth.grayButton(nameBut: "Очаг найден")
     }
 
@@ -90,6 +107,19 @@ class NoWorkHearthVC: UIViewController,UITextFieldDelegate {
             print("All form view")
         }
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if HearthFF1.text != "" {
+            noHearth.isHidden = true
+            yesHearth.isHidden = false
+        } else if HearthFF1.text == "" {
+            noHearth.isHidden = false
+            yesHearth.isHidden = true
+        }
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+    }
+    
     private func saveData() {
         let errorName = "Вы не указали давление пожарных"
         switch CalData.numberFireFighter {

@@ -32,8 +32,8 @@ class CalculationViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        saveAlert()
-        OxyAirFlow.text = String(DataBase.userAirFlow)
+//        saveAlert()
+//        OxyAirFlow.text = String(DataBase.userAirFlow)
         title = "Расчеты"
         CalcClass.claenData()
     }

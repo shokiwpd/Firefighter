@@ -33,17 +33,17 @@ struct userInfoFIR {
     }
         init(snapshot:DataSnapshot) {
             let snapshotValue = snapshot.value as! [String: AnyObject]
-            name = snapshotValue["name"] as! String
-            patronymic = snapshotValue["patronymic"] as! String
-            city = snapshotValue["city"] as! String
-            position = snapshotValue["position"] as! String
-            partNumb = snapshotValue["partNumb"] as! String
-            changeNum = snapshotValue["changeNum"] as! NSNumber
-            birthDay = snapshotValue["birthDay"] as! String
-            unitType = snapshotValue["unitType"] as! String
-            vBallons = snapshotValue["vballons"] as! NSNumber
-            aspectRatio = snapshotValue["AspectRatio"] as! NSNumber
-            airFlow = snapshotValue["AirFlow"] as! NSNumber
+            name = (snapshotValue["name"] as! String)
+            patronymic = (snapshotValue["patronymic"] as! String)
+            city = (snapshotValue["city"] as! String)
+            position = (snapshotValue["position"] as! String)
+            partNumb = (snapshotValue["partNumb"] as! String)
+            changeNum = (snapshotValue["changeNum"] as! NSNumber)
+            birthDay = (snapshotValue["birthDay"] as! String)
+            unitType = (snapshotValue["unitType"] as! String)
+            vBallons = (snapshotValue["vballons"] as! NSNumber)
+            aspectRatio = (snapshotValue["AspectRatio"] as! NSNumber)
+            airFlow = (snapshotValue["AirFlow"] as! NSNumber)
             gearboxOperation = snapshotValue["GearboxOperation"] as! NSNumber
             ref = snapshot.ref
         }

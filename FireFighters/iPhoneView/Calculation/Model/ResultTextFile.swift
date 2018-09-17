@@ -34,7 +34,7 @@ class SettlementSolution {
         
         4. Рк.вых = Рмин.вкл - Рмакс.пад = \(Pmin) - \(Pmax) = \(Pexit) Bar
         
-        5. ∆Траб = Рмакс.пад * Vб / Q * Ксж =  (\(Pexit) * \(Vbal))/(\(Qair) * \(Kzh)) = \(Twork) Мин
+        5. ∆Траб = Рмакс.пад * Vб / Q * Ксж =  (\(Pmax) * \(Vbal))/(\(Qair) * \(Kzh)) = \(Twork) Мин
         
         6. Твых = Твыкл + ∆Траб =  \(timeOn) + \(Twork) = \(TimeExitWork)
         

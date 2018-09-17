@@ -20,7 +20,9 @@ extension UILabel {
         case 736.0:
             self.font = UIFont(name:  "signpainter-housescript", size: 200)//iPhone 6+,7+,8+
         case 812.0:
-            self.font = UIFont(name:  "signpainter-housescript", size: 180)//iPhone X
+            self.font = UIFont(name:  "signpainter-housescript", size: 180)//iPhone X,XS,XR
+        case 896.0:
+            self.font = UIFont(name:  "signpainter-housescript", size: 180)//iPhone XS_Max
         default: print("_____")
         }
     }
@@ -34,6 +36,8 @@ extension UILabel {
             self.font = UIFont(name:  "signpainter-housescript", size: 80)//iPhone 6+,7+,8+
         case 812.0:
             self.font = UIFont(name:  "signpainter-housescript", size: 68)//iPhone X
+        case 896.0:
+            self.font = UIFont(name:  "signpainter-housescript", size: 68)//iPhone XS_Max
         default: print("_____")
         }
     }

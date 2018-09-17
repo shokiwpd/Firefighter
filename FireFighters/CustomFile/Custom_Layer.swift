@@ -12,7 +12,7 @@ import UIKit
 extension CAShapeLayer {
     func layerLine(strokeColors: CGColor) {
         self.fillColor = nil
-        self.lineCap = "round"
+        self.lineCap = convertToCAShapeLayerLineCap("round")
         self.lineWidth = 2
         self.strokeColor = strokeColors
         self.strokeEnd = 1
@@ -24,4 +24,9 @@ extension CAGradientLayer {
         self.startPoint = CGPoint(x: 0, y: 0)
         self.endPoint = CGPoint(x: 0, y: 1)
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToCAShapeLayerLineCap(_ input: String) -> CAShapeLayerLineCap {
+	return CAShapeLayerLineCap(rawValue: input)
 }

@@ -1,3 +1,4 @@
+
 import UIKit
 
 class CustomNavContr: UINavigationController,UINavigationBarDelegate {
@@ -6,12 +7,13 @@ class CustomNavContr: UINavigationController,UINavigationBarDelegate {
         super.viewDidLoad()
         delegate = self
     }
-    func navBarStyle(navCustom: UINavigationBar){
+    func BarStyle(navCustom: UINavigationBar){
         navCustom.barStyle = .black
         
     }
-    func navItemStyle(itemStyle: UINavigationItem){
+    func ItemsStyle(itemStyle: UINavigationItem){
         itemStyle.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        itemStyle.backBarButtonItem?.tintColor = .white
     }
     func navigarionControllers(controlNav: UINavigationController){
         controlNav.navigationBar.prefersLargeTitles = true
@@ -19,8 +21,8 @@ class CustomNavContr: UINavigationController,UINavigationBarDelegate {
 }
 extension CustomNavContr: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        navItemStyle(itemStyle: viewController.navigationItem)
-        navBarStyle(navCustom: navigationBar)
+        ItemsStyle(itemStyle: viewController.navigationItem)
+        BarStyle(navCustom: navigationBar)
         navigarionControllers(controlNav: navigationController)
     }
 }
