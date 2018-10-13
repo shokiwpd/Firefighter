@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IiO-Pp-5zA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IiO-Pp-5zA">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,7 +16,7 @@
                 <tabBarController title="Расчеты" automaticallyAdjustsScrollViewInsets="NO" id="IiO-Pp-5zA" customClass="Custom_TabBar" customModule="FireFighters" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Z6R-W5-Qew"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="nO6-uV-57q">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="nO6-uV-57q">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -31,7 +29,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F92-9a-QfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-58.649999999999999" y="-1832.6399999999999"/>
+            <point key="canvasLocation" x="-93.840000000000003" y="-1648.5517241379312"/>
         </scene>
         <!--Doc View Controller-->
         <scene sceneID="5zA-ce-KwF">
@@ -60,7 +58,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uSS-6J-SZE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="180.77999999999997" y="161.91999999999999"/>
+            <point key="canvasLocation" x="289.24799999999993" y="145.65517241379311"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="xBD-Np-ALx">
@@ -117,7 +115,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FR9-Vf-kbP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1268.5" y="160.5"/>
+            <point key="canvasLocation" x="2029.5999999999999" y="144.3778110944528"/>
         </scene>
         <!--Storyboard Reference-->
         <scene sceneID="1Iw-L7-xqF">
@@ -125,7 +123,7 @@
                 <viewControllerPlaceholder id="ofm-3v-7m1" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VeJ-eV-xuf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2764.1399999999999" y="895.46666666666658"/>
+            <point key="canvasLocation" x="4422.6239999999998" y="805.51724137931035"/>
         </scene>
         <!--Calculation View Controller-->
         <scene sceneID="God-BW-hJl">
@@ -263,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Kv-FQ-fCq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-393.5" y="160.5"/>
+            <point key="canvasLocation" x="-629.60000000000002" y="144.3778110944528"/>
         </scene>
         <!--Расчеты-->
         <scene sceneID="m6M-fe-QVB">
@@ -283,7 +281,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oSJ-b0-WfH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-377.01599999999996" y="-704.55172413793105"/>
+            <point key="canvasLocation" x="-603.22559999999999" y="-633.77966189319136"/>
         </scene>
         <!--Главная-->
         <scene sceneID="b6a-Db-eNj">
@@ -304,7 +302,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3PK-bM-GNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-885.95999999999992" y="-704.10666666666657"/>
+            <point key="canvasLocation" x="-1417.5359999999998" y="-633.37931034482756"/>
         </scene>
         <!--Документация-->
         <scene sceneID="tz9-zc-osV">
@@ -323,7 +321,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0tK-Us-6ax" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="175" y="-723"/>
+            <point key="canvasLocation" x="280" y="-650.37481259370315"/>
         </scene>
         <!--Профиль-->
         <scene sceneID="Mm9-yb-yaS">
@@ -342,7 +340,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w75-mo-qZG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1270.704" y="-705.10344827586198"/>
+            <point key="canvasLocation" x="2033.1263999999999" y="-634.27596546554309"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="vXB-KJ-IFF">
@@ -387,7 +385,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ka-3g-knW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-886.5" y="158.5"/>
+            <point key="canvasLocation" x="-1418.4000000000001" y="142.57871064467767"/>
         </scene>
         <!--CalculationSB-->
         <scene sceneID="OSD-jT-KnR">
@@ -397,7 +395,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xzT-J0-sRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-394" y="641"/>
+            <point key="canvasLocation" x="-630.39999999999998" y="576.61169415292363"/>
         </scene>
     </scenes>
     <resources>

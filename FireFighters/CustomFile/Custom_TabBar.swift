@@ -11,7 +11,7 @@ import UIKit
 class Custom_TabBar: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    
     }
 
     override func didReceiveMemoryWarning() {

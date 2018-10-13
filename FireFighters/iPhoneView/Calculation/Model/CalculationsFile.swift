@@ -27,9 +27,9 @@ class calculationAir {
     var Complexity = false // Сложная степень
     //для вывода данных
     var Pmax:Int! // Максимальное падение воздуха
-    var Tall:Int! // Общее время работы
-    var Pkexit: Int! // Давление при котором надо выходить
-    var Twork: Int! // Время работы
+    var Tall:Int! // Общее время работы P.12
+    var Pkexit: Int! // Давление при котором надо выходить P.10
+    var Twork: Int! // Время работы P.11
     var THearthWork: Int!// Время работы у очага
     var PkexitH: Int! // Контрольное давление при котором надо выходить при котором надо выходить
     var Pmin = Int() // Минимальное давление в баллонах

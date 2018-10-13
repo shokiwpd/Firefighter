@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //Parse errors and track state
         }
         application.registerForRemoteNotifications()
-        IQKeyboardManager.shared.enable = false
+        IQKeyboardManager.shared.enable = true 
         FirebaseApp.configure()
         
         window = UIWindow(frame: UIScreen.main.bounds)

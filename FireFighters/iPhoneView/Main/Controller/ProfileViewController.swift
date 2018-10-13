@@ -65,7 +65,7 @@ class ProfileViewController: UITableViewController {
         case 1:
             segueStoryBoard(nameSB: "WorkInfoEdithBoard")
         case 2:
-            AlertView(text: "Спасибо что пользуетесь данным приложением. Приложение находится в стадии Бета тестирования. Все предложения вы можете оставить группе в VK.Найти ссылку можете на странице приложения в AppStore. Надеюсь на хороший рейтинг. Чем выше ваша оценка,тем мне приятнее и появляется желание его делать.")
+            vk_massage()
         default:
             alertAction()
         }
@@ -80,6 +80,18 @@ class ProfileViewController: UITableViewController {
          AC.addAction(AlAc)
          AC.addAction(AlAc2)
         present(AC, animated: true, completion: nil)
+    }
+    func vk_massage(){
+        let massage = "Спасибо что пользуетесь данным приложением. Приложение находится в стадии Бета тестирования. Все предложения вы можете оставить группе в VK.Найти ссылку можете на странице приложения в AppStore. Надеюсь на хороший рейтинг. Чем выше ваша оценка,тем мне приятнее и появляется желание его делать."
+        let VK_Alert = UIAlertController(title: "О приложении", message: massage , preferredStyle: .alert)
+        let URL_VK_Groupe = UIAlertAction(title: "Перейти в группу", style: .default) { (UIAlertAction) in
+            let URL_VK = URL(string: "https://vk.com/firefighterapp")
+            UIApplication.shared.open(URL_VK!)
+        }
+        let Cancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        VK_Alert.addAction(URL_VK_Groupe)
+        VK_Alert.addAction(Cancel)
+        present(VK_Alert, animated: true, completion: nil)
     }
     func exit() {
         do {

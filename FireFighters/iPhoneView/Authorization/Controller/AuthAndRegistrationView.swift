@@ -12,19 +12,18 @@ class AuthAndRegistrationView: UIViewController {
     //MARK: Оутлеты и их настройки
     @IBOutlet weak var nameLabel: UILabel! {
         didSet {
-            nameLabel.text = "Огнеборцы"
+            nameLabel.text = "Огнеборцы" // Название приложения
         }
     }
-    @IBOutlet weak var authorizationButton: UIButton!
-    @IBOutlet weak var registrationButton: UIButton!
+    @IBOutlet weak var authorizationButton: UIButton! // Кнопка авторизации
+    @IBOutlet weak var registrationButton: UIButton! //Кнопка регистрации
     //MARK: Гардиент
-    var buttonGardients = CAGradientLayer()
+    var buttonGardients = CAGradientLayer()//Гардиент
     //MARK: Лайауты,фон
     override func viewDidLayoutSubviews() {
-        //Настройка внешнего вида кнопки
+        //Настройка внешнего вида кнопок
         authorizationButton.grayButton(nameBut: "Войти")
         registrationButton.clearButton(nameBut: "Регистрация")
-        
         nameLabel.UIfontLabel(viewHeight: Double(view.bounds.height))
         //Фон без эффекта размытия
         self.view.insertSubview(view.backgraundView(), at: 0)
@@ -38,7 +37,9 @@ class AuthAndRegistrationView: UIViewController {
     }
     //Кнопа на случай если возникли ошибки
     @IBAction func VKgroupURL(_ sender: Any) {
-        AlertView(text: "Если у Вас Возникли проблемы ждем Вас в нашей группе в VK.Ссылку вы можете найти в <Отзывы -> Поддержка ПО>")
+        //AlertView(text: "Если у Вас Возникли проблемы ждем Вас в нашей группе в VK.Ссылку вы можете найти в <Отзывы -> Поддержка ПО>")
+        let URL_VK = URL(string: "https://vk.com/firefighterapp")
+        UIApplication.shared.open(URL_VK!)
     }
     
     //MARK: Переход на другой сториборд

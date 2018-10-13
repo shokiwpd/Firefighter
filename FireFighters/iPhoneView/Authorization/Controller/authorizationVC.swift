@@ -5,8 +5,6 @@ import MBProgressHUD
 import Locksmith
 
 class authorizationVC: UIViewController, UITextFieldDelegate,getTockenUser{
-
-    
     //MARK: Оутлеты и их настройки
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var loginView: UITextField!
@@ -72,10 +70,9 @@ class authorizationVC: UIViewController, UITextFieldDelegate,getTockenUser{
             }}
         PasswordResetAlert.addAction(UIAlertAction.init(title: "Восставновить", style: .default, handler: { (action) in
            let Passwords = PasswordResetAlert.textFields![0] as UITextField
-                    Auth.auth().sendPasswordReset(withEmail: Passwords.text!) { error in
-                        if error != nil {
-                            self.AlertView(text: "Пустая форма или нет пользователя с данной электронной почтой")
-                        }
+                    Auth.auth().sendPasswordReset(withEmail: Passwords.text!) { error in // Отправка сообщения на почту
+                        guard error == nil else {return self.AlertView(text: "Пустая форма или нет пользователя с данной электронной почтой")}
+                        self.AlertView(text: "Мы отправили Вам форму для восстановления пароля")
             }}))
         PasswordResetAlert.addAction(UIAlertAction.init(title: "Отмена", style: .cancel, handler: nil))
         present(PasswordResetAlert, animated: true, completion: nil)
@@ -94,6 +91,7 @@ private func fetchFirebase() {
                 userImage = UIImage(data: data)!
             }
                 print(error ?? "Errors no")
+            if error != nil {print("Yes Error")}
         }
         DownloadImage.observe(.progress, handler: { (snapshot) in //Получение статуса загрузки
             if snapshot.progress?.fractionCompleted == 1.0 {
@@ -110,7 +108,6 @@ private func fetchFirebase() {
     }
     //MARK: MBProgressHUD
     func progressView(){
-        
         let Load = MBProgressHUD.showAdded(to: self.view, animated: true)
         Load.mode = MBProgressHUDMode.indeterminate
         Load.label.text = "Готовим данные"

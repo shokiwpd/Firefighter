@@ -29,3 +29,12 @@ extension UITextField {
         }
     }
 }
+class textFields: UITextField {
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        if action == #selector(copy(_:)) || action == #selector(selectAll(_:)) || action == #selector(paste(_:)) || action == #selector(select(_:)) || action == #selector(cut(_:)){
+            return false
+        }
+        return super.canPerformAction(action, withSender: sender)
+    }
+    
+}
