@@ -4,22 +4,16 @@ class ProfileViewController: UITableViewController {
     let SelUsersCell = ["Личные данные","Рабочие данные","Информация","Сменить пользователя"]
     let Comments = ["Смена города","Смена данных о работе","Информация о приложении",""]
     let userInfo = UserProfile.userInform
+    let DarkTheme = ThemeUser()
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Профиль"
-        
-//        self.view.insertSubview(customClass.backgraundView(), at: 1)
-//        self.view.insertSubview(customClass.blurringScreen(view: view), at: 2)
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+//        self.view.backgroundColor =
+        if DarkTheme.DarkTheme(userSelect: "Диначмиеская") == "Dark"{
+                    self.view.backgroundColor = .black
+        } else if DarkTheme.DarkTheme(userSelect: "Диначмиеская") == "White"{
+                    self.view.backgroundColor = .white
+        }
     }
 
     // MARK: - Table view data source
@@ -37,8 +31,11 @@ class ProfileViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! CustomProfileCell
-//            cell.labelViewCell.text = SelUsersCell[indexPath.row]
-//            cell.iconCell.image = #imageLiteral(resourceName: "userInform")
+        if DarkTheme.DarkTheme(userSelect: "Диначмиеская") == "Dark"{
+            cell.backgroundColor = UIColor.black
+        } else if DarkTheme.DarkTheme(userSelect: "Диначмиеская") == "White"{
+            cell.backgroundColor = UIColor.white
+        }
         switch indexPath.row {
         case 0:
             cell.labelViewCell.text = SelUsersCell[indexPath.row]
@@ -53,7 +50,7 @@ class ProfileViewController: UITableViewController {
             cell.labelViewCell.text = SelUsersCell[indexPath.row]
             cell.commentLabel.text = Comments[indexPath.row]
         default:
-            print("hz")
+            print("error")
         }
         return cell
     }

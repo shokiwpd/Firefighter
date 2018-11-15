@@ -13,30 +13,30 @@ import UIKit
 extension UILabel {
     func UIfontLabel(viewHeight: Double) {
         switch viewHeight {
-        case 568.0:
+        case 548.0...568.0:
             self.font = UIFont(name:  "signpainter-housescript", size: 150)//iPhone 5S,SE
-        case 667.0:
+        case 647.0...667.0:
             self.font = UIFont(name:  "signpainter-housescript", size: 180)//iPhone 6,7,8
-        case 736.0:
+        case 716.0...736.0:
             self.font = UIFont(name:  "signpainter-housescript", size: 200)//iPhone 6+,7+,8+
-        case 812.0:
+        case 792...812.0:
             self.font = UIFont(name:  "signpainter-housescript", size: 180)//iPhone X,XS,XR
-        case 896.0:
+        case 876.0...896.0:
             self.font = UIFont(name:  "signpainter-housescript", size: 180)//iPhone XS_Max
         default: print("_____")
         }
     }
     func LoginLabel(viewHeight: Double) {
         switch viewHeight {
-        case 568.0:
+        case 548.0...568.0:
             self.font = UIFont(name:  "signpainter-housescript", size: 55)//iPhone 5S,SE
-        case 667.0:
+        case 647.0...667.0:
             self.font = UIFont(name:  "signpainter-housescript", size: 70)//iPhone 6,7,8
-        case 736.0:
+        case 716.0...736.0:
             self.font = UIFont(name:  "signpainter-housescript", size: 80)//iPhone 6+,7+,8+
-        case 812.0:
+        case 792...812.0:
             self.font = UIFont(name:  "signpainter-housescript", size: 68)//iPhone X
-        case 896.0:
+        case 876.0...896.0:
             self.font = UIFont(name:  "signpainter-housescript", size: 68)//iPhone XS_Max
         default: print("_____")
         }

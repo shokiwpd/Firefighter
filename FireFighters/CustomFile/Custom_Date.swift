@@ -15,4 +15,9 @@ extension Date {
         formDate.dateFormat = "HH:mm"
         return formDate.string(from: self)
     }
+    var HourTime: String {
+        let formDate = DateFormatter()
+        formDate.dateFormat = "HH"
+        return formDate.string(from: self)
+    }
 }

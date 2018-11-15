@@ -2,14 +2,10 @@
 import UIKit
 
 class CustomNavContr: UINavigationController,UINavigationBarDelegate {
-
+    let theme = ThemeUser()
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-    }
-    func BarStyle(navCustom: UINavigationBar){
-        navCustom.barStyle = .black
-        
     }
     func ItemsStyle(itemStyle: UINavigationItem){
         itemStyle.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -22,7 +18,7 @@ class CustomNavContr: UINavigationController,UINavigationBarDelegate {
 extension CustomNavContr: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         ItemsStyle(itemStyle: viewController.navigationItem)
-        BarStyle(navCustom: navigationBar)
+        navigationBar.darkThemeNav()
         navigarionControllers(controlNav: navigationController)
     }
 }

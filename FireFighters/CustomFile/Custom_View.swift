@@ -16,8 +16,15 @@ extension UIView {
         backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
         return backgroundImage
     }
+    
     func blurringScreen() -> UIView!{
-        let blurEffect = UIBlurEffect(style: .light)
+        let theme = ThemeUser()
+        var blurEffect = UIBlurEffect()
+        if theme.DarkTheme(userSelect: "Диначмиеская") == "Dark"{
+             blurEffect = UIBlurEffect(style: .dark)
+        } else if theme.DarkTheme(userSelect: "Диначмиеская") == "White"{
+             blurEffect = UIBlurEffect(style: .light)
+        }
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = self.bounds
         blurView.autoresizingMask = [.flexibleHeight, .flexibleWidth]

@@ -41,7 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             window?.rootViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UITabBarController
         }
-            
     }
         return true
     }

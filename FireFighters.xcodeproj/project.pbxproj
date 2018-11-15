@@ -42,6 +42,8 @@
 		C93E98BC1FCC685D00377B89 /* FirstNextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93E98BB1FCC685C00377B89 /* FirstNextViewController.swift */; };
 		C99610F820782A480024F8A5 /* Calculation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99610F620782A480024F8A5 /* Calculation+CoreDataClass.swift */; };
 		C99610F920782A480024F8A5 /* Calculation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99610F720782A480024F8A5 /* Calculation+CoreDataProperties.swift */; };
+		CDA5CF47219DEE2300E9FCFF /* AppsInfoBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA5CF46219DEE2300E9FCFF /* AppsInfoBoard.storyboard */; };
+		CDA9A2E1219C1B3600A457B8 /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA9A2E0219C1B3600A457B8 /* DarkTheme.swift */; };
 		E905295B1FDBEA2E00647967 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E905295A1FDBEA2E00647967 /* MainStoryboard.storyboard */; };
 		E90894D21FC47F43001DEE07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90894D11FC47F43001DEE07 /* AppDelegate.swift */; };
 		E90894DA1FC47F43001DEE07 /* FireFighters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E90894D81FC47F43001DEE07 /* FireFighters.xcdatamodeld */; };
@@ -111,6 +113,8 @@
 		C93E98BB1FCC685C00377B89 /* FirstNextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstNextViewController.swift; sourceTree = "<group>"; };
 		C99610F620782A480024F8A5 /* Calculation+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Calculation+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C99610F720782A480024F8A5 /* Calculation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Calculation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CDA5CF46219DEE2300E9FCFF /* AppsInfoBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppsInfoBoard.storyboard; sourceTree = "<group>"; };
+		CDA9A2E0219C1B3600A457B8 /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
 		E905295A1FDBEA2E00647967 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		E90894CE1FC47F43001DEE07 /* FireFighters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireFighters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E90894D11FC47F43001DEE07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -260,6 +264,7 @@
 			children = (
 				96BC9DC920A610D5002E9ADB /* ProfileEditBoard.storyboard */,
 				96BC9DD020A6172B002E9ADB /* WorkInfoEdithBoard.storyboard */,
+				CDA5CF46219DEE2300E9FCFF /* AppsInfoBoard.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -458,6 +463,7 @@
 				96EB6E1120D6BCF8001492D8 /* Custom_Label.swift */,
 				963ED56D20DF9C3000EF6ECF /* Custom_AlertController.swift */,
 				963ED57120DFB94F00EF6ECF /* Custom_TabBar.swift */,
+				CDA9A2E0219C1B3600A457B8 /* DarkTheme.swift */,
 			);
 			path = CustomFile;
 			sourceTree = "<group>";
@@ -550,6 +556,7 @@
 				E905295B1FDBEA2E00647967 /* MainStoryboard.storyboard in Resources */,
 				96EB6E0C20D6BB05001492D8 /* CalculationStoryBoardiPad.storyboard in Resources */,
 				E96429F31FCEDDF0005BB8D4 /* LaunchScreenImage in Resources */,
+				CDA5CF47219DEE2300E9FCFF /* AppsInfoBoard.storyboard in Resources */,
 				E90894EA1FC48401001DEE07 /* LaunchScreen.storyboard in Resources */,
 				E9347B472011044C00B20980 /* authStoryBoard.storyboard in Resources */,
 				96BC9DCA20A610D5002E9ADB /* ProfileEditBoard.storyboard in Resources */,
@@ -662,6 +669,7 @@
 				C99610F920782A480024F8A5 /* Calculation+CoreDataProperties.swift in Sources */,
 				96EAB7532110F3610054333F /* AuthNavigationViewController.swift in Sources */,
 				963ED57220DFB94F00EF6ECF /* Custom_TabBar.swift in Sources */,
+				CDA9A2E1219C1B3600A457B8 /* DarkTheme.swift in Sources */,
 				E9C788351FD82DE7009F98F2 /* UserProfile+CoreDataClass.swift in Sources */,
 				E9524AF32011F94900E007C8 /* authorizationVC.swift in Sources */,
 				E90894DA1FC47F43001DEE07 /* FireFighters.xcdatamodeld in Sources */,
