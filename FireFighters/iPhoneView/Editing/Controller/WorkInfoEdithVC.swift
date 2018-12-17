@@ -30,8 +30,7 @@ class WorkInfoEdithVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     }
     //---Загрузка контроллера
     override func viewDidLayoutSubviews() {
-        self.view.insertSubview(view.backgraundView(), at: 0)
-        self.view.insertSubview(view.blurringScreen(), at: 1)
+        self.view.darkThemeView()
         buttonGardients = CAGradientLayer()
         buttonGardients.frame = CGRect(x: 0, y: 0, width: saveButton.frame.size.width, height: saveButton.frame.size.height)
         saveButton.layer.insertSublayer(buttonGardients, at: 0)

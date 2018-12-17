@@ -26,3 +26,10 @@ extension getTockenUser {
     }
 }
 
+enum FirebaseData {
+    case create
+    
+    case delete
+    
+    case update
+}

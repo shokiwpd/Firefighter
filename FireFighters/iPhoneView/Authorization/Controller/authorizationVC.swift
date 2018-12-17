@@ -20,8 +20,10 @@ class authorizationVC: UIViewController, UITextFieldDelegate,getTockenUser{
     //MARK: Лойауты и фон
     override func viewDidLayoutSubviews() {
         //Фон с эффектом размытия 
-        self.view.insertSubview(view.backgraundView(), at: 0)
-        self.view.insertSubview(view.blurringScreen(), at: 1)
+//        self.view.insertSubview(view.backgraundView(), at: 0)
+//        self.view.insertSubview(view.blurringScreen(), at: 1)
+        let userDef = UserDefaults.standard.bool(forKey: "DarkMode")
+        self.view.insertSubview(view.backgraundView(blur: true, darkMode: userDef), at: 0)
         //
         titleLabel.LoginLabel(viewHeight: Double(view.bounds.height))
         //Кнопка с гардиентом

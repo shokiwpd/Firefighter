@@ -38,6 +38,7 @@ class NoWorkHearthVC: UIViewController,UITextFieldDelegate {
         }
     }
     override func viewDidLayoutSubviews() {
+        self.view.darkThemeView()
         noHearthButtonGardients = CAGradientLayer()
         yesHearthButtonGardients = CAGradientLayer()
         noHearthButtonGardients.frame = CGRect(x: 0, y: 0, width: noHearth.frame.size.width, height: noHearth.frame.size.height)
@@ -53,11 +54,7 @@ class NoWorkHearthVC: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         HearthFF1.delegate = self
-        
-        
         ArrivalTimeHearth.date = CalData.inputTime
-        self.view.insertSubview(view.backgraundView(), at: 0)
-        self.view.insertSubview(view.blurringScreen(), at: 1)
         switch CalData.numberFireFighter {
         case 2:
             HearthFF1.delegate = self

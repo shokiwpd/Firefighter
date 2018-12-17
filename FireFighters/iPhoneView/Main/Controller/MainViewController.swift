@@ -8,21 +8,25 @@ class MainViewController: UIViewController,UICollectionViewDelegate,getTockenUse
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var welcomeMessage: UILabel!
     @IBOutlet weak var InformationCollection: UICollectionView!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        chekingRegistration()
-        self.view.insertSubview(view.backgraundView(), at: 0)
-        self.view.insertSubview(view.blurringScreen(), at: 1)
-        title = "Главная"
-        profileImage.image = userInfo.userPhoto
-        welcomeMessage.text = "Здравствуйте \(String(userInfo.userName)) \(String(userInfo.userPatronymic))"
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        chekingRegistration()
-    }
     override func viewDidLayoutSubviews() {
         profileImage.circleImage()
+    }
+    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "Главная"
+        chekingRegistration()
+        profileImage.image = userInfo.userPhoto
+        welcomeMessage.text = "Здравствуйте \(String(userInfo.userName)) \(String(userInfo.userPatronymic))"
+        updateView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        NotificationCenter.default.addObserver(self, selector: #selector(DarkNotification), name: NSNotification.Name.init(rawValue: "DarkMode"), object: nil)
+        chekingRegistration()
+        updateView()
     }
     
     private func chekingRegistration(){
@@ -40,6 +44,21 @@ class MainViewController: UIViewController,UICollectionViewDelegate,getTockenUse
         let saveDataBase = userInfoFIR(Name: userInfo.userName, Patronymic:  userInfo.userPatronymic, City:  userInfo.userCity, Position: userInfo.userPosition, PartNumb:  userInfo.userPartNum, ChangeNum: Int(userInfo.userPartNum)! as NSNumber, BirthDay: userInfo.userBirthday, UnitType: userInfo.userUnitType,vballons: userInfo.userVBallons as NSNumber,AspectRatio: userInfo.userAspectRatio as NSNumber, AirFlow: userInfo.userAirFlow as NSNumber, GearboxOperation: userInfo.userGearboxOperation as NSNumber)
         let infoRef = self.DataReference.child(userTocken!)
         infoRef.setValue(saveDataBase.convertDataBase())
+    }
+    func updateView() {
+        let loadVeiw = DispatchQueue.main
+        loadVeiw.async {
+            self.view.darkThemeView()
+            self.welcomeMessage.darkThemeLabel()
+            self.navigationController?.navigationBar.darkThemeNav()
+            self.tabBarController?.tabBar.darkThemeBar()
+        }
+    }
+    @objc func DarkNotification(notif: Notification) {
+        guard let userInfo  = notif.userInfo, let Dark = userInfo["Dark"] as? String else { return }
+        if Dark != "" {
+            updateView()
+        }
     }
 }
 

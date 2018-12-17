@@ -167,7 +167,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         guard AirFlow.text != "" else {return AlertView(text: "Укажите средний расход воздуха в вашем подразделении!")}
         guard AspectRatio.text != "" else {return AlertView(text: "Укажите коэффициент сжатия воздуха(Уточните на базе ГДЗС или мастера ГДЗС)")}
         guard GearboxOperation.text != "" else {return AlertView(text: "Укажите давление для стабильной работы редуктора!")}
-        checkInfoWork(changeNum: Int(ChangeNum.text!)!, partNumb: partNumb.text!, position: PositionName, vBallon: Double(vBallons.text!.forrmated)!, airFlow: Double(AirFlow.text!.forrmated)!, AspectRatio: Double(AspectRatio.text!.forrmated)!, GearboxOperation: Int(GearboxOperation.text!)!)
+        checkInfoWork(changeNum: Int(ChangeNum.text!)!, partNumb: partNumb.text!, position: PositionName, vBallon: Double(vBallons.text!.forrmated)!, airFlow: Double(AirFlow.text!.forrmated)!, AspectRatio: Double(AspectRatio.text!.forrmated)!, GearboxOperation: Int(GearboxOperation.text!.forrmated)!)
     }
 //----
     

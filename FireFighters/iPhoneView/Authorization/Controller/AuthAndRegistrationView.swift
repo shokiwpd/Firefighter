@@ -21,13 +21,15 @@ class AuthAndRegistrationView: UIViewController {
     var buttonGardients = CAGradientLayer()//Гардиент
     //MARK: Лайауты,фон
     override func viewDidLayoutSubviews() {
-        //Настройка внешнего вида кнопок
+        //MARK: Настройка внешнего вида кнопок
         authorizationButton.grayButton(nameBut: "Войти")
         registrationButton.clearButton(nameBut: "Регистрация")
         nameLabel.UIfontLabel(viewHeight: Double(view.bounds.height))
-        //Фон без эффекта размытия
-        self.view.insertSubview(view.backgraundView(), at: 0)
-        //гардиент для кнопок
+        //MARK: Фон без эффекта размытия
+        let userDef = UserDefaults.standard.bool(forKey: "DarkMode")
+        self.view.insertSubview(view.backgraundView(blur: false, darkMode: userDef), at: 0)
+//        self.view.insertSubview(view.backgraundView(), at: 0)
+        //MARK: гардиент для кнопок
         buttonGardients.gardientButton(w: authorizationButton.frame.size.width, h: authorizationButton.frame.size.height)
         authorizationButton.layer.insertSublayer(buttonGardients, at: 0)
     }

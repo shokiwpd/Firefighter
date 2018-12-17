@@ -18,11 +18,12 @@ class ResultViewController: UIViewController {
     var HeartStatus = false
     var DecisionProgressText = ""
     var ballons: Double!
+    override func viewDidLayoutSubviews() {
+        self.view.darkThemeView()
+    }
     var loadLocalData = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.insertSubview(view.backgraundView(), at: 0)
-        self.view.insertSubview(view.blurringScreen(), at: 1)
         resul()
     }
 

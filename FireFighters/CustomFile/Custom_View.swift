@@ -10,21 +10,37 @@ import Foundation
 import UIKit
 
 extension UIView {
-    func backgraundView()-> UIView! {
+    func backgraundView(blur: Bool, darkMode: Bool)-> UIView! { //backgraundView(blur: Bool, darkMode: Bool) backgraundView()->
+        var blurEffect = UIBlurEffect()
+        switch darkMode {
+        case true:
+            blurEffect = UIBlurEffect(style: .dark)
+        case false:
+            blurEffect = UIBlurEffect(style: .light)
+        }
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = self.bounds
+        blurView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "launchScreen.png")
-        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+            backgroundImage.image = UIImage(named: "launchScreen.png")
+            backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+        if blur != false { backgroundImage.addSubview(blurView)}
         return backgroundImage
     }
     
     func blurringScreen() -> UIView!{
-        let theme = ThemeUser()
         var blurEffect = UIBlurEffect()
-        if theme.DarkTheme(userSelect: "Диначмиеская") == "Dark"{
-             blurEffect = UIBlurEffect(style: .dark)
-        } else if theme.DarkTheme(userSelect: "Диначмиеская") == "White"{
-             blurEffect = UIBlurEffect(style: .light)
+        let userDef = UserDefaults.standard
+        let DarkMode = userDef.bool(forKey: "DarkMode")
+        switch DarkMode {
+        case true:
+            blurEffect = UIBlurEffect(style: .dark)
+            print("Black View")
+        case false:
+            blurEffect = UIBlurEffect(style: .light)
+            print("White View")
         }
+        print(blurEffect)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = self.bounds
         blurView.autoresizingMask = [.flexibleHeight, .flexibleWidth]

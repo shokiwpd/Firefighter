@@ -16,5 +16,8 @@ extension String {
     var forrmater_text: String {
         return self.replacingOccurrences(of: " ", with: "", options: .literal, range: nil)
     }
+    var dataFormat: String {
+        return self.replacingOccurrences(of: ":", with: ".", options: .literal, range: nil)
+    }
 }
 

@@ -1,41 +1,47 @@
 import UIKit
 import FirebaseAuth
 class ProfileViewController: UITableViewController {
-    let SelUsersCell = ["Личные данные","Рабочие данные","Информация","Сменить пользователя"]
-    let Comments = ["Смена города","Смена данных о работе","Информация о приложении",""]
+    let SelUsersCell = ["Личные данные","Рабочие данные","Информация","Темная тема","Сменить пользователя"]
+    let Comments = ["Смена города","Смена данных о работе","Информация о приложении","Смена темы оформления",""]
+   
     let userInfo = UserProfile.userInform
     let DarkTheme = ThemeUser()
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        title = "Профиль"
-//        self.view.backgroundColor =
-        if DarkTheme.DarkTheme(userSelect: "Диначмиеская") == "Dark"{
-                    self.view.backgroundColor = .black
-        } else if DarkTheme.DarkTheme(userSelect: "Диначмиеская") == "White"{
-                    self.view.backgroundColor = .white
+    override func viewDidLayoutSubviews() {
+        let userDef = UserDefaults.standard.bool(forKey: "DarkMode")
+        switch userDef {
+        case true:
+            self.view.backgroundColor = UIColor.darkGray
+        case false:
+            self.view.backgroundColor = .white
         }
     }
 
-    // MARK: - Table view data source
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "Профиль"
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+    }
 
+    // MARK: - Table view data source
+    // Число секторов
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    // Число ячеек
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return SelUsersCell.count
     }
 
-    
+    //Отображение данных в кастомных ячейках
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! CustomProfileCell
-        if DarkTheme.DarkTheme(userSelect: "Диначмиеская") == "Dark"{
-            cell.backgroundColor = UIColor.black
-        } else if DarkTheme.DarkTheme(userSelect: "Диначмиеская") == "White"{
-            cell.backgroundColor = UIColor.white
-        }
+        cell.backgroundColor = .clear
+        cell.labelViewCell.darkThemeLabel()
+        cell.commentLabel.darkThemeLabel()
         switch indexPath.row {
         case 0:
             cell.labelViewCell.text = SelUsersCell[indexPath.row]
@@ -49,11 +55,15 @@ class ProfileViewController: UITableViewController {
         case 3:
             cell.labelViewCell.text = SelUsersCell[indexPath.row]
             cell.commentLabel.text = Comments[indexPath.row]
+        case 4:
+            cell.labelViewCell.text = SelUsersCell[indexPath.row]
+            cell.commentLabel.text = Comments[indexPath.row]
         default:
             print("error")
         }
         return cell
     }
+    //Действия таблицы
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        // let Cell:CustomProfileCell!
         switch indexPath.row{
@@ -63,10 +73,14 @@ class ProfileViewController: UITableViewController {
             segueStoryBoard(nameSB: "WorkInfoEdithBoard")
         case 2:
             vk_massage()
-        default:
+        case 3:
+             DarkMode()
+        case 4:
             alertAction()
+        default: break
         }
     }
+    // Функция выбора сменить профиль или нет
     func alertAction() {
         let AC = UIAlertController(title: "Смена пользователя", message: "Вы уверены что хотите сменить пользователя?", preferredStyle: .alert)
         let AlAc = UIAlertAction(title: "Нет", style: .default, handler: nil)
@@ -74,10 +88,11 @@ class ProfileViewController: UITableViewController {
             self.exit()
             self.userInfo.clearData()
             })
-         AC.addAction(AlAc)
          AC.addAction(AlAc2)
+         AC.addAction(AlAc)
         present(AC, animated: true, completion: nil)
     }
+    // Переход на публичную страницу приложения
     func vk_massage(){
         let massage = "Спасибо что пользуетесь данным приложением. Приложение находится в стадии Бета тестирования. Все предложения вы можете оставить группе в VK.Найти ссылку можете на странице приложения в AppStore. Надеюсь на хороший рейтинг. Чем выше ваша оценка,тем мне приятнее и появляется желание его делать."
         let VK_Alert = UIAlertController(title: "О приложении", message: massage , preferredStyle: .alert)
@@ -90,14 +105,40 @@ class ProfileViewController: UITableViewController {
         VK_Alert.addAction(Cancel)
         present(VK_Alert, animated: true, completion: nil)
     }
+    // Включение темной темы
+    func DarkMode(){
+        let DarkModeMassage = "Данная функция находится в стадии альфа тестирования и может быть доработана в будущем или быть перенесена в другой раздел"
+        let userDefMode = UserDefaults.standard
+        let DarkAlert = UIAlertController(title: "Внимание", message: DarkModeMassage, preferredStyle: .actionSheet)
+        let Dark = UIAlertAction(title: "Теманая тема", style: .default) { (UIAlertAction) in
+                userDefMode.set(true, forKey: "DarkMode")
+                userDefMode.synchronize()
+            self.updateView()
+            NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "DarkMode"), object: nil, userInfo: ["Dark" : "Black_Fun"])
+        }
+        let White = UIAlertAction(title: "Светлая тема", style: .default) { (UIAlertAction) in
+            userDefMode.set(false, forKey: "DarkMode")
+            userDefMode.synchronize()
+            self.updateView()
+            NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "DarkMode"), object: nil, userInfo: ["Dark" : "White_Fun"])
+        }
+        let Cancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        DarkAlert.addAction(Dark)
+        DarkAlert.addAction(White)
+        DarkAlert.addAction(Cancel)
+        present(DarkAlert, animated: true, completion: nil)
+    }
+    
+    //Смена пользователя
     func exit() {
         do {
             try Auth.auth().signOut()
         } catch {
-            print("Fig vam")
+            print("Error")
         }
         segueStoryBoard(nameSB: "authStoryBoard")
     }
+    //Переходы на разные сториборды
     func segueStoryBoard(nameSB: String!) {
         switch nameSB {
         case "ProfileEditBoard": let Vc = UIStoryboard(name: nameSB, bundle: nil).instantiateInitialViewController() as! EditProfileInfoVC
@@ -106,7 +147,19 @@ class ProfileViewController: UITableViewController {
                 present(Vc, animated: true, completion: nil)
         case "WorkInfoEdithBoard": let Vc = UIStoryboard(name: nameSB, bundle: nil).instantiateInitialViewController() as! WorkInfoEdithVC
                 present(Vc, animated: true, completion: nil)
+        case "AppsInfoBoard": let Vc = UIStoryboard(name: nameSB, bundle: nil).instantiateInitialViewController() as! UINavigationController
+                present(Vc, animated: true, completion: nil)
         default: break
+        }
+    }
+    //Обновление контроллера
+    func updateView() {
+        let ViewLoad = DispatchQueue.main
+        ViewLoad.async {
+            self.tableView.reloadData()
+            self.navigationController?.navigationBar.darkThemeNav()
+            self.tabBarController?.tabBar.darkThemeBar()
+            
         }
     }
 

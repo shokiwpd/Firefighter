@@ -33,31 +33,56 @@ func DarkTheme(userSelect: String) -> String {
      return ThemeName
     }
 }
+// Функция для работы Таб баром с темной темой.
 extension UITabBar {
     func darkThemeBar() {
-        let theme = ThemeUser()
-        switch theme.DarkTheme(userSelect: "Диначмиеская") {
-        case "Dark":
+        let userDef = UserDefaults.standard
+        let DarkMode = userDef.bool(forKey: "DarkMode")
+        switch DarkMode {
+        case true:
             self.barStyle = .black
-        case "White":
+        case false:
             self.barStyle = .default
-        default:
-            print("error")
         }
     }
 }
+// Функция для работы панели навигации с темной темой.
 extension UINavigationBar {
     func darkThemeNav() {
-        let theme = ThemeUser()
-        switch theme.DarkTheme(userSelect: "Диначмиеская") {
-        case "Dark":
+        let userDef = UserDefaults.standard
+        let DarkMode = userDef.bool(forKey: "DarkMode")
+        switch DarkMode {
+        case true:
             self.barStyle = .black
             self.barTintColor = UIColor.black
-        case "White":
+        case false:
             self.barStyle = .default
             self.barTintColor = UIColor.white
-        default:
-            print("error")
+        }
+    }
+}
+// Функция для работы текста с темной темой.
+extension UILabel {
+    func darkThemeLabel() {
+        let userDef = UserDefaults.standard
+        let DarkMode = userDef.bool(forKey: "DarkMode")
+        switch DarkMode {
+        case true:
+            self.textColor = .white
+        case false:
+            self.textColor = .black
+        }
+    }
+}
+extension UIView {
+    func darkThemeView() {
+        let userDef = UserDefaults.standard
+        let DarkMode = userDef.bool(forKey: "DarkMode")
+        switch DarkMode {
+        case true:
+            self.backgroundColor = .darkGray
+        case false:
+            self.backgroundColor = .white
         }
     }
 }

@@ -28,8 +28,7 @@ class SelectTimeFireFighter: UIViewController,UITextFieldDelegate {
     //MARK: Загрзка графической части
     let loadData = UserDefaults.standard
     override func viewDidLayoutSubviews() {
-        self.view.insertSubview(view.backgraundView(), at: 0)
-        self.view.insertSubview(view.blurringScreen(), at: 1)
+        self.view.darkThemeView()
         startButtonGardients.gardientButton(w: startButton.frame.size.width,h: startButton.frame.size.height)
         calculationButtonGardients.gardientButton(w: calculationButton.frame.size.width, h: calculationButton.frame.size.height)
             startButton.layer.insertSublayer(startButtonGardients, at: 0)

@@ -8,6 +8,8 @@ class CalculationViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var SelectType: UISegmentedControl!
     @IBOutlet weak var OxyAirFlow: UITextField!
+    @IBOutlet weak var ComplexyLabel: UILabel!
+    @IBOutlet weak var FirefightersLabel: UILabel!
     let DataBase = UserProfile.userInform
     var statusFireBool = false
     var Complexity = false
@@ -23,8 +25,6 @@ class CalculationViewController: UIViewController {
     }
     //MARK: Load first layout
     override func viewDidLayoutSubviews() {
-        self.view.insertSubview(view.backgraundView(), at: 0)
-        self.view.insertSubview(view.blurringScreen(), at: 1)
         buttonGardients = CAGradientLayer()
         buttonGardients.frame = CGRect(x: 0, y: 0, width: nextButton.frame.size.width, height: nextButton.frame.size.height)
         nextButton.grayButton(nameBut: "Далее")
@@ -32,10 +32,12 @@ class CalculationViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-//        saveAlert()
-//        OxyAirFlow.text = String(DataBase.userAirFlow)
         title = "Расчеты"
         CalcClass.claenData()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        NotificationCenter.default.addObserver(self, selector: #selector(DarkNotification), name: NSNotification.Name.init(rawValue: "DarkMode"), object: nil)
     }
     func switchStatus(switcher: UISwitch)->Bool! {
         switch switcher.isOn {
@@ -81,6 +83,23 @@ class CalculationViewController: UIViewController {
                 
             }
         }
+    func updateView() {
+        let loadVeiw = DispatchQueue.main
+        loadVeiw.async {
+            self.view.darkThemeView()
+            self.FirefightersLabel.darkThemeLabel()
+            self.ComplexyLabel.darkThemeLabel()
+            self.navigationController?.navigationBar.darkThemeNav()
+            self.tabBarController?.tabBar.darkThemeBar()
+        }
+    }
+    
+    @objc func DarkNotification(notif: Notification) {
+        guard let userInfo  = notif.userInfo, let Dark = userInfo["Dark"] as? String else { return }
+        if Dark != "" {
+            updateView()
+        }
+    }
     func saveAlert() {
         let alertView = UIAlertController(title: "Внимание", message: "Укажите средний расход для кислорода", preferredStyle: .alert)
         alertView.addTextField { (textFields) in

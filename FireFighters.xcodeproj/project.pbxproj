@@ -42,6 +42,7 @@
 		C93E98BC1FCC685D00377B89 /* FirstNextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93E98BB1FCC685C00377B89 /* FirstNextViewController.swift */; };
 		C99610F820782A480024F8A5 /* Calculation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99610F620782A480024F8A5 /* Calculation+CoreDataClass.swift */; };
 		C99610F920782A480024F8A5 /* Calculation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99610F720782A480024F8A5 /* Calculation+CoreDataProperties.swift */; };
+		CD93F79E219F06650047CDEF /* AppsInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD93F79D219F06650047CDEF /* AppsInfoVC.swift */; };
 		CDA5CF47219DEE2300E9FCFF /* AppsInfoBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA5CF46219DEE2300E9FCFF /* AppsInfoBoard.storyboard */; };
 		CDA9A2E1219C1B3600A457B8 /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA9A2E0219C1B3600A457B8 /* DarkTheme.swift */; };
 		E905295B1FDBEA2E00647967 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E905295A1FDBEA2E00647967 /* MainStoryboard.storyboard */; };
@@ -113,6 +114,7 @@
 		C93E98BB1FCC685C00377B89 /* FirstNextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstNextViewController.swift; sourceTree = "<group>"; };
 		C99610F620782A480024F8A5 /* Calculation+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Calculation+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C99610F720782A480024F8A5 /* Calculation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Calculation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CD93F79D219F06650047CDEF /* AppsInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsInfoVC.swift; sourceTree = "<group>"; };
 		CDA5CF46219DEE2300E9FCFF /* AppsInfoBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppsInfoBoard.storyboard; sourceTree = "<group>"; };
 		CDA9A2E0219C1B3600A457B8 /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
 		E905295A1FDBEA2E00647967 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 			children = (
 				96BC9DCC20A6115A002E9ADB /* EditProfileInfoVC.swift */,
 				96BC9DCE20A61186002E9ADB /* WorkInfoEdithVC.swift */,
+				CD93F79D219F06650047CDEF /* AppsInfoVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -650,6 +653,7 @@
 				96C9A13720C9BF6700EC1B1F /* Custom_TextField.swift in Sources */,
 				963ED56E20DF9C3000EF6ECF /* Custom_AlertController.swift in Sources */,
 				96EB6E1220D6BCF8001492D8 /* Custom_Label.swift in Sources */,
+				CD93F79E219F06650047CDEF /* AppsInfoVC.swift in Sources */,
 				C99610F820782A480024F8A5 /* Calculation+CoreDataClass.swift in Sources */,
 				96C9A13F20C9C56A00EC1B1F /* getFirebaseInfo.swift in Sources */,
 				E978EAED1FEED7B700197057 /* CalculationViewController.swift in Sources */,
@@ -811,6 +815,7 @@
 				INFOPLIST_FILE = FireFighters/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "Shoki-Dev.FireFighters";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

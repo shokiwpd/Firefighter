@@ -24,8 +24,7 @@ class EditProfileInfoVC: UIViewController,getTockenUser {
         }
     }
     override func viewDidLayoutSubviews() {
-        self.view.insertSubview(view.backgraundView(), at: 0)
-        self.view.insertSubview(view.blurringScreen(), at: 1)
+        self.view.darkThemeView()
         buttonGardients = CAGradientLayer()
         buttonGardients.frame = CGRect(x: 0, y: 0, width: saveButton.frame.size.width, height: saveButton.frame.size.height)
         saveButton.layer.insertSublayer(buttonGardients, at: 0)
@@ -39,7 +38,7 @@ class EditProfileInfoVC: UIViewController,getTockenUser {
         profileImage.image = CoreDataInfo.userPhoto
         nameUser.text = CoreDataInfo.userName
         patronymicUser.text = CoreDataInfo.userPatronymic
-        BirthdayDay.text = CoreDataInfo.userBirthday
+        BirthdayDay.text = (CoreDataInfo.userBirthday).dataFormat
         editCity.text = CoreDataInfo.userCity
     }
 

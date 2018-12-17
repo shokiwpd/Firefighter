@@ -252,6 +252,8 @@
                     <navigationItem key="navigationItem" id="5Q6-nd-sF0"/>
                     <connections>
                         <outlet property="ComplexityStatus" destination="Bms-u0-vEa" id="hjN-rE-fm8"/>
+                        <outlet property="ComplexyLabel" destination="d9n-z9-TY4" id="RAg-SY-Udt"/>
+                        <outlet property="FirefightersLabel" destination="uMq-kN-MwF" id="Liu-l9-Tsd"/>
                         <outlet property="OxyAirFlow" destination="vct-Dd-7k7" id="6Dw-YA-MXh"/>
                         <outlet property="SelectType" destination="XWc-lU-njH" id="VHh-pm-OrX"/>
                         <outlet property="nextButton" destination="1Ba-hc-mI3" id="wnm-om-Yg1"/>
@@ -359,7 +361,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Kl-Yt-gPJ">
+                            <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Kl-Yt-gPJ">
                                 <rect key="frame" x="78" y="71" width="219" height="219"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="6Kl-Yt-gPJ" secondAttribute="height" multiplier="1:1" id="gkp-qb-U9l"/>

@@ -13,6 +13,10 @@ class DecisionProgressVC: UIViewController {
     @IBOutlet weak var ScrollsVeiw: UIScrollView!
     var resultTextClass = ""
     @IBOutlet weak var DecisionLabel: UILabel!
+    override func viewDidLayoutSubviews() {
+        self.view.darkThemeView()
+        DecisionLabel.darkThemeLabel()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         ScrollsVeiw.contentLayoutGuide.bottomAnchor.constraint(equalTo: DecisionLabel.bottomAnchor).isActive = true
