@@ -29,6 +29,7 @@ class CalculationViewController: UIViewController {
         buttonGardients.frame = CGRect(x: 0, y: 0, width: nextButton.frame.size.width, height: nextButton.frame.size.height)
         nextButton.grayButton(nameBut: "Далее")
         nextButton.layer.insertSublayer(buttonGardients, at: 0)
+        updateView()
     }
     override func viewDidLoad() {
         super.viewDidLoad()

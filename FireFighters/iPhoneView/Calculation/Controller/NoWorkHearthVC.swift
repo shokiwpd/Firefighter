@@ -121,28 +121,25 @@ class NoWorkHearthVC: UIViewController,UITextFieldDelegate {
         let errorName = "Вы не указали давление пожарных"
         switch CalData.numberFireFighter {
         case 2:
-            guard HearthFF1.text != "",HearthFF2.text != "" else {return alertAction(errors: errorName)}
+            guard HearthFF1.text != "",HearthFF2.text != "" else {return AlertView(text: errorName)}
             CalData.p1Hearth = Int(HearthFF1.text!)!
             CalData.p2Hearth  = Int(HearthFF2.text!)!
             CalData.heartFoundTime = ArrivalTimeHearth.date
         case 3:
-            guard HearthFF1.text != "",HearthFF2.text != "", HearthFF3.text != "" else {alertAction(errors: errorName)
-                return}
+            guard HearthFF1.text != "",HearthFF2.text != "", HearthFF3.text != "" else {return AlertView(text: errorName)}
             CalData.p1Hearth = Int(HearthFF1.text!)!
             CalData.p2Hearth = Int(HearthFF2.text!)!
             CalData.p3Hearth = Int(HearthFF3.text!)!
             CalData.heartFoundTime = ArrivalTimeHearth.date
         case 4:
-            guard HearthFF1.text != "",HearthFF2.text != "",HearthFF3.text != "",HearthFF4.text != "" else {alertAction(errors: errorName)
-                return}
+            guard HearthFF1.text != "",HearthFF2.text != "",HearthFF3.text != "",HearthFF4.text != "" else {return AlertView(text: errorName)}
             CalData.p1Hearth = Int(HearthFF1.text!)!
             CalData.p2Hearth = Int(HearthFF2.text!)!
             CalData.p3Hearth = Int(HearthFF3.text!)!
             CalData.p4Hearth = Int(HearthFF4.text!)!
             CalData.heartFoundTime = ArrivalTimeHearth.date
         case 5:
-            guard HearthFF1.text != "",HearthFF2.text != "",HearthFF3.text != "",HearthFF4.text != "", HearthFF5.text != "" else {alertAction(errors:errorName)
-                return}
+            guard HearthFF1.text != "",HearthFF2.text != "",HearthFF3.text != "",HearthFF4.text != "", HearthFF5.text != "" else {return AlertView(text: errorName)}
             CalData.p1Hearth = Int(HearthFF1.text!)!
             CalData.p2Hearth = Int(HearthFF2.text!)!
             CalData.p3Hearth = Int(HearthFF3.text!)!
@@ -153,12 +150,7 @@ class NoWorkHearthVC: UIViewController,UITextFieldDelegate {
             print("No numb")
         }
     }
-private func alertAction(errors: String!) {
-        let AC = UIAlertController(title: "Внимание", message: errors, preferredStyle: .alert)
-        let AlAc = UIAlertAction(title: "ОК", style: .default, handler: nil)
-        AC.addAction(AlAc)
-        present(AC, animated: true, completion: nil)
-    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NoHearth"{
             let NextView = segue.destination as! ResultViewController

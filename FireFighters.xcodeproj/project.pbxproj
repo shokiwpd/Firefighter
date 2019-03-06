@@ -45,6 +45,7 @@
 		CD93F79E219F06650047CDEF /* AppsInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD93F79D219F06650047CDEF /* AppsInfoVC.swift */; };
 		CDA5CF47219DEE2300E9FCFF /* AppsInfoBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA5CF46219DEE2300E9FCFF /* AppsInfoBoard.storyboard */; };
 		CDA9A2E1219C1B3600A457B8 /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA9A2E0219C1B3600A457B8 /* DarkTheme.swift */; };
+		CDE2A4B222304B57002C5F74 /* newsFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE2A4B122304B57002C5F74 /* newsFirebase.swift */; };
 		E905295B1FDBEA2E00647967 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E905295A1FDBEA2E00647967 /* MainStoryboard.storyboard */; };
 		E90894D21FC47F43001DEE07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90894D11FC47F43001DEE07 /* AppDelegate.swift */; };
 		E90894DA1FC47F43001DEE07 /* FireFighters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E90894D81FC47F43001DEE07 /* FireFighters.xcdatamodeld */; };
@@ -117,6 +118,7 @@
 		CD93F79D219F06650047CDEF /* AppsInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsInfoVC.swift; sourceTree = "<group>"; };
 		CDA5CF46219DEE2300E9FCFF /* AppsInfoBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppsInfoBoard.storyboard; sourceTree = "<group>"; };
 		CDA9A2E0219C1B3600A457B8 /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
+		CDE2A4B122304B57002C5F74 /* newsFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newsFirebase.swift; sourceTree = "<group>"; };
 		E905295A1FDBEA2E00647967 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		E90894CE1FC47F43001DEE07 /* FireFighters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireFighters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E90894D11FC47F43001DEE07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 		961D21BC20FABE3F00CAB75C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CDE2A4B122304B57002C5F74 /* newsFirebase.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -686,6 +689,7 @@
 				96622DE82090F7280046AF46 /* ResultTextFile.swift in Sources */,
 				96C699B720DBF4F300DF7578 /* getFirebaseData.swift in Sources */,
 				E9458DC02013682D00377530 /* userInfoDataBase.swift in Sources */,
+				CDE2A4B222304B57002C5F74 /* newsFirebase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

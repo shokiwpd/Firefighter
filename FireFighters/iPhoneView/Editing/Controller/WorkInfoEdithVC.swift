@@ -53,15 +53,14 @@ class WorkInfoEdithVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         typeUnitPicker.tag = 2
         unitType.inputView = typeUnitPicker
         //----Поля ввода текста
-        PartNumberEdit.text = CoreDataInfo.userPartNum  // Номер части
-        GuardEdit.text = String(CoreDataInfo.userChange) //Номер караула
-        unitType.text = CoreDataInfo.userUnitType   //Тип аппарата
-        positionField.text = CoreDataInfo.userPosition // Должность
-        VballonsEdit.text = String(CoreDataInfo.userVBallons)//Объем баллона
-        coefficientEdit.text = String(CoreDataInfo.userAspectRatio)//Коэф.сжатия
-        AirFlowEdith.text = String(CoreDataInfo.userAirFlow)//Расход воздуха
-        GearBoxEdit.text = String(CoreDataInfo.userGearboxOperation)//Давление редуктора
-
+            PartNumberEdit.text = CoreDataInfo.userPartNum  // Номер части
+            GuardEdit.text = String(CoreDataInfo.userChange) //Номер караула
+            unitType.text = CoreDataInfo.userUnitType   //Тип аппарата
+            positionField.text = CoreDataInfo.userPosition // Должность
+            VballonsEdit.text = String(CoreDataInfo.userVBallons)//Объем баллона
+            coefficientEdit.text = String(CoreDataInfo.userAspectRatio)//Коэф.сжатия
+            AirFlowEdith.text = String(CoreDataInfo.userAirFlow)//Расход воздуха
+            GearBoxEdit.text = String(CoreDataInfo.userGearboxOperation)//Давление редуктора
         }
     //-----НАстройка UIPicker
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -90,6 +89,12 @@ class WorkInfoEdithVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     }
     //-----Сохранение данных--Этап 1---Проверка и возвращение к предидущему контроллеру
     @IBAction func saveEditInfo(_ sender: Any) {
+        guard PartNumberEdit.text! != "" else { return AlertView(text: "Вы не указали номер части!")}
+        guard GuardEdit.text! != "" else { return AlertView(text: "Вы не указали номер Караула(Дежурной смены)")}
+        guard VballonsEdit.text! != "" else { return AlertView(text: "Вы не указали  объем баллона(ов)!")}
+        guard coefficientEdit.text! != "" else { return AlertView(text: "Вы не указали коэффециент сжатия!")}
+        guard AirFlowEdith.text! != "" else { return AlertView(text: "Вы не указали средний расход воздуха!")}
+        guard GearBoxEdit.text! != "" else { return AlertView(text: "Вы не указали давления для стабильной работы редуктора!")}
         editInform(part: PartNumberEdit.text!, Guard: Int(GuardEdit.text!)!,VBal: Double(VballonsEdit.text!)!, Aspect: Double(coefficientEdit.text!)!, Air: Double(AirFlowEdith.text!)!, GB: Int(GearBoxEdit.text!)!,posit: positionField.text!, typeSel: unitType.text!)
         dismiss(animated: true, completion: nil)
     }

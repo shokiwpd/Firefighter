@@ -27,7 +27,7 @@ extension AuthErrorCode {
         case .wrongPassword:
             return "Неверный пароль. Пожалуйста, попробуйте еще раз или Обратитесь в службу поддержки"
         default:
-            return "Unknown error occurred"
+            return "Нет доступа к FireBase. Возможно в Вашем регионе стоит запрет на этот сервис! Мы уже стараемся исправить данную проблему!"
         }
     }
 }

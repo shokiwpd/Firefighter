@@ -36,5 +36,4 @@ class textFields: UITextField {
         }
         return super.canPerformAction(action, withSender: sender)
     }
-    
 }

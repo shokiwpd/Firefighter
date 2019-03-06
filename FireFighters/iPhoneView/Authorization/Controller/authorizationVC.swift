@@ -44,10 +44,6 @@ class authorizationVC: UIViewController, UITextFieldDelegate,getTockenUser{
         passwordView.delegate = self
         title = ""
     }
-
-    
-    
-    
     //MARK: Проверка всех полей и базы данных FireBase
     @IBAction func authorizationButton(_ sender: Any) {
         guard loginView.text != "" else {return AlertView(text: "Укажите свой логин!")}
@@ -61,7 +57,6 @@ class authorizationVC: UIViewController, UITextFieldDelegate,getTockenUser{
         }
     }
     //MARK: Восстановление пароля
-
     @IBAction func registrationButton(_ sender: Any) {
         let PasswordResetAlert = UIAlertController(title: "Внимание", message: "Хотите сбросить пароль?", preferredStyle: .alert)
         PasswordResetAlert.addTextField { (TextFieldes) in
@@ -112,7 +107,7 @@ private func fetchFirebase() {
     func progressView(){
         let Load = MBProgressHUD.showAdded(to: self.view, animated: true)
         Load.mode = MBProgressHUDMode.indeterminate
-        Load.label.text = "Готовим данные"
+        Load.label.text = "Загрузка..."
         Load.isUserInteractionEnabled = false
     }
     private func registrationView() {

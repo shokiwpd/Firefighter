@@ -28,7 +28,6 @@ class AuthAndRegistrationView: UIViewController {
         //MARK: Фон без эффекта размытия
         let userDef = UserDefaults.standard.bool(forKey: "DarkMode")
         self.view.insertSubview(view.backgraundView(blur: false, darkMode: userDef), at: 0)
-//        self.view.insertSubview(view.backgraundView(), at: 0)
         //MARK: гардиент для кнопок
         buttonGardients.gardientButton(w: authorizationButton.frame.size.width, h: authorizationButton.frame.size.height)
         authorizationButton.layer.insertSublayer(buttonGardients, at: 0)
@@ -39,7 +38,6 @@ class AuthAndRegistrationView: UIViewController {
     }
     //Кнопа на случай если возникли ошибки
     @IBAction func VKgroupURL(_ sender: Any) {
-        //AlertView(text: "Если у Вас Возникли проблемы ждем Вас в нашей группе в VK.Ссылку вы можете найти в <Отзывы -> Поддержка ПО>")
         let URL_VK = URL(string: "https://vk.com/firefighterapp")
         UIApplication.shared.open(URL_VK!)
     }

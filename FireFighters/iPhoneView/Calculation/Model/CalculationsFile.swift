@@ -36,12 +36,12 @@ class calculationAir {
     var PPadMax = Int() // Максимальное падение
     var PminHearth = Int() // Давление у очага
     //----//---//-------
-    func CalculationTwoFireFighter(){
+    
+    func CalculationTwoFireFighter(){ //------2 Пожарных---------
         Pmin = [P1,P2].min()!
         //--------//------
         switch Complexity {
         case false: Pmax = Int(Double(Pmin - Pust)/2.5)
-            
         case true: Pmax = (Pmin - Pust)/3
         }
         Pkexit = Pmin - Pmax
@@ -64,7 +64,8 @@ class calculationAir {
             THearthWork = Int(Double(PminHearth-PkexitH)*V)/Int(Double(Q)*Kszh)
         }
     }
-    func CalculationThreeFireFighter(){
+    
+    func CalculationThreeFireFighter(){//-------3 Пожарных------
          Pmin = [P1,P2,P3].min()!
         //--------//------
         switch Complexity {
@@ -86,12 +87,13 @@ class calculationAir {
         PPadMax = [P1pad,P2pad,P3pad].max()!
         PminHearth = [P1Hearth,P2Hearth,P3Hearth].min()!
         switch Complexity {
-        case true: PkexitH = 2*PPadMax + Pust
-        case false:  PkexitH = Int(1.5*Double(PPadMax)) + Pust
+            case true: PkexitH = 2*PPadMax + Pust
+            case false:  PkexitH = Int(1.5*Double(PPadMax)) + Pust
         }
         THearthWork = Int(Double(PminHearth-PkexitH)*V)/Int(Double(Q)*Kszh)
     }
-    func CalculationFourFireFighter(){
+    
+    func CalculationFourFireFighter(){//---------4 Пожарных----------
          Pmin = [P1,P2,P3,P4].min()!
         //--------//------
         switch Complexity {
@@ -114,12 +116,12 @@ class calculationAir {
         PPadMax = [P1pad,P2pad,P3pad,P4pad].max()!
         PminHearth = [P1Hearth,P2Hearth,P3Hearth,P4Hearth].min()!
         switch Complexity {
-        case true: PkexitH = 2*PPadMax + Pust
-        case false:  PkexitH = Int(1.5*Double(PPadMax)) + Pust
+            case true: PkexitH = 2*PPadMax + Pust
+            case false:  PkexitH = Int(1.5*Double(PPadMax)) + Pust
         }
         THearthWork = Int(Double(PminHearth-PkexitH)*V)/Int(Double(Q)*Kszh)
     }
-    func CalculationFiveFireFighter(){
+    func CalculationFiveFireFighter(){//--------5 Пожарных-----------
          Pmin = [P1,P2,P3,P4,P5].min()!
         //--------//------
         switch Complexity {
@@ -134,17 +136,17 @@ class calculationAir {
         //-------/--------------//
         Tall = Int(Double(Pmin - Pust)*V)/Int(Double(Q)*Kszh)// Общее время работы
         //-------/-------------//
-        let P1pad = P1 - P1Hearth
-        let P2pad = P2 - P2Hearth
-        let P3pad = P3 - P3Hearth
-        let P4pad = P4 - P4Hearth
-        let P5pad = P5 - P5Hearth
+            let P1pad = P1 - P1Hearth
+            let P2pad = P2 - P2Hearth
+            let P3pad = P3 - P3Hearth
+            let P4pad = P4 - P4Hearth
+            let P5pad = P5 - P5Hearth
         
         PPadMax = [P1pad,P2pad,P3pad,P4pad,P5pad].max()!
         PminHearth = [P1Hearth,P2Hearth,P3Hearth,P4Hearth,P5Hearth].min()!
         switch Complexity {
-        case true: PkexitH = 2*PPadMax + Pust
-        case false:  PkexitH = Int(1.5*Double(PPadMax)) + Pust
+            case true: PkexitH = 2*PPadMax + Pust
+            case false:  PkexitH = Int(1.5*Double(PPadMax)) + Pust
         }
         THearthWork = Int(Double(PminHearth-PkexitH)*V)/Int(Double(Q)*Kszh)
     }

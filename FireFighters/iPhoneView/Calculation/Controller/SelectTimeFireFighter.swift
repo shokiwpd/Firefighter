@@ -25,8 +25,11 @@ class SelectTimeFireFighter: UIViewController,UITextFieldDelegate {
     var calculationButtonGardients = CAGradientLayer()
     var status = false
     let CalData = CalculationInfo.CalculationInform
-    //MARK: Загрзка графической части
     let loadData = UserDefaults.standard
+    //MARK: Загрзка графической части
+    
+    
+    
     override func viewDidLayoutSubviews() {
         self.view.darkThemeView()
         startButtonGardients.gardientButton(w: startButton.frame.size.width,h: startButton.frame.size.height)
@@ -35,8 +38,8 @@ class SelectTimeFireFighter: UIViewController,UITextFieldDelegate {
             calculationButton.layer.insertSublayer(calculationButtonGardients, at: 0)
         calculationButton.layer.cornerRadius = 10
         calculationButton.clipsToBounds = true
-
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //       print(loadData.string(forKey: "OxyAirFlow"))
@@ -61,14 +64,13 @@ class SelectTimeFireFighter: UIViewController,UITextFieldDelegate {
             print("All form view")
         }
         switch status {
-        case true:
-           // CustomUI.CustomButton(nameBut: "Вход в НДДС", buttons: startButton)
-            
-            calculationButton.isHidden = true
-        case false:
-            startButton.isHidden = true
-            calculationButton.setTitle("Рассчитать", for: .normal)
-            calculationButton.setTitleColor(UIColor.black, for: .normal)
+            case true:
+                // CustomUI.CustomButton(nameBut: "Вход в НДДС", buttons: startButton)
+                calculationButton.isHidden = true
+            case false:
+                startButton.isHidden = true
+                calculationButton.setTitle("Рассчитать", for: .normal)
+                calculationButton.setTitleColor(UIColor.black, for: .normal)
         }
         // Do any additional setup after loading the view.
     }
@@ -84,20 +86,20 @@ private func saveData() {
         let errorName = "Вы не указали давление пожарных"
         switch CalData.numberFireFighter {
         case 2:
-            guard FireFighter1.text != "",FireFighter2.text != "" else {alertAction(errors: errorName)
+            guard FireFighter1.text != "",FireFighter2.text != "" else {AlertView(text: errorName)
                 return}
             CalData.FireFighter1 = Int(FireFighter1.text!)!
             CalData.FireFighter2 = Int(FireFighter2.text!)!
             CalData.inputTime = TimeOn.date
         case 3:
-            guard FireFighter1.text != "",FireFighter2.text != "", FireFighter3.text != "" else {alertAction(errors: errorName)
+            guard FireFighter1.text != "",FireFighter2.text != "", FireFighter3.text != "" else {AlertView(text: errorName)
                 return}
             CalData.FireFighter1 = Int(FireFighter1.text!)!
             CalData.FireFighter2 = Int(FireFighter2.text!)!
             CalData.FireFighter3 = Int(FireFighter3.text!)!
             CalData.inputTime = TimeOn.date
         case 4:
-            guard FireFighter1.text != "",FireFighter2.text != "",FireFighter3.text != "",FireFighter4.text != "" else {alertAction(errors: errorName)
+            guard FireFighter1.text != "",FireFighter2.text != "",FireFighter3.text != "",FireFighter4.text != "" else {AlertView(text: errorName)
                 return}
             CalData.FireFighter1 = Int(FireFighter1.text!)!
             CalData.FireFighter2 = Int(FireFighter2.text!)!
@@ -105,7 +107,7 @@ private func saveData() {
             CalData.FireFighter4 = Int(FireFighter4.text!)!
             CalData.inputTime = TimeOn.date
         case 5:
-            guard FireFighter1.text != "",FireFighter2.text != "",FireFighter3.text != "",FireFighter4.text != "", FireFighter5.text != "" else {alertAction(errors:errorName)
+            guard FireFighter1.text != "",FireFighter2.text != "",FireFighter3.text != "",FireFighter4.text != "", FireFighter5.text != "" else {AlertView(text: errorName)
                 return}
             CalData.FireFighter1 = Int(FireFighter1.text!)!
             CalData.FireFighter2 = Int(FireFighter2.text!)!
@@ -117,10 +119,4 @@ private func saveData() {
             print("No numb")
         }
     }
-    func alertAction(errors: String!) {
-        let AC = UIAlertController(title: "Внимание", message: errors, preferredStyle: .alert)
-        let AlAc = UIAlertAction(title: "ОК", style: .default, handler: nil)
-        AC.addAction(AlAc)
-        present(AC, animated: true, completion: nil)
-    }  
 }

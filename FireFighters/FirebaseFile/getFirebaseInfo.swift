@@ -21,6 +21,9 @@ extension getTockenUser {
     var DataReference: DatabaseReference {
         return Database.database().reference(withPath: "firefighter")
     }
+    var newsReference: DatabaseReference {
+        return Database.database().reference(withPath: "news")
+    }
     var updateDataInfo: Void {
         return self.DataReference.child(userTocken!).updateChildValues(["city": "editString"])
     }
