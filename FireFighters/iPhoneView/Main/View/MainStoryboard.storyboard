@@ -413,29 +413,16 @@
                                 <rect key="frame" x="0.0" y="388" width="375" height="230"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvd-zJ-XnB">
-                                <rect key="frame" x="16" y="71" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="cvd-zJ-XnB" secondAttribute="height" multiplier="23:15" id="52T-kG-VaW"/>
-                                </constraints>
-                                <state key="normal" title="News"/>
-                                <connections>
-                                    <action selector="addNewsButton:" destination="Fda-8d-apj" eventType="touchUpInside" id="by4-i7-eQd"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ynN-48-jn5" firstAttribute="top" secondItem="pad-e6-Ixx" secondAttribute="bottom" constant="36" id="0gr-3r-CfO"/>
-                            <constraint firstItem="6Kl-Yt-gPJ" firstAttribute="leading" secondItem="cvd-zJ-XnB" secondAttribute="trailing" constant="16" id="2tJ-uZ-hN8"/>
-                            <constraint firstItem="cvd-zJ-XnB" firstAttribute="leading" secondItem="Q3X-zg-sQr" secondAttribute="leading" constant="16" id="6sY-Id-V8G"/>
                             <constraint firstItem="6Kl-Yt-gPJ" firstAttribute="top" secondItem="Q3X-zg-sQr" secondAttribute="top" constant="7" id="7r8-ob-KpY"/>
                             <constraint firstItem="pad-e6-Ixx" firstAttribute="leading" secondItem="Q3X-zg-sQr" secondAttribute="leading" id="AqW-LG-HcW"/>
                             <constraint firstItem="ynN-48-jn5" firstAttribute="leading" secondItem="pad-e6-Ixx" secondAttribute="leading" id="EKH-AC-ho2"/>
                             <constraint firstItem="6Kl-Yt-gPJ" firstAttribute="leading" secondItem="Q3X-zg-sQr" secondAttribute="leading" constant="78" id="HQA-nQ-evt"/>
                             <constraint firstItem="ynN-48-jn5" firstAttribute="bottom" secondItem="Q3X-zg-sQr" secondAttribute="bottom" id="HoN-ic-q44"/>
                             <constraint firstItem="ynN-48-jn5" firstAttribute="trailing" secondItem="pad-e6-Ixx" secondAttribute="trailing" id="Vd6-rX-m7R"/>
-                            <constraint firstItem="cvd-zJ-XnB" firstAttribute="top" secondItem="6Kl-Yt-gPJ" secondAttribute="top" id="Ym4-fo-2ls"/>
                             <constraint firstItem="pad-e6-Ixx" firstAttribute="trailing" secondItem="Q3X-zg-sQr" secondAttribute="trailing" id="b7M-N2-j0z"/>
                             <constraint firstItem="Q3X-zg-sQr" firstAttribute="trailing" secondItem="6Kl-Yt-gPJ" secondAttribute="trailing" constant="78" id="j60-fF-2Cx"/>
                             <constraint firstItem="pad-e6-Ixx" firstAttribute="top" secondItem="6Kl-Yt-gPJ" secondAttribute="bottom" constant="16" id="ow7-1J-Fdh"/>
@@ -445,7 +432,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="xTz-AC-KYc"/>
                     <connections>
-                        <outlet property="adminAddNews" destination="cvd-zJ-XnB" id="HIN-5V-E3k"/>
                         <outlet property="newsTableView" destination="ynN-48-jn5" id="VsF-O1-lPO"/>
                         <outlet property="profileImage" destination="6Kl-Yt-gPJ" id="v4c-tL-3NJ"/>
                         <outlet property="welcomeMessage" destination="pad-e6-Ixx" id="uNZ-xf-Luy"/>

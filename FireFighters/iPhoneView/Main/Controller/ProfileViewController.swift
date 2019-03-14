@@ -1,8 +1,9 @@
 import UIKit
 import FirebaseAuth
+import Firebase
 class ProfileViewController: UITableViewController {
-    let SelUsersCell = ["Личные данные","Рабочие данные","Информация","Темная тема","Сменить пользователя"]
-    let Comments = ["Смена города","Смена данных о работе","Информация о приложении","Смена темы оформления",""]
+    var SelUsersCell = ["Личные данные","Рабочие данные","Информация","Темная тема","Сменить пользователя"]
+    var Comments = ["Смена города","Смена данных о работе","Информация о приложении","Смена темы оформления",""]
    
     let userInfo = UserProfile.userInform
     let DarkTheme = ThemeUser()
@@ -18,6 +19,10 @@ class ProfileViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if Auth.auth().currentUser?.uid == "XdA2rQeLXfWLhg1ezNjPxts1fAr2" {
+            SelUsersCell.append("Консоль Администратора")
+            Comments.append("")
+        }
         title = "Профиль"
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -59,7 +64,8 @@ class ProfileViewController: UITableViewController {
             cell.labelViewCell.text = SelUsersCell[indexPath.row]
             cell.commentLabel.text = Comments[indexPath.row]
         default:
-            print("error")
+            cell.labelViewCell.text = SelUsersCell[indexPath.row]
+            cell.commentLabel.text = Comments[indexPath.row]
         }
         return cell
     }
@@ -77,7 +83,9 @@ class ProfileViewController: UITableViewController {
              DarkMode()
         case 4:
             alertAction()
-        default: break
+        default:
+            segueStoryBoard(nameSB: "AdminStoryboard")
+            print("admin consol")
         }
     }
     // Функция выбора сменить профиль или нет
@@ -149,6 +157,8 @@ class ProfileViewController: UITableViewController {
                 present(Vc, animated: true, completion: nil)
         case "AppsInfoBoard": let Vc = UIStoryboard(name: nameSB, bundle: nil).instantiateInitialViewController() as! UINavigationController
                 present(Vc, animated: true, completion: nil)
+        case "AdminStoryboard": let Vc = UIStoryboard(name: nameSB, bundle: nil).instantiateInitialViewController() as! UINavigationController
+        present(Vc, animated: true, completion: nil)
         default: break
         }
     }

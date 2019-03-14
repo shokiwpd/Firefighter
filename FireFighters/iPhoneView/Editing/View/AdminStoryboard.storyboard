@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4gy-8N-ZYX">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--AdminVC-->
+        <scene sceneID="jnG-mS-8lM">
+            <objects>
+                <viewController id="zgj-SJ-CaG" customClass="AdminVC" customModule="FireFighters" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PMl-Ha-YXh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CdZ-j4-De6">
+                                <rect key="frame" x="16" y="83" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="CdZ-j4-De6" secondAttribute="height" multiplier="343:30" id="CLo-Kb-z9I"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sWb-we-PXb">
+                                <rect key="frame" x="16" y="135" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="sWb-we-PXb" secondAttribute="height" multiplier="343:30" id="spB-4S-yK0"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uuh-XU-uqU">
+                                <rect key="frame" x="16" y="185" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="uuh-XU-uqU" secondAttribute="height" multiplier="343:50" id="6qw-54-ubZ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="addNewNews:" destination="zgj-SJ-CaG" eventType="touchUpInside" id="voh-em-1Hn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pOn-1H-BgA">
+                                <rect key="frame" x="16" y="243" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pOn-1H-BgA" secondAttribute="height" multiplier="343:50" id="if2-xd-bGx"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="backButtonAction:" destination="zgj-SJ-CaG" eventType="touchUpInside" id="e8f-AU-KUI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pOn-1H-BgA" firstAttribute="top" secondItem="uuh-XU-uqU" secondAttribute="bottom" constant="8" id="3Jt-qx-5fA"/>
+                            <constraint firstItem="pOn-1H-BgA" firstAttribute="width" secondItem="pOn-1H-BgA" secondAttribute="height" multiplier="343:50" id="Adk-VW-fkK"/>
+                            <constraint firstItem="sWb-we-PXb" firstAttribute="trailing" secondItem="CdZ-j4-De6" secondAttribute="trailing" id="FT4-Tf-WkL"/>
+                            <constraint firstItem="CdZ-j4-De6" firstAttribute="leading" secondItem="tmG-zT-l4A" secondAttribute="leading" constant="16" id="FVm-Gn-Xqn"/>
+                            <constraint firstItem="CdZ-j4-De6" firstAttribute="top" secondItem="tmG-zT-l4A" secondAttribute="top" constant="19" id="Fc2-D2-5mm"/>
+                            <constraint firstItem="uuh-XU-uqU" firstAttribute="top" secondItem="sWb-we-PXb" secondAttribute="bottom" constant="20" id="Znt-DX-thO"/>
+                            <constraint firstItem="uuh-XU-uqU" firstAttribute="leading" secondItem="sWb-we-PXb" secondAttribute="leading" id="fFM-sN-oLZ"/>
+                            <constraint firstItem="uuh-XU-uqU" firstAttribute="trailing" secondItem="sWb-we-PXb" secondAttribute="trailing" id="jIY-XP-fOf"/>
+                            <constraint firstItem="tmG-zT-l4A" firstAttribute="trailing" secondItem="CdZ-j4-De6" secondAttribute="trailing" constant="16" id="mJv-EB-hnm"/>
+                            <constraint firstItem="sWb-we-PXb" firstAttribute="top" secondItem="CdZ-j4-De6" secondAttribute="bottom" constant="22" id="owS-ac-0Cx"/>
+                            <constraint firstItem="sWb-we-PXb" firstAttribute="leading" secondItem="CdZ-j4-De6" secondAttribute="leading" id="rSg-lY-sQU"/>
+                            <constraint firstItem="pOn-1H-BgA" firstAttribute="leading" secondItem="uuh-XU-uqU" secondAttribute="leading" id="x0L-Lk-cPz"/>
+                            <constraint firstItem="pOn-1H-BgA" firstAttribute="trailing" secondItem="uuh-XU-uqU" secondAttribute="trailing" id="xlE-9D-mmF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tmG-zT-l4A"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YcQ-Mm-2MM"/>
+                    <connections>
+                        <outlet property="addNews" destination="uuh-XU-uqU" id="TdR-1c-YMf"/>
+                        <outlet property="backButton" destination="pOn-1H-BgA" id="bqv-aw-1XX"/>
+                        <outlet property="newsName" destination="CdZ-j4-De6" id="YRc-Hv-anw"/>
+                        <outlet property="newsText" destination="sWb-we-PXb" id="kus-LP-ARt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Lc-Zt-jZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1207.2" y="152.47376311844079"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="y8i-BT-tdY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4gy-8N-ZYX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1YL-Ri-Bos">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zgj-SJ-CaG" kind="relationship" relationship="rootViewController" id="hAl-k4-uZV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QHz-PS-aA9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="268" y="153.37331334332833"/>
+        </scene>
+    </scenes>
+</document>

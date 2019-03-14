@@ -20,4 +20,9 @@ extension Date {
         formDate.dateFormat = "HH"
         return formDate.string(from: self)
     }
+    var DayAndMonth: String {
+        let formDate = DateFormatter()
+        formDate.dateFormat = "dd:MM"
+        return formDate.string(from: self)
+    }
 }
