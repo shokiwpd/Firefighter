@@ -16,6 +16,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         nextViewButton.layer.insertSublayer(nextButtonGardient, at: 0)
         nextViewButton.clipsToBounds = true
         nextViewButton.layer.cornerRadius = 10
+//        self.view.insertSubview(view.backgroundImage(nameImage: "profileImage.png"), at: 0)//backgroundImage(nameImage: "profileImage")
     }
     override func viewDidLoad() {
         super.viewDidLoad()

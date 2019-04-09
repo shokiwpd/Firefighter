@@ -8,7 +8,7 @@ class CustomNavContr: UINavigationController,UINavigationBarDelegate {
     }
     func ItemsStyle(itemStyle: UINavigationItem){
         itemStyle.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        itemStyle.backBarButtonItem?.tintColor = .white
+        itemStyle.backBarButtonItem?.tintColor = .gray
     }
 }
 extension CustomNavContr: UINavigationControllerDelegate {

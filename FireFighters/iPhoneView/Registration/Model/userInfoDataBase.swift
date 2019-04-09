@@ -48,7 +48,7 @@ struct userInfoFIR {
             ref = snapshot.ref
         }
     func convertDataBase()-> Any {
-        return ["name":name,"patronymic":patronymic, "city":city,"position":position,"partNumb":partNumb,"changeNum":changeNum,"birthDay":birthDay,"unitType":unitType,"vBallons":vBallons, "aspectRatio":aspectRatio,"airFlow":airFlow, "gearboxOperation":gearboxOperation]
+        return ["name":name!,"patronymic":patronymic!, "city":city!,"position":position!,"partNumb":partNumb!,"changeNum":changeNum!,"birthDay":birthDay!,"unitType":unitType!,"vBallons":vBallons!, "aspectRatio":aspectRatio!,"airFlow":airFlow!, "gearboxOperation":gearboxOperation]
     }
 }
 

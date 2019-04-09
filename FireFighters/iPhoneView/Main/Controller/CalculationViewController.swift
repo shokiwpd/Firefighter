@@ -15,6 +15,7 @@ class CalculationViewController: UIViewController {
     var Complexity = false
     let CalcClass = CalculationInfo.CalculationInform
     let saveLocalData = UserDefaults.standard
+    
     //MARK: Gardients for Button
     var buttonGardients: CAGradientLayer! {
         didSet {

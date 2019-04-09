@@ -27,7 +27,12 @@ extension UIView {
         if blur != false { backgroundImage.addSubview(blurView)}
         return backgroundImage
     }
-    
+    func backgroundImage(nameImage: String) -> UIView!{
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: nameImage)
+        backgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
+        return backgroundImage
+    }
     func blurringScreen() -> UIView!{
         var blurEffect = UIBlurEffect()
         let userDef = UserDefaults.standard

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="68n-hV-eVo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="68n-hV-eVo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -61,16 +60,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFv-Vs-TiF">
-                                <rect key="frame" x="15" y="438" width="345" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="XFv-Vs-TiF" secondAttribute="height" multiplier="69:10" id="YBv-Fe-gNd"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="saveEdithButton:" destination="68n-hV-eVo" eventType="touchUpInside" id="tLa-QQ-quQ"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rmr-bP-Kdg">
                                 <rect key="frame" x="210" y="325" width="150" height="30"/>
                                 <constraints>
@@ -107,6 +96,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFv-Vs-TiF">
+                                <rect key="frame" x="15" y="365" width="345" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="XFv-Vs-TiF" secondAttribute="height" multiplier="69:10" id="YBv-Fe-gNd"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="saveEdithButton:" destination="68n-hV-eVo" eventType="touchUpInside" id="tLa-QQ-quQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -116,7 +115,6 @@
                             <constraint firstItem="84D-R7-YNy" firstAttribute="leading" secondItem="41N-nF-ch0" secondAttribute="leading" constant="137" id="3Gh-Fi-VF9"/>
                             <constraint firstItem="9Oq-7x-Xzf" firstAttribute="trailing" secondItem="RbR-nt-SQ5" secondAttribute="trailing" id="6OK-fc-YKI"/>
                             <constraint firstItem="XFv-Vs-TiF" firstAttribute="trailing" secondItem="rmr-bP-Kdg" secondAttribute="trailing" id="6ax-T7-aqD"/>
-                            <constraint firstItem="XFv-Vs-TiF" firstAttribute="top" secondItem="Sag-h0-45d" secondAttribute="bottom" constant="83" id="CP3-hJ-i2N"/>
                             <constraint firstItem="yoJ-f2-wQh" firstAttribute="leading" secondItem="5Qx-wh-1Fg" secondAttribute="leading" id="CoI-St-a12"/>
                             <constraint firstItem="9Oq-7x-Xzf" firstAttribute="leading" secondItem="RbR-nt-SQ5" secondAttribute="leading" id="HY8-49-MZi"/>
                             <constraint firstItem="Glg-dU-ujU" firstAttribute="leading" secondItem="yoJ-f2-wQh" secondAttribute="leading" id="JDC-n8-ZYf"/>
@@ -128,6 +126,7 @@
                             <constraint firstItem="XFv-Vs-TiF" firstAttribute="leading" secondItem="Sag-h0-45d" secondAttribute="leading" id="Rod-FO-3sx"/>
                             <constraint firstItem="41N-nF-ch0" firstAttribute="trailing" secondItem="5Qx-wh-1Fg" secondAttribute="trailing" constant="15" id="Sox-iE-QPh"/>
                             <constraint firstItem="rmr-bP-Kdg" firstAttribute="trailing" secondItem="Glg-dU-ujU" secondAttribute="trailing" id="VVd-H5-NRR"/>
+                            <constraint firstItem="XFv-Vs-TiF" firstAttribute="top" secondItem="rmr-bP-Kdg" secondAttribute="bottom" constant="10" id="agC-nR-GkP"/>
                             <constraint firstItem="yoJ-f2-wQh" firstAttribute="trailing" secondItem="5Qx-wh-1Fg" secondAttribute="trailing" id="atw-SH-jZj"/>
                             <constraint firstItem="RbR-nt-SQ5" firstAttribute="leading" secondItem="41N-nF-ch0" secondAttribute="leading" constant="15" id="biO-Gl-eSI"/>
                             <constraint firstItem="RbR-nt-SQ5" firstAttribute="top" secondItem="84D-R7-YNy" secondAttribute="bottom" constant="28" id="dBP-c6-Egy"/>

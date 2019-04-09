@@ -78,8 +78,10 @@ class ProfileViewController: UITableViewController {
         case 1:
             segueStoryBoard(nameSB: "WorkInfoEdithBoard")
         case 2:
-            vk_massage()
+            segueStoryBoard(nameSB: "AppsInfoBoard")
+//            vk_massage()
         case 3:
+//            AlertView(text: "Butt")
              DarkMode()
         case 4:
             alertAction()
@@ -102,8 +104,13 @@ class ProfileViewController: UITableViewController {
     }
     // Переход на публичную страницу приложения
     func vk_massage(){
-        let massage = "Спасибо что пользуетесь данным приложением. Приложение находится в стадии Бета тестирования. Все предложения вы можете оставить группе в VK.Найти ссылку можете на странице приложения в AppStore. Надеюсь на хороший рейтинг. Чем выше ваша оценка,тем мне приятнее и появляется желание его делать."
-        let VK_Alert = UIAlertController(title: "О приложении", message: massage , preferredStyle: .alert)
+        let massage = "Спасибо что пользуетесь данным приложением. Все предложения вы можете оставить группе в VK.Найти ссылку можете на странице приложения в AppStore. Надеюсь на хороший рейтинг. Чем выше ваша оценка,тем мне приятнее и появляется желание его делать."
+        var VK_Alert = UIAlertController()
+        if UIDevice.current.model == "iPad" {
+             VK_Alert = UIAlertController(title: "О приложении", message: massage , preferredStyle: .alert)
+        } else {
+             VK_Alert = UIAlertController(title: "О приложении", message: massage , preferredStyle: .actionSheet)
+        }
         let URL_VK_Groupe = UIAlertAction(title: "Перейти в группу", style: .default) { (UIAlertAction) in
             let URL_VK = URL(string: "https://vk.com/firefighterapp")
             UIApplication.shared.open(URL_VK!)
@@ -117,7 +124,13 @@ class ProfileViewController: UITableViewController {
     func DarkMode(){
         let DarkModeMassage = "Данная функция находится в стадии альфа тестирования и может быть доработана в будущем или быть перенесена в другой раздел"
         let userDefMode = UserDefaults.standard
-        let DarkAlert = UIAlertController(title: "Внимание", message: DarkModeMassage, preferredStyle: .actionSheet)
+        var DarkAlert = UIAlertController()
+        if UIDevice.current.model == "iPad" {
+            DarkAlert = UIAlertController(title: "Внимание", message: DarkModeMassage, preferredStyle: .alert)
+        } else {
+            DarkAlert = UIAlertController(title: "Внимание", message: DarkModeMassage, preferredStyle: .actionSheet)
+        }
+        
         let Dark = UIAlertAction(title: "Теманая тема", style: .default) { (UIAlertAction) in
                 userDefMode.set(true, forKey: "DarkMode")
                 userDefMode.synchronize()
@@ -158,7 +171,7 @@ class ProfileViewController: UITableViewController {
         case "AppsInfoBoard": let Vc = UIStoryboard(name: nameSB, bundle: nil).instantiateInitialViewController() as! UINavigationController
                 present(Vc, animated: true, completion: nil)
         case "AdminStoryboard": let Vc = UIStoryboard(name: nameSB, bundle: nil).instantiateInitialViewController() as! UINavigationController
-        present(Vc, animated: true, completion: nil)
+                present(Vc, animated: true, completion: nil)
         default: break
         }
     }

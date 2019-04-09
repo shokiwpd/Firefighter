@@ -23,6 +23,15 @@ extension UILabel {
             self.font = UIFont(name:  "signpainter-housescript", size: 180)//iPhone X,XS,XR
         case 876.0...896.0:
             self.font = UIFont(name:  "signpainter-housescript", size: 180)//iPhone XS_Max
+        case 1004.0...1024.0:
+            self.font = UIFont(name:  "signpainter-housescript", size: 180)//Air 1,2
+        case 1346.0...1366.0:
+            self.font = UIFont(name:  "signpainter-housescript", size: 250)// Pro 12.2
+        case 1174.0...1194.0:
+            self.font = UIFont(name:  "signpainter-housescript", size: 200)// Pro 11
+        case 1092.0...1112.0:
+            self.font = UIFont(name:  "signpainter-housescript", size: 200)// Pro 10.5
+            
         default: print("_____")
         }
     }
@@ -38,6 +47,40 @@ extension UILabel {
             self.font = UIFont(name:  "signpainter-housescript", size: 68)//iPhone X
         case 876.0...896.0:
             self.font = UIFont(name:  "signpainter-housescript", size: 68)//iPhone XS_Max
+        case 1004.0...1024.0:
+            self.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        default: print("_____")
+        }
+    }
+    func CellLabelName(viewHeight: Double) {
+        switch viewHeight {
+        case 548.0...568.0:
+            self.font = UIFont.systemFont(ofSize: 20, weight: .bold)//iPhone 5S,SE
+        case 647.0...667.0:
+            self.font = UIFont.systemFont(ofSize: 25, weight: .bold)//iPhone 6,7,8
+        case 716.0...736.0:
+            self.font = UIFont.systemFont(ofSize: 25, weight: .bold)//iPhone 6+,7+,8+
+        case 792.0...812.0:
+            self.font = UIFont.systemFont(ofSize: 25, weight: .bold)//iPhone X
+        case 876.0...896.0:
+            self.font = UIFont.systemFont(ofSize: 25, weight: .bold)//iPhone XS_Max
+        case 1004.0...1024.0:
+            self.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        default: print("_____")
+        }
+    }
+    func CellLabelOptional(viewHeight: Double) {
+        switch viewHeight {
+        case 548.0...568.0:
+            self.font = UIFont.systemFont(ofSize: 15, weight: .bold)//iPhone 5S,SE
+        case 647.0...667.0:
+            self.font = UIFont.systemFont(ofSize: 20, weight: .bold)//iPhone 6,7,8
+        case 716.0...736.0:
+            self.font = UIFont.systemFont(ofSize: 20, weight: .bold)//iPhone 6+,7+,8+
+        case 792.0...812.0:
+            self.font = UIFont.systemFont(ofSize: 20, weight: .bold)//iPhone X
+        case 876.0...896.0:
+            self.font = UIFont.systemFont(ofSize: 20, weight: .bold)//iPhone XS_Max
         default: print("_____")
         }
     }

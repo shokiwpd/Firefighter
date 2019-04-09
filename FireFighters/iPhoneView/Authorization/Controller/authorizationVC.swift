@@ -53,7 +53,7 @@ class authorizationVC: UIViewController, UITextFieldDelegate,getTockenUser{
             guard user != nil else { return } //Проверка на существование пользователя в БД Firebase
             self?.progressView() //Включение индикатора загрузки
             self?.fetchFirebase() //загрузка данных из Firebase
-            self?.saveLoginAndPass(Login: (self?.loginView.text!)!, Password: (self?.passwordView.text!)!)  //сохранение логина и пароля
+//            self?.saveLoginAndPass(Login: (self?.loginView.text!)!, Password: (self?.passwordView.text!)!)  //сохранение логина и пароля
         }
     }
     //MARK: Восстановление пароля
@@ -128,14 +128,14 @@ private func fetchFirebase() {
         self.present(alert, animated: true, completion: nil)
     }
     //MARK: Сохранение логина и пароля
-    func saveLoginAndPass(Login: String, Password: String){
-        if Login != "", Password != "" {
-            do {
-                try Locksmith.saveData(data: ["login" : Login, "password" : Password], forUserAccount: "fireFigherAccount", inService: "https://vk.com/firefighterapp")
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-    }
+//    func saveLoginAndPass(Login: String, Password: String){
+//        if Login != "", Password != "" {
+//            do {
+//                try Locksmith.saveData(data: ["login" : Login, "password" : Password], forUserAccount: "fireFigherAccount", inService: "https://vk.com/firefighterapp")
+//            } catch {
+//                print(error.localizedDescription)
+//            }
+//        }
+//    }
 }
 

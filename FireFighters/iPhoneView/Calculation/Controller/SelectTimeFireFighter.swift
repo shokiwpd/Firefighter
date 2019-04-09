@@ -14,9 +14,11 @@ class SelectTimeFireFighter: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var FireFighter3: UITextField!
     @IBOutlet weak var FireFighter4: UITextField!
     @IBOutlet weak var FireFighter5: UITextField!
+    @IBOutlet weak var FireFighterLabel2: UILabel!
     @IBOutlet weak var FireFighterLabel3: UILabel!
     @IBOutlet weak var FireFighterLabel4: UILabel!
     @IBOutlet weak var FireFighterLabel5: UILabel!
+    @IBOutlet weak var timeLabel: UIDatePicker! 
     @IBOutlet weak var TimeOn: UIDatePicker!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var calculationButton: UIButton!
@@ -38,6 +40,7 @@ class SelectTimeFireFighter: UIViewController,UITextFieldDelegate {
             calculationButton.layer.insertSublayer(calculationButtonGardients, at: 0)
         calculationButton.layer.cornerRadius = 10
         calculationButton.clipsToBounds = true
+        //timePicker setting   
     }
     
     override func viewDidLoad() {

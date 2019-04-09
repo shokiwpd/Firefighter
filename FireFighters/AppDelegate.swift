@@ -31,13 +31,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         IQKeyboardManager.shared.enable = true 
         FirebaseApp.configure()
-        
+        //---Type Name
+        let userDef = UserDefaults.standard
+        userDef.set(1, forKey: "TypeUser")
+        userDef.synchronize()
+        //---
         window = UIWindow(frame: UIScreen.main.bounds)
         if (Auth.auth().currentUser?.uid) == nil {
-            window?.rootViewController = UIStoryboard(name: "authStoryBoard", bundle: nil).instantiateInitialViewController() as! UINavigationController
+//            if UIDevice.current.model == "iPhone" {
+                window?.rootViewController = UIStoryboard(name: "authStoryBoard", bundle: nil).instantiateInitialViewController() as! UINavigationController
+//            } else {
+//                window?.rootViewController = UIStoryboard(name: "authStoryBoardiPad", bundle: nil).instantiateInitialViewController() as! UINavigationController
+//            }
         } else {
             if UserProfile.userInform.userName.isEmpty{
-            window?.rootViewController = UIStoryboard(name: "authStoryBoard", bundle: nil).instantiateInitialViewController() as! UINavigationController
+                window?.rootViewController = UIStoryboard(name: "authStoryBoard", bundle: nil).instantiateInitialViewController() as! UINavigationController
         } else {
             window?.rootViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UITabBarController
         }

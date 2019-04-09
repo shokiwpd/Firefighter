@@ -51,7 +51,7 @@ class EditProfileInfoVC: UIViewController,getTockenUser {
     }
     func editFileSave(editString: String!) {
         if editString != CoreDataInfo.userCity{
-            self.DataReference.child(userTocken!).updateChildValues(["city": editString])
+            self.DataReference.child(userTocken!).updateChildValues(["city": editString!])
             CoreDataInfo.userCity = editString
         } else {
             print("error")

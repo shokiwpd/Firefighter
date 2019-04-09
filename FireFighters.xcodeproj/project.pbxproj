@@ -29,12 +29,6 @@
 		96C9A13D20C9C00100EC1B1F /* Custom_String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9A13C20C9C00100EC1B1F /* Custom_String.swift */; };
 		96C9A13F20C9C56A00EC1B1F /* getFirebaseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9A13E20C9C56A00EC1B1F /* getFirebaseInfo.swift */; };
 		96EAB7532110F3610054333F /* AuthNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EAB7522110F3610054333F /* AuthNavigationViewController.swift */; };
-		96EB6E0620D6BAC3001492D8 /* authStoryBoardiPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96EB6E0520D6BAC3001492D8 /* authStoryBoardiPad.storyboard */; };
-		96EB6E0820D6BADA001492D8 /* firstStoryBoardiPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96EB6E0720D6BADA001492D8 /* firstStoryBoardiPad.storyboard */; };
-		96EB6E0A20D6BAE9001492D8 /* MainStoryBoardiPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96EB6E0920D6BAE9001492D8 /* MainStoryBoardiPad.storyboard */; };
-		96EB6E0C20D6BB05001492D8 /* CalculationStoryBoardiPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96EB6E0B20D6BB05001492D8 /* CalculationStoryBoardiPad.storyboard */; };
-		96EB6E0E20D6BB1F001492D8 /* ProfileEditBoardiPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96EB6E0D20D6BB1F001492D8 /* ProfileEditBoardiPad.storyboard */; };
-		96EB6E1020D6BB2F001492D8 /* WorkInfoEdithBoardiPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96EB6E0F20D6BB2F001492D8 /* WorkInfoEdithBoardiPad.storyboard */; };
 		96EB6E1220D6BCF8001492D8 /* Custom_Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB6E1120D6BCF8001492D8 /* Custom_Label.swift */; };
 		96FB909C2137C81E00233DE5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96FB909B2137C81E00233DE5 /* GoogleService-Info.plist */; };
 		96FF238720E538EA000E3626 /* userProfileSave.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96FF238620E538EA000E3626 /* userProfileSave.storyboard */; };
@@ -42,9 +36,26 @@
 		C93E98BC1FCC685D00377B89 /* FirstNextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93E98BB1FCC685C00377B89 /* FirstNextViewController.swift */; };
 		C99610F820782A480024F8A5 /* Calculation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99610F620782A480024F8A5 /* Calculation+CoreDataClass.swift */; };
 		C99610F920782A480024F8A5 /* Calculation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99610F720782A480024F8A5 /* Calculation+CoreDataProperties.swift */; };
-		CD93F79E219F06650047CDEF /* AppsInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD93F79D219F06650047CDEF /* AppsInfoVC.swift */; };
+		CD5CDD31224BF07500FF95F5 /* appInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5CDD30224BF07500FF95F5 /* appInfoVC.swift */; };
+		CD69ABAB223FEE3200E6B8CA /* sectionTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD69ABAA223FEE3200E6B8CA /* sectionTheme.swift */; };
+		CD69ABAD223FF07500E6B8CA /* ThemeUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD69ABAC223FF07500E6B8CA /* ThemeUICollectionView.swift */; };
+		CD69ABAF223FF55E00E6B8CA /* ThemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD69ABAE223FF55E00E6B8CA /* ThemeCollectionViewCell.swift */; };
+		CD69ABB2224179E400E6B8CA /* documentationText.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD69ABB1224179E400E6B8CA /* documentationText.swift */; };
+		CD69ABB42241868A00E6B8CA /* DocumentsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD69ABB32241868A00E6B8CA /* DocumentsStoryboard.storyboard */; };
+		CD69ABB6224189BB00E6B8CA /* documentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD69ABB5224189BB00E6B8CA /* documentsVC.swift */; };
+		CD8D02E2224531810040748A /* backVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = CD8D02E1224531800040748A /* backVideo.mov */; };
 		CDA5CF47219DEE2300E9FCFF /* AppsInfoBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA5CF46219DEE2300E9FCFF /* AppsInfoBoard.storyboard */; };
 		CDA9A2E1219C1B3600A457B8 /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA9A2E0219C1B3600A457B8 /* DarkTheme.swift */; };
+		CDCD0F3722563E08009D01CA /* first_Check_AUER.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CDCD0F3022563E08009D01CA /* first_Check_AUER.pdf */; };
+		CDCD0F3822563E08009D01CA /* work_Check_AUER.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CDCD0F3122563E08009D01CA /* work_Check_AUER.pdf */; };
+		CDCD0F3922563E08009D01CA /* first_Check_OMEGA.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CDCD0F3222563E08009D01CA /* first_Check_OMEGA.pdf */; };
+		CDCD0F3A22563E08009D01CA /* prikaz_3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CDCD0F3322563E08009D01CA /* prikaz_3.pdf */; };
+		CDCD0F3B22563E08009D01CA /* type_info_Omega.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CDCD0F3422563E08009D01CA /* type_info_Omega.pdf */; };
+		CDCD0F3C22563E08009D01CA /* type_info_AUER MSA.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CDCD0F3522563E08009D01CA /* type_info_AUER MSA.pdf */; };
+		CDCD0F3D22563E08009D01CA /* work_Check_OMEGA.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CDCD0F3622563E08009D01CA /* work_Check_OMEGA.pdf */; };
+		CDE1D4FA224F9E980063043C /* authStoryBoardiPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDE1D4F9224F9E980063043C /* authStoryBoardiPad.storyboard */; };
+		CDE1D4FC224F9EE50063043C /* authStoryBoardVCiPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE1D4FB224F9EE50063043C /* authStoryBoardVCiPad.swift */; };
+		CDE1D4FE224FCB790063043C /* loginVCiPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE1D4FD224FCB790063043C /* loginVCiPad.swift */; };
 		CDE2A4B222304B57002C5F74 /* newsFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE2A4B122304B57002C5F74 /* newsFirebase.swift */; };
 		CDE2A4B4223AEF6F002C5F74 /* AdminStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDE2A4B3223AEF6F002C5F74 /* AdminStoryboard.storyboard */; };
 		CDE2A4B6223AEF98002C5F74 /* AdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE2A4B5223AEF98002C5F74 /* AdminVC.swift */; };
@@ -78,6 +89,19 @@
 		E9F31F521FDDB056001D74B9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F31F511FDDB056001D74B9 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		CDE1D513224FD2400063043C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3AC3D33ED9941FE8757C2361 /* Pods-FireFighters.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireFighters.release.xcconfig"; path = "Pods/Target Support Files/Pods-FireFighters/Pods-FireFighters.release.xcconfig"; sourceTree = "<group>"; };
 		46B8FC0CBE44D4CFCCDCB760 /* Pods_FireFighters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireFighters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,12 +128,6 @@
 		96C9A13C20C9C00100EC1B1F /* Custom_String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom_String.swift; sourceTree = "<group>"; };
 		96C9A13E20C9C56A00EC1B1F /* getFirebaseInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getFirebaseInfo.swift; sourceTree = "<group>"; };
 		96EAB7522110F3610054333F /* AuthNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNavigationViewController.swift; sourceTree = "<group>"; };
-		96EB6E0520D6BAC3001492D8 /* authStoryBoardiPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = authStoryBoardiPad.storyboard; sourceTree = "<group>"; };
-		96EB6E0720D6BADA001492D8 /* firstStoryBoardiPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = firstStoryBoardiPad.storyboard; sourceTree = "<group>"; };
-		96EB6E0920D6BAE9001492D8 /* MainStoryBoardiPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainStoryBoardiPad.storyboard; sourceTree = "<group>"; };
-		96EB6E0B20D6BB05001492D8 /* CalculationStoryBoardiPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalculationStoryBoardiPad.storyboard; sourceTree = "<group>"; };
-		96EB6E0D20D6BB1F001492D8 /* ProfileEditBoardiPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileEditBoardiPad.storyboard; sourceTree = "<group>"; };
-		96EB6E0F20D6BB2F001492D8 /* WorkInfoEdithBoardiPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WorkInfoEdithBoardiPad.storyboard; sourceTree = "<group>"; };
 		96EB6E1120D6BCF8001492D8 /* Custom_Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom_Label.swift; sourceTree = "<group>"; };
 		96FB909B2137C81E00233DE5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		96FF238620E538EA000E3626 /* userProfileSave.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = userProfileSave.storyboard; sourceTree = "<group>"; };
@@ -117,9 +135,26 @@
 		C93E98BB1FCC685C00377B89 /* FirstNextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstNextViewController.swift; sourceTree = "<group>"; };
 		C99610F620782A480024F8A5 /* Calculation+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Calculation+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C99610F720782A480024F8A5 /* Calculation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Calculation+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		CD93F79D219F06650047CDEF /* AppsInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsInfoVC.swift; sourceTree = "<group>"; };
+		CD5CDD30224BF07500FF95F5 /* appInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appInfoVC.swift; sourceTree = "<group>"; };
+		CD69ABAA223FEE3200E6B8CA /* sectionTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sectionTheme.swift; sourceTree = "<group>"; };
+		CD69ABAC223FF07500E6B8CA /* ThemeUICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeUICollectionView.swift; sourceTree = "<group>"; };
+		CD69ABAE223FF55E00E6B8CA /* ThemeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCollectionViewCell.swift; sourceTree = "<group>"; };
+		CD69ABB1224179E400E6B8CA /* documentationText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = documentationText.swift; sourceTree = "<group>"; };
+		CD69ABB32241868A00E6B8CA /* DocumentsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DocumentsStoryboard.storyboard; sourceTree = "<group>"; };
+		CD69ABB5224189BB00E6B8CA /* documentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = documentsVC.swift; sourceTree = "<group>"; };
+		CD8D02E1224531800040748A /* backVideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = backVideo.mov; path = FireFighters/LaunchScreenImage/backVideo.mov; sourceTree = "<group>"; };
 		CDA5CF46219DEE2300E9FCFF /* AppsInfoBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppsInfoBoard.storyboard; sourceTree = "<group>"; };
 		CDA9A2E0219C1B3600A457B8 /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
+		CDCD0F3022563E08009D01CA /* first_Check_AUER.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = first_Check_AUER.pdf; sourceTree = "<group>"; };
+		CDCD0F3122563E08009D01CA /* work_Check_AUER.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = work_Check_AUER.pdf; sourceTree = "<group>"; };
+		CDCD0F3222563E08009D01CA /* first_Check_OMEGA.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = first_Check_OMEGA.pdf; sourceTree = "<group>"; };
+		CDCD0F3322563E08009D01CA /* prikaz_3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = prikaz_3.pdf; sourceTree = "<group>"; };
+		CDCD0F3422563E08009D01CA /* type_info_Omega.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = type_info_Omega.pdf; sourceTree = "<group>"; };
+		CDCD0F3522563E08009D01CA /* type_info_AUER MSA.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "type_info_AUER MSA.pdf"; sourceTree = "<group>"; };
+		CDCD0F3622563E08009D01CA /* work_Check_OMEGA.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = work_Check_OMEGA.pdf; sourceTree = "<group>"; };
+		CDE1D4F9224F9E980063043C /* authStoryBoardiPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = authStoryBoardiPad.storyboard; sourceTree = "<group>"; };
+		CDE1D4FB224F9EE50063043C /* authStoryBoardVCiPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authStoryBoardVCiPad.swift; sourceTree = "<group>"; };
+		CDE1D4FD224FCB790063043C /* loginVCiPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginVCiPad.swift; sourceTree = "<group>"; };
 		CDE2A4B122304B57002C5F74 /* newsFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newsFirebase.swift; sourceTree = "<group>"; };
 		CDE2A4B3223AEF6F002C5F74 /* AdminStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdminStoryboard.storyboard; sourceTree = "<group>"; };
 		CDE2A4B5223AEF98002C5F74 /* AdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminVC.swift; sourceTree = "<group>"; };
@@ -284,8 +319,8 @@
 			children = (
 				96BC9DCC20A6115A002E9ADB /* EditProfileInfoVC.swift */,
 				96BC9DCE20A61186002E9ADB /* WorkInfoEdithVC.swift */,
-				CD93F79D219F06650047CDEF /* AppsInfoVC.swift */,
 				CDE2A4B5223AEF98002C5F74 /* AdminVC.swift */,
+				CD5CDD30224BF07500FF95F5 /* appInfoVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -303,6 +338,10 @@
 		961D21BC20FABE3F00CAB75C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E97B9D241FF2BEA100542C6C /* Custom_ProfileCell.swift */,
+				CD69ABAA223FEE3200E6B8CA /* sectionTheme.swift */,
+				CD69ABAC223FF07500E6B8CA /* ThemeUICollectionView.swift */,
+				CD69ABAE223FF55E00E6B8CA /* ThemeCollectionViewCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -311,7 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				E905295A1FDBEA2E00647967 /* MainStoryboard.storyboard */,
-				E97B9D241FF2BEA100542C6C /* Custom_ProfileCell.swift */,
+				CD69ABB32241868A00E6B8CA /* DocumentsStoryboard.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -323,6 +362,7 @@
 				E978EAEC1FEED7B700197057 /* CalculationViewController.swift */,
 				E923ED691FF16C2200A319B6 /* ProfileViewController.swift */,
 				E923ED6B1FF1738300A319B6 /* DocViewController.swift */,
+				CD69ABB5224189BB00E6B8CA /* documentsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -382,28 +422,97 @@
 		961D21C420FAC34900CAB75C /* iPadView */ = {
 			isa = PBXGroup;
 			children = (
-				96EB6E0220D69F17001492D8 /* iPadDevice */,
+				CDE1D4F1224F9D440063043C /* AuthorizationiPad */,
+				CDE1D4F2224F9D6C0063043C /* RegistrationiPad */,
+				CDE1D4F3224F9D800063043C /* EditingiPad */,
+				CDE1D4F4224F9DA50063043C /* MainiPad */,
+				CDE1D4F5224F9DB70063043C /* CalculationiPad */,
 			);
 			path = iPadView;
 			sourceTree = "<group>";
 		};
-		96EB6E0220D69F17001492D8 /* iPadDevice */ = {
+		CD69ABB0224179C100E6B8CA /* textFiles */ = {
 			isa = PBXGroup;
 			children = (
-				96EB6E0520D6BAC3001492D8 /* authStoryBoardiPad.storyboard */,
-				96EB6E0720D6BADA001492D8 /* firstStoryBoardiPad.storyboard */,
-				96EB6E0920D6BAE9001492D8 /* MainStoryBoardiPad.storyboard */,
-				96EB6E0B20D6BB05001492D8 /* CalculationStoryBoardiPad.storyboard */,
-				96EB6E0D20D6BB1F001492D8 /* ProfileEditBoardiPad.storyboard */,
-				96EB6E0F20D6BB2F001492D8 /* WorkInfoEdithBoardiPad.storyboard */,
+				CDCD0F3022563E08009D01CA /* first_Check_AUER.pdf */,
+				CDCD0F3222563E08009D01CA /* first_Check_OMEGA.pdf */,
+				CDCD0F3322563E08009D01CA /* prikaz_3.pdf */,
+				CDCD0F3522563E08009D01CA /* type_info_AUER MSA.pdf */,
+				CDCD0F3422563E08009D01CA /* type_info_Omega.pdf */,
+				CDCD0F3122563E08009D01CA /* work_Check_AUER.pdf */,
+				CDCD0F3622563E08009D01CA /* work_Check_OMEGA.pdf */,
+				CD69ABB1224179E400E6B8CA /* documentationText.swift */,
 			);
-			path = iPadDevice;
+			path = textFiles;
+			sourceTree = "<group>";
+		};
+		CDE1D4F1224F9D440063043C /* AuthorizationiPad */ = {
+			isa = PBXGroup;
+			children = (
+				CDE1D4F8224F9DDE0063043C /* Controller */,
+				CDE1D4F7224F9DD30063043C /* View */,
+				CDE1D4F6224F9DCB0063043C /* Model */,
+			);
+			path = AuthorizationiPad;
+			sourceTree = "<group>";
+		};
+		CDE1D4F2224F9D6C0063043C /* RegistrationiPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RegistrationiPad;
+			sourceTree = "<group>";
+		};
+		CDE1D4F3224F9D800063043C /* EditingiPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EditingiPad;
+			sourceTree = "<group>";
+		};
+		CDE1D4F4224F9DA50063043C /* MainiPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MainiPad;
+			sourceTree = "<group>";
+		};
+		CDE1D4F5224F9DB70063043C /* CalculationiPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CalculationiPad;
+			sourceTree = "<group>";
+		};
+		CDE1D4F6224F9DCB0063043C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CDE1D4F7224F9DD30063043C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CDE1D4F9224F9E980063043C /* authStoryBoardiPad.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CDE1D4F8224F9DDE0063043C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CDE1D4FB224F9EE50063043C /* authStoryBoardVCiPad.swift */,
+				CDE1D4FD224FCB790063043C /* loginVCiPad.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		E90894C51FC47F43001DEE07 = {
 			isa = PBXGroup;
 			children = (
 				969AA0EF210118BA0075899A /* Podfile */,
+				CD8D02E1224531800040748A /* backVideo.mov */,
 				E90894D01FC47F43001DEE07 /* FireFighters */,
 				E90894CF1FC47F43001DEE07 /* Products */,
 				E90894E61FC47F6F001DEE07 /* Frameworks */,
@@ -424,6 +533,7 @@
 			children = (
 				961D21C420FAC34900CAB75C /* iPadView */,
 				961D21C320FABF7700CAB75C /* iPhoneView */,
+				CD69ABB0224179C100E6B8CA /* textFiles */,
 				E9458DBE201367D400377530 /* FirebaseFile */,
 				E90894EE1FC4855D001DEE07 /* CustomFile */,
 				E90894ED1FC48553001DEE07 /* Core Data File */,
@@ -501,6 +611,7 @@
 				E90894CB1FC47F43001DEE07 /* Frameworks */,
 				E90894CC1FC47F43001DEE07 /* Resources */,
 				BE11496386C832B2174C7115 /* [CP] Embed Pods Frameworks */,
+				CDE1D513224FD2400063043C /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -517,13 +628,13 @@
 		E90894C61FC47F43001DEE07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0910;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Павел";
 				TargetAttributes = {
 					E90894CD1FC47F43001DEE07 = {
 						CreatedOnToolsVersion = 9.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -566,24 +677,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				E905295B1FDBEA2E00647967 /* MainStoryboard.storyboard in Resources */,
-				96EB6E0C20D6BB05001492D8 /* CalculationStoryBoardiPad.storyboard in Resources */,
+				CDCD0F3B22563E08009D01CA /* type_info_Omega.pdf in Resources */,
 				E96429F31FCEDDF0005BB8D4 /* LaunchScreenImage in Resources */,
+				CDCD0F3722563E08009D01CA /* first_Check_AUER.pdf in Resources */,
+				CDCD0F3922563E08009D01CA /* first_Check_OMEGA.pdf in Resources */,
 				CDA5CF47219DEE2300E9FCFF /* AppsInfoBoard.storyboard in Resources */,
+				CD8D02E2224531810040748A /* backVideo.mov in Resources */,
 				E90894EA1FC48401001DEE07 /* LaunchScreen.storyboard in Resources */,
+				CDCD0F3C22563E08009D01CA /* type_info_AUER MSA.pdf in Resources */,
 				E9347B472011044C00B20980 /* authStoryBoard.storyboard in Resources */,
+				CDCD0F3D22563E08009D01CA /* work_Check_OMEGA.pdf in Resources */,
+				CD69ABB42241868A00E6B8CA /* DocumentsStoryboard.storyboard in Resources */,
 				96BC9DCA20A610D5002E9ADB /* ProfileEditBoard.storyboard in Resources */,
-				96EB6E0E20D6BB1F001492D8 /* ProfileEditBoardiPad.storyboard in Resources */,
-				96EB6E1020D6BB2F001492D8 /* WorkInfoEdithBoardiPad.storyboard in Resources */,
 				E96429F21FCEDDF0005BB8D4 /* icon in Resources */,
-				96EB6E0820D6BADA001492D8 /* firstStoryBoardiPad.storyboard in Resources */,
 				969AA0F0210118BA0075899A /* Podfile in Resources */,
+				CDCD0F3822563E08009D01CA /* work_Check_AUER.pdf in Resources */,
+				CDCD0F3A22563E08009D01CA /* prikaz_3.pdf in Resources */,
 				96FB909C2137C81E00233DE5 /* GoogleService-Info.plist in Resources */,
 				E90894F01FC48593001DEE07 /* firstStoryBoards.storyboard in Resources */,
 				96FF238720E538EA000E3626 /* userProfileSave.storyboard in Resources */,
-				96EB6E0620D6BAC3001492D8 /* authStoryBoardiPad.storyboard in Resources */,
 				96FFA1B920B36F480079AAFC /* CalculationSB.storyboard in Resources */,
-				96EB6E0A20D6BAE9001492D8 /* MainStoryBoardiPad.storyboard in Resources */,
 				CDE2A4B4223AEF6F002C5F74 /* AdminStoryboard.storyboard in Resources */,
+				CDE1D4FA224F9E980063043C /* authStoryBoardiPad.storyboard in Resources */,
 				E90894DC1FC47F43001DEE07 /* Assets.xcassets in Resources */,
 				96BC9DD120A6172B002E9ADB /* WorkInfoEdithBoard.storyboard in Resources */,
 			);
@@ -624,6 +739,7 @@
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/iosMath/iosMath.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -636,6 +752,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iosMath.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -652,27 +769,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				96C5070520D199E300984F41 /* Custom_DataPicker.swift in Sources */,
+				CDE1D4FC224F9EE50063043C /* authStoryBoardVCiPad.swift in Sources */,
 				96C9A13520C9BF3C00EC1B1F /* Custom_Date.swift in Sources */,
 				E97751822041CFF60004F400 /* HearthViewController.swift in Sources */,
 				96BC9DCD20A6115A002E9ADB /* EditProfileInfoVC.swift in Sources */,
 				96C9A13B20C9BFDB00EC1B1F /* Custom_Layer.swift in Sources */,
 				E9C788361FD82DE7009F98F2 /* UserProfile+CoreDataProperties.swift in Sources */,
+				CD69ABB2224179E400E6B8CA /* documentationText.swift in Sources */,
 				96C9A13320C9BEEF00EC1B1F /* Custom_Button.swift in Sources */,
 				96BC9DCF20A61186002E9ADB /* WorkInfoEdithVC.swift in Sources */,
 				96C9A13920C9BF8B00EC1B1F /* Custom_View.swift in Sources */,
 				96C9A13720C9BF6700EC1B1F /* Custom_TextField.swift in Sources */,
+				CD69ABB6224189BB00E6B8CA /* documentsVC.swift in Sources */,
 				963ED56E20DF9C3000EF6ECF /* Custom_AlertController.swift in Sources */,
 				96EB6E1220D6BCF8001492D8 /* Custom_Label.swift in Sources */,
-				CD93F79E219F06650047CDEF /* AppsInfoVC.swift in Sources */,
 				C99610F820782A480024F8A5 /* Calculation+CoreDataClass.swift in Sources */,
+				CDE1D4FE224FCB790063043C /* loginVCiPad.swift in Sources */,
 				96C9A13F20C9C56A00EC1B1F /* getFirebaseInfo.swift in Sources */,
 				E978EAED1FEED7B700197057 /* CalculationViewController.swift in Sources */,
 				E9100AB7205DA83000F488CD /* AuthAndRegistrationView.swift in Sources */,
 				E9BEDB491FC4A3CF00DAD26E /* FirstViewController.swift in Sources */,
+				CD69ABAF223FF55E00E6B8CA /* ThemeCollectionViewCell.swift in Sources */,
 				96C9A13D20C9C00100EC1B1F /* Custom_String.swift in Sources */,
 				E9B278D3202CE8BC00FA89EE /* CalculationsFile.swift in Sources */,
 				E90894D21FC47F43001DEE07 /* AppDelegate.swift in Sources */,
 				C93E98BC1FCC685D00377B89 /* FirstNextViewController.swift in Sources */,
+				CD5CDD31224BF07500FF95F5 /* appInfoVC.swift in Sources */,
 				E9524AF52011FF8800E007C8 /* creatUserProfile.swift in Sources */,
 				E977517E2041CF9C0004F400 /* SelectTimeFireFighter.swift in Sources */,
 				96253C662095DB74006F7C8D /* DecisionProgressVC.swift in Sources */,
@@ -682,12 +804,14 @@
 				E97751802041CFAA0004F400 /* TimerViewController.swift in Sources */,
 				C99610F920782A480024F8A5 /* Calculation+CoreDataProperties.swift in Sources */,
 				96EAB7532110F3610054333F /* AuthNavigationViewController.swift in Sources */,
+				CD69ABAD223FF07500E6B8CA /* ThemeUICollectionView.swift in Sources */,
 				963ED57220DFB94F00EF6ECF /* Custom_TabBar.swift in Sources */,
 				CDA9A2E1219C1B3600A457B8 /* DarkTheme.swift in Sources */,
 				E9C788351FD82DE7009F98F2 /* UserProfile+CoreDataClass.swift in Sources */,
 				E9524AF32011F94900E007C8 /* authorizationVC.swift in Sources */,
 				E90894DA1FC47F43001DEE07 /* FireFighters.xcdatamodeld in Sources */,
 				E920DC382046C71400E53C69 /* NoWorkHearthVC.swift in Sources */,
+				CD69ABAB223FEE3200E6B8CA /* sectionTheme.swift in Sources */,
 				96C699B520DBF4E500DF7578 /* Firebase_Errors.swift in Sources */,
 				E920DC422046F65200E53C69 /* ResultViewController.swift in Sources */,
 				E9F31F521FDDB056001D74B9 /* MainViewController.swift in Sources */,
@@ -704,7 +828,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		E90894E11FC47F43001DEE07 /* Debug */ = {
+		CD7C24CC224FE446009D12D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -737,17 +861,11 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -755,11 +873,51 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Debug;
+		};
+		CD7C24CD224FE446009D12D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BE6FE637E4589DB5C62AD11 /* Pods-FireFighters.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FireFighters/FireFighters.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GVA5J44S8J;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseAuth\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseDatabase\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseMessaging\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseStorage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GTMSessionFetcher\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManagerSwift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Locksmith\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Protobuf\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ReachabilitySwift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/leveldb-library\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb\"",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleAppMeasurement/Frameworks\"",
+				);
+				INFOPLIST_FILE = FireFighters/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Shoki-Dev.FireFighters";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -815,43 +973,43 @@
 			};
 			name = Release;
 		};
-		E90894E41FC47F43001DEE07 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7BE6FE637E4589DB5C62AD11 /* Pods-FireFighters.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = FireFighters/FireFighters.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GVA5J44S8J;
-				INFOPLIST_FILE = FireFighters/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "Shoki-Dev.FireFighters";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
 		E90894E51FC47F43001DEE07 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3AC3D33ED9941FE8757C2361 /* Pods-FireFighters.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FireFighters/FireFighters.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GVA5J44S8J;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseAuth\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseDatabase\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseMessaging\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseStorage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GTMSessionFetcher\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManagerSwift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Locksmith\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MBProgressHUD\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Protobuf\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ReachabilitySwift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/leveldb-library\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb\"",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleAppMeasurement/Frameworks\"",
+				);
 				INFOPLIST_FILE = FireFighters/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Shoki-Dev.FireFighters";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -862,8 +1020,8 @@
 		E90894C91FC47F43001DEE07 /* Build configuration list for PBXProject "FireFighters" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E90894E11FC47F43001DEE07 /* Debug */,
 				E90894E21FC47F43001DEE07 /* Release */,
+				CD7C24CC224FE446009D12D6 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -871,8 +1029,8 @@
 		E90894E31FC47F43001DEE07 /* Build configuration list for PBXNativeTarget "FireFighters" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E90894E41FC47F43001DEE07 /* Debug */,
 				E90894E51FC47F43001DEE07 /* Release */,
+				CD7C24CD224FE446009D12D6 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

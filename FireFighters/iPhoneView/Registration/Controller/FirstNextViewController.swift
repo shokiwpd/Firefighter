@@ -32,6 +32,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         saveButton.layer.insertSublayer(saveDataButtonGardient, at: 0)
         saveButton.clipsToBounds = true
         saveButton.layer.cornerRadius = 10
+//        self.view.insertSubview(view.backgroundImage(nameImage: "DASVImage.png"), at: 0)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -176,6 +177,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             textField.text = ""
         }
     }
+    
     
     private func nextVC() {
         let Vc = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UITabBarController

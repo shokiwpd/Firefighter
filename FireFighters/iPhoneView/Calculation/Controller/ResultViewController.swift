@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import iosMath
+
 
 class ResultViewController: UIViewController {
     @IBOutlet weak var resultView: UILabel!
@@ -18,6 +20,8 @@ class ResultViewController: UIViewController {
     var HeartStatus = false
     var DecisionProgressText = ""
     var ballons: Double!
+    let mayh = MTMathUILabel()
+    
     override func viewDidLayoutSubviews() {
         self.view.darkThemeView()
     }
@@ -147,6 +151,12 @@ class ResultViewController: UIViewController {
             }
         default:
             print("Test")
+        }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ResultSegue"{
+            let resultSeg = segue.destination as! DecisionProgressVC
+            resultSeg.resultTextClass = DecisionProgressText
         }
     }
 }
