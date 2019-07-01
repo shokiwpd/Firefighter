@@ -14,6 +14,7 @@ class authorizationVC: UIViewController, UITextFieldDelegate,getTockenUser{
     var loginLine = CAShapeLayer()
     var passwordLine = CAShapeLayer()
     var buttonGardients = CAGradientLayer()
+   // let selcetTypeDef = UserDefaults.standart
     //MARK: Классы и переменные
     var userInfo = UserProfile.userInform
     let receivingData = loadFirebaseData()
@@ -40,6 +41,7 @@ class authorizationVC: UIViewController, UITextFieldDelegate,getTockenUser{
     //MARK: Загрузка первичных настроек
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         loginView.delegate = self
         passwordView.delegate = self
         title = ""
@@ -51,8 +53,10 @@ class authorizationVC: UIViewController, UITextFieldDelegate,getTockenUser{
         Auth.auth().signIn(withEmail: loginView.text!, password: passwordView.text!) { [weak self](user, AuthErrors) in
             guard AuthErrors == nil else {return self!.fetchError(AuthErrors!)} //Проверка на наличие ошибок с сервера
             guard user != nil else { return } //Проверка на существование пользователя в БД Firebase
+            guard TypeString.TypeStrings.nameType == "" else {return }
             self?.progressView() //Включение индикатора загрузки
             self?.fetchFirebase() //загрузка данных из Firebase
+            self?.nextViewController()
 //            self?.saveLoginAndPass(Login: (self?.loginView.text!)!, Password: (self?.passwordView.text!)!)  //сохранение логина и пароля
         }
     }

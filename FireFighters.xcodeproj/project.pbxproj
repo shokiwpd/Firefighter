@@ -36,6 +36,8 @@
 		C93E98BC1FCC685D00377B89 /* FirstNextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93E98BB1FCC685C00377B89 /* FirstNextViewController.swift */; };
 		C99610F820782A480024F8A5 /* Calculation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99610F620782A480024F8A5 /* Calculation+CoreDataClass.swift */; };
 		C99610F920782A480024F8A5 /* Calculation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99610F720782A480024F8A5 /* Calculation+CoreDataProperties.swift */; };
+		CD34E8D8228065BE009C2455 /* selectSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD34E8D7228065BE009C2455 /* selectSB.storyboard */; };
+		CD34E8DA22806624009C2455 /* alertSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD34E8D922806624009C2455 /* alertSelectVC.swift */; };
 		CD5CDD31224BF07500FF95F5 /* appInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5CDD30224BF07500FF95F5 /* appInfoVC.swift */; };
 		CD69ABAB223FEE3200E6B8CA /* sectionTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD69ABAA223FEE3200E6B8CA /* sectionTheme.swift */; };
 		CD69ABAD223FF07500E6B8CA /* ThemeUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD69ABAC223FF07500E6B8CA /* ThemeUICollectionView.swift */; };
@@ -43,9 +45,11 @@
 		CD69ABB2224179E400E6B8CA /* documentationText.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD69ABB1224179E400E6B8CA /* documentationText.swift */; };
 		CD69ABB42241868A00E6B8CA /* DocumentsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD69ABB32241868A00E6B8CA /* DocumentsStoryboard.storyboard */; };
 		CD69ABB6224189BB00E6B8CA /* documentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD69ABB5224189BB00E6B8CA /* documentsVC.swift */; };
-		CD8D02E2224531810040748A /* backVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = CD8D02E1224531800040748A /* backVideo.mov */; };
 		CDA5CF47219DEE2300E9FCFF /* AppsInfoBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA5CF46219DEE2300E9FCFF /* AppsInfoBoard.storyboard */; };
 		CDA9A2E1219C1B3600A457B8 /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA9A2E0219C1B3600A457B8 /* DarkTheme.swift */; };
+		CDB592F5226F69F700AC7303 /* TypeString+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB592F4226F69F600AC7303 /* TypeString+CoreDataClass.swift */; };
+		CDB592F6226F69F700AC7303 /* TypeString+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB592F3226F69F600AC7303 /* TypeString+CoreDataProperties.swift */; };
+		CDCC33B522A1325200D48BC0 /* backgraundVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = CDCC33B422A1325200D48BC0 /* backgraundVideo.mov */; };
 		CDCD0F3722563E08009D01CA /* first_Check_AUER.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CDCD0F3022563E08009D01CA /* first_Check_AUER.pdf */; };
 		CDCD0F3822563E08009D01CA /* work_Check_AUER.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CDCD0F3122563E08009D01CA /* work_Check_AUER.pdf */; };
 		CDCD0F3922563E08009D01CA /* first_Check_OMEGA.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CDCD0F3222563E08009D01CA /* first_Check_OMEGA.pdf */; };
@@ -53,6 +57,10 @@
 		CDCD0F3B22563E08009D01CA /* type_info_Omega.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CDCD0F3422563E08009D01CA /* type_info_Omega.pdf */; };
 		CDCD0F3C22563E08009D01CA /* type_info_AUER MSA.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CDCD0F3522563E08009D01CA /* type_info_AUER MSA.pdf */; };
 		CDCD0F3D22563E08009D01CA /* work_Check_OMEGA.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CDCD0F3622563E08009D01CA /* work_Check_OMEGA.pdf */; };
+		CDCD0F4222611882009D01CA /* defaultFireChek.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CDCD0F3E22611882009D01CA /* defaultFireChek.pdf */; };
+		CDCD0F4322611882009D01CA /* fireFightersChange.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CDCD0F3F22611882009D01CA /* fireFightersChange.pdf */; };
+		CDCD0F4422611882009D01CA /* chargePoinstsman.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CDCD0F4022611882009D01CA /* chargePoinstsman.pdf */; };
+		CDCD0F4522611882009D01CA /* defaultWorkChek.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CDCD0F4122611882009D01CA /* defaultWorkChek.pdf */; };
 		CDE1D4FA224F9E980063043C /* authStoryBoardiPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDE1D4F9224F9E980063043C /* authStoryBoardiPad.storyboard */; };
 		CDE1D4FC224F9EE50063043C /* authStoryBoardVCiPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE1D4FB224F9EE50063043C /* authStoryBoardVCiPad.swift */; };
 		CDE1D4FE224FCB790063043C /* loginVCiPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE1D4FD224FCB790063043C /* loginVCiPad.swift */; };
@@ -135,6 +143,8 @@
 		C93E98BB1FCC685C00377B89 /* FirstNextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstNextViewController.swift; sourceTree = "<group>"; };
 		C99610F620782A480024F8A5 /* Calculation+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Calculation+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C99610F720782A480024F8A5 /* Calculation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Calculation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CD34E8D7228065BE009C2455 /* selectSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = selectSB.storyboard; sourceTree = "<group>"; };
+		CD34E8D922806624009C2455 /* alertSelectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alertSelectVC.swift; sourceTree = "<group>"; };
 		CD5CDD30224BF07500FF95F5 /* appInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appInfoVC.swift; sourceTree = "<group>"; };
 		CD69ABAA223FEE3200E6B8CA /* sectionTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sectionTheme.swift; sourceTree = "<group>"; };
 		CD69ABAC223FF07500E6B8CA /* ThemeUICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeUICollectionView.swift; sourceTree = "<group>"; };
@@ -142,9 +152,11 @@
 		CD69ABB1224179E400E6B8CA /* documentationText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = documentationText.swift; sourceTree = "<group>"; };
 		CD69ABB32241868A00E6B8CA /* DocumentsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DocumentsStoryboard.storyboard; sourceTree = "<group>"; };
 		CD69ABB5224189BB00E6B8CA /* documentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = documentsVC.swift; sourceTree = "<group>"; };
-		CD8D02E1224531800040748A /* backVideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = backVideo.mov; path = FireFighters/LaunchScreenImage/backVideo.mov; sourceTree = "<group>"; };
 		CDA5CF46219DEE2300E9FCFF /* AppsInfoBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppsInfoBoard.storyboard; sourceTree = "<group>"; };
 		CDA9A2E0219C1B3600A457B8 /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
+		CDB592F3226F69F600AC7303 /* TypeString+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TypeString+CoreDataProperties.swift"; path = "/Users/Pavels/Desktop/FireFighters/FireFighters/Core Data File/TypeString+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		CDB592F4226F69F600AC7303 /* TypeString+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TypeString+CoreDataClass.swift"; path = "/Users/Pavels/Desktop/FireFighters/FireFighters/Core Data File/TypeString+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		CDCC33B422A1325200D48BC0 /* backgraundVideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = backgraundVideo.mov; sourceTree = "<group>"; };
 		CDCD0F3022563E08009D01CA /* first_Check_AUER.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = first_Check_AUER.pdf; sourceTree = "<group>"; };
 		CDCD0F3122563E08009D01CA /* work_Check_AUER.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = work_Check_AUER.pdf; sourceTree = "<group>"; };
 		CDCD0F3222563E08009D01CA /* first_Check_OMEGA.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = first_Check_OMEGA.pdf; sourceTree = "<group>"; };
@@ -152,6 +164,10 @@
 		CDCD0F3422563E08009D01CA /* type_info_Omega.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = type_info_Omega.pdf; sourceTree = "<group>"; };
 		CDCD0F3522563E08009D01CA /* type_info_AUER MSA.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "type_info_AUER MSA.pdf"; sourceTree = "<group>"; };
 		CDCD0F3622563E08009D01CA /* work_Check_OMEGA.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = work_Check_OMEGA.pdf; sourceTree = "<group>"; };
+		CDCD0F3E22611882009D01CA /* defaultFireChek.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = defaultFireChek.pdf; sourceTree = "<group>"; };
+		CDCD0F3F22611882009D01CA /* fireFightersChange.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = fireFightersChange.pdf; sourceTree = "<group>"; };
+		CDCD0F4022611882009D01CA /* chargePoinstsman.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = chargePoinstsman.pdf; sourceTree = "<group>"; };
+		CDCD0F4122611882009D01CA /* defaultWorkChek.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = defaultWorkChek.pdf; sourceTree = "<group>"; };
 		CDE1D4F9224F9E980063043C /* authStoryBoardiPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = authStoryBoardiPad.storyboard; sourceTree = "<group>"; };
 		CDE1D4FB224F9EE50063043C /* authStoryBoardVCiPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authStoryBoardVCiPad.swift; sourceTree = "<group>"; };
 		CDE1D4FD224FCB790063043C /* loginVCiPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginVCiPad.swift; sourceTree = "<group>"; };
@@ -351,6 +367,7 @@
 			children = (
 				E905295A1FDBEA2E00647967 /* MainStoryboard.storyboard */,
 				CD69ABB32241868A00E6B8CA /* DocumentsStoryboard.storyboard */,
+				CD34E8D7228065BE009C2455 /* selectSB.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -363,6 +380,7 @@
 				E923ED691FF16C2200A319B6 /* ProfileViewController.swift */,
 				E923ED6B1FF1738300A319B6 /* DocViewController.swift */,
 				CD69ABB5224189BB00E6B8CA /* documentsVC.swift */,
+				CD34E8D922806624009C2455 /* alertSelectVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -434,6 +452,10 @@
 		CD69ABB0224179C100E6B8CA /* textFiles */ = {
 			isa = PBXGroup;
 			children = (
+				CDCD0F4022611882009D01CA /* chargePoinstsman.pdf */,
+				CDCD0F3E22611882009D01CA /* defaultFireChek.pdf */,
+				CDCD0F4122611882009D01CA /* defaultWorkChek.pdf */,
+				CDCD0F3F22611882009D01CA /* fireFightersChange.pdf */,
 				CDCD0F3022563E08009D01CA /* first_Check_AUER.pdf */,
 				CDCD0F3222563E08009D01CA /* first_Check_OMEGA.pdf */,
 				CDCD0F3322563E08009D01CA /* prikaz_3.pdf */,
@@ -511,8 +533,8 @@
 		E90894C51FC47F43001DEE07 = {
 			isa = PBXGroup;
 			children = (
+				CDCC33B422A1325200D48BC0 /* backgraundVideo.mov */,
 				969AA0EF210118BA0075899A /* Podfile */,
-				CD8D02E1224531800040748A /* backVideo.mov */,
 				E90894D01FC47F43001DEE07 /* FireFighters */,
 				E90894CF1FC47F43001DEE07 /* Products */,
 				E90894E61FC47F6F001DEE07 /* Frameworks */,
@@ -564,6 +586,8 @@
 				E90894D81FC47F43001DEE07 /* FireFighters.xcdatamodeld */,
 				C99610F620782A480024F8A5 /* Calculation+CoreDataClass.swift */,
 				C99610F720782A480024F8A5 /* Calculation+CoreDataProperties.swift */,
+				CDB592F4226F69F600AC7303 /* TypeString+CoreDataClass.swift */,
+				CDB592F3226F69F600AC7303 /* TypeString+CoreDataProperties.swift */,
 				E9C788331FD82DE7009F98F2 /* UserProfile+CoreDataClass.swift */,
 				E9C788341FD82DE7009F98F2 /* UserProfile+CoreDataProperties.swift */,
 			);
@@ -677,12 +701,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E905295B1FDBEA2E00647967 /* MainStoryboard.storyboard in Resources */,
+				CDCD0F4322611882009D01CA /* fireFightersChange.pdf in Resources */,
 				CDCD0F3B22563E08009D01CA /* type_info_Omega.pdf in Resources */,
 				E96429F31FCEDDF0005BB8D4 /* LaunchScreenImage in Resources */,
 				CDCD0F3722563E08009D01CA /* first_Check_AUER.pdf in Resources */,
 				CDCD0F3922563E08009D01CA /* first_Check_OMEGA.pdf in Resources */,
+				CDCD0F4422611882009D01CA /* chargePoinstsman.pdf in Resources */,
 				CDA5CF47219DEE2300E9FCFF /* AppsInfoBoard.storyboard in Resources */,
-				CD8D02E2224531810040748A /* backVideo.mov in Resources */,
+				CDCC33B522A1325200D48BC0 /* backgraundVideo.mov in Resources */,
 				E90894EA1FC48401001DEE07 /* LaunchScreen.storyboard in Resources */,
 				CDCD0F3C22563E08009D01CA /* type_info_AUER MSA.pdf in Resources */,
 				E9347B472011044C00B20980 /* authStoryBoard.storyboard in Resources */,
@@ -693,13 +719,16 @@
 				969AA0F0210118BA0075899A /* Podfile in Resources */,
 				CDCD0F3822563E08009D01CA /* work_Check_AUER.pdf in Resources */,
 				CDCD0F3A22563E08009D01CA /* prikaz_3.pdf in Resources */,
+				CD34E8D8228065BE009C2455 /* selectSB.storyboard in Resources */,
 				96FB909C2137C81E00233DE5 /* GoogleService-Info.plist in Resources */,
 				E90894F01FC48593001DEE07 /* firstStoryBoards.storyboard in Resources */,
 				96FF238720E538EA000E3626 /* userProfileSave.storyboard in Resources */,
 				96FFA1B920B36F480079AAFC /* CalculationSB.storyboard in Resources */,
 				CDE2A4B4223AEF6F002C5F74 /* AdminStoryboard.storyboard in Resources */,
 				CDE1D4FA224F9E980063043C /* authStoryBoardiPad.storyboard in Resources */,
+				CDCD0F4222611882009D01CA /* defaultFireChek.pdf in Resources */,
 				E90894DC1FC47F43001DEE07 /* Assets.xcassets in Resources */,
+				CDCD0F4522611882009D01CA /* defaultWorkChek.pdf in Resources */,
 				96BC9DD120A6172B002E9ADB /* WorkInfoEdithBoard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -802,6 +831,7 @@
 				E923ED6C1FF1738300A319B6 /* DocViewController.swift in Sources */,
 				96C9A13120C9BED300EC1B1F /* Custom_Image.swift in Sources */,
 				E97751802041CFAA0004F400 /* TimerViewController.swift in Sources */,
+				CDB592F6226F69F700AC7303 /* TypeString+CoreDataProperties.swift in Sources */,
 				C99610F920782A480024F8A5 /* Calculation+CoreDataProperties.swift in Sources */,
 				96EAB7532110F3610054333F /* AuthNavigationViewController.swift in Sources */,
 				CD69ABAD223FF07500E6B8CA /* ThemeUICollectionView.swift in Sources */,
@@ -816,7 +846,9 @@
 				E920DC422046F65200E53C69 /* ResultViewController.swift in Sources */,
 				E9F31F521FDDB056001D74B9 /* MainViewController.swift in Sources */,
 				E97B9D251FF2BEA100542C6C /* Custom_ProfileCell.swift in Sources */,
+				CD34E8DA22806624009C2455 /* alertSelectVC.swift in Sources */,
 				E923873C1FE3D5D600AA8078 /* CustomNavContr.swift in Sources */,
+				CDB592F5226F69F700AC7303 /* TypeString+CoreDataClass.swift in Sources */,
 				96622DE82090F7280046AF46 /* ResultTextFile.swift in Sources */,
 				96C699B720DBF4F300DF7578 /* getFirebaseData.swift in Sources */,
 				CDE2A4B6223AEF98002C5F74 /* AdminVC.swift in Sources */,

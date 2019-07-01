@@ -2,8 +2,8 @@ import UIKit
 import FirebaseAuth
 import Firebase
 class ProfileViewController: UITableViewController {
-    var SelUsersCell = ["Личные данные","Рабочие данные","Информация","Темная тема","Сменить пользователя"]
-    var Comments = ["Смена города","Смена данных о работе","Информация о приложении","Смена темы оформления",""]
+    var SelUsersCell = ["Личные данные","Рабочие данные","Информация","Темная тема","Смена аппарата","Сменить пользователя"]
+    var Comments = ["Смена города","Смена данных о работе","Информация о приложении","Смена темы оформления","Сменить тип аппарата",""]
    
     let userInfo = UserProfile.userInform
     let DarkTheme = ThemeUser()
@@ -63,6 +63,9 @@ class ProfileViewController: UITableViewController {
         case 4:
             cell.labelViewCell.text = SelUsersCell[indexPath.row]
             cell.commentLabel.text = Comments[indexPath.row]
+        case 5:
+            cell.labelViewCell.text = SelUsersCell[indexPath.row]
+            cell.commentLabel.text = Comments[indexPath.row]
         default:
             cell.labelViewCell.text = SelUsersCell[indexPath.row]
             cell.commentLabel.text = Comments[indexPath.row]
@@ -78,12 +81,14 @@ class ProfileViewController: UITableViewController {
         case 1:
             segueStoryBoard(nameSB: "WorkInfoEdithBoard")
         case 2:
-            segueStoryBoard(nameSB: "AppsInfoBoard")
-//            vk_massage()
+//            segueStoryBoard(nameSB: "AppsInfoBoard")
+            vk_massage()
         case 3:
 //            AlertView(text: "Butt")
              DarkMode()
         case 4:
+            typeSelect()
+        case 5:
             alertAction()
         default:
             segueStoryBoard(nameSB: "AdminStoryboard")
@@ -96,6 +101,7 @@ class ProfileViewController: UITableViewController {
         let AlAc = UIAlertAction(title: "Нет", style: .default, handler: nil)
         let AlAc2 = UIAlertAction(title: "ДА", style: .cancel, handler: { (UIAlertAction) in
             self.exit()
+            TypeString.TypeStrings.nameType = ""
             self.userInfo.clearData()
             })
          AC.addAction(AlAc2)
@@ -104,7 +110,7 @@ class ProfileViewController: UITableViewController {
     }
     // Переход на публичную страницу приложения
     func vk_massage(){
-        let massage = "Спасибо что пользуетесь данным приложением. Все предложения вы можете оставить группе в VK.Найти ссылку можете на странице приложения в AppStore. Надеюсь на хороший рейтинг. Чем выше ваша оценка,тем мне приятнее и появляется желание его делать."
+        let massage = "Спасибо что пользуетесь данным приложением. Все предложения вы можете оставить группе в VK.Найти ссылку можете на странице приложения в AppStore. Надеюсь на хороший рейтинг. Чем выше ваша оценка,тем мне приятнее и появляется желание его делать.В скором времени добвлю номер для Viber и WhatsApp куда сможете написать в случае ошибок"
         var VK_Alert = UIAlertController()
         if UIDevice.current.model == "iPad" {
              VK_Alert = UIAlertController(title: "О приложении", message: massage , preferredStyle: .alert)
@@ -131,7 +137,7 @@ class ProfileViewController: UITableViewController {
             DarkAlert = UIAlertController(title: "Внимание", message: DarkModeMassage, preferredStyle: .actionSheet)
         }
         
-        let Dark = UIAlertAction(title: "Теманая тема", style: .default) { (UIAlertAction) in
+        let Dark = UIAlertAction(title: "Темная тема", style: .default) { (UIAlertAction) in
                 userDefMode.set(true, forKey: "DarkMode")
                 userDefMode.synchronize()
             self.updateView()
@@ -149,6 +155,30 @@ class ProfileViewController: UITableViewController {
         DarkAlert.addAction(Cancel)
         present(DarkAlert, animated: true, completion: nil)
     }
+    
+    func typeSelect(){
+        let type = TypeString.TypeStrings.nameType
+        let AlertController = UIAlertController(title: "Выберите марку аппарата", message: "Ваш текщий аппарат \(type!)", preferredStyle: .alert)
+        let actionAUER = UIAlertAction(title: "AUER", style: .default) { (UIAlertAction) in
+            TypeString.TypeStrings.nameType = "AUER"
+            NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "updateName"), object: nil, userInfo: ["Name" : "AUER"])
+        }
+        let actionOMEGA = UIAlertAction(title: "ОМЕГА", style: .default) { (UIAlertAction) in
+            TypeString.TypeStrings.nameType = "ОМЕГА"
+            NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "updateName"), object: nil, userInfo: ["Name" : "ОМЕГА"])
+        }
+        let actionDef = UIAlertAction(title: "Прочие", style: .default) { (UIAlertAction) in
+           TypeString.TypeStrings.nameType = "Прочие"
+            NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "updateName"), object: nil, userInfo: ["Name" : "Прочие"])
+        }
+        let Cancel = UIAlertAction(title: "Отмена", style: .destructive, handler: nil)
+        AlertController.addAction(actionAUER)
+        AlertController.addAction(actionOMEGA)
+        AlertController.addAction(actionDef)
+        AlertController.addAction(Cancel)
+        present(AlertController, animated: true, completion: nil)
+    }
+    
     
     //Смена пользователя
     func exit() {

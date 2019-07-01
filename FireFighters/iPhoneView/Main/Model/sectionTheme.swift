@@ -14,25 +14,19 @@ struct ThemeModel {
     let nameTheme: String! // Название проверка/обязанности
     let optionaltext: String! // К какому разделу относится
 
-static func fetchThemeSection() -> [ThemeModel] {
-    let typeUserDef = UserDefaults.standard.integer(forKey: "TypeUser")
-    var typeName = ""
-    switch typeUserDef {
-    case 0:
-        typeName = "AUER"
-    case 1:
-        typeName = "OMEGA"
-    case 2:
-        typeName = "GDZS"
-    default: break
-    }
-    let firstCheck  = ThemeModel(nameTheme: "Первая проверка", optionaltext: typeName)
-    let workCheck = ThemeModel(nameTheme: "Рабочая проверка", optionaltext: typeName)
-    let typeInfo = ThemeModel(nameTheme: "ТТХ Аппарата", optionaltext: typeName)
+    static func fetchThemeSection() -> [ThemeModel] {
+        let typeCheking = TypeString.TypeStrings
+    let firstCheck  = ThemeModel(nameTheme: "Первая проверка", optionaltext: typeCheking.nameType!)
+    let workCheck = ThemeModel(nameTheme: "Рабочая проверка", optionaltext: typeCheking.nameType!)
+    let typeInfo = ThemeModel(nameTheme: "ТТХ Аппарата", optionaltext: typeCheking.nameType!)
     let chargePoinstsman = ThemeModel(nameTheme: "Обязанности постового", optionaltext: "Документ")
     let fireFightersChange = ThemeModel(nameTheme: "Обязанности ГДЗ", optionaltext: "Документ")
     let orderNumberThree = ThemeModel(nameTheme: "Приказ № 3", optionaltext: "Документ")
-    return [firstCheck, workCheck,typeInfo, chargePoinstsman, fireFightersChange,orderNumberThree]
+        if typeCheking.nameType != "Прочие"{
+            return [firstCheck, workCheck,typeInfo, chargePoinstsman, fireFightersChange,orderNumberThree]}
+        else {
+            return [firstCheck, workCheck, chargePoinstsman, fireFightersChange,orderNumberThree]
+        }
     }
 }
 struct ConstantCell {

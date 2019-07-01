@@ -5,150 +5,120 @@
 //  Created by Павел on 09.02.18.
 //  Copyright © 2018 Павел. All rights reserved.
 import Foundation
-class calculationAir {
-    //Рабочие данные пожарных
-    let calculateCoreData = UserProfile.userInform
-    lazy var P1 = 0//Пожарный 1
-    lazy var P2 = 0//Пожарный 2
-    lazy var P3 = 0//Пожарный 3
-    lazy var P4 = 0//Пожарный 4
-    lazy var P5 = 0//Пожарный 5
-        lazy var P1Hearth = 0//Пожарный у очага 1
-        lazy var P2Hearth = 0//Пожарный у очага  2
-        lazy var P3Hearth = 0//Пожарный у очага  3
-        lazy var P4Hearth = 0//Пожарный у очага  4
-        lazy var P5Hearth = 0//Пожарный у очага  5
-    //Значения для CoreData
-    lazy var V = calculateCoreData.userVBallons//Объем баллона
-    lazy var Kszh = calculateCoreData.userAspectRatio// Коэффициент сжимаемости воздуха +
-    lazy var Q = calculateCoreData.userAirFlow// средний расход воздуха
-    lazy var Pust = calculateCoreData.userGearboxOperation//Давление для стабильной работы редуктора
-    var Hearth = false // очаг
-    var Complexity = false // Сложная степень
-    //для вывода данных
-    var Pmax:Int! // Максимальное падение воздуха
-    var Tall:Int! // Общее время работы P.12
-    var Pkexit: Int! // Давление при котором надо выходить P.10
-    var Twork: Int! // Время работы P.11
-    var THearthWork: Int!// Время работы у очага
-    var PkexitH: Int! // Контрольное давление при котором надо выходить при котором надо выходить
-    var Pmin = Int() // Минимальное давление в баллонах
-    var PPadMax = Int() // Максимальное падение
-    var PminHearth = Int() // Давление у очага
-    //----//---//-------
+class newCalc {
+    //При входе в НДДС
+    let calcDataBase = UserProfile.userInform
+    var FF1 = 0
+    var FF2 = 0
+    var FF3 = 0
+    var FF4 = 0
+    var FF5 = 0
+    //При нахождении очага
+        var FF1_h = 0
+        var FF2_h = 0
+        var FF3_h = 0
+        var FF4_h = 0
+        var FF5_h = 0
+    //Данные из БД
+        let vBallons = UserProfile.userInform.userVBallons
+        let compressionFactor = UserProfile.userInform.userAspectRatio// calcDataBase.userAspectRatio
+        let airFlow = UserProfile.userInform.userAirFlow// calcDataBase.userAirFlow
+        let reducerPressure = UserProfile.userInform.userGearboxOperation// = calcDataBase.userGearboxOperation
+    //Данные для решения
+            var hearth = false
+            var complexity = false
+    //Итоговые данные без очага
+        var pMinAir = 0
+        var pMaxDown = 0 // Максимальное падение
+        var pExit = 0 // Давление выхода
+        var tExit = 0 // Время работы до очага
+        var tSignal = "" // Время подачи сигнала
+        var tAllExit = 0 // Общее время работы
+        var allTimeWork = "" // Время возвращения звена
+    //Итоговые данные с очагом
+            var pMinAirHearth = 0 // Минимальное у очага
+            var pMaxDownHearth = 0 // Максимальное потраченое давление до очага
+            var pExitHearth = 0 // Давление воздуха при котором надо уходить от очага
+            var tWorkHearth = 0 // Время работы у очага
+            var tBackHearth = "" // Время подчи сигнала на возвращение
     
-    func CalculationTwoFireFighter(){ //------2 Пожарных---------
-        Pmin = [P1,P2].min()!
-        //--------//------
-        switch Complexity {
-        case false: Pmax = Int(Double(Pmin - Pust)/2.5)
-        case true: Pmax = (Pmin - Pust)/3
+    func calculationWork(FFint: Int){
+        
+        switch FFint{
+            case 2: pMinAir = [FF1,FF2].min()!
+            case 3: pMinAir = [FF1,FF2,FF3].min()!
+            case 4: pMinAir = [FF1,FF2,FF3,FF4].min()!
+            case 5: pMinAir = [FF1,FF2,FF3,FF4,FF5].min()!
+        default: break
         }
-        Pkexit = Pmin - Pmax
-        if Pkexit < 50 {
-            Pkexit = 50
+        print("Минимальное давление при входе \(pMinAir)")// Минимальное давление при входе
+        
+        
+        switch complexity {
+        case true: pMaxDown = (pMinAir - reducerPressure) / 3
+        print("Макисмальное падение воздуха \(pMaxDown)") // Макисмальное падение воздуха
+        case false: pMaxDown = Int(Double(pMinAir - reducerPressure) / 2.5)
+        print("Макисмальное падение воздуха \(pMaxDown)") // Макисмальное падение воздуха
         }
-        Twork = Int(Double(Pmax)*V)/Int(Double(Q)*Kszh)
-        //-------/--------------//
-        Tall = Int(Double(Pmin - Pust)*V)/Int(Double(Q)*Kszh)// Общее время работы
-        //-------/-------------//
-        if Hearth == true {
-            let P1pad = P1 - P1Hearth
-            let P2pad = P2 - P2Hearth
-            PPadMax = [P1pad,P2pad].max()!
-            PminHearth = [P1Hearth,P2Hearth].min()!
-            switch Complexity {
-                case true: PkexitH = 2*PPadMax + Pust
-                case false:  PkexitH = Int(1.5*Double(PPadMax)) + Pust
+        
+        pExit = pMinAir - pMaxDown
+        print("Давление выхода \(pExit)") // Давление выхода
+        
+        tExit = Int(Double(pMaxDown) * vBallons) / Int((airFlow * compressionFactor))
+        print("Время работы без очага \(tExit)") // Время работы без очага
+        
+        tAllExit = Int((Double(pMinAir - reducerPressure) * vBallons)) / Int((airFlow * compressionFactor))
+        print("Общее время работы \(tAllExit)") // Общее время работы
+        
+        switch FFint {
+        case 2:
+            let p1MaxDown = FF1 - FF1_h
+            let p2MaxDown = FF2 - FF2_h
+            pMinAirHearth = [FF1_h, FF2_h].min()!
+            pMaxDownHearth = [p1MaxDown,p2MaxDown].max()!
+        case 3:
+            let p1MaxDown = FF1 - FF1_h
+            let p2MaxDown = FF2 - FF2_h
+            let p3MaxDown = FF3 - FF3_h
+            pMinAirHearth = [FF1_h, FF2_h,FF3_h].min()!
+            pMaxDownHearth = [p1MaxDown,p2MaxDown,p3MaxDown].max()!
+        case 4:
+            let p1MaxDown = FF1 - FF1_h
+            let p2MaxDown = FF2 - FF2_h
+            let p3MaxDown = FF3 - FF3_h
+            let p4MaxDown = FF4 - FF4_h
+            pMinAirHearth = [FF1_h, FF2_h,FF3_h,FF4_h].min()!
+            pMaxDownHearth = [p1MaxDown,p2MaxDown,p3MaxDown,p4MaxDown].max()!
+        case 5:
+            let p1MaxDown = FF1 - FF1_h
+            let p2MaxDown = FF2 - FF2_h
+            let p3MaxDown = FF3 - FF3_h
+            let p4MaxDown = FF4 - FF4_h
+            let p5MaxDown = FF5 - FF5_h
+            pMinAirHearth = [FF1_h, FF2_h,FF3_h,FF4_h,FF5_h].min()!
+            pMaxDownHearth = [p1MaxDown,p2MaxDown,p3MaxDown,p4MaxDown,p5MaxDown].max()!
+        default: break
+        }
+        print("Минимальное у очага \(pMinAirHearth)")
+        print("Максимальное затраченое к очагу \(pMaxDownHearth)")
+        
+        switch complexity {
+        case true:
+            pExitHearth = 2 * pMaxDownHearth + reducerPressure
+            if pExitHearth < 50 {
+                pExitHearth = 50
             }
-            THearthWork = Int(Double(PminHearth-PkexitH)*V)/Int(Double(Q)*Kszh)
+        case false:
+            pExitHearth = Int(1.5 * Double(pMaxDownHearth) + Double(reducerPressure))
+            if pExitHearth < 50 {
+                pExitHearth = 50
+            }
         }
-    }
-    
-    func CalculationThreeFireFighter(){//-------3 Пожарных------
-         Pmin = [P1,P2,P3].min()!
-        //--------//------
-        switch Complexity {
-            case false: Pmax = Int(Double(Pmin - Pust)/2.5)
-            case true: Pmax = (Pmin - Pust)/3
-        }
-        Pkexit = Pmin - Pmax
-        if Pkexit < 50 {
-            Pkexit = 50
-        }
-        Twork = Int(Double(Pmax)*V)/Int(Double(Q)*Kszh)
-        //-------/--------------//
-        Tall = Int(Double(Pmin - Pust)*V)/Int(Double(Q)*Kszh)// Общее время работы
-        //-------/-------------//
-        let P1pad = P1 - P1Hearth
-        let P2pad = P2 - P2Hearth
-        let P3pad = P3 - P3Hearth
+        print("Давление при котором надо выходить при найденом очаге \(pExitHearth)")
         
-        PPadMax = [P1pad,P2pad,P3pad].max()!
-        PminHearth = [P1Hearth,P2Hearth,P3Hearth].min()!
-        switch Complexity {
-            case true: PkexitH = 2*PPadMax + Pust
-            case false:  PkexitH = Int(1.5*Double(PPadMax)) + Pust
-        }
-        THearthWork = Int(Double(PminHearth-PkexitH)*V)/Int(Double(Q)*Kszh)
-    }
-    
-    func CalculationFourFireFighter(){//---------4 Пожарных----------
-         Pmin = [P1,P2,P3,P4].min()!
-        //--------//------
-        switch Complexity {
-            case false: Pmax = Int(Double(Pmin - Pust)/2.5)
-            case true: Pmax = (Pmin - Pust)/3
-        }
-        Pkexit = Pmin - Pmax
-        if Pkexit < 50 {
-            Pkexit = 50
-        }
-        Twork = Int(Double(Pmax)*V)/Int(Double(Q*Kszh))
-        //-------/--------------//
-        Tall = Int(Double(Pmin - Pust)*V)/Int(Double(Q*Kszh))// Общее время работы
-        //-------/-------------//
-        let P1pad = P1 - P1Hearth
-        let P2pad = P2 - P2Hearth
-        let P3pad = P3 - P3Hearth
-        let P4pad = P4 - P4Hearth
+            tWorkHearth = Int(Double(Double(pMinAirHearth - pExitHearth) * vBallons) / Double(airFlow * compressionFactor))
         
-        PPadMax = [P1pad,P2pad,P3pad,P4pad].max()!
-        PminHearth = [P1Hearth,P2Hearth,P3Hearth,P4Hearth].min()!
-        switch Complexity {
-            case true: PkexitH = 2*PPadMax + Pust
-            case false:  PkexitH = Int(1.5*Double(PPadMax)) + Pust
-        }
-        THearthWork = Int(Double(PminHearth-PkexitH)*V)/Int(Double(Q)*Kszh)
-    }
-    func CalculationFiveFireFighter(){//--------5 Пожарных-----------
-         Pmin = [P1,P2,P3,P4,P5].min()!
-        //--------//------
-        switch Complexity {
-            case false: Pmax = Int(Double(Pmin - Pust)/2.5)
-            case true: Pmax = (Pmin - Pust)/3
-        }
-        Pkexit = Pmin - Pmax
-        if Pkexit < 50 {
-            Pkexit = 50
-        }
-        Twork = Int(Double(Pmax)*V)/Int(Double(Q)*Kszh)
-        //-------/--------------//
-        Tall = Int(Double(Pmin - Pust)*V)/Int(Double(Q)*Kszh)// Общее время работы
-        //-------/-------------//
-            let P1pad = P1 - P1Hearth
-            let P2pad = P2 - P2Hearth
-            let P3pad = P3 - P3Hearth
-            let P4pad = P4 - P4Hearth
-            let P5pad = P5 - P5Hearth
-        
-        PPadMax = [P1pad,P2pad,P3pad,P4pad,P5pad].max()!
-        PminHearth = [P1Hearth,P2Hearth,P3Hearth,P4Hearth,P5Hearth].min()!
-        switch Complexity {
-            case true: PkexitH = 2*PPadMax + Pust
-            case false:  PkexitH = Int(1.5*Double(PPadMax)) + Pust
-        }
-        THearthWork = Int(Double(PminHearth-PkexitH)*V)/Int(Double(Q)*Kszh)
+        print("Время раюоты у очага \(tWorkHearth)")
     }
     func calculationsTime(time: Date, toTime: Int)-> String!{
         let TimeConvert = Double(Int(time.timeIntervalSince1970) + (toTime * 60))
@@ -159,4 +129,3 @@ class calculationAir {
         return stringTime
     }
 }
-

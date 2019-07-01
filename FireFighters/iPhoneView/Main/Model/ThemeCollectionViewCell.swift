@@ -63,6 +63,7 @@ class ThemeCollectionViewCell: UICollectionViewCell {
         self.clipsToBounds = false
     }
     
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

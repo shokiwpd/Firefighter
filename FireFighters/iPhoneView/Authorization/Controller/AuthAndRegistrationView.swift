@@ -43,7 +43,7 @@ class AuthAndRegistrationView: UIViewController {
     }
     //Видео фон
     private func backgroundVideo(playAndStop: Bool) {
-        let videoURL = URL(fileURLWithPath: Bundle.main.path(forResource: "backVideo", ofType: "mov")!)
+        let videoURL = URL(fileURLWithPath: Bundle.main.path(forResource: "backgraundVideo", ofType: "mov")!)
         let playVideo = AVPlayer(url: videoURL)
         let newLayerVideo = AVPlayerLayer(player: playVideo)
         newLayerVideo.frame = self.view.frame

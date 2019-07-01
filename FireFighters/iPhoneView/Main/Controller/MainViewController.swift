@@ -1,15 +1,14 @@
 import UIKit
 import Firebase
-class MainViewController: UIViewController,getTockenUser {
+import iosMath
+class MainViewController: UIViewController,getTockenUser{
 
     let userInfo = UserProfile.userInform
+    let typeCheking = TypeString.TypeStrings
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var welcomeMessage: UILabel!
-    private var themeCollectionView = ThemeUICollectionView()
-    let userTypeDef = UserDefaults.standard
-    
-    
+     var themeCollectionView = ThemeUICollectionView()
     override func viewDidLayoutSubviews() {
         profileImage.circleImage()
         //iPad version
@@ -28,22 +27,24 @@ class MainViewController: UIViewController,getTockenUser {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(userTypeDef.integer(forKey: "TypeUser"))
         title = "Главная"
         chekingRegistration()
         profileImage.image = userInfo.userPhoto
         welcomeMessage.text = "Здравствуйте \(String(userInfo.userName)) \(String(userInfo.userPatronymic))"
-        themeCollectionView.setTheme(cells: ThemeModel.fetchThemeSection())
-        view.addSubview(themeCollectionView)
-        themeCollectionView.RootViewController = self
+
        // updateView()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         NotificationCenter.default.addObserver(self, selector: #selector(DarkNotification), name: NSNotification.Name.init(rawValue: "DarkMode"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCollection), name: NSNotification.Name.init(rawValue: "updateName"), object: nil)
+        view.addSubview(themeCollectionView)
+        themeCollectionView.RootViewController = self
+        themeCollectionView.setTheme(cells: ThemeModel.fetchThemeSection())
         chekingRegistration()
-        updateView()
+        if typeCheking.nameType == "" {
+            alertSelect()
+        }
     }
     // Проверяет правильность регистрации
     private func chekingRegistration(){
@@ -73,12 +74,53 @@ class MainViewController: UIViewController,getTockenUser {
             self.tabBarController?.tabBar.darkThemeBar()
         }
     }
+    func alertSelect(){
+        let alertChek = UIAlertController(title: "Выберите марку аппарата", message: "Выберите из списка Ваш аппарат используемый в подразделении", preferredStyle: .alert)
+        let AUER = UIAlertAction(title: "AUER", style: .default) { (UIAlertAction) in
+            self.typeCheking.nameType = "AUER"
+            self.updateType()
+        }
+        let OMEGA = UIAlertAction(title: "ОМЕГА", style: .default) { (UIAlertAction) in
+            self.typeCheking.nameType = "ОМЕГА"
+            self.updateType()
+        }
+        let defaults = UIAlertAction(title: "Прочие", style: .cancel) { (UIAlertAction) in
+            self.typeCheking.nameType = "Прочие"
+            self.updateType()
+        }
+        alertChek.addAction(AUER)
+        alertChek.addAction(OMEGA)
+        alertChek.addAction(defaults)
+        present(alertChek, animated: true, completion: nil)
+    }
     //Обработка информации об изменении темы оформления
     @objc func DarkNotification(notif: Notification) {
         guard let userInfo  = notif.userInfo, let Dark = userInfo["Dark"] as? String else { return }
         if Dark != "" {
             updateView()
+            print(Dark)
         }
     }
+    @objc func updateCollection(notif: Notification){
+        guard let userInfo = notif.userInfo, let _ = userInfo["Name"] as? String else { return }
+        let loadVeiw = DispatchQueue.main
+        loadVeiw.async {
+            self.themeCollectionView.setTheme(cells: ThemeModel.fetchThemeSection())
+            self.themeCollectionView.reloadData()
+        }
+    }
+    func updateType (){
+        let loadQ = DispatchQueue.main
+        loadQ.async {
+            self.themeCollectionView.setTheme(cells: ThemeModel.fetchThemeSection())
+            self.themeCollectionView.reloadData()
+        }
+    }
+//    @objc func DarkNotification(notif: Notification) {
+//        guard let userInfo  = notif.userInfo, let Dark = userInfo["Name"] as? String else { return }
+//        refresh()
+//    }
+    //Выбор аппарата
+
 }
 

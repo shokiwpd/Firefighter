@@ -140,8 +140,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             let saveDataBase = userInfoFIR(Name: name, Patronymic: Patronymic, City: city, Position: selectPOsition.text!, PartNumb: partNumb, ChangeNum: Int(changeNum) as NSNumber, BirthDay: birthDay, UnitType: unitTypeField.text!,vballons: vBallon as NSNumber, AspectRatio: AspectRatio as NSNumber, AirFlow: airFlow as NSNumber, GearboxOperation: GearboxOperation as NSNumber)
             let infoRef = self.DataReference.child(userTocken!)
                 infoRef.setValue(saveDataBase.convertDataBase())
-            nextVC()
-
+        guard TypeString.TypeStrings.nameType == "" else { return}
     }
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         if action == #selector(copy(_:)) || action == #selector(selectAll(_:)) || action == #selector(paste(_:)) || action == #selector(select(_:)){
@@ -168,6 +167,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         guard AirFlow.text != "" else {return AlertView(text: "Укажите средний расход воздуха в вашем подразделении!")}
         guard AspectRatio.text != "" else {return AlertView(text: "Укажите коэффициент сжатия воздуха(Уточните на базе ГДЗС или мастера ГДЗС)")}
         guard GearboxOperation.text != "" else {return AlertView(text: "Укажите давление для стабильной работы редуктора!")}
+        
         checkInfoWork(changeNum: Int(ChangeNum.text!)!, partNumb: partNumb.text!, position: PositionName, vBallon: Double(vBallons.text!.forrmated)!, airFlow: Double(AirFlow.text!.forrmated)!, AspectRatio: Double(AspectRatio.text!.forrmated)!, GearboxOperation: Int(GearboxOperation.text!.forrmated)!)
     }
 //----
@@ -177,7 +177,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             textField.text = ""
         }
     }
-    
+
     
     private func nextVC() {
         let Vc = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UITabBarController

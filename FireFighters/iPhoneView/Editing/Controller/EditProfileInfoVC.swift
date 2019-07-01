@@ -40,9 +40,8 @@ class EditProfileInfoVC: UIViewController,getTockenUser {
         patronymicUser.text = CoreDataInfo.userPatronymic
         BirthdayDay.text = (CoreDataInfo.userBirthday).dataFormat
         editCity.text = CoreDataInfo.userCity
-    }
 
-    
+    }
 
     @IBAction func saveEdithButton(_ sender: Any) {
         guard editCity.text! != "" else { return AlertView(text: "Вы не указали город!")}
