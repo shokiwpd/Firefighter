@@ -8,12 +8,19 @@
 
 import UIKit
 
-class SelectTimeFireFighter: UIViewController,UITextFieldDelegate {
+class SelectTimeFireFighter: UIViewController,UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+
+    
     @IBOutlet weak var FireFighter1: UITextField!
+    let FireFighter1_PV = UIPickerView()
     @IBOutlet weak var FireFighter2: UITextField!
+    let FireFighter2_PV = UIPickerView()
     @IBOutlet weak var FireFighter3: UITextField!
+    let FireFighter3_PV = UIPickerView()
     @IBOutlet weak var FireFighter4: UITextField!
+    let FireFighter4_PV = UIPickerView()
     @IBOutlet weak var FireFighter5: UITextField!
+    let FireFighter5_PV = UIPickerView()
     @IBOutlet weak var FireFighterLabel2: UILabel!
     @IBOutlet weak var FireFighterLabel3: UILabel!
     @IBOutlet weak var FireFighterLabel4: UILabel!
@@ -28,6 +35,7 @@ class SelectTimeFireFighter: UIViewController,UITextFieldDelegate {
     var status = false
     let CalData = CalculationInfo.CalculationInform
     let loadData = UserDefaults.standard
+    let barSelect = ["","300","295","290","285","280","275","270","265","260","255","250","245","240","235","230","225","220","215","210","205","200","195","190","185","180","175","170","165","160","155","150","145","140","135","130","125","120","115","110","105","100"]
     //MARK: Загрзка графической части
     
     
@@ -42,10 +50,66 @@ class SelectTimeFireFighter: UIViewController,UITextFieldDelegate {
         calculationButton.clipsToBounds = true
         //timePicker setting   
     }
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
     
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        switch pickerView.tag {
+            case 0: return barSelect.count
+            case 1: return barSelect.count
+            case 2: return barSelect.count
+            case 3: return barSelect.count
+            case 4: return barSelect.count
+        default: return 0
+        }
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        switch pickerView.tag {
+            case 0: return barSelect[row]
+            case 1: return barSelect[row]
+            case 2: return barSelect[row]
+            case 3: return barSelect[row]
+            case 4: return barSelect[row]
+        default: return nil
+        }
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch pickerView.tag {
+            case 0: FireFighter1.text = barSelect[row]
+            case 1: FireFighter2.text =  barSelect[row]
+            case 2: FireFighter3.text =  barSelect[row]
+            case 3: FireFighter4.text =  barSelect[row]
+            case 4: FireFighter5.text =  barSelect[row]
+        default: print("nil")
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-//       print(loadData.string(forKey: "OxyAirFlow"))
+        FireFighter1.delegate = self
+        FireFighter1.inputView = FireFighter1_PV
+        FireFighter1_PV.delegate = self
+        FireFighter1_PV.tag = 0
+        
+        FireFighter2.delegate = self
+        FireFighter2.inputView = FireFighter2_PV
+        FireFighter2_PV.delegate = self
+        FireFighter2_PV.tag = 1
+        
+        FireFighter3.delegate = self
+        FireFighter3.inputView = FireFighter3_PV
+        FireFighter3_PV.delegate = self
+        FireFighter3_PV.tag = 2
+        
+        FireFighter4.delegate = self
+        FireFighter4.inputView = FireFighter4_PV
+        FireFighter4_PV.delegate = self
+        FireFighter4_PV.tag = 3
+        
+        FireFighter5.delegate = self
+        FireFighter5.inputView = FireFighter5_PV
+        FireFighter5_PV.delegate = self
+        FireFighter5_PV.tag = 4
         startButton.isHidden = true
         switch CalData.numberFireFighter{
         case 2:

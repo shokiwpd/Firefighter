@@ -1,5 +1,6 @@
 import UIKit
 import Firebase
+import FirebaseAuth
 import Reachability
 
 class creatUserProfile: UIViewController,UITextFieldDelegate,getTockenUser {
@@ -38,7 +39,7 @@ class creatUserProfile: UIViewController,UITextFieldDelegate,getTockenUser {
         passCheck.delegate = self
         title = "Регистрация"
     }
-    
+
     @IBAction func createUsers(_ sender: Any) {
         guard createPassw.text == passCheck.text else { return AlertView(text:"Пароли не совподают или вы допустили ошибку в пароле")} //Проверка совпадения пароля
         Auth.auth().createUser(withEmail: createLogin.text!, password: createPassw.text!, completion:  {[weak self](user, AuthErrors) in // Создание аккаунта и присвоения токена для пользователя
@@ -55,3 +56,47 @@ class creatUserProfile: UIViewController,UITextFieldDelegate,getTockenUser {
         dismiss(animated: true, completion: nil)
     }
 }
+/*class creatUserProfile: UIViewController, UITextFieldDelegate, getTockenUser {
+    
+    
+    private var infoLabel: UILabel = {
+       let label = UILabel()
+        
+        return label
+    }()
+    private var emailField: UITextField = {
+        let email = UITextField()
+        
+        return email
+    }()
+    private var passwordField: UITextField = {
+        let password = UITextField()
+        
+        return password
+    }()
+    private var chekingPassword: UITextField = {
+       let passwordChek = UITextField()
+        
+        return passwordChek
+    }()
+    private var addProfileButton: UIButton = {
+       let button = UIButton()
+        
+        return button
+    }()
+    
+    override func viewDidLayoutSubviews() {
+        
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
+    
+    
+    
+    
+    
+}
+*/

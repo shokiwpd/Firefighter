@@ -14,15 +14,15 @@ extension UILabel {
     func UIfontLabel(viewHeight: Double) {
         switch viewHeight {
         case 548.0...568.0:
-            self.font = UIFont(name:  "signpainter-housescript", size: 150)//iPhone 5S,SE
+            self.font = UIFont(name:  "signpainter-housescript", size: 50)//iPhone 5S,SE
         case 647.0...667.0:
-            self.font = UIFont(name:  "signpainter-housescript", size: 180)//iPhone 6,7,8
+            self.font = UIFont(name:  "signpainter-housescript", size: 70)//iPhone 6,7,8
         case 716.0...736.0:
-            self.font = UIFont(name:  "signpainter-housescript", size: 200)//iPhone 6+,7+,8+
+            self.font = UIFont(name:  "signpainter-housescript", size: 85)//iPhone 6+,7+,8+
         case 792.0...812.0:
-            self.font = UIFont(name:  "signpainter-housescript", size: 180)//iPhone X,XS,XR
+            self.font = UIFont(name:  "signpainter-housescript", size: 75)//iPhone X,XS,XR,11 Pro,11 Pro Max
         case 876.0...896.0:
-            self.font = UIFont(name:  "signpainter-housescript", size: 180)//iPhone XS_Max
+            self.font = UIFont(name:  "signpainter-housescript", size: 85)//iPhone XS_Max,11
         case 1004.0...1024.0:
             self.font = UIFont(name:  "signpainter-housescript", size: 180)//Air 1,2
         case 1346.0...1366.0:

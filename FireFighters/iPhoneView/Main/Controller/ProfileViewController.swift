@@ -194,13 +194,14 @@ class ProfileViewController: UITableViewController {
         switch nameSB {
         case "ProfileEditBoard": let Vc = UIStoryboard(name: nameSB, bundle: nil).instantiateInitialViewController() as! EditProfileInfoVC
                 present(Vc, animated: true, completion: nil)
-        case "authStoryBoard": let Vc = UIStoryboard(name: nameSB, bundle: nil).instantiateInitialViewController() as! UINavigationController
-                present(Vc, animated: true, completion: nil)
+        case "authStoryBoard": let Vc = AuthAndRegistrationView()
+                 Vc.modalPresentationStyle = .fullScreen
+                present(Vc, animated: true)
         case "WorkInfoEdithBoard": let Vc = UIStoryboard(name: nameSB, bundle: nil).instantiateInitialViewController() as! WorkInfoEdithVC
                 present(Vc, animated: true, completion: nil)
         case "AppsInfoBoard": let Vc = UIStoryboard(name: nameSB, bundle: nil).instantiateInitialViewController() as! UINavigationController
                 present(Vc, animated: true, completion: nil)
-        case "AdminStoryboard": let Vc = UIStoryboard(name: nameSB, bundle: nil).instantiateInitialViewController() as! UINavigationController
+        case "AdminStoryboard": let Vc = UIViewController(nibName: "AuthAndRegistrationView", bundle: .none)
                 present(Vc, animated: true, completion: nil)
         default: break
         }

@@ -140,7 +140,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             let saveDataBase = userInfoFIR(Name: name, Patronymic: Patronymic, City: city, Position: selectPOsition.text!, PartNumb: partNumb, ChangeNum: Int(changeNum) as NSNumber, BirthDay: birthDay, UnitType: unitTypeField.text!,vballons: vBallon as NSNumber, AspectRatio: AspectRatio as NSNumber, AirFlow: airFlow as NSNumber, GearboxOperation: GearboxOperation as NSNumber)
             let infoRef = self.DataReference.child(userTocken!)
                 infoRef.setValue(saveDataBase.convertDataBase())
-        guard TypeString.TypeStrings.nameType == "" else { return}
+        self.nextVC()
     }
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         if action == #selector(copy(_:)) || action == #selector(selectAll(_:)) || action == #selector(paste(_:)) || action == #selector(select(_:)){

@@ -18,7 +18,7 @@ extension UIButton
         self.clipsToBounds = true
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOpacity = 2.0
-        self.titleLabel?.adjustsFontSizeToFitWidth = true
+//        self.titleLabel?.adjustsFontSizeToFitWidth = true
     }
     func clearButton(nameBut: String){
         self.backgroundColor = .clear

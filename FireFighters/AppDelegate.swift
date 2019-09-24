@@ -11,12 +11,12 @@ import CoreData
 import Firebase
 import FirebaseMessaging
 import FirebaseInstanceID
-import IQKeyboardManagerSwift
+//import IQKeyboardManagerSwift
 import UserNotifications
 import Reachability
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var DeviceInfo: UIDevice!
@@ -29,18 +29,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //Parse errors and track state
         }
         application.registerForRemoteNotifications()
-        IQKeyboardManager.shared.enable = true 
+//        IQKeyboardManager.shared.enable = false
         FirebaseApp.configure()
-        window = UIWindow(frame: UIScreen.main.bounds)
+        window = UIWindow()
+        window?.makeKeyAndVisible()
+//        window = UIWindow()
         if (Auth.auth().currentUser?.uid) == nil {
 //            if UIDevice.current.model == "iPhone" {
-                window?.rootViewController = UIStoryboard(name: "authStoryBoard", bundle: nil).instantiateInitialViewController() as! UINavigationController
+//                window?.rootViewController = UIStoryboard(name: "authStoryBoard", bundle: nil).instantiateInitialViewController() as! UINavigationController
+                window?.rootViewController = AuthAndRegistrationView()
 //            } else {
 //                window?.rootViewController = UIStoryboard(name: "authStoryBoardiPad", bundle: nil).instantiateInitialViewController() as! UINavigationController
 //            }
         } else {
             if UserProfile.userInform.userName.isEmpty{
-                window?.rootViewController = UIStoryboard(name: "authStoryBoard", bundle: nil).instantiateInitialViewController() as! UINavigationController
+//                window?.rootViewController = UIStoryboard(name: "authStoryBoard", bundle: nil).instantiateInitialViewController() as! UINavigationController
+                window?.rootViewController = AuthAndRegistrationView()
         } else {
                 if TypeString.TypeStrings.nameType == ""{
                     window?.rootViewController = UIStoryboard(name: "selectSB", bundle: nil).instantiateInitialViewController() as! UINavigationController
