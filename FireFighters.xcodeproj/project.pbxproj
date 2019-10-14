@@ -7,12 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C1CDF97F3166225AC3A56CE /* Pods_FireFighters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B8FC0CBE44D4CFCCDCB760 /* Pods_FireFighters.framework */; };
 		96253C662095DB74006F7C8D /* DecisionProgressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96253C652095DB74006F7C8D /* DecisionProgressVC.swift */; };
 		963ED56E20DF9C3000EF6ECF /* Custom_AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963ED56D20DF9C3000EF6ECF /* Custom_AlertController.swift */; };
 		963ED57220DFB94F00EF6ECF /* Custom_TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963ED57120DFB94F00EF6ECF /* Custom_TabBar.swift */; };
 		96622DE82090F7280046AF46 /* ResultTextFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96622DE72090F7280046AF46 /* ResultTextFile.swift */; };
-		969AA0F0210118BA0075899A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 969AA0EF210118BA0075899A /* Podfile */; };
 		96BC9DCA20A610D5002E9ADB /* ProfileEditBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96BC9DC920A610D5002E9ADB /* ProfileEditBoard.storyboard */; };
 		96BC9DCD20A6115A002E9ADB /* EditProfileInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BC9DCC20A6115A002E9ADB /* EditProfileInfoVC.swift */; };
 		96BC9DCF20A61186002E9ADB /* WorkInfoEdithVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BC9DCE20A61186002E9ADB /* WorkInfoEdithVC.swift */; };
@@ -35,6 +33,7 @@
 		C93E98BC1FCC685D00377B89 /* FirstNextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93E98BB1FCC685C00377B89 /* FirstNextViewController.swift */; };
 		C99610F820782A480024F8A5 /* Calculation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99610F620782A480024F8A5 /* Calculation+CoreDataClass.swift */; };
 		C99610F920782A480024F8A5 /* Calculation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99610F720782A480024F8A5 /* Calculation+CoreDataProperties.swift */; };
+		CD2225192354FF670099B12D /* Pods_FireFighters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50C0C3D41E8C1884C08FFAFA /* Pods_FireFighters.framework */; };
 		CD5CDD31224BF07500FF95F5 /* appInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5CDD30224BF07500FF95F5 /* appInfoVC.swift */; };
 		CD69ABAB223FEE3200E6B8CA /* sectionTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD69ABAA223FEE3200E6B8CA /* sectionTheme.swift */; };
 		CD69ABAD223FF07500E6B8CA /* ThemeUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD69ABAC223FF07500E6B8CA /* ThemeUICollectionView.swift */; };
@@ -42,6 +41,7 @@
 		CD69ABB2224179E400E6B8CA /* documentationText.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD69ABB1224179E400E6B8CA /* documentationText.swift */; };
 		CD69ABB42241868A00E6B8CA /* DocumentsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD69ABB32241868A00E6B8CA /* DocumentsStoryboard.storyboard */; };
 		CD69ABB6224189BB00E6B8CA /* documentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD69ABB5224189BB00E6B8CA /* documentsVC.swift */; };
+		CD84F13B2354D7B3007027AA /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CD84F13A2354D7B3007027AA /* Podfile */; };
 		CDA5CF47219DEE2300E9FCFF /* AppsInfoBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA5CF46219DEE2300E9FCFF /* AppsInfoBoard.storyboard */; };
 		CDA9A2E1219C1B3600A457B8 /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA9A2E0219C1B3600A457B8 /* DarkTheme.swift */; };
 		CDB592F5226F69F700AC7303 /* TypeString+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB592F4226F69F600AC7303 /* TypeString+CoreDataClass.swift */; };
@@ -58,6 +58,7 @@
 		CDCD0F4322611882009D01CA /* fireFightersChange.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CDCD0F3F22611882009D01CA /* fireFightersChange.pdf */; };
 		CDCD0F4422611882009D01CA /* chargePoinstsman.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CDCD0F4022611882009D01CA /* chargePoinstsman.pdf */; };
 		CDCD0F4522611882009D01CA /* defaultWorkChek.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CDCD0F4122611882009D01CA /* defaultWorkChek.pdf */; };
+		CDD713942344FF84007AF6D1 /* Custom_Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD713932344FF84007AF6D1 /* Custom_Colors.swift */; };
 		CDE1D4FA224F9E980063043C /* authStoryBoardiPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDE1D4F9224F9E980063043C /* authStoryBoardiPad.storyboard */; };
 		CDE1D4FC224F9EE50063043C /* authStoryBoardVCiPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE1D4FB224F9EE50063043C /* authStoryBoardVCiPad.swift */; };
 		CDE1D4FE224FCB790063043C /* loginVCiPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE1D4FD224FCB790063043C /* loginVCiPad.swift */; };
@@ -69,7 +70,6 @@
 		E90894DA1FC47F43001DEE07 /* FireFighters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E90894D81FC47F43001DEE07 /* FireFighters.xcdatamodeld */; };
 		E90894DC1FC47F43001DEE07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E90894DB1FC47F43001DEE07 /* Assets.xcassets */; };
 		E90894EA1FC48401001DEE07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E90894E91FC48401001DEE07 /* LaunchScreen.storyboard */; };
-		E90894F01FC48593001DEE07 /* firstStoryBoards.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E90894EF1FC48593001DEE07 /* firstStoryBoards.storyboard */; };
 		E9100AB7205DA83000F488CD /* AuthAndRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9100AB6205DA83000F488CD /* AuthAndRegistrationView.swift */; };
 		E920DC382046C71400E53C69 /* NoWorkHearthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E920DC372046C71400E53C69 /* NoWorkHearthVC.swift */; };
 		E920DC422046F65200E53C69 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E920DC412046F65200E53C69 /* ResultViewController.swift */; };
@@ -106,15 +106,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3AC3D33ED9941FE8757C2361 /* Pods-FireFighters.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireFighters.release.xcconfig"; path = "Pods/Target Support Files/Pods-FireFighters/Pods-FireFighters.release.xcconfig"; sourceTree = "<group>"; };
-		46B8FC0CBE44D4CFCCDCB760 /* Pods_FireFighters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireFighters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7BE6FE637E4589DB5C62AD11 /* Pods-FireFighters.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireFighters.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FireFighters/Pods-FireFighters.debug.xcconfig"; sourceTree = "<group>"; };
+		50C0C3D41E8C1884C08FFAFA /* Pods_FireFighters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireFighters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		961D21C720FAC41500CAB75C /* FireFighters.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FireFighters.entitlements; sourceTree = "<group>"; };
 		96253C652095DB74006F7C8D /* DecisionProgressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionProgressVC.swift; sourceTree = "<group>"; };
 		963ED56D20DF9C3000EF6ECF /* Custom_AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom_AlertController.swift; sourceTree = "<group>"; };
 		963ED57120DFB94F00EF6ECF /* Custom_TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom_TabBar.swift; sourceTree = "<group>"; };
 		96622DE72090F7280046AF46 /* ResultTextFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTextFile.swift; sourceTree = "<group>"; };
-		969AA0EF210118BA0075899A /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		96BC9DC920A610D5002E9ADB /* ProfileEditBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileEditBoard.storyboard; sourceTree = "<group>"; };
 		96BC9DCC20A6115A002E9ADB /* EditProfileInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileInfoVC.swift; sourceTree = "<group>"; };
 		96BC9DCE20A61186002E9ADB /* WorkInfoEdithVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkInfoEdithVC.swift; sourceTree = "<group>"; };
@@ -134,6 +131,8 @@
 		96FB909B2137C81E00233DE5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		96FF238620E538EA000E3626 /* userProfileSave.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = userProfileSave.storyboard; sourceTree = "<group>"; };
 		96FFA1B820B36F480079AAFC /* CalculationSB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CalculationSB.storyboard; sourceTree = "<group>"; };
+		9969756F2B3F4022156A57DC /* Pods-FireFighters.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireFighters.release.xcconfig"; path = "Pods/Target Support Files/Pods-FireFighters/Pods-FireFighters.release.xcconfig"; sourceTree = "<group>"; };
+		A1BB7E452985CAFECA5CB36E /* Pods-FireFighters.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireFighters.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FireFighters/Pods-FireFighters.debug.xcconfig"; sourceTree = "<group>"; };
 		C93E98BB1FCC685C00377B89 /* FirstNextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstNextViewController.swift; sourceTree = "<group>"; };
 		C99610F620782A480024F8A5 /* Calculation+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Calculation+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C99610F720782A480024F8A5 /* Calculation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Calculation+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -144,6 +143,7 @@
 		CD69ABB1224179E400E6B8CA /* documentationText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = documentationText.swift; sourceTree = "<group>"; };
 		CD69ABB32241868A00E6B8CA /* DocumentsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DocumentsStoryboard.storyboard; sourceTree = "<group>"; };
 		CD69ABB5224189BB00E6B8CA /* documentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = documentsVC.swift; sourceTree = "<group>"; };
+		CD84F13A2354D7B3007027AA /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CDA5CF46219DEE2300E9FCFF /* AppsInfoBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppsInfoBoard.storyboard; sourceTree = "<group>"; };
 		CDA9A2E0219C1B3600A457B8 /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
 		CDB592F3226F69F600AC7303 /* TypeString+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TypeString+CoreDataProperties.swift"; path = "/Users/Pavels/Desktop/FireFighters/FireFighters/Core Data File/TypeString+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
@@ -160,6 +160,7 @@
 		CDCD0F3F22611882009D01CA /* fireFightersChange.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = fireFightersChange.pdf; sourceTree = "<group>"; };
 		CDCD0F4022611882009D01CA /* chargePoinstsman.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = chargePoinstsman.pdf; sourceTree = "<group>"; };
 		CDCD0F4122611882009D01CA /* defaultWorkChek.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = defaultWorkChek.pdf; sourceTree = "<group>"; };
+		CDD713932344FF84007AF6D1 /* Custom_Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom_Colors.swift; sourceTree = "<group>"; };
 		CDE1D4F9224F9E980063043C /* authStoryBoardiPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = authStoryBoardiPad.storyboard; sourceTree = "<group>"; };
 		CDE1D4FB224F9EE50063043C /* authStoryBoardVCiPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authStoryBoardVCiPad.swift; sourceTree = "<group>"; };
 		CDE1D4FD224FCB790063043C /* loginVCiPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginVCiPad.swift; sourceTree = "<group>"; };
@@ -173,7 +174,6 @@
 		E90894DB1FC47F43001DEE07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E90894E01FC47F43001DEE07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E90894E91FC48401001DEE07 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E90894EF1FC48593001DEE07 /* firstStoryBoards.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = firstStoryBoards.storyboard; sourceTree = "<group>"; };
 		E9100AB6205DA83000F488CD /* AuthAndRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAndRegistrationView.swift; sourceTree = "<group>"; };
 		E913E3EC2062E3340094EEB2 /* signpainter-housescript.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "signpainter-housescript.ttf"; sourceTree = "<group>"; };
 		E920DC372046C71400E53C69 /* NoWorkHearthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoWorkHearthVC.swift; sourceTree = "<group>"; };
@@ -202,18 +202,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C1CDF97F3166225AC3A56CE /* Pods_FireFighters.framework in Frameworks */,
+				CD2225192354FF670099B12D /* Pods_FireFighters.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		15514244958C7E689F4D7D1C /* Pods */ = {
+		4BA8540070DE69152F5F502C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7BE6FE637E4589DB5C62AD11 /* Pods-FireFighters.debug.xcconfig */,
-				3AC3D33ED9941FE8757C2361 /* Pods-FireFighters.release.xcconfig */,
+				9969756F2B3F4022156A57DC /* Pods-FireFighters.release.xcconfig */,
+				A1BB7E452985CAFECA5CB36E /* Pods-FireFighters.debug.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -272,7 +272,6 @@
 		961D21B520FABCDE00CAB75C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E90894EF1FC48593001DEE07 /* firstStoryBoards.storyboard */,
 				96FF238620E538EA000E3626 /* userProfileSave.storyboard */,
 			);
 			path = View;
@@ -515,15 +514,23 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		D70D352ACB61CA47ECE41B9A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				50C0C3D41E8C1884C08FFAFA /* Pods_FireFighters.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E90894C51FC47F43001DEE07 = {
 			isa = PBXGroup;
 			children = (
+				CD84F13A2354D7B3007027AA /* Podfile */,
 				CDCC33B422A1325200D48BC0 /* backgraundVideo.mov */,
-				969AA0EF210118BA0075899A /* Podfile */,
 				E90894D01FC47F43001DEE07 /* FireFighters */,
 				E90894CF1FC47F43001DEE07 /* Products */,
-				E90894E61FC47F6F001DEE07 /* Frameworks */,
-				15514244958C7E689F4D7D1C /* Pods */,
+				4BA8540070DE69152F5F502C /* Pods */,
+				D70D352ACB61CA47ECE41B9A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -557,14 +564,6 @@
 			path = FireFighters;
 			sourceTree = "<group>";
 		};
-		E90894E61FC47F6F001DEE07 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				46B8FC0CBE44D4CFCCDCB760 /* Pods_FireFighters.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		E90894ED1FC48553001DEE07 /* Core Data File */ = {
 			isa = PBXGroup;
 			children = (
@@ -595,6 +594,7 @@
 				963ED56D20DF9C3000EF6ECF /* Custom_AlertController.swift */,
 				963ED57120DFB94F00EF6ECF /* Custom_TabBar.swift */,
 				CDA9A2E0219C1B3600A457B8 /* DarkTheme.swift */,
+				CDD713932344FF84007AF6D1 /* Custom_Colors.swift */,
 			);
 			path = CustomFile;
 			sourceTree = "<group>";
@@ -615,12 +615,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E90894E31FC47F43001DEE07 /* Build configuration list for PBXNativeTarget "FireFighters" */;
 			buildPhases = (
-				13DBDEFD4DFEFC242F5DC73C /* [CP] Check Pods Manifest.lock */,
+				B9AA9AA4BDD98AAC59A450D1 /* [CP] Check Pods Manifest.lock */,
 				E90894CA1FC47F43001DEE07 /* Sources */,
 				E90894CB1FC47F43001DEE07 /* Frameworks */,
 				E90894CC1FC47F43001DEE07 /* Resources */,
-				BE11496386C832B2174C7115 /* [CP] Embed Pods Frameworks */,
 				CDE1D513224FD2400063043C /* Embed App Extensions */,
+				D72B88238CABC5710B0CD8E2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -700,17 +700,16 @@
 				CD69ABB42241868A00E6B8CA /* DocumentsStoryboard.storyboard in Resources */,
 				96BC9DCA20A610D5002E9ADB /* ProfileEditBoard.storyboard in Resources */,
 				E96429F21FCEDDF0005BB8D4 /* icon in Resources */,
-				969AA0F0210118BA0075899A /* Podfile in Resources */,
 				CDCD0F3822563E08009D01CA /* work_Check_AUER.pdf in Resources */,
 				CDCD0F3A22563E08009D01CA /* prikaz_3.pdf in Resources */,
 				96FB909C2137C81E00233DE5 /* GoogleService-Info.plist in Resources */,
-				E90894F01FC48593001DEE07 /* firstStoryBoards.storyboard in Resources */,
 				96FF238720E538EA000E3626 /* userProfileSave.storyboard in Resources */,
 				96FFA1B920B36F480079AAFC /* CalculationSB.storyboard in Resources */,
 				CDE2A4B4223AEF6F002C5F74 /* AdminStoryboard.storyboard in Resources */,
 				CDE1D4FA224F9E980063043C /* authStoryBoardiPad.storyboard in Resources */,
 				CDCD0F4222611882009D01CA /* defaultFireChek.pdf in Resources */,
 				E90894DC1FC47F43001DEE07 /* Assets.xcassets in Resources */,
+				CD84F13B2354D7B3007027AA /* Podfile in Resources */,
 				CDCD0F4522611882009D01CA /* defaultWorkChek.pdf in Resources */,
 				96BC9DD120A6172B002E9ADB /* WorkInfoEdithBoard.storyboard in Resources */,
 			);
@@ -719,7 +718,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		13DBDEFD4DFEFC242F5DC73C /* [CP] Check Pods Manifest.lock */ = {
+		B9AA9AA4BDD98AAC59A450D1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -737,19 +736,17 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BE11496386C832B2174C7115 /* [CP] Embed Pods Frameworks */ = {
+		D72B88238CABC5710B0CD8E2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FireFighters/Pods-FireFighters-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-FireFighters/Pods-FireFighters-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/iosMath/iosMath.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -759,10 +756,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iosMath.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -770,7 +765,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FireFighters/Pods-FireFighters-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FireFighters/Pods-FireFighters-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -834,6 +829,7 @@
 				CDE2A4B6223AEF98002C5F74 /* AdminVC.swift in Sources */,
 				E9458DC02013682D00377530 /* userInfoDataBase.swift in Sources */,
 				CDE2A4B222304B57002C5F74 /* newsFirebase.swift in Sources */,
+				CDD713942344FF84007AF6D1 /* Custom_Colors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -896,14 +892,15 @@
 		};
 		CD7C24CD224FE446009D12D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7BE6FE637E4589DB5C62AD11 /* Pods-FireFighters.debug.xcconfig */;
+			baseConfigurationReference = A1BB7E452985CAFECA5CB36E /* Pods-FireFighters.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FireFighters/FireFighters.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = GVA5J44S8J;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -926,7 +923,7 @@
 					"\"${PODS_ROOT}/GoogleAppMeasurement/Frameworks\"",
 				);
 				INFOPLIST_FILE = FireFighters/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 0.3.8;
 				PRODUCT_BUNDLE_IDENTIFIER = "Shoki-Dev.FireFighters";
@@ -991,14 +988,15 @@
 		};
 		E90894E51FC47F43001DEE07 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3AC3D33ED9941FE8757C2361 /* Pods-FireFighters.release.xcconfig */;
+			baseConfigurationReference = 9969756F2B3F4022156A57DC /* Pods-FireFighters.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FireFighters/FireFighters.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = GVA5J44S8J;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1021,7 +1019,7 @@
 					"\"${PODS_ROOT}/GoogleAppMeasurement/Frameworks\"",
 				);
 				INFOPLIST_FILE = FireFighters/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 0.3.8;
 				PRODUCT_BUNDLE_IDENTIFIER = "Shoki-Dev.FireFighters";

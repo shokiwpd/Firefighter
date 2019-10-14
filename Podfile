@@ -9,7 +9,5 @@ pod 'Firebase/Storage'
 pod 'Firebase/Messaging'
 pod 'MBProgressHUD'
 pod 'ReachabilitySwift'
-pod 'IQKeyboardManagerSwift'
-pod 'Locksmith'
 pod 'iosMath'
 end

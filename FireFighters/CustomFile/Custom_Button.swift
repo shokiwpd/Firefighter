@@ -12,10 +12,9 @@ import UIKit
 extension UIButton
 {
     func grayButton(nameBut: String) {
-        self.layer.cornerRadius = self.bounds.height / 2
         self.setTitle(nameBut, for: .normal)
         self.setTitleColor(.black, for: .normal)
-        self.clipsToBounds = true
+        self.setTitleColor(.darkGray, for: .highlighted)
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOpacity = 2.0
 //        self.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -24,7 +23,6 @@ extension UIButton
         self.backgroundColor = .clear
         self.layer.borderWidth = 2
         self.layer.borderColor =  UIColor.gray.cgColor
-        self.layer.cornerRadius = self.bounds.height / 2
         self.layer.shadowColor =  UIColor.black.cgColor
         self.layer.shadowOpacity = 1.0
         self.setTitle(nameBut, for: .normal)

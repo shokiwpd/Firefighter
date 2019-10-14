@@ -84,4 +84,12 @@ extension UILabel {
         default: print("_____")
         }
     }
+    func sizeLabel(height: Double){
+        switch height {
+            case 548.0...568.0:
+                self.font = UIFont.systemFont(ofSize: 20)
+            default:
+                self.font = UIFont.systemFont(ofSize: 30)
+        }
+    }
 }

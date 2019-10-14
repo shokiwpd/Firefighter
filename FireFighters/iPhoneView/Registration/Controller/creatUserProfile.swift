@@ -2,101 +2,183 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import Reachability
+import MBProgressHUD
 
-class creatUserProfile: UIViewController,UITextFieldDelegate,getTockenUser {
-    //MARK: Оутлеты и переменные
-    @IBOutlet weak var createLogin: UITextField!
-    @IBOutlet weak var createPassw: UITextField!
-    @IBOutlet weak var passCheck: UITextField!
-    @IBOutlet weak var customButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
-    var eMailField = CAShapeLayer()
-    var passField1 = CAShapeLayer()
-    var passField2 = CAShapeLayer()
-    var nextViewButtonGardient = CAGradientLayer()
-    //Загрузка графической части
-    override func viewDidLayoutSubviews() {
-            eMailField.layerLine(strokeColors: UIColor.black.cgColor)
-            passField1.layerLine(strokeColors: UIColor.black.cgColor)
-            passField2.layerLine(strokeColors: UIColor.black.cgColor)
-                createLogin.layer.addSublayer(eMailField)
-                createPassw.layer.addSublayer(passField1)
-                passCheck.layer.addSublayer(passField2)
-        createLogin.lineToTextField(shape: eMailField)
-        createPassw.lineToTextField(shape: passField1)
-        passCheck.lineToTextField(shape: passField2)
-        //Настройка внешнего вида кнопки
-        nextViewButtonGardient.gardientButton(w: customButton.frame.size.width, h: customButton.frame.size.height)
-        customButton.layer.insertSublayer(nextViewButtonGardient, at: 0)
-        customButton.grayButton(nameBut: "Далее")
-        cancelButton.grayButton(nameBut: "Отмена")
-    }
-    //загрузка основных данных
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        createLogin.delegate = self
-        createPassw.delegate = self
-        passCheck.delegate = self
-        title = "Регистрация"
-    }
-
-    @IBAction func createUsers(_ sender: Any) {
-        guard createPassw.text == passCheck.text else { return AlertView(text:"Пароли не совподают или вы допустили ошибку в пароле")} //Проверка совпадения пароля
-        Auth.auth().createUser(withEmail: createLogin.text!, password: createPassw.text!, completion:  {[weak self](user, AuthErrors) in // Создание аккаунта и присвоения токена для пользователя
-            guard AuthErrors == nil else {return self!.fetchError(AuthErrors!)} // Проверка на наличие ошибок
-            guard user != nil else { return self!.fetchError(AuthErrors!)} // Проверка на наличие похожих учетных записей
-            self?.creatUserinform() // Внесение данных в базу данных
-        })
-    }
-    private func creatUserinform() { // Переход на следущий контроллер для сохранение данных
-        let Vc = UIStoryboard(name: "userProfileSave", bundle: nil).instantiateInitialViewController() as! UINavigationController
-        present(Vc, animated: true, completion: nil)
-    }
-    @IBAction func cancelRegitration(_ sender: Any) { // Отмена регистрации
-        dismiss(animated: true, completion: nil)
-    }
-}
-/*class creatUserProfile: UIViewController, UITextFieldDelegate, getTockenUser {
+class creatUserProfile: UIViewController, UITextFieldDelegate, getTockenUser {
     
+    //gardient and layer var
+    var buttonGardients = CAGradientLayer()
+    var loginLineLayer = CAShapeLayer()
+    var passwordLineLayer = CAShapeLayer()
     
     private var infoLabel: UILabel = {
        let label = UILabel()
-        
+        label.text = "Укажем почту для восстановления и пароль для защиты!"
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 3
+        label.textAlignment = .right
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     private var emailField: UITextField = {
         let email = UITextField()
-        
+        email.textAlignment = .center
+        email.placeholder = "Логин(Ваша электронная почта)"
+        email.borderStyle = .roundedRect
+        email.tag = 0
+        email.translatesAutoresizingMaskIntoConstraints = false
         return email
     }()
     private var passwordField: UITextField = {
         let password = UITextField()
-        
+        password.textAlignment = .center
+        password.isSecureTextEntry = true
+        password.borderStyle = .roundedRect
+        password.tag = 1
+        password.placeholder = "Пароль"
+        password.translatesAutoresizingMaskIntoConstraints = false
         return password
-    }()
-    private var chekingPassword: UITextField = {
-       let passwordChek = UITextField()
-        
-        return passwordChek
     }()
     private var addProfileButton: UIButton = {
        let button = UIButton()
-        
+        button.grayButton(nameBut: "Создать")
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 10
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(addUserTocken), for: .touchUpInside)
+        button.addTarget(self, action: #selector(addUserTocken), for: .touchDown)
         return button
     }()
+    private var viewMain: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
+        return view
+        }()
+    
     
     override func viewDidLayoutSubviews() {
+        buttonGardients.gardientButton(w: addProfileButton.frame.size.width, h: addProfileButton.frame.size.height)
+        addProfileButton.layer.insertSublayer(buttonGardients, at: 0)
+        infoLabel.sizeLabel(height: Double(view.bounds.height))
+        emailField.lineToTextField(shape: loginLineLayer)
+        passwordField.lineToTextField(shape: passwordLineLayer)
+
+        if #available(iOS 13.0, *) {
+            view.backgroundColor = .newDarkTheme
+            loginLineLayer.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
+            passwordLineLayer.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
+        } else {
+            view.backgroundColor = .white
+            loginLineLayer.layerLine(strokeColors: UIColor.black.cgColor)
+            passwordLineLayer.layerLine(strokeColors: UIColor.black.cgColor)
+            infoLabel.textColor = .black
+        }
+        
+        //view iPhone and iPad for all UIKit item
+        if UIDevice.current.model == "iPhone" {
+            viewMain.topAnchor.constraint(equalTo: view.topAnchor, constant: 80).isActive = true
+            viewMain.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
+            viewMain.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
+            viewMain.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -170).isActive = true
+        } else {
+            viewMain.topAnchor.constraint(equalTo: view.topAnchor, constant: 270).isActive = true
+            viewMain.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -230).isActive = true
+            viewMain.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 230).isActive = true
+            viewMain.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -370).isActive = true
+        }
+        
+        //information label
+        infoLabel.topAnchor.constraint(equalTo: viewMain.topAnchor, constant: 10).isActive = true
+        infoLabel.trailingAnchor.constraint(equalTo: viewMain.trailingAnchor, constant: -10).isActive = true
+        infoLabel.leadingAnchor.constraint(equalTo: viewMain.leadingAnchor, constant: 10).isActive = true
+        infoLabel.bottomAnchor.constraint(equalTo: emailField.topAnchor, constant: -20).isActive = true
+        
+        //email login field
+        emailField.trailingAnchor.constraint(equalTo: infoLabel.trailingAnchor).isActive = true
+        emailField.leadingAnchor.constraint(equalTo: infoLabel.leadingAnchor).isActive = true
+        emailField.centerYAnchor.constraint(equalTo: viewMain.centerYAnchor).isActive = true
+        emailField.bottomAnchor.constraint(equalTo: passwordField.topAnchor, constant: -20).isActive = true
+        emailField.heightAnchor.constraint(equalToConstant: CGFloat(30)).isActive = true
+       
+        //password field
+        passwordField.leadingAnchor.constraint(equalTo: emailField.leadingAnchor).isActive = true
+        passwordField.trailingAnchor.constraint(equalTo: emailField.trailingAnchor).isActive = true
+        passwordField.bottomAnchor.constraint(equalTo: addProfileButton.topAnchor, constant: -20).isActive = true
+        passwordField.heightAnchor.constraint(equalToConstant: CGFloat(30)).isActive = true
+       
+        //add User profile button
+        addProfileButton.leadingAnchor.constraint(equalTo: passwordField.leadingAnchor).isActive = true
+        addProfileButton.trailingAnchor.constraint(equalTo: passwordField.trailingAnchor).isActive = true
+        addProfileButton.heightAnchor.constraint(equalToConstant: CGFloat(50)).isActive = true
+        
         
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        // navigation bar setting
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Отмена", style: .plain, target: self, action: #selector(backIn(sender:)))
+        
+        if #available(iOS 11, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+            navigationController?.navigationBar.backgroundColor = .clear
+        } else {
+            navigationController?.navigationBar.prefersLargeTitles = false
+            navigationController?.navigationBar.barTintColor = .clear
+        }
+        // UIKit init
+
+
+        view.addSubview(viewMain)
+        viewMain.addSubview(infoLabel)
+        viewMain.addSubview(emailField)
+        viewMain.addSubview(passwordField)
+        viewMain.addSubview(addProfileButton)
+        self.title = "Регистрация"
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         
     }
     
+    func loadAddView(){
+        let MBPView = MBProgressHUD.showAdded(to: self.view, animated: true)
+        MBPView.mode = MBProgressHUDMode.indeterminate
+        MBPView.label.text = "Создаем профиль"
+        MBPView.isUserInteractionEnabled = false
+        addProfileButton.isEnabled = false
+    }
     
+     func dismissHUD(isAnimated:Bool) {
+        MBProgressHUD.hide(for: self.view, animated: isAnimated)
+        addProfileButton.isEnabled = true
+       }
     
-    
+    @objc func addUserTocken(){
+//        loadAddView()
+//        Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) {[weak self] (user, AuthErrors) in
+//            if AuthErrors != nil {
+//                self?.fetchError(AuthErrors!)
+//                self!.dismissHUD(isAnimated: true)
+//            }
+//                guard user != nil else { return (self?.fetchError(AuthErrors!))!}
+//            self?.creatUserinform()
+//            // Проверка на наличие похожих учетных записей
+//        }
+        creatUserinform()
+    }
+
+    @objc func backIn(sender: UIBarButtonItem){
+        dismiss(animated: true, completion: nil)
+    }
+    private func creatUserinform() { // Переход на следущий контроллер для сохранение данных
+        let Vc = FirstViewController()//UIStoryboard(name: "userProfileSave", bundle: nil).instantiateInitialViewController() as! UINavigationController
+        let navigationView = UINavigationController(rootViewController: Vc)
+        navigationView.modalPresentationStyle = .fullScreen
+        navigationView.modalTransitionStyle = .crossDissolve
+        present(navigationView, animated: true, completion: nil)
+    }
     
     
 }
-*/
+

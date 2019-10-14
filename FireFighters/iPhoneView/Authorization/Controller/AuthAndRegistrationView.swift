@@ -40,6 +40,7 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
             login.placeholder = "Логин(почта)"
             login.borderStyle = .roundedRect
             login.textAlignment = .center
+            login.tag = 0
             login.translatesAutoresizingMaskIntoConstraints = false
             login.alpha = 0
         return login
@@ -52,6 +53,7 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
             password.textAlignment = .center
             password.isSecureTextEntry = true
             password.translatesAutoresizingMaskIntoConstraints = false
+            password.tag = 1
             password.alpha = 0
         return password
     }()
@@ -59,6 +61,8 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
     private var autorizatioButton: UIButton = {
         let button = UIButton()
             button.grayButton(nameBut: "Войти")
+            button.layer.cornerRadius = 10
+            button.clipsToBounds = true
             button.alpha = 0
             button.backgroundColor = .gray
             button.translatesAutoresizingMaskIntoConstraints = false
@@ -69,6 +73,8 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
     private var registrationButton: UIButton = {
         let button = UIButton()
             button.clearButton(nameBut: "Регистрация")
+            button.layer.cornerRadius = 10
+            button.clipsToBounds = true
             button.alpha = 0
             button.translatesAutoresizingMaskIntoConstraints = false
             button.addTarget(self, action: #selector(registrationViewSegue), for: .touchUpInside)
@@ -78,17 +84,25 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
     
     // load layout
     override func viewDidLayoutSubviews() {
-        loginLine.layerLine(strokeColors: UIColor.gray.cgColor)
-        passwordLine.layerLine(strokeColors: UIColor.gray.cgColor)
+        //layer line
         loginField.lineToTextField(shape: loginLine)
         passwordField.lineToTextField(shape: passwordLine)
+        //dark theme to iOS_13 and later
+        if #available(iOS 13.0, *) {
+            view.backgroundColor = .newDarkTheme
+            loginLine.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
+            passwordLine.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
+        } else {
+            view.backgroundColor = .white
+            loginLine.layerLine(strokeColors: UIColor.black.cgColor)
+            passwordLine.layerLine(strokeColors: UIColor.black.cgColor)
+            namesLabel.textColor = .black
+        }
         
+        
+        //gardient button
         buttonGardients.gardientButton(w: autorizatioButton.frame.size.width, h: autorizatioButton.frame.size.height)
         autorizatioButton.layer.insertSublayer(buttonGardients, at: 0)
-        
-        // gardient button
-        autorizatioButton.layer.cornerRadius = autorizatioButton.bounds.height / 2
-        registrationButton.layer.cornerRadius = registrationButton.bounds.height / 2
         
         // label constraint
         namesLabel.centerXAnchor.constraint(equalTo: modelView.centerXAnchor).isActive = true
@@ -101,7 +115,7 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
         loginField.leadingAnchor.constraint(equalTo: namesLabel.leadingAnchor).isActive = true
         
         // password field constraint
-        passwordField.topAnchor.constraint(equalTo: loginField.bottomAnchor, constant: 10).isActive = true
+        passwordField.topAnchor.constraint(equalTo: loginField.bottomAnchor, constant: 20).isActive = true
         passwordField.trailingAnchor.constraint(equalTo: loginField.trailingAnchor).isActive = true
         passwordField.leadingAnchor.constraint(equalTo: loginField.leadingAnchor).isActive = true
         passwordField.centerYAnchor.constraint(equalTo: modelView.centerYAnchor).isActive = true
@@ -110,11 +124,13 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
         autorizatioButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant:  20).isActive = true
         autorizatioButton.trailingAnchor.constraint(equalTo: passwordField.trailingAnchor).isActive = true
         autorizatioButton.leadingAnchor.constraint(equalTo: passwordField.leadingAnchor).isActive = true
+        autorizatioButton.heightAnchor.constraint(equalToConstant: CGFloat(50)).isActive = true
         
         // registration button constraint
-        registrationButton.topAnchor.constraint(equalTo: autorizatioButton.bottomAnchor, constant: 20).isActive = true
+        registrationButton.topAnchor.constraint(equalTo: autorizatioButton.bottomAnchor, constant: 30).isActive = true
         registrationButton.trailingAnchor.constraint(equalTo: autorizatioButton.trailingAnchor).isActive  = true
         registrationButton.leadingAnchor.constraint(equalTo: autorizatioButton.leadingAnchor).isActive = true
+        registrationButton.heightAnchor.constraint(equalToConstant: CGFloat(50)).isActive = true
         
         // UIview
         if UIDevice.current.model == "iPhone" {
@@ -132,11 +148,8 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(UIDevice.current.model)
         TypeString.TypeStrings.nameType = ""
-        view.backgroundColor = .white
         namesLabel.UIfontLabel(viewHeight: Double(view.bounds.height))
-        print(view.bounds.height)
 
         
         view.addSubview(modelView)
@@ -150,7 +163,10 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         backgroundVideo(playAndStop: true)
-        alertMassage()
+
+        
+        
+        
         UIView.animate(withDuration: 2, delay: 0.5, animations: {
             self.namesLabel.alpha = 1
         },completion: nil)
@@ -191,23 +207,20 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
         }
     
 
-    //alert view
-     func alertMassage() {
-        let alertView = UIAlertController(title: "Версия Альфа 1", message: "В данной сборке переписан с нуля экран приветствия и авторизации! Написан полностью кодом и может содержать некоторые проблемы с версткой(Элементы экрана не в нужных местах и т.д)", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Хорошо!Тестим!", style: .destructive, handler: nil)
-        alertView.addAction(action)
-        present(alertView, animated: true, completion: nil)
-    }
+
     //autorization firebase
     @objc func autorizationFirebase() {
-        guard loginField.text != "" else { return AlertView(text: "No login")}
-        guard passwordField.text != "" else { return AlertView(text: "No password")}
+        guard loginField.text != "" else { return AlertView(text: "Вы не указали логин")}
+        guard passwordField.text != "" else { return AlertView(text: "Вы не указали пароль")}
+        
         Auth.auth().signIn(withEmail: loginField.text!, password: passwordField.text!) {[weak self](user, AuthErrors) in
-                    guard AuthErrors == nil else {return self!.fetchError(AuthErrors!)} //Проверка на наличие ошибок с сервера
-                    guard user != nil else { return } //Проверка на существование пользователя в БД Firebase
                     self?.progressView() //Включение индикатора загрузки
+            if AuthErrors != nil {
+                self!.fetchError(AuthErrors!)
+                self!.stopProgress()
+            }
+                guard user != nil else { return } //Проверка на существование пользователя в БД Firebase
                     self?.fetchFirebase() //загрузка данных из Firebase
-            //            self?.saveLoginAndPass(Login: (self?.loginView.text!)!, Password: (self?.passwordView.text!)!)  //сохранение логина и пароля
             }
     }
     //progress view
@@ -216,8 +229,16 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
         Load.mode = MBProgressHUDMode.indeterminate
         Load.label.text = "Загрузка..."
         Load.isUserInteractionEnabled = false
+        autorizatioButton.isEnabled = true
     }
+    
+    func stopProgress() {
+        MBProgressHUD.hide(for: view, animated: true)
+        autorizatioButton.isEnabled = false
+    }
+    
     // load data from firebase
+    //!НАДО ПЕРЕПИСАТЬ!
     private func fetchFirebase() {
         var userImage = UIImage()
         let uploadUserPhoto = self.imageReference.child("\(self.userTocken!).png")
@@ -248,10 +269,13 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
         Vc.modalPresentationStyle = .fullScreen
         present(Vc, animated: true, completion: nil)
     }
+    
     //segue to main view
      @objc func registrationViewSegue(sender: UIButton){
-        let Vc = UIStoryboard(name: "firstStoryBoards", bundle: nil).instantiateInitialViewController() as! UINavigationController
-        Vc.modalPresentationStyle = .fullScreen
-        present(Vc, animated: true, completion: nil)
+        let Vc = creatUserProfile()
+        let navigationBar = UINavigationController(rootViewController: Vc)
+        navigationBar.modalPresentationStyle = .fullScreen
+        navigationBar.modalTransitionStyle = .flipHorizontal
+        present(navigationBar, animated: true, completion: nil)
     }
 }

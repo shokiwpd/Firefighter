@@ -9,9 +9,7 @@
 import UIKit
 import CoreData
 import Firebase
-import FirebaseMessaging
 import FirebaseInstanceID
-//import IQKeyboardManagerSwift
 import UserNotifications
 import Reachability
 
