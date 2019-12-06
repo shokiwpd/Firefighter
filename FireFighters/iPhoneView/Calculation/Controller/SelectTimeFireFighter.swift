@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelectTimeFireFighter: UIViewController,UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class SelectTimeFireFighter: UIViewController,UITextFieldDelegate {//, UIPickerViewDelegate, UIPickerViewDataSource {
 
     
     @IBOutlet weak var FireFighter1: UITextField!
@@ -50,66 +50,66 @@ class SelectTimeFireFighter: UIViewController,UITextFieldDelegate, UIPickerViewD
         calculationButton.clipsToBounds = true
         //timePicker setting   
     }
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        switch pickerView.tag {
-            case 0: return barSelect.count
-            case 1: return barSelect.count
-            case 2: return barSelect.count
-            case 3: return barSelect.count
-            case 4: return barSelect.count
-        default: return 0
-        }
-    }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        switch pickerView.tag {
-            case 0: return barSelect[row]
-            case 1: return barSelect[row]
-            case 2: return barSelect[row]
-            case 3: return barSelect[row]
-            case 4: return barSelect[row]
-        default: return nil
-        }
-    }
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        switch pickerView.tag {
-            case 0: FireFighter1.text = barSelect[row]
-            case 1: FireFighter2.text =  barSelect[row]
-            case 2: FireFighter3.text =  barSelect[row]
-            case 3: FireFighter4.text =  barSelect[row]
-            case 4: FireFighter5.text =  barSelect[row]
-        default: print("nil")
-        }
-    }
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        switch pickerView.tag {
+//            case 0: return barSelect.count
+//            case 1: return barSelect.count
+//            case 2: return barSelect.count
+//            case 3: return barSelect.count
+//            case 4: return barSelect.count
+//        default: return 0
+//        }
+//    }
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        switch pickerView.tag {
+//            case 0: return barSelect[row]
+//            case 1: return barSelect[row]
+//            case 2: return barSelect[row]
+//            case 3: return barSelect[row]
+//            case 4: return barSelect[row]
+//        default: return nil
+//        }
+//    }
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        switch pickerView.tag {
+//            case 0: FireFighter1.text = barSelect[row]
+//            case 1: FireFighter2.text =  barSelect[row]
+//            case 2: FireFighter3.text =  barSelect[row]
+//            case 3: FireFighter4.text =  barSelect[row]
+//            case 4: FireFighter5.text =  barSelect[row]
+//        default: print("nil")
+//        }
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
         FireFighter1.delegate = self
-        FireFighter1.inputView = FireFighter1_PV
-        FireFighter1_PV.delegate = self
-        FireFighter1_PV.tag = 0
+//        FireFighter1.inputView = FireFighter1_PV
+//        FireFighter1_PV.delegate = self
+//        FireFighter1_PV.tag = 0
         
         FireFighter2.delegate = self
-        FireFighter2.inputView = FireFighter2_PV
-        FireFighter2_PV.delegate = self
-        FireFighter2_PV.tag = 1
+//        FireFighter2.inputView = FireFighter2_PV
+//        FireFighter2_PV.delegate = self
+//        FireFighter2_PV.tag = 1
         
         FireFighter3.delegate = self
-        FireFighter3.inputView = FireFighter3_PV
-        FireFighter3_PV.delegate = self
-        FireFighter3_PV.tag = 2
+//        FireFighter3.inputView = FireFighter3_PV
+//        FireFighter3_PV.delegate = self
+//        FireFighter3_PV.tag = 2
         
         FireFighter4.delegate = self
-        FireFighter4.inputView = FireFighter4_PV
-        FireFighter4_PV.delegate = self
-        FireFighter4_PV.tag = 3
+//        FireFighter4.inputView = FireFighter4_PV
+//        FireFighter4_PV.delegate = self
+//        FireFighter4_PV.tag = 3
         
         FireFighter5.delegate = self
-        FireFighter5.inputView = FireFighter5_PV
-        FireFighter5_PV.delegate = self
-        FireFighter5_PV.tag = 4
+//        FireFighter5.inputView = FireFighter5_PV
+//        FireFighter5_PV.delegate = self
+//        FireFighter5_PV.tag = 4
         startButton.isHidden = true
         switch CalData.numberFireFighter{
         case 2:

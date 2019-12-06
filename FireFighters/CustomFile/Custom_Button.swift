@@ -23,9 +23,9 @@ extension UIButton
         self.backgroundColor = .clear
         self.layer.borderWidth = 2
         self.layer.borderColor =  UIColor.gray.cgColor
-        self.layer.shadowColor =  UIColor.black.cgColor
-        self.layer.shadowOpacity = 1.0
         self.setTitle(nameBut, for: .normal)
+        self.setTitleColor(.black, for: .normal)
+        self.setTitleColor(.gray, for: .highlighted)
         self.titleLabel?.adjustsFontSizeToFitWidth = true
     }
 

@@ -18,6 +18,7 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
     var buttonGardients = CAGradientLayer()
     var userInfo = UserProfile.userInform
     let receivingData = loadFirebaseData()
+    let text = textFields()
     // UIKit elements
    private var namesLabel: UILabel = {
         let label = UILabel()
@@ -43,6 +44,10 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
             login.tag = 0
             login.translatesAutoresizingMaskIntoConstraints = false
             login.alpha = 0
+            login.returnKeyType = .next
+            login.keyboardType = .emailAddress
+//            login.textContentType = .username
+        
         return login
     }()
     
@@ -55,6 +60,8 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
             password.translatesAutoresizingMaskIntoConstraints = false
             password.tag = 1
             password.alpha = 0
+            password.returnKeyType = .go
+            password.textContentType = .password
         return password
     }()
     
@@ -80,7 +87,18 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
             button.addTarget(self, action: #selector(registrationViewSegue), for: .touchUpInside)
      return button
     }()
-    // end UIkit elements
+    
+    private var resetPassword: UILabel = {
+        let text = UILabel()
+            text.text = "Восстановить пароль"
+            text.textColor = .black
+            text.alpha = 0
+            text.translatesAutoresizingMaskIntoConstraints = false
+            text.font = UIFont.systemFont(ofSize: 12, weight: .medium)
+            text.textAlignment = .center
+        text.isUserInteractionEnabled = true
+        return text
+    }()
     
     // load layout
     override func viewDidLayoutSubviews() {
@@ -92,6 +110,8 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
             view.backgroundColor = .newDarkTheme
             loginLine.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
             passwordLine.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
+            resetPassword.textColor = UIColor.newLabelDark
+            registrationButton.setTitleColor(UIColor.newLabelDark, for: .normal)
         } else {
             view.backgroundColor = .white
             loginLine.layerLine(strokeColors: UIColor.black.cgColor)
@@ -127,17 +147,22 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
         autorizatioButton.heightAnchor.constraint(equalToConstant: CGFloat(50)).isActive = true
         
         // registration button constraint
-        registrationButton.topAnchor.constraint(equalTo: autorizatioButton.bottomAnchor, constant: 30).isActive = true
+        registrationButton.topAnchor.constraint(equalTo: autorizatioButton.bottomAnchor, constant: 20).isActive = true
         registrationButton.trailingAnchor.constraint(equalTo: autorizatioButton.trailingAnchor).isActive  = true
         registrationButton.leadingAnchor.constraint(equalTo: autorizatioButton.leadingAnchor).isActive = true
         registrationButton.heightAnchor.constraint(equalToConstant: CGFloat(50)).isActive = true
-        
+        // reset password label
+        resetPassword.topAnchor.constraint(equalTo: registrationButton.bottomAnchor, constant: 10).isActive = true
+        resetPassword.trailingAnchor.constraint(equalTo: registrationButton.trailingAnchor).isActive = true
+        resetPassword.leadingAnchor.constraint(equalTo: registrationButton.leadingAnchor).isActive = true
+//        resetPassword.bottomAnchor.constraint(equalTo: modelView.bottomAnchor, constant: -10).isActive = true
+        resetPassword.heightAnchor.constraint(equalToConstant: CGFloat(15)).isActive = true
         // UIview
         if UIDevice.current.model == "iPhone" {
             modelView.topAnchor.constraint(equalTo: view.topAnchor, constant: 70).isActive = true
             modelView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
             modelView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
-            modelView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -170).isActive = true
+            modelView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -140).isActive = true
         } else {
             modelView.topAnchor.constraint(equalTo: view.topAnchor, constant: 270).isActive = true
             modelView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -230).isActive = true
@@ -150,23 +175,25 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
         super.viewDidLoad()
         TypeString.TypeStrings.nameType = ""
         namesLabel.UIfontLabel(viewHeight: Double(view.bounds.height))
-
-        
+        let viewTouchHideKey = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        viewTouchHideKey.cancelsTouchesInView = false
+        let resetPasswordTap = UITapGestureRecognizer(target: self, action: #selector(resetPasswordTapReg))
+        resetPasswordTap.cancelsTouchesInView = false
         view.addSubview(modelView)
         modelView.addSubview(namesLabel)
         modelView.addSubview(loginField)
         modelView.addSubview(passwordField)
         modelView.addSubview(autorizatioButton)
         modelView.addSubview(registrationButton)
+        modelView.addSubview(resetPassword)
+        loginField.delegate = self
+        passwordField.delegate = self
+        modelView.addGestureRecognizer(viewTouchHideKey)
+        resetPassword.addGestureRecognizer(resetPasswordTap)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        backgroundVideo(playAndStop: true)
-
-        
-        
-        
         UIView.animate(withDuration: 2, delay: 0.5, animations: {
             self.namesLabel.alpha = 1
         },completion: nil)
@@ -182,40 +209,27 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
         UIView.animate(withDuration: 2, delay: 2.5, animations: {
             self.registrationButton.alpha = 1
         }, completion: nil)
+        UIView.animate(withDuration: 2, delay: 3, animations: {
+            self.resetPassword.alpha = 1
+        }, completion: nil)
         
     }
-    // video backgraund
-    private func backgroundVideo(playAndStop: Bool) {
-                let videoURL = URL(fileURLWithPath: Bundle.main.path(forResource: "backgraundVideo", ofType: "mov")!)
-                let playVideo = AVPlayer(url: videoURL)
-                let newLayerVideo = AVPlayerLayer(player: playVideo)
-                newLayerVideo.frame = self.view.frame
-                self.view.layer.insertSublayer(newLayerVideo, at: 0)
-                newLayerVideo.videoGravity = .resizeAspectFill
-                playVideo.play()
-                switch playAndStop {
-                    case true: playVideo.play()
-                    case false: playVideo.pause()
-                }
-                playVideo.actionAtItemEnd = AVPlayer.ActionAtItemEnd.none
-                NotificationCenter.default.addObserver(self, selector: #selector(AuthAndRegistrationView.loopVideo), name: Notification.Name(rawValue: "AVPlayerItemDidPlayToEndTimeNotification"), object: playVideo.currentItem)
-            }
-    // repite video
-        @objc func loopVideo(_ notif: Notification) {
-            let player: AVPlayerItem = notif.object as! AVPlayerItem
-            player.seek(to: CMTime.zero, completionHandler: nil)
-        }
-    
 
-
+    //keyboard hide
+    @objc func hideKeyboard() {
+        modelView.endEditing(true)
+    }
     //autorization firebase
     @objc func autorizationFirebase() {
+        let errorCode = AuthErrorCode.wrongPassword
+        let codeError = errorCode.errorMessage
         guard loginField.text != "" else { return AlertView(text: "Вы не указали логин")}
         guard passwordField.text != "" else { return AlertView(text: "Вы не указали пароль")}
         
         Auth.auth().signIn(withEmail: loginField.text!, password: passwordField.text!) {[weak self](user, AuthErrors) in
                     self?.progressView() //Включение индикатора загрузки
             if AuthErrors != nil {
+                if AuthErrors!.localizedDescription == codeError {self?.AlertView(text: "Скажите админу что забыли пароль XD")}
                 self!.fetchError(AuthErrors!)
                 self!.stopProgress()
             }
@@ -256,6 +270,7 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
             if snapshot.progress?.fractionCompleted == 1.0 {
             self.DataReference.child(self.userTocken!).observeSingleEvent(of: .value) {[weak self](snapshot) in
             let value = snapshot.value as? NSDictionary // Присвоение константе данных
+            guard value != nil else { return (self?.errorRegistration())! } //Проверка на получение данных
             self?.receivingData.userData(data: value!) // Сохранение данных в CoreData
             self?.userInfo.userPhoto = userImage // Сохранение фотографии в CoreData
                 self?.nextViewController()
@@ -270,12 +285,67 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
         present(Vc, animated: true, completion: nil)
     }
     
+    //tap reset label
+    @objc func resetPasswordTapReg(){
+        let PasswordResetAlert = UIAlertController(title: "Внимание", message: "Хотите сбросить пароль?", preferredStyle: .alert)
+        PasswordResetAlert.addTextField { (TextFieldes) in
+            if self.loginField.text != "" {
+                TextFieldes.text = self.loginField.text
+            } else {
+                TextFieldes.text = ""
+            }}
+        PasswordResetAlert.addAction(UIAlertAction.init(title: "Восставновить", style: .default, handler: { (action) in
+           let Passwords = PasswordResetAlert.textFields![0] as UITextField
+                    Auth.auth().sendPasswordReset(withEmail: Passwords.text!) { error in // Отправка сообщения на почту
+                        guard error == nil else {return self.AlertView(text: "Пустая форма или нет пользователя с данной электронной почтой")}
+                        self.AlertView(text: "Мы отправили Вам форму для восстановления пароля")
+            }}))
+        PasswordResetAlert.addAction(UIAlertAction.init(title: "Отмена", style: .cancel, handler: nil))
+        present(PasswordResetAlert, animated: true, completion: nil)
+    }
+    
     //segue to main view
      @objc func registrationViewSegue(sender: UIButton){
         let Vc = creatUserProfile()
         let navigationBar = UINavigationController(rootViewController: Vc)
-        navigationBar.modalPresentationStyle = .fullScreen
-        navigationBar.modalTransitionStyle = .flipHorizontal
+            navigationBar.modalPresentationStyle = .fullScreen
+            navigationBar.modalTransitionStyle = .flipHorizontal
         present(navigationBar, animated: true, completion: nil)
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if textField == loginField {
+            if loginField.text == "" {
+                AlertView(text: "Укажите логин!")
+            } else {
+                passwordField.becomeFirstResponder()
+            }
+        }
+        if textField == passwordField {autorizationFirebase()}
+        return true
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if loginField.resignFirstResponder() {
+            if loginField.text == "" {AlertView(text: "Укажите логин!")}
+        }
+        if passwordField.resignFirstResponder() {
+            if passwordField.text == "" {AlertView(text: "Укажите пароль!")}
+        }
+    }
+    func errorRegistration() {
+        let alert = UIAlertController(title: "Внимание!", message: "Возможно при регистрации у Вас возникла ошибка. Пожалуйста введите личные данные повторно!", preferredStyle: .alert)
+        let editAction = UIAlertAction(title: "Хорошо", style: .default) { _ in
+            self.registrationView()
+        }
+        alert.addAction(editAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    func registrationView() {
+        let regView = FirstViewController()
+        let navBar = UINavigationController(rootViewController: regView)
+        navBar.modalPresentationStyle = .fullScreen
+        navBar.modalTransitionStyle = .crossDissolve
+        present(navBar, animated: true)
+    }
 }
+

@@ -115,7 +115,9 @@ import UIKit
 class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
    
     var buttonGardients = CAGradientLayer()
-
+    var nameLine = CAShapeLayer()
+    var patronymicLine = CAShapeLayer()
+    var cityLine = CAShapeLayer()
     
     private var infoLabel: UILabel = {
     let label = UILabel()
@@ -125,21 +127,21 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         label.textAlignment = .right
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-
     }()
     
     private var nameField: UITextField = {
-       let  text = UITextField()
+       let  text = textFields()
         text.borderStyle = .roundedRect
         text.placeholder = "Имя"
         text.tag = 0
         text.textAlignment = .left
         text.returnKeyType = .next
         text.translatesAutoresizingMaskIntoConstraints = false
+        
         return text
     }()
     private var patronymicField: UITextField = {
-       let text = UITextField()
+       let text = textFields()
         text.borderStyle = .roundedRect
         text.placeholder = "Отчество"
         text.tag = 1
@@ -149,12 +151,12 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         return text
     }()
     private var cityField: UITextField = {
-        let text = UITextField()
+        let text = textFields()
         text.borderStyle = .roundedRect
         text.placeholder = "Город"
         text.tag = 2
         text.textAlignment = .left
-        text.returnKeyType = .next
+        text.returnKeyType = .done
         text.translatesAutoresizingMaskIntoConstraints = false
         return text
     }()
@@ -164,14 +166,14 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         button.clipsToBounds = true
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
-
+        button.addTarget(self, action: #selector(nextView), for: .touchUpInside)
         return button
     }()
     private var photoImageView: UIImageView = {
        let photo = UIImageView()
         photo.translatesAutoresizingMaskIntoConstraints = false
         photo.isUserInteractionEnabled = true
-        photo.backgroundColor = .green
+        photo.image = UIImage(named: "defPhoto.png")
         return photo
     }()
     private var datePicker: UIDatePicker = {
@@ -191,13 +193,20 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     }()
 
     override func viewDidLayoutSubviews() {
-    
+        nameField.lineToTextField(shape: nameLine)
+        patronymicField.lineToTextField(shape: patronymicLine)
+        cityField.lineToTextField(shape: cityLine)
+
         if #available(iOS 13.0, *) {
             view.backgroundColor = .newDarkTheme
-//            loginLineLayer.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
+            nameLine.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
+            patronymicLine.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
+            cityLine.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
         } else {
             view.backgroundColor = .white
-//            loginLineLayer.layerLine(strokeColors: UIColor.black.cgColor)
+            nameLine.layerLine(strokeColors: UIColor.black.cgColor)
+            patronymicLine.layerLine(strokeColors: UIColor.black.cgColor)
+            cityLine.layerLine(strokeColors: UIColor.black.cgColor)
             infoLabel.textColor = .black
         }
         //UIView case constraint
@@ -251,7 +260,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         datePicker.trailingAnchor.constraint(equalTo: cityField.trailingAnchor).isActive = true
         datePicker.leadingAnchor.constraint(equalTo: photoImageView.leadingAnchor).isActive = true
         datePicker.heightAnchor.constraint(equalToConstant: CGFloat(50)).isActive = true
-        datePicker.centerYAnchor.constraint(equalTo: viewModel.centerYAnchor).isActive = true
+//        datePicker.centerYAnchor.constraint(equalTo: viewModel.centerYAnchor).isActive = true
         
         //next view UIButton constraint
         nextViewButton.topAnchor.constraint(equalTo: datePicker.bottomAnchor, constant: 20).isActive = true
@@ -269,25 +278,26 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameField.delegate = self
+        patronymicField.delegate = self
+        cityField.delegate = self
+
+        let viewTouchHideKey = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        viewTouchHideKey.cancelsTouchesInView = false
         
-        
-        if #available(iOS 11, *) {
+        if #available(iOS 13, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
             navigationController?.navigationBar.backgroundColor = .clear
         } else {
             navigationController?.navigationBar.prefersLargeTitles = false
-            navigationController?.navigationBar.barTintColor = .clear
+            navigationController?.navigationBar.barTintColor = .white
         }
         
         let tapping = UITapGestureRecognizer(target: self, action: #selector(selectPhoto))
-//        let tup = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
-        
         photoImageView.addGestureRecognizer(tapping)
-//        view.addGestureRecognizer(tup)
         
     //add conteiner modelView
         view.addSubview(viewModel)
-        
     //conreiner modelView elements
         viewModel.addSubview(infoLabel)
         viewModel.addSubview(nameField)
@@ -296,16 +306,22 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         viewModel.addSubview(photoImageView)
         viewModel.addSubview(datePicker)
         viewModel.addSubview(nextViewButton)
-
-        
-        
+        viewModel.addGestureRecognizer(viewTouchHideKey)
     }
+    
     @objc func nextView(){
+        guard nameField.text! != "" else{return AlertView(text: "Укажите свое имя!")}
+        guard patronymicField.text! != "" else{return AlertView(text: "Укажите свое отчество")}
+        guard cityField.text! != "" else{return AlertView(text: "Укажите свой город!")}
         let nextView = FirstNextViewController()
-        self.navigationController?.pushViewController(nextView, animated: true)
-        
-        
+        self.navigationController?.pushViewController(nextView, animated: false)
+        nextView.nameUser = nameField.text!
+        nextView.patronymicUser = patronymicField.text!
+        nextView.cityUser = cityField.text!
+        nextView.userPhoto = photoImageView.image!
+        nextView.dateBirthdayUser = getUserBirthday(date: datePicker.date)
     }
+    
     @objc func selectPhoto(){
         var selectPhotoAction = UIAlertController()
         if UIDevice.current.model == "iPhone" {
@@ -324,8 +340,8 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         }))
         selectPhotoAction.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
         present(selectPhotoAction, animated: true, completion:  nil)
-
     }
+    
         func selPhotoSource(source: UIImagePickerController.SourceType){
             if UIImagePickerController.isSourceTypeAvailable(source) {
                 let imagePicker = UIImagePickerController()
@@ -345,7 +361,40 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
             photoImageView.clipsToBounds = true
             dismiss(animated: true, completion: nil)
         }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+            if textField == nameField {
+                patronymicField.becomeFirstResponder()
+            } else if textField == patronymicField {
+                cityField.becomeFirstResponder()
+            } else if textField == cityField {
+                view.endEditing(true)
+            }
+            return true
+        }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+            textField.resignFirstResponder()
+        switch textField.tag {
+        case 0: if nameField.text == "" {AlertView(text: "Укажите своё имя!")} else {print("save")}
+        case 1: if patronymicField.text == ""{AlertView(text: "Укажите своё отчество!")} else {print("save")}
+        case 2: if cityField.text == "" {AlertView(text: "Укажите свой город")} else {print("save")}
+        default: print("error ")
+        }
     }
+    
+    @objc func hideKeyboard() {
+        viewModel.endEditing(true)
+        }
+        
+    func getUserBirthday(date: Date) -> String!{
+            let Forrmated = DateFormatter()
+            Forrmated.dateFormat = "dd:MM:YYYY"
+            let formatedDate = Forrmated.string(from: date)
+            return formatedDate
+        }
+    }
+
     
     
     // Helper function inserted by Swift 4.2 migrator.
@@ -357,5 +406,6 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
         return input.rawValue
     }
+
 
 

@@ -46,7 +46,6 @@
 		CDA9A2E1219C1B3600A457B8 /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA9A2E0219C1B3600A457B8 /* DarkTheme.swift */; };
 		CDB592F5226F69F700AC7303 /* TypeString+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB592F4226F69F600AC7303 /* TypeString+CoreDataClass.swift */; };
 		CDB592F6226F69F700AC7303 /* TypeString+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB592F3226F69F600AC7303 /* TypeString+CoreDataProperties.swift */; };
-		CDCC33B522A1325200D48BC0 /* backgraundVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = CDCC33B422A1325200D48BC0 /* backgraundVideo.mov */; };
 		CDCD0F3722563E08009D01CA /* first_Check_AUER.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CDCD0F3022563E08009D01CA /* first_Check_AUER.pdf */; };
 		CDCD0F3822563E08009D01CA /* work_Check_AUER.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CDCD0F3122563E08009D01CA /* work_Check_AUER.pdf */; };
 		CDCD0F3922563E08009D01CA /* first_Check_OMEGA.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CDCD0F3222563E08009D01CA /* first_Check_OMEGA.pdf */; };
@@ -137,6 +136,7 @@
 		C99610F620782A480024F8A5 /* Calculation+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Calculation+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C99610F720782A480024F8A5 /* Calculation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Calculation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CD5CDD30224BF07500FF95F5 /* appInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appInfoVC.swift; sourceTree = "<group>"; };
+		CD6478EE235CB4ED005B22BD /* FireFightersDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FireFightersDebug.entitlements; sourceTree = "<group>"; };
 		CD69ABAA223FEE3200E6B8CA /* sectionTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sectionTheme.swift; sourceTree = "<group>"; };
 		CD69ABAC223FF07500E6B8CA /* ThemeUICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeUICollectionView.swift; sourceTree = "<group>"; };
 		CD69ABAE223FF55E00E6B8CA /* ThemeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -148,7 +148,6 @@
 		CDA9A2E0219C1B3600A457B8 /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
 		CDB592F3226F69F600AC7303 /* TypeString+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TypeString+CoreDataProperties.swift"; path = "/Users/Pavels/Desktop/FireFighters/FireFighters/Core Data File/TypeString+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		CDB592F4226F69F600AC7303 /* TypeString+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TypeString+CoreDataClass.swift"; path = "/Users/Pavels/Desktop/FireFighters/FireFighters/Core Data File/TypeString+CoreDataClass.swift"; sourceTree = "<absolute>"; };
-		CDCC33B422A1325200D48BC0 /* backgraundVideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = backgraundVideo.mov; sourceTree = "<group>"; };
 		CDCD0F3022563E08009D01CA /* first_Check_AUER.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = first_Check_AUER.pdf; sourceTree = "<group>"; };
 		CDCD0F3122563E08009D01CA /* work_Check_AUER.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = work_Check_AUER.pdf; sourceTree = "<group>"; };
 		CDCD0F3222563E08009D01CA /* first_Check_OMEGA.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = first_Check_OMEGA.pdf; sourceTree = "<group>"; };
@@ -526,7 +525,6 @@
 			isa = PBXGroup;
 			children = (
 				CD84F13A2354D7B3007027AA /* Podfile */,
-				CDCC33B422A1325200D48BC0 /* backgraundVideo.mov */,
 				E90894D01FC47F43001DEE07 /* FireFighters */,
 				E90894CF1FC47F43001DEE07 /* Products */,
 				4BA8540070DE69152F5F502C /* Pods */,
@@ -545,6 +543,7 @@
 		E90894D01FC47F43001DEE07 /* FireFighters */ = {
 			isa = PBXGroup;
 			children = (
+				CD6478EE235CB4ED005B22BD /* FireFightersDebug.entitlements */,
 				961D21C420FAC34900CAB75C /* iPadView */,
 				961D21C320FABF7700CAB75C /* iPhoneView */,
 				CD69ABB0224179C100E6B8CA /* textFiles */,
@@ -644,7 +643,7 @@
 					E90894CD1FC47F43001DEE07 = {
 						CreatedOnToolsVersion = 9.1;
 						LastSwiftMigration = 1020;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -668,7 +667,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				ru,
 			);
 			mainGroup = E90894C51FC47F43001DEE07;
 			productRefGroup = E90894CF1FC47F43001DEE07 /* Products */;
@@ -693,7 +692,6 @@
 				CDCD0F3922563E08009D01CA /* first_Check_OMEGA.pdf in Resources */,
 				CDCD0F4422611882009D01CA /* chargePoinstsman.pdf in Resources */,
 				CDA5CF47219DEE2300E9FCFF /* AppsInfoBoard.storyboard in Resources */,
-				CDCC33B522A1325200D48BC0 /* backgraundVideo.mov in Resources */,
 				E90894EA1FC48401001DEE07 /* LaunchScreen.storyboard in Resources */,
 				CDCD0F3C22563E08009D01CA /* type_info_AUER MSA.pdf in Resources */,
 				CDCD0F3D22563E08009D01CA /* work_Check_OMEGA.pdf in Resources */,
@@ -742,9 +740,10 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-FireFighters/Pods-FireFighters-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-FireFighters/Pods-FireFighters-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
@@ -756,6 +755,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
@@ -765,7 +765,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FireFighters/Pods-FireFighters-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FireFighters/Pods-FireFighters-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -838,6 +838,7 @@
 /* Begin XCBuildConfiguration section */
 		CD7C24CC224FE446009D12D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9969756F2B3F4022156A57DC /* Pods-FireFighters.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -867,7 +868,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -897,10 +898,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = FireFighters/FireFighters.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CODE_SIGN_ENTITLEMENTS = FireFighters/FireFightersDebug.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GVA5J44S8J;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -925,10 +926,10 @@
 				INFOPLIST_FILE = FireFighters/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 0.3.8;
+				MARKETING_VERSION = 0.3.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "Shoki-Dev.FireFighters";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Firefighter;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -936,6 +937,7 @@
 		};
 		E90894E21FC47F43001DEE07 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9969756F2B3F4022156A57DC /* Pods-FireFighters.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -965,7 +967,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -994,9 +996,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FireFighters/FireFighters.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = GVA5J44S8J;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1021,10 +1023,10 @@
 				INFOPLIST_FILE = FireFighters/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 0.3.8;
+				MARKETING_VERSION = 0.3.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "Shoki-Dev.FireFighters";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Firefighter;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

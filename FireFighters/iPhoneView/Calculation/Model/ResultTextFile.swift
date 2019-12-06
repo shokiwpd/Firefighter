@@ -62,15 +62,17 @@ class SettlementSolution {
     func ifNoFoundHearth(Pmin:Int, Tall: Int,Pmax: Int, Pexit: Int,Twork: Int,Compl: Bool, timeOn: String, TimeExit: String, TimeExitWork: String)-> String! {
         let NewCaFu = newCalc()
         return """
-        1. ∆Тобщ. = ((Рмин.вкл - Руст.раб.ред)*(Vб))/(Q * Ксж) = ((\(Pmin) - \(NewCaFu.reducerPressure))*(\(NewCaFu.vBallons)))/(\(NewCaFu.airFlow) * \(NewCaFu.compressionFactor)) = \(Tall) Мин
+        Расчеты производятся согласно указаниям по проведению расчетов параметров работы в средствах индивидуальной защиты органов дыхания и зрения. Указание МЧС России от 5.08.2013 г.
         
-        2. Твзвр = Твкл + ∆Тобщ = \(timeOn) + \(Tall) = \(TimeExit)
+        1. Тобщ. = ((Рмин.вкл - Руст.раб.ред)*(Vб))/(Q * Ксж) = ((\(Pmin) - \(NewCaFu.reducerPressure))*(\(NewCaFu.vBallons)))/(\(NewCaFu.airFlow) * \(NewCaFu.compressionFactor)) = \(Tall) Мин
+        
+        2. Твозвр = Твкл + ∆Тобщ = \(timeOn) + \(Tall) = \(TimeExit)
         
         3. Рмакс.пад = Рмин.вкл - Руст.раб.ред / \(Compl ? "3":"2.5") = \(Pmin) - \(NewCaFu.reducerPressure) / \(Compl ? "3":"2.5") = \(Pmax) Bar
         
-        4. Рк.вых = Рмин.вкл - Рмакс.пад = \(Pmin) - \(Pmax) = \(Pexit) Bar
+        4. Рвых = Рмин.вкл - Рмакс.пад = \(Pmin) - \(Pmax) = \(Pexit) Bar
         
-        5. ∆Траб = Рмакс.пад * Vб / Q * Ксж =  (\(Pmax) * \(NewCaFu.vBallons))/(\(NewCaFu.airFlow) * \(NewCaFu.compressionFactor)) = \(Twork) Мин
+        5. ∆Т = Рмакс.пад * Vб / Q * Ксж =  (\(Pmax) * \(NewCaFu.vBallons))/(\(NewCaFu.airFlow) * \(NewCaFu.compressionFactor)) = \(Twork) Мин
         
         6. Твых = Твыкл + ∆Траб =  \(timeOn) + \(Twork) = \(TimeExitWork)
         
@@ -124,13 +126,12 @@ class SettlementSolution {
         }
         
         let x = """
-        Если Рк.вых меньше 50, то Рк.вых равен 50 Bar
         
         8. Рк.вых = \(Pexit)
         
-        9. ∆Траб.оч = (Рмин.у.оч - Рк.вых)*Vбал/Q * Ксж = ((\(Pmin) - \(PmaxD))*\(NewCaFu.vBallons)) / (\(NewCaFu.airFlow) * \(NewCaFu.compressionFactor)) = \(THearthWorks) Мин
+        9. Траб = (Рмин.у.оч - Рк.вых)*Vбал/Q * Ксж = ((\(Pmin) - \(PmaxD))*\(NewCaFu.vBallons)) / (\(NewCaFu.airFlow) * \(NewCaFu.compressionFactor)) = \(THearthWorks) Мин
 
-        10. Тк.вых = Ту.оч + ∆Траб.оч = \(TimeHearts) + \(THearthWorks) = \(TimeWork)
+        10. Тк.вых = Ту.оч + Траб = \(TimeHearts) + \(THearthWorks) = \(TimeWork)
         
         """
         return x

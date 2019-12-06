@@ -70,7 +70,7 @@ class MainViewController: UIViewController,getTockenUser{
         loadVeiw.async {
             self.view.darkThemeView()
             self.welcomeMessage.darkThemeLabel()
-            self.navigationController?.navigationBar.darkThemeNav()
+//            self.navigationController?.navigationBar.darkThemeNav()
             self.tabBarController?.tabBar.darkThemeBar()
         }
     }

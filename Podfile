@@ -10,4 +10,5 @@ pod 'Firebase/Messaging'
 pod 'MBProgressHUD'
 pod 'ReachabilitySwift'
 pod 'iosMath'
+pod 'IQKeyboardManagerSwift'
 end

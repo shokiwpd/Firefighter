@@ -53,11 +53,11 @@ extension UINavigationBar {
         let DarkMode = userDef.bool(forKey: "DarkMode")
         switch DarkMode {
         case true:
-            self.barStyle = .black
-            self.barTintColor = UIColor.black
+//            self.barStyle = .black
+            self.barTintColor = UIColor.yellow
         case false:
-            self.barStyle = .default
-            self.barTintColor = UIColor.white
+//            self.barStyle = .default
+            self.barTintColor = UIColor.green
         }
     }
 }

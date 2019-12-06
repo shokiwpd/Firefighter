@@ -12,6 +12,7 @@ import Firebase
 import FirebaseInstanceID
 import UserNotifications
 import Reachability
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
  class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,28 +28,19 @@ import Reachability
             //Parse errors and track state
         }
         application.registerForRemoteNotifications()
-//        IQKeyboardManager.shared.enable = false
+        IQKeyboardManager.shared.enable = true
         FirebaseApp.configure()
         window = UIWindow()
         window?.makeKeyAndVisible()
 //        window = UIWindow()
         if (Auth.auth().currentUser?.uid) == nil {
-//            if UIDevice.current.model == "iPhone" {
-//                window?.rootViewController = UIStoryboard(name: "authStoryBoard", bundle: nil).instantiateInitialViewController() as! UINavigationController
                 window?.rootViewController = AuthAndRegistrationView()
-//            } else {
-//                window?.rootViewController = UIStoryboard(name: "authStoryBoardiPad", bundle: nil).instantiateInitialViewController() as! UINavigationController
-//            }
         } else {
             if UserProfile.userInform.userName.isEmpty{
-//                window?.rootViewController = UIStoryboard(name: "authStoryBoard", bundle: nil).instantiateInitialViewController() as! UINavigationController
                 window?.rootViewController = AuthAndRegistrationView()
-        } else {
-                if TypeString.TypeStrings.nameType == ""{
-                    window?.rootViewController = UIStoryboard(name: "selectSB", bundle: nil).instantiateInitialViewController() as! UINavigationController
-                } else {
+        } else  {
             window?.rootViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UITabBarController
-                }}
+            }
     }
         return true
     }

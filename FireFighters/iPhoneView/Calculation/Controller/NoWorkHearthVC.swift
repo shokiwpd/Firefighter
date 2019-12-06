@@ -60,34 +60,34 @@ class NoWorkHearthVC: UIViewController,UITextFieldDelegate,UIPickerViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
         HearthFF1.delegate = self
-        HearthFF1.inputView = HearthFF1_PV
+//        HearthFF1.inputView = HearthFF1_PV
         HearthFF1.placeholder = String(CalData.FireFighter1)
-        HearthFF1_PV.delegate = self
-        HearthFF1_PV.tag = 0
+//        HearthFF1_PV.delegate = self
+//        HearthFF1_PV.tag = 0
 
         
         HearthFF2.delegate = self
-        HearthFF2.inputView = HearthFF2_PV
-        HearthFF2_PV.delegate = self
-        HearthFF2_PV.tag = 1
+//        HearthFF2.inputView = HearthFF2_PV
+//        HearthFF2_PV.delegate = self
+//        HearthFF2_PV.tag = 1
         HearthFF2.placeholder = String(CalData.FireFighter2)
 
         HearthFF3.delegate = self
-        HearthFF3.inputView = HearthFF3_PV
-        HearthFF3_PV.tag = 2
-        HearthFF3_PV.delegate = self
+//        HearthFF3.inputView = HearthFF3_PV
+//        HearthFF3_PV.tag = 2
+//        HearthFF3_PV.delegate = self
         HearthFF3.placeholder = String(CalData.FireFighter3)
 
         HearthFF4.delegate = self
-        HearthFF4.inputView = HearthFF4_PV
-        HearthFF4_PV.tag = 3
-        HearthFF4_PV.delegate = self
+//        HearthFF4.inputView = HearthFF4_PV
+//        HearthFF4_PV.tag = 3
+//        HearthFF4_PV.delegate = self
         HearthFF4.placeholder = String(CalData.FireFighter4)
 
         HearthFF5.delegate = self
-        HearthFF5.inputView = HearthFF5_PV
-        HearthFF5_PV.tag = 4
-        HearthFF5_PV.delegate = self
+//        HearthFF5.inputView = HearthFF5_PV
+//        HearthFF5_PV.tag = 4
+//        HearthFF5_PV.delegate = self
         HearthFF5.placeholder = String(CalData.FireFighter5)
 
         ArrivalTimeHearth.date = CalData.inputTime

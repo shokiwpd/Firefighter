@@ -211,7 +211,7 @@ class ProfileViewController: UITableViewController {
         let ViewLoad = DispatchQueue.main
         ViewLoad.async {
             self.tableView.reloadData()
-            self.navigationController?.navigationBar.darkThemeNav()
+//            self.navigationController?.navigationBar.darkThemeNav()
             self.tabBarController?.tabBar.darkThemeBar()
             
         }

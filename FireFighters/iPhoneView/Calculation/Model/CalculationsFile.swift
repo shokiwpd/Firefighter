@@ -105,14 +105,14 @@ class newCalc {
         switch complexity {
         case true:
             pExitHearth = 2 * pMaxDownHearth + reducerPressure
-            if pExitHearth < 50 {
-                pExitHearth = 50
-            }
+//            if pExitHearth < 50 {
+//                pExitHearth = 50
+//            }
         case false:
             pExitHearth = Int(1.5 * Double(pMaxDownHearth) + Double(reducerPressure))
-            if pExitHearth < 50 {
-                pExitHearth = 50
-            }
+//            if pExitHearth < 50 {
+//                pExitHearth = 50
+//            }
         }
         print("Давление при котором надо выходить при найденом очаге \(pExitHearth)")
         

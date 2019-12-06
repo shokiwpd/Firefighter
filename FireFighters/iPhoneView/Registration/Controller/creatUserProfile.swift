@@ -10,6 +10,7 @@ class creatUserProfile: UIViewController, UITextFieldDelegate, getTockenUser {
     var buttonGardients = CAGradientLayer()
     var loginLineLayer = CAShapeLayer()
     var passwordLineLayer = CAShapeLayer()
+    var textCopy = textFields()
     
     private var infoLabel: UILabel = {
        let label = UILabel()
@@ -21,22 +22,26 @@ class creatUserProfile: UIViewController, UITextFieldDelegate, getTockenUser {
         return label
     }()
     private var emailField: UITextField = {
-        let email = UITextField()
+        let email = textFields()
         email.textAlignment = .center
         email.placeholder = "Логин(Ваша электронная почта)"
         email.borderStyle = .roundedRect
         email.tag = 0
         email.translatesAutoresizingMaskIntoConstraints = false
+        email.returnKeyType = .next
+        email.textContentType = .name
         return email
     }()
     private var passwordField: UITextField = {
-        let password = UITextField()
+        let password = textFields()
         password.textAlignment = .center
         password.isSecureTextEntry = true
         password.borderStyle = .roundedRect
         password.tag = 1
         password.placeholder = "Пароль"
         password.translatesAutoresizingMaskIntoConstraints = false
+        password.returnKeyType = .default
+        password.textContentType = .password
         return password
     }()
     private var addProfileButton: UIButton = {
@@ -46,7 +51,6 @@ class creatUserProfile: UIViewController, UITextFieldDelegate, getTockenUser {
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(addUserTocken), for: .touchUpInside)
-        button.addTarget(self, action: #selector(addUserTocken), for: .touchDown)
         return button
     }()
     private var viewMain: UIView = {
@@ -116,15 +120,21 @@ class creatUserProfile: UIViewController, UITextFieldDelegate, getTockenUser {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailField.delegate = self
+        passwordField.delegate = self
+        
+        let viewTouchHideKey = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        viewTouchHideKey.cancelsTouchesInView = false
+        
         // navigation bar setting
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Отмена", style: .plain, target: self, action: #selector(backIn(sender:)))
         
-        if #available(iOS 11, *) {
+        if #available(iOS 12, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
             navigationController?.navigationBar.backgroundColor = .clear
         } else {
             navigationController?.navigationBar.prefersLargeTitles = false
-            navigationController?.navigationBar.barTintColor = .clear
+            navigationController?.navigationBar.barTintColor = .white
         }
         // UIKit init
 
@@ -134,6 +144,8 @@ class creatUserProfile: UIViewController, UITextFieldDelegate, getTockenUser {
         viewMain.addSubview(emailField)
         viewMain.addSubview(passwordField)
         viewMain.addSubview(addProfileButton)
+        viewMain.addGestureRecognizer(viewTouchHideKey)
+        
         self.title = "Регистрация"
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -155,17 +167,20 @@ class creatUserProfile: UIViewController, UITextFieldDelegate, getTockenUser {
        }
     
     @objc func addUserTocken(){
-//        loadAddView()
-//        Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) {[weak self] (user, AuthErrors) in
-//            if AuthErrors != nil {
-//                self?.fetchError(AuthErrors!)
-//                self!.dismissHUD(isAnimated: true)
-//            }
-//                guard user != nil else { return (self?.fetchError(AuthErrors!))!}
-//            self?.creatUserinform()
-//            // Проверка на наличие похожих учетных записей
-//        }
-        creatUserinform()
+        guard emailField.text! != "" else{return AlertView(text: "Укажите логин!")}
+        guard passwordField.text! != "" else {return AlertView(text: "Укажите пароль!")}
+        loadAddView()
+        Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) {[weak self] (user, AuthErrors) in
+            if AuthErrors != nil {
+                self?.fetchError(AuthErrors!)
+                self!.dismissHUD(isAnimated: true)
+            } else {
+                guard user != nil else { return (self?.fetchError(AuthErrors!))!}
+
+            self?.creatUserinform()
+            // Проверка на наличие похожих учетных записей
+            }
+        }
     }
 
     @objc func backIn(sender: UIBarButtonItem){
@@ -178,7 +193,18 @@ class creatUserProfile: UIViewController, UITextFieldDelegate, getTockenUser {
         navigationView.modalTransitionStyle = .crossDissolve
         present(navigationView, animated: true, completion: nil)
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if textField == emailField {
+            passwordField.becomeFirstResponder()
+        } else if textField == passwordField {
+            creatUserinform()
+        }
+        return true
+    }
     
-    
+    @objc func hideKeyboard() {
+        viewMain.endEditing(true)
+    }
 }
 

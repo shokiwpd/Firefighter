@@ -29,6 +29,8 @@ class CalculationViewController: UIViewController {
         buttonGardients = CAGradientLayer()
         buttonGardients.frame = CGRect(x: 0, y: 0, width: nextButton.frame.size.width, height: nextButton.frame.size.height)
         nextButton.grayButton(nameBut: "Далее")
+        nextButton.layer.masksToBounds = true
+        nextButton.layer.cornerRadius = 10
         nextButton.layer.insertSublayer(buttonGardients, at: 0)
         updateView()
     }
@@ -91,7 +93,7 @@ class CalculationViewController: UIViewController {
             self.view.darkThemeView()
             self.FirefightersLabel.darkThemeLabel()
             self.ComplexyLabel.darkThemeLabel()
-            self.navigationController?.navigationBar.darkThemeNav()
+//            self.navigationController?.navigationBar.darkThemeNav()
             self.tabBarController?.tabBar.darkThemeBar()
         }
     }

@@ -20,7 +20,7 @@ extension UITextField {
         shape.path = patching.cgPath
         self.layer.addSublayer(shape)
     }
-    func keyboardKey(next: Bool){
+    func keybsoardKey(next: Bool){
         self.autocorrectionType = .yes
         self.borderStyle = .roundedRect
         switch next {
@@ -37,3 +37,5 @@ class textFields: UITextField {
         return super.canPerformAction(action, withSender: sender)
     }
 }
+ 
+
