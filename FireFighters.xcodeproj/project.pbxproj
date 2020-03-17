@@ -42,6 +42,7 @@
 		CD69ABB42241868A00E6B8CA /* DocumentsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD69ABB32241868A00E6B8CA /* DocumentsStoryboard.storyboard */; };
 		CD69ABB6224189BB00E6B8CA /* documentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD69ABB5224189BB00E6B8CA /* documentsVC.swift */; };
 		CD84F13B2354D7B3007027AA /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CD84F13A2354D7B3007027AA /* Podfile */; };
+		CD9E511F23C7305B007968EF /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E511E23C7305B007968EF /* MainTabBarViewController.swift */; };
 		CDA5CF47219DEE2300E9FCFF /* AppsInfoBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA5CF46219DEE2300E9FCFF /* AppsInfoBoard.storyboard */; };
 		CDA9A2E1219C1B3600A457B8 /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA9A2E0219C1B3600A457B8 /* DarkTheme.swift */; };
 		CDB592F5226F69F700AC7303 /* TypeString+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB592F4226F69F600AC7303 /* TypeString+CoreDataClass.swift */; };
@@ -144,6 +145,7 @@
 		CD69ABB32241868A00E6B8CA /* DocumentsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DocumentsStoryboard.storyboard; sourceTree = "<group>"; };
 		CD69ABB5224189BB00E6B8CA /* documentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = documentsVC.swift; sourceTree = "<group>"; };
 		CD84F13A2354D7B3007027AA /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		CD9E511E23C7305B007968EF /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		CDA5CF46219DEE2300E9FCFF /* AppsInfoBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppsInfoBoard.storyboard; sourceTree = "<group>"; };
 		CDA9A2E0219C1B3600A457B8 /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
 		CDB592F3226F69F600AC7303 /* TypeString+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TypeString+CoreDataProperties.swift"; path = "/Users/Pavels/Desktop/FireFighters/FireFighters/Core Data File/TypeString+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
@@ -343,6 +345,7 @@
 				CD69ABAA223FEE3200E6B8CA /* sectionTheme.swift */,
 				CD69ABAC223FF07500E6B8CA /* ThemeUICollectionView.swift */,
 				CD69ABAE223FF55E00E6B8CA /* ThemeCollectionViewCell.swift */,
+				CD9E511E23C7305B007968EF /* MainTabBarViewController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -637,13 +640,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1030;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Павел";
 				TargetAttributes = {
 					E90894CD1FC47F43001DEE07 = {
 						CreatedOnToolsVersion = 9.1;
 						LastSwiftMigration = 1020;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -668,6 +671,7 @@
 			knownRegions = (
 				en,
 				ru,
+				Base,
 			);
 			mainGroup = E90894C51FC47F43001DEE07;
 			productRefGroup = E90894CF1FC47F43001DEE07 /* Products */;
@@ -792,6 +796,7 @@
 				96EB6E1220D6BCF8001492D8 /* Custom_Label.swift in Sources */,
 				C99610F820782A480024F8A5 /* Calculation+CoreDataClass.swift in Sources */,
 				CDE1D4FE224FCB790063043C /* loginVCiPad.swift in Sources */,
+				CD9E511F23C7305B007968EF /* MainTabBarViewController.swift in Sources */,
 				96C9A13F20C9C56A00EC1B1F /* getFirebaseInfo.swift in Sources */,
 				E978EAED1FEED7B700197057 /* CalculationViewController.swift in Sources */,
 				E9100AB7205DA83000F488CD /* AuthAndRegistrationView.swift in Sources */,
@@ -841,6 +846,7 @@
 			baseConfigurationReference = 9969756F2B3F4022156A57DC /* Pods-FireFighters.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -899,9 +905,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FireFighters/FireFightersDebug.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = GVA5J44S8J;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -926,10 +932,10 @@
 				INFOPLIST_FILE = FireFighters/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 0.3.9;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Shoki-Dev.FireFighters";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Firefighter;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -940,6 +946,7 @@
 			baseConfigurationReference = 9969756F2B3F4022156A57DC /* Pods-FireFighters.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -996,9 +1003,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = FireFighters/FireFighters.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = GVA5J44S8J;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1023,10 +1030,10 @@
 				INFOPLIST_FILE = FireFighters/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 0.3.9;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Shoki-Dev.FireFighters";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Firefighter;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

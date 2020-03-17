@@ -199,9 +199,9 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
 
         if #available(iOS 13.0, *) {
             view.backgroundColor = .newDarkTheme
-            nameLine.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
-            patronymicLine.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
-            cityLine.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
+            nameLine.layerLine(strokeColors: UIColor.reversDark.cgColor)
+            patronymicLine.layerLine(strokeColors: UIColor.reversDark.cgColor)
+            cityLine.layerLine(strokeColors: UIColor.reversDark.cgColor)
         } else {
             view.backgroundColor = .white
             nameLine.layerLine(strokeColors: UIColor.black.cgColor)

@@ -20,7 +20,7 @@ import IQKeyboardManagerSwift
     var window: UIWindow?
     var DeviceInfo: UIDevice!
     var DeviceOreintation: UIDeviceOrientation!
-    var connectStatus = Reachability()!
+//    var connectStatus = Reachability()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
@@ -39,7 +39,8 @@ import IQKeyboardManagerSwift
             if UserProfile.userInform.userName.isEmpty{
                 window?.rootViewController = AuthAndRegistrationView()
         } else  {
-            window?.rootViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UITabBarController
+//            window?.rootViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UITabBarController
+                window?.rootViewController = MainTabBarViewController()
             }
     }
         return true

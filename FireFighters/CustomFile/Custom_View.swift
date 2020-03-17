@@ -52,3 +52,8 @@ extension UIView {
         return blurView
     }
 }
+extension UIViewController {
+    func darkThemeColor() {
+        
+    }
+}

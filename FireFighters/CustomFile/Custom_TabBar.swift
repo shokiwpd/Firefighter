@@ -10,7 +10,7 @@ import UIKit
 
 class Custom_TabBar: UITabBarController {
     override func viewDidLayoutSubviews() {
-        self.tabBar.darkThemeBar()
+//        self.tabBar.darkThemeBar()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class Custom_TabBar: UITabBarController {
 }
 extension Custom_TabBar: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        tabBarController.tabBar.darkThemeBar()
+//        tabBarController.tabBar.darkThemeBar()
     }
 
 }

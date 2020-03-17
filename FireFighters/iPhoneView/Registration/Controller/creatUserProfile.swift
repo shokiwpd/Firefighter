@@ -10,7 +10,6 @@ class creatUserProfile: UIViewController, UITextFieldDelegate, getTockenUser {
     var buttonGardients = CAGradientLayer()
     var loginLineLayer = CAShapeLayer()
     var passwordLineLayer = CAShapeLayer()
-    var textCopy = textFields()
     
     private var infoLabel: UILabel = {
        let label = UILabel()
@@ -70,8 +69,8 @@ class creatUserProfile: UIViewController, UITextFieldDelegate, getTockenUser {
 
         if #available(iOS 13.0, *) {
             view.backgroundColor = .newDarkTheme
-            loginLineLayer.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
-            passwordLineLayer.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
+            loginLineLayer.layerLine(strokeColors: UIColor.reversDark.cgColor)
+            passwordLineLayer.layerLine(strokeColors: UIColor.reversDark.cgColor)
         } else {
             view.backgroundColor = .white
             loginLineLayer.layerLine(strokeColors: UIColor.black.cgColor)

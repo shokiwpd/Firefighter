@@ -351,14 +351,14 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                 gearOperation.lineToTextField(shape: gearOperationLine)
                 if #available(iOS 13.0, *) {
                     view.backgroundColor = .newDarkTheme
-                    numberParthLine.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
-                    changeNumberLine.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
-                    positionSelectLine.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
-                    uniteTypeLine.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
-                    volumeBallonsLine.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
-                    airCompressionLine.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
-                    airConsumptionLine.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
-                    gearOperationLine.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
+                    numberParthLine.layerLine(strokeColors: UIColor.reversDark.cgColor)
+                    changeNumberLine.layerLine(strokeColors: UIColor.reversDark.cgColor)
+                    positionSelectLine.layerLine(strokeColors: UIColor.reversDark.cgColor)
+                    uniteTypeLine.layerLine(strokeColors: UIColor.reversDark.cgColor)
+                    volumeBallonsLine.layerLine(strokeColors: UIColor.reversDark.cgColor)
+                    airCompressionLine.layerLine(strokeColors: UIColor.reversDark.cgColor)
+                    airConsumptionLine.layerLine(strokeColors: UIColor.reversDark.cgColor)
+                    gearOperationLine.layerLine(strokeColors: UIColor.reversDark.cgColor)
                 } else {
                     view.backgroundColor = .white
                     numberParthLine.layerLine(strokeColors: UIColor.black.cgColor)

@@ -108,10 +108,10 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
         //dark theme to iOS_13 and later
         if #available(iOS 13.0, *) {
             view.backgroundColor = .newDarkTheme
-            loginLine.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
-            passwordLine.layerLine(strokeColors: UIColor.newLabelDark.cgColor)
-            resetPassword.textColor = UIColor.newLabelDark
-            registrationButton.setTitleColor(UIColor.newLabelDark, for: .normal)
+            loginLine.layerLine(strokeColors: UIColor.reversDark.cgColor)
+            passwordLine.layerLine(strokeColors: UIColor.reversDark.cgColor)
+            resetPassword.textColor = UIColor.reversDark
+            registrationButton.setTitleColor(UIColor.reversDark, for: .normal)
         } else {
             view.backgroundColor = .white
             loginLine.layerLine(strokeColors: UIColor.black.cgColor)
@@ -221,21 +221,22 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
     }
     //autorization firebase
     @objc func autorizationFirebase() {
-        let errorCode = AuthErrorCode.wrongPassword
-        let codeError = errorCode.errorMessage
-        guard loginField.text != "" else { return AlertView(text: "Вы не указали логин")}
-        guard passwordField.text != "" else { return AlertView(text: "Вы не указали пароль")}
-        
-        Auth.auth().signIn(withEmail: loginField.text!, password: passwordField.text!) {[weak self](user, AuthErrors) in
-                    self?.progressView() //Включение индикатора загрузки
-            if AuthErrors != nil {
-                if AuthErrors!.localizedDescription == codeError {self?.AlertView(text: "Скажите админу что забыли пароль XD")}
-                self!.fetchError(AuthErrors!)
-                self!.stopProgress()
-            }
-                guard user != nil else { return } //Проверка на существование пользователя в БД Firebase
-                    self?.fetchFirebase() //загрузка данных из Firebase
-            }
+//        let errorCode = AuthErrorCode.wrongPassword
+//        let codeError = errorCode.errorMessage
+//        guard loginField.text != "" else { return AlertView(text: "Вы не указали логин")}
+//        guard passwordField.text != "" else { return AlertView(text: "Вы не указали пароль")}
+//
+//        Auth.auth().signIn(withEmail: loginField.text!, password: passwordField.text!) {[weak self](user, AuthErrors) in
+//                    self?.progressView() //Включение индикатора загрузки
+//            if AuthErrors != nil {
+//                if AuthErrors!.localizedDescription == codeError {self?.AlertView(text: "Скажите админу что забыли пароль XD")}
+//                self!.fetchError(AuthErrors!)
+//                self!.stopProgress()
+//            }
+//                guard user != nil else { return } //Проверка на существование пользователя в БД Firebase
+//                    self?.fetchFirebase() //загрузка данных из Firebase
+//            }
+        nextViewController()
     }
     //progress view
     func progressView(){
@@ -280,9 +281,13 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
         }
     }
     private func nextViewController() {
-        let Vc = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UITabBarController
-        Vc.modalPresentationStyle = .fullScreen
-        present(Vc, animated: true, completion: nil)
+//        let Vc = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UITabBarController
+//        Vc.modalPresentationStyle = .fullScreen
+//        present(Vc, animated: true, completion: nil)
+        
+        let tabbars = MainTabBarViewController()
+        tabbars.modalPresentationStyle = .fullScreen
+        present(tabbars, animated: true, completion: nil)
     }
     
     //tap reset label

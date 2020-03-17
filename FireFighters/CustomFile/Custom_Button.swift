@@ -41,3 +41,24 @@ extension CAGradientLayer {
     }
 }
 
+public class profileCustomButton: UIButton {
+    
+     init(titleButton: String) {
+        super.init(frame: .zero)
+        backgroundColor = .clear
+        setTitle(titleButton, for: .normal)
+        setTitleColor(.red, for: .normal)
+        translatesAutoresizingMaskIntoConstraints = false
+        clipsToBounds = true
+        layer.cornerRadius = 10
+        layer.borderWidth = 2
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = CGSize.zero
+        layer.shadowRadius = 15
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+

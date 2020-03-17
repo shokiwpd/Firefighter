@@ -8,72 +8,17 @@
 
 import Foundation
 import UIKit
-class ThemeUser {
-    // Функция для работы с темной темы.
-func DarkTheme(userSelect: String) -> String {
-    var ThemeName = ""
-    let todayDate = Date()
-    switch userSelect {
-        case "Темныя Тема":
-            ThemeName = "Dark"
-        case "Дневаня Тема":
-            ThemeName = "White"
-        case "Диначмиеская":
-            switch Int(todayDate.HourTime)! {
-                case 6...16:
-                    ThemeName = "White"
-                case 0...5, 17...23:
-                    ThemeName = "Dark"
-                default:
-                    print("nil")
-                }
-        default:
-            print("nil")
-        }
-     return ThemeName
-    }
-}
-// Функция для работы Таб баром с темной темой.
-extension UITabBar {
-    func darkThemeBar() {
-        let userDef = UserDefaults.standard
-        let DarkMode = userDef.bool(forKey: "DarkMode")
-        switch DarkMode {
-        case true:
-            self.barStyle = .black
-        case false:
-            self.barStyle = .default
-        }
-    }
-}
-// Функция для работы панели навигации с темной темой.
-extension UINavigationBar {
-    func darkThemeNav() {
-        let userDef = UserDefaults.standard
-        let DarkMode = userDef.bool(forKey: "DarkMode")
-        switch DarkMode {
-        case true:
-//            self.barStyle = .black
-            self.barTintColor = UIColor.yellow
-        case false:
-//            self.barStyle = .default
-            self.barTintColor = UIColor.green
-        }
-    }
-}
+/* Файл для работы с темной темой
+ 
+Данный файл полностью работает с темной темой
+Инструкция по работе с темной темой:
+ 0 - работает только с 13 версией операционной системы
+ 1 - тёмная тема работает со всеми версиями iOS
+ 2 - светлая тема работает со всеми версиями iOS
+ 
+ */
 // Функция для работы текста с темной темой.
-extension UILabel {
-    func darkThemeLabel() {
-        let userDef = UserDefaults.standard
-        let DarkMode = userDef.bool(forKey: "DarkMode")
-        switch DarkMode {
-        case true:
-            self.textColor = .white
-        case false:
-            self.textColor = .black
-        }
-    }
-}
+
 extension UIView {
     func darkThemeView() {
         let userDef = UserDefaults.standard
@@ -87,5 +32,103 @@ extension UIView {
     }
 }
 
-// system dark theme
+// Dark theme to UIView all work
+extension UIView {
+    func viewThemeColor() {
+        let give = UserDefaults.standard
+        let themeSelect = give.integer(forKey: "DarkTheme")
+            if themeSelect == 1 {
+                self.backgroundColor = #colorLiteral(red: 0.05882352941, green: 0.05882352941, blue: 0.05882352941, alpha: 1)
+            } else if themeSelect == 2 {
+                self.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9568627451, alpha: 1)
+            } else if themeSelect == 0{
+                if #available(iOS 13.0, *) {
+                    self.backgroundColor = UIColor.newDarkTheme
+                }
+            }
+        }
+}
 
+//Dark theme to UINavigationControllers All work
+extension UINavigationController {
+    func navigatinDarkTheme(){
+        let give = UserDefaults.standard
+        let themeSelect = give.integer(forKey: "DarkTheme")
+            if themeSelect == 1 {
+                self.navigationBar.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+                self.navigationBar.barTintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+                self.navigationBar.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                self.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
+                self.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
+            } else if themeSelect == 2 {
+                self.navigationBar.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                self.navigationBar.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+                self.navigationBar.barTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                self.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)]
+                self.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)]
+            } else  if themeSelect == 0 {
+                if #available(iOS 13.0, *) {
+                    self.navigationBar.backgroundColor = UIColor.navigationDark
+                    self.navigationBar.tintColor = UIColor.reversDark
+                    self.navigationBar.barTintColor = UIColor.navigationDark
+                    self.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.reversDark]
+                    self.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.reversDark]
+                }
+            }
+        }
+    }
+
+// Dark theme to UITabBar all work
+extension UITabBarController{
+    func tabBarDarkTheme() {
+        let give = UserDefaults.standard
+        let themeSelect = give.integer(forKey: "DarkTheme")
+        if themeSelect == 0 {
+            if #available(iOS 13.0, *) {
+                self.tabBar.barTintColor = UIColor.navigationDark
+            }
+        } else if themeSelect == 1 {
+            self.tabBar.barTintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        } else if themeSelect == 2{
+            self.tabBar.barTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        }
+    }
+}
+
+extension UILabel {
+    func darkThemeLabel() {
+        let give = UserDefaults.standard
+         let themeSelect = give.integer(forKey: "DarkTheme")
+        if themeSelect == 0 {
+            if #available(iOS 13.0, *) {
+                textColor = UIColor.reversDark
+            }
+        } else if themeSelect == 1 {
+            textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        } else if themeSelect == 2 {
+            textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        }
+    }
+}
+
+extension UIButton {
+    func DarkThemeButton() {
+        let give = UserDefaults.standard
+         let themeSelect = give.integer(forKey: "DarkTheme")
+        if themeSelect == 0 {
+            if #available(iOS 13.0, *) {
+                layer.borderColor = UIColor.reversDark.cgColor
+                setTitleColor(UIColor.reversDark, for: .normal)
+                layer.shadowColor = UIColor.reversDark.cgColor
+            }
+        } else if themeSelect == 1 {
+            layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
+            layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        } else if themeSelect == 2 {
+            layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+            layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        }
+    }
+}
