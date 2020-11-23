@@ -114,7 +114,15 @@ class MainViewController: UIViewController {
 //        loadQ.async {
 //            self.themeCollectionView.setTheme(cells: ThemeModel.fetchThemeSection())
 //            self.themeCollectionView.reloadData()
-//        }
+//        }pod 'Firebase/Core'
+//    pod 'Firebase/Database'
+//    pod 'Firebase/Auth'
+//    pod 'Firebase/Storage'
+//    pod 'Firebase/Messaging'
+//    pod 'MBProgressHUD'
+//    pod 'ReachabilitySwift'
+//    pod 'iosMath'
+//    pod 'IQKeyboardManagerSwift'
 //    }
 ////    @objc func DarkNotification(notif: Notification) {
 ////        guard let userInfo  = notif.userInfo, let Dark = userInfo["Name"] as? String else { return }
@@ -123,16 +131,10 @@ class MainViewController: UIViewController {
 //    //Выбор аппарата
 
     var themeCollectionView = ThemeUICollectionView()
-//    var workTableView = 
-    private var workButton: UIButton = {
-        let button = UIButton()
-        return button
-    }()
 
-    
-    override func viewDidLayoutSubviews() {
+    override func viewWillLayoutSubviews() {
         self.view.viewThemeColor()
-        themeCollectionView.topAnchor.constraint(equalTo: navigationController!.navigationBar.bottomAnchor).isActive = true
+        themeCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         themeCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         themeCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         themeCollectionView.bottomAnchor.constraint(equalTo: tabBarController!.tabBar.topAnchor).isActive = true
@@ -142,12 +144,13 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(themeCollectionView)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         NotificationCenter.default.addObserver(self, selector: #selector(DarkNotification), name: NSNotification.Name.init(rawValue: "DarkTheme"), object: nil)
+                themeCollectionView.RootViewController = self
+
     }
     
     

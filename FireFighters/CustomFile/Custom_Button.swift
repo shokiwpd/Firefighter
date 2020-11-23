@@ -43,22 +43,43 @@ extension CAGradientLayer {
 
 public class profileCustomButton: UIButton {
     
-     init(titleButton: String) {
-        super.init(frame: .zero)
-        backgroundColor = .clear
-        setTitle(titleButton, for: .normal)
-        setTitleColor(.red, for: .normal)
-        translatesAutoresizingMaskIntoConstraints = false
-        clipsToBounds = true
-        layer.cornerRadius = 10
-        layer.borderWidth = 2
-        layer.shadowOpacity = 0.5
-        layer.shadowOffset = CGSize.zero
-        layer.shadowRadius = 15
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        settingView()
+
     }
-    
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        settingView()
+    }
+    func settingView(){
+        shadow()
+        translatesAutoresizingMaskIntoConstraints = false
+        layer.cornerRadius = 10
+    }
+    func shadow() {
+        layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        layer.shadowRadius = 8
+        layer.shadowOpacity = 0.9
+        clipsToBounds = true
+        layer.masksToBounds = false
+        
     }
 }
-
+// Серая кнопка в окне авторизации и регистрации
+public class grayButton: UIButton {
+    
+}
+// Прозрачная кнопка в окне авторизации
+public class clearButton: UIButton {
+    
+}
+// изменяемая кнопка во всем приложении кроме окон авторизации и регистрации
+public class customFutton: UIButton {
+    
+}
+/*
+ 1. Первая кнопка будет использоваться только при запуске окна авторизации и регистрации так как пользователь ещ> не выбра для себя нужную тему оформления
+ 2. Вторая кнопка будет использоваться только в окне регистрации для разнообразия интерфейса авторизации. Больше нигде употребляться не будет!
+ 3. Настраиваемая кнопка. Цвет будет зависит от выбранного параметра оформления приложения( Темная, Светлая или системная(iOS >13) тема оформления)
+ */

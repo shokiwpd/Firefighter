@@ -353,4 +353,3 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
         present(navBar, animated: true)
     }
 }
-

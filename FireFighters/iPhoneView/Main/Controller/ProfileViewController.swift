@@ -1,7 +1,8 @@
 import UIKit
 import FirebaseAuth
 import Firebase
-class ProfileViewController: UIViewController {
+
+class ProfileViewController: UIViewController, UIScrollViewDelegate {
 //    var SelUsersCell = ["Личные данные","Рабочие данные","Информация","Темная тема","Смена аппарата","Сменить пользователя"]
 //    var Comments = ["Смена города","Смена данных о работе","Информация о приложении","Смена темы оформления","Сменить тип аппарата",""]
 //
@@ -216,13 +217,13 @@ class ProfileViewController: UIViewController {
 //        }
 //    }
 //
-//    var profileButton = profileCustomButton(titleButton: "Профиль")
-    var workButton = profileCustomButton(titleButton: "Рабочие данные")
-    var customButton = profileCustomButton(titleButton: "Кастомизация")
-    var exitButton = profileCustomButton(titleButton: "Выход")
-    var profileButton: UIButton = {
-       return profileCustomButton(titleButton: "Профиль")
-    }()
+//    var profileButton = profileCustomButton(titleButton: "")
+    var profileButton = profileCustomButton()//(titleButton: "Профиль")
+    var workButton = profileCustomButton()//(titleButton: "")
+    var customButton = profileCustomButton()//(titleButton: "")
+    var exitButton = profileCustomButton()//(titleButton: "")
+    var dopButton = profileCustomButton()
+    
     
     var ImageProfile: UIImageView = {
          let image = UIImageView()
@@ -238,23 +239,20 @@ class ProfileViewController: UIViewController {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 2
-        
-        
         return label
     }()
     var scrollViewProfile: UIScrollView = {
-        let scroll = UIScrollView()
+        let scroll = UIScrollView(frame: .zero)
         scroll.translatesAutoresizingMaskIntoConstraints = false
         scroll.backgroundColor = .clear
-//        scroll.isScrollEnabled = true
-        scroll.alwaysBounceVertical = true
+        scroll.autoresizingMask = .flexibleHeight
+        scroll.showsVerticalScrollIndicator = true
         return scroll
     }()
     
-    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        //load UI color theme
+        //MARK:load UI color theme
         self.navigationController?.navigatinDarkTheme()
         self.profileButton.DarkThemeButton()
         self.workButton.DarkThemeButton()
@@ -263,62 +261,94 @@ class ProfileViewController: UIViewController {
         self.userNameLabel.darkThemeLabel()
         self.view.viewThemeColor()
         
-        //scroll view constraint
+        //MARK: Scroll setting
+        let contentScroll = CGSize(width: self.view.bounds.width, height: self.view.bounds.height + 300)
+        scrollViewProfile.contentSize = contentScroll
+        scrollViewProfile.frame = self.view.bounds
+
+        
+        //MARK:scroll view constraint
         scrollViewProfile.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         scrollViewProfile.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         scrollViewProfile.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        scrollViewProfile.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        //image view constraint
+        scrollViewProfile.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: 300).isActive = true
+        //MARK:image view constraint
         ImageProfile.widthAnchor.constraint(equalToConstant: CGFloat(100)).isActive = true
         ImageProfile.heightAnchor.constraint(equalToConstant: CGFloat(100)).isActive = true
         ImageProfile.topAnchor.constraint(equalTo: scrollViewProfile.topAnchor,constant: 30).isActive = true
         ImageProfile.leadingAnchor.constraint(equalTo: scrollViewProfile.leadingAnchor, constant: 30).isActive = true
-        // name user constraint
+        //MARK:name user constraint
         userNameLabel.topAnchor.constraint(equalTo: ImageProfile.topAnchor).isActive = true
         userNameLabel.trailingAnchor.constraint(equalTo: scrollViewProfile.trailingAnchor, constant: -30).isActive = true
         userNameLabel.leadingAnchor.constraint(equalTo: ImageProfile.trailingAnchor, constant: 10).isActive = true
-        //profile button constraint
+        //MARK:profile button constraint
         profileButton.topAnchor.constraint(equalTo: ImageProfile.bottomAnchor, constant: 50).isActive = true
         profileButton.leadingAnchor.constraint(equalTo: ImageProfile.leadingAnchor).isActive = true
         profileButton.trailingAnchor.constraint(equalTo: scrollViewProfile.trailingAnchor, constant: -30).isActive = true
         profileButton.heightAnchor.constraint(equalToConstant: CGFloat(50)).isActive = true
         profileButton.centerXAnchor.constraint(equalTo: scrollViewProfile.centerXAnchor).isActive = true
-        //work button constraint
+        //MARK:work button constraint
         workButton.topAnchor.constraint(equalTo: profileButton.bottomAnchor, constant: 20).isActive = true
         workButton.leadingAnchor.constraint(equalTo: profileButton.leadingAnchor).isActive = true
         workButton.trailingAnchor.constraint(equalTo: profileButton.trailingAnchor).isActive = true
         workButton.heightAnchor.constraint(equalToConstant: CGFloat(50)).isActive = true
-        //custom button constraint
+        //MARK:custom button constraint
         customButton.topAnchor.constraint(equalTo: workButton.bottomAnchor, constant: 20).isActive = true
         customButton.leadingAnchor.constraint(equalTo: workButton.leadingAnchor).isActive = true
         customButton.trailingAnchor.constraint(equalTo: workButton.trailingAnchor).isActive = true
         customButton.heightAnchor.constraint(equalToConstant: CGFloat(50)).isActive = true
-        //exit button constraint
+        //MARK:exit button constraint
         exitButton.topAnchor.constraint(equalTo: customButton.bottomAnchor, constant: 20).isActive = true
         exitButton.leadingAnchor.constraint(equalTo: customButton.leadingAnchor).isActive = true
         exitButton.trailingAnchor.constraint(equalTo: customButton.trailingAnchor).isActive = true
         exitButton.heightAnchor.constraint(equalToConstant: CGFloat(50)).isActive = true
+        //MARK:info button constraint
+        dopButton.topAnchor.constraint(equalTo: exitButton.bottomAnchor, constant: 20).isActive = true
+        dopButton.leadingAnchor.constraint(equalTo: exitButton.leadingAnchor).isActive = true
+        dopButton.trailingAnchor.constraint(equalTo: exitButton.trailingAnchor).isActive = true
+        dopButton.heightAnchor.constraint(equalToConstant: CGFloat(50)).isActive = true
+        self.view.layoutIfNeeded()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //MARK:navigation bar setting
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "X", style: .done, target: self, action: #selector(backBarButton))
         title = ""
-        customButton.addTarget(self, action: #selector(openProfileView), for: .allEvents)
-        view.addSubview(scrollViewProfile)
+
+        //MARK:Add Action
+        profileButton.addTarget(self, action: #selector(openProfileEdith), for: .allTouchEvents)
+        workButton.addTarget(self, action: #selector(openWorkEdith), for: .allTouchEvents)
+        customButton.addTarget(self, action: #selector(openProfileView), for: .allTouchEvents)
+        exitButton.addTarget(self, action: #selector(exitProfile), for: .allTouchEvents)
+        dopButton.addTarget(self, action: #selector(inform), for: .allTouchEvents)
+        //MARK: Title button
+        profileButton.setTitle("Профиль", for: .normal)
+        workButton.setTitle("Рабочие данные", for: .normal)
+        customButton.setTitle("Кастомизация", for: .normal)
+        exitButton.setTitle("Выход", for: .normal)
+        dopButton.setTitle("О приложении", for: .normal)
+        
+        //MARK:add UIKit object
+        self.view.addSubview(scrollViewProfile)
         scrollViewProfile.addSubview(ImageProfile)
         scrollViewProfile.addSubview(userNameLabel)
         scrollViewProfile.addSubview(profileButton)
         scrollViewProfile.addSubview(workButton)
         scrollViewProfile.addSubview(customButton)
         scrollViewProfile.addSubview(exitButton)
+        scrollViewProfile.addSubview(dopButton)
+        
+       
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         NotificationCenter.default.addObserver(self, selector: #selector(DarkNotification), name: NSNotification.Name.init(rawValue: "DarkTheme"), object: nil)
     }
     override func viewDidDisappear(_ animated: Bool) {
-        print("Exit")
+        
     }
     
     // back button iOS 11
@@ -326,33 +356,69 @@ class ProfileViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
-    // custom button setting
+    @objc func openProfileEdith() {
+        let profileView = profileEdithVC()
+        if #available(iOS 13.0, *) {
+            profileView.modalPresentationStyle = .formSheet
+            present(profileView, animated: true, completion: nil)
+        } else {
+          let navigation = UINavigationController(rootViewController: profileView)
+          present(navigation, animated: true,completion: nil)
+        }
+    }
+    @objc func openWorkEdith() {
+        let profileView = workEdithVC()
+        if #available(iOS 13.0, *) {
+            profileView.modalPresentationStyle = .formSheet
+            present(profileView, animated: true, completion: nil)
+        } else {
+          let navigation = UINavigationController(rootViewController: profileView)
+          present(navigation, animated: true,completion: nil)
+        }
+    }
+    @objc func openCustomEdith() {
+        
+    }
+    @objc func exitProfile() {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print("Error")
+        }
+        let autorization = AuthAndRegistrationView()
+        autorization.modalPresentationStyle = .fullScreen
+        present(autorization, animated: true, completion: nil)
+    }
+    @objc func inform(){
+        AlertView(text: "Pavel Ulanov /b Shoki.inc")
+    }
+    //MARK: custom button setting
     @objc func openProfileView() {
            let userThemeSelect = UserDefaults.standard
-           let alertThemeText = UIAlertController(title: "TestDark", message: "This massage special to test dark theme iOS 13", preferredStyle: .alert)
+           let alertThemeText = UIAlertController(title: "Смена темы", message: "Смена темы оформления", preferredStyle: .alert)
            if #available(iOS 13.0, *) {
-               alertThemeText.addAction(UIAlertAction(title: "Autho iOS 13", style: .default, handler: { (UIAlertAction) in
+               alertThemeText.addAction(UIAlertAction(title: "Автоматическая", style: .default, handler: { (UIAlertAction) in
                    userThemeSelect.set(0, forKey: "DarkTheme")
                    userThemeSelect.synchronize()
                    NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "DarkTheme"), object: nil, userInfo: ["Type" : "Auto"])
                }))
            }
-               alertThemeText.addAction(UIAlertAction(title: "Dark", style: .default, handler: { (UIAlertAction) in
+               alertThemeText.addAction(UIAlertAction(title: "Тёмная тема", style: .default, handler: { (UIAlertAction) in
                    userThemeSelect.set(1, forKey: "DarkTheme")
                    userThemeSelect.synchronize()
                    NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "DarkTheme"), object: nil, userInfo: ["Type" : "Dark"])
                }))
            
-               alertThemeText.addAction(UIAlertAction(title: "White", style: .default, handler: { (UIAlertAction) in
+               alertThemeText.addAction(UIAlertAction(title: "Светлая тема", style: .default, handler: { (UIAlertAction) in
                    userThemeSelect.set(2, forKey: "DarkTheme")
                    userThemeSelect.synchronize()
                    NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "DarkTheme"), object: nil, userInfo: ["Type" : "White"])
                }))
            
-           alertThemeText.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: nil))
+           alertThemeText.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
            present(alertThemeText, animated: true, completion: nil)
        }
+    
         @objc func DarkNotification(notif: Notification) {
             guard let userInfo  = notif.userInfo, let Dark = userInfo["Type"] as? String else { return }
             if Dark != "" {
@@ -368,5 +434,8 @@ class ProfileViewController: UIViewController {
                 }
             }
         }
+    override func viewWillDisappear(_ animated: Bool) {
+        
+    }
 }
 

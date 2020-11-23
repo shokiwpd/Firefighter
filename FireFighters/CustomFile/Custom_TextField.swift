@@ -37,5 +37,48 @@ class textFields: UITextField {
         return super.canPerformAction(action, withSender: sender)
     }
 }
- 
+public class profileEdithText: UITextField {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        borderStyle = .roundedRect
+        keyboardType = .default
+        textAlignment = .center
+        backgroundColor = .clear
+        translatesAutoresizingMaskIntoConstraints = false
+        textFieldDarkTheme()
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+    }
+    
+    func addLines(w: CGFloat){
+        let layer = CAShapeLayer()
+            layer.fillColor = nil
+            layer.lineCap = convertToCAShapeLayerLineCap("miter")
+            layer.lineWidth = 2
+            layer.darkThemeLayer()
+            layer.strokeEnd = 1
+       
+        self.backgroundColor = UIColor.clear
+        self.borderStyle = .none
+        
+        let patching = UIBezierPath()
+        patching.move(to: CGPoint(x: 0, y: 40.0))
+        patching.addLine(to: CGPoint(x: w, y: 40.0))
+        layer.path = patching.cgPath
+        self.layer.addSublayer(layer)
+    }
+    public override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        if action == #selector(copy(_:)) || action == #selector(selectAll(_:)) || action == #selector(paste(_:)) || action == #selector(select(_:)) || action == #selector(cut(_:)){
+            return false
+        }
+        return super.canPerformAction(action, withSender: sender)
+    }
 
+}
+fileprivate func convertToCAShapeLayerLineCap(_ input: String) -> CAShapeLayerLineCap {
+    return CAShapeLayerLineCap(rawValue: input)
+}

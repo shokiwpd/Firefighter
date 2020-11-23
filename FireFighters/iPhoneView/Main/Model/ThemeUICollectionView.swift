@@ -107,20 +107,22 @@ class ThemeUICollectionView: UICollectionView, UICollectionViewDelegate, UIColle
 //        // Drawing code
 //    }
 //    */
-    
-    var newsCell = ["Новый дизайн","Новые возможности","Всё с нуля!"]
-    var titleCell = ["Новый дизайн приложения. Красивый дизайн для всех устройств от iOS 10 и выше","Новые возможности в новом обновлении. Новые расчеты, новые документы и управление профилем","Полностью с нуля! Что изменилось и что ещё будет"]
+        weak var RootViewController: UIViewController?
+
+    var newsCell = ["Новые расчеты","Новый дизайн","Всё с нуля!","Вы делаете приложение"]
+    var titleCell = ["Новый вид расчетов. Теперь вы можете производить расчет как при решении билетов, так и на пожаре(учениях)","Новый дизайн упрощает работу с приложением. Взгляните что нового появилось в нашем приложении","Полностью с нуля! Что изменилось и что ещё будет", "Вступите в нашу группу в социальной сети Вконтакте и решите что стоит внести ещё и что будет лишним"]
     
     init(){
         let layautCollectionView = UICollectionViewFlowLayout()
         layautCollectionView.scrollDirection = .vertical
         super.init(frame: .zero, collectionViewLayout: layautCollectionView)
-//        viewThemeColor() // dark theme func init
         backgroundColor = .clear
         delegate = self
         dataSource = self
+        //
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
+        //
         register(ThemeCollectionViewCell.self, forCellWithReuseIdentifier: ThemeCollectionViewCell.cellID )
         translatesAutoresizingMaskIntoConstraints = false
         layautCollectionView.minimumLineSpacing = 20
@@ -134,7 +136,9 @@ class ThemeUICollectionView: UICollectionView, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return newsCell.count
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        operUrl(cellInt: indexPath.row)
+    }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: ThemeCollectionViewCell.cellID, for: indexPath) as! ThemeCollectionViewCell
         cell.titleNews.text = newsCell[indexPath.row]
@@ -144,7 +148,24 @@ class ThemeUICollectionView: UICollectionView, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: Int(frame.width * 0.8), height: Int(frame.width * 0.8))//Int(frame.height * 0.5))
     }
-    
+    func operUrl(cellInt: Int) {
+        let VC = documentsVC()
+        switch cellInt {
+        case 0: VC.filesName = "https://vk.com/@firefighterapp-novye-raschety"
+        case 1: VC.filesName = "https://vk.com/@firefighterapp-novyi-dizain"
+        case 2: VC.filesName = "https://vk.com/@firefighterapp-vse-s-nulya"
+        case 3: VC.filesName = "https://vk.com/@firefighterapp-vy-delaete-prilozhenie"
+        default:
+            print(cellInt)
+        }
+        RootViewController?.navigationController?.pushViewController(VC, animated: true)//.present(VC, animated:  true, completion: nil)
+    }
     
 }
 
+//URL_VK_STATE
+
+//vk.com/@firefighterapp-novye-raschety
+//vk.com/@firefighterapp-novyi-dizain
+//vk.com/@firefighterapp-vse-s-nulya
+//vk.com/@firefighterapp-vy-delaete-prilozhenie

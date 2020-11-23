@@ -9,18 +9,33 @@
 import UIKit
 import WebKit
 import MBProgressHUD
-class documentsVC: UIViewController, WKNavigationDelegate {
+class documentsVC: UIViewController, WKNavigationDelegate, WKUIDelegate {
+        
+    var articleWebView: WKWebView = {
+       let webViews = WKWebView()
+        webViews.translatesAutoresizingMaskIntoConstraints = false
+        return webViews
+    }()
     
-    @IBOutlet weak var webPDFview: WKWebView!
+    override func loadView() {
+        let webConfig = WKWebViewConfiguration()
+        articleWebView = WKWebView(frame: .zero, configuration: webConfig)
+        articleWebView.uiDelegate = self
+        view = articleWebView
+    }
+    override func viewWillLayoutSubviews() {
+        articleWebView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        articleWebView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        articleWebView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        articleWebView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+    }
     
     var filesName = ""
-    override func viewDidLayoutSubviews() {
-        webPDFview.backgroundColor = .black
-    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         progressView()
-        webPDFview.navigationDelegate = self
+        articleWebView.navigationDelegate = self
         openPDFfile(filename: filesName)
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -32,10 +47,10 @@ class documentsVC: UIViewController, WKNavigationDelegate {
         dismiss(animated: true, completion: nil)
     }
     private func openPDFfile(filename: String){
-        if let filePath = Bundle.main.url(forResource: filename, withExtension: "pdf") {
-            let reauest = URLRequest(url: filePath)
-            webPDFview.load(reauest)
-        }
+        let myURL = URL(string: filename)
+        let reauest = URLRequest(url: myURL!)
+            articleWebView.load(reauest)
+        
     }
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         MBProgressHUD.hide(for: self.view, animated: true)

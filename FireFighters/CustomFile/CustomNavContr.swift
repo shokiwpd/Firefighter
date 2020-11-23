@@ -41,31 +41,7 @@ class mainNavigationBar: UINavigationController, UINavigationBarDelegate {
           present(navigation, animated: true,completion: nil)
         }
     }
-    @objc func openProfileView() {
-        let userThemeSelect = UserDefaults.standard
-        let alertThemeText = UIAlertController(title: "TestDark", message: "This massage special to test dark theme iOS 13", preferredStyle: .alert)
-        if #available(iOS 13.0, *) {
-            alertThemeText.addAction(UIAlertAction(title: "Autho iOS 13", style: .default, handler: { (UIAlertAction) in
-                userThemeSelect.set(0, forKey: "DarkTheme")
-                userThemeSelect.synchronize()
-                NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "DarkTheme"), object: nil, userInfo: ["Type" : "Auto"])
-            }))
-        }
-            alertThemeText.addAction(UIAlertAction(title: "Dark", style: .default, handler: { (UIAlertAction) in
-                userThemeSelect.set(1, forKey: "DarkTheme")
-                userThemeSelect.synchronize()
-                NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "DarkTheme"), object: nil, userInfo: ["Type" : "Dark"])
-            }))
-        
-            alertThemeText.addAction(UIAlertAction(title: "White", style: .default, handler: { (UIAlertAction) in
-                userThemeSelect.set(2, forKey: "DarkTheme")
-                userThemeSelect.synchronize()
-                NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "DarkTheme"), object: nil, userInfo: ["Type" : "White"])
-            }))
-        
-        alertThemeText.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: nil))
-        present(alertThemeText, animated: true, completion: nil)
-    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)

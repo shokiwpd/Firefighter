@@ -12,14 +12,14 @@ class SelectTimeFireFighter: UIViewController,UITextFieldDelegate {//, UIPickerV
 
     
     @IBOutlet weak var FireFighter1: UITextField!
-    let FireFighter1_PV = UIPickerView()
     @IBOutlet weak var FireFighter2: UITextField!
-    let FireFighter2_PV = UIPickerView()
     @IBOutlet weak var FireFighter3: UITextField!
-    let FireFighter3_PV = UIPickerView()
     @IBOutlet weak var FireFighter4: UITextField!
-    let FireFighter4_PV = UIPickerView()
     @IBOutlet weak var FireFighter5: UITextField!
+    let FireFighter1_PV = UIPickerView()
+    let FireFighter2_PV = UIPickerView()
+    let FireFighter3_PV = UIPickerView()
+    let FireFighter4_PV = UIPickerView()
     let FireFighter5_PV = UIPickerView()
     @IBOutlet weak var FireFighterLabel2: UILabel!
     @IBOutlet weak var FireFighterLabel3: UILabel!
@@ -187,3 +187,20 @@ private func saveData() {
         }
     }
 }
+//pod 'Firebase/Core'
+//pod 'Firebase/Database'
+//pod 'Firebase/Auth'
+//pod 'Firebase/Storage'
+//pod 'Firebase/Messaging'
+//pod 'MBProgressHUD'
+//pod 'ReachabilitySwift'
+//pod 'iosMath'
+//pod 'IQKeyboardManagerSwift'
+//
+//post_install do |pi|
+//    pi.pods_project.targets.each do |t|
+//      t.build_configurations.each do |config|
+//        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.0'
+//      end
+//    end
+//end
