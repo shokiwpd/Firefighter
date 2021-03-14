@@ -16,20 +16,20 @@ class MainTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(DarkNotification), name: NSNotification.Name.init(rawValue: "DarkTheme"), object: nil)
+        
         viewControllers = [
-            openView(with: MainViewController(), titleName: "Главная", imageBar: #imageLiteral(resourceName: "GL")),
-            openView(with: CalculationViewController(), titleName: "Расчеты", imageBar: #imageLiteral(resourceName: "RS")),
-            openView(with: DocViewController(), titleName: "Документация", imageBar: #imageLiteral(resourceName: "DOC"))
+//            openView(with: MainViewController(), titleName: "Главная", imageBar: #imageLiteral(resourceName: "mainIcon")),
+            openView(with: CalculationViewController(), titleName: "Расчеты", imageBar: #imageLiteral(resourceName: "calculIcon")),
+            openView(with: DocViewController(), titleName: "Документация", imageBar: #imageLiteral(resourceName: "documIcon"))
         ]
      }
     //segue to tabbar
     func openView(with rootController: UIViewController, titleName: String, imageBar: UIImage) -> UIViewController {
-        let naviViewCintroller = mainNavigationBar(rootViewController: rootController) // Присваиваем имя для перехода на контроллер с нав баром
-        naviViewCintroller.tabBarItem.title = titleName // имя раздела
-        naviViewCintroller.tabBarItem.image = imageBar // изображение раздела
+        let naviViewController = mainNavigationBar(rootViewController: rootController) // Присваиваем имя для перехода на контроллер с нав баром
+        naviViewController.tabBarItem.title = titleName // имя раздела
+        naviViewController.tabBarItem.image = imageBar // изображение раздела
         rootController.navigationItem.title = titleName
-        return naviViewCintroller
+        return naviViewController
     }
     
     override func viewWillAppear(_ animated: Bool) {

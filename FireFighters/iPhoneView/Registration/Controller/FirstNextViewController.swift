@@ -55,7 +55,7 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                     text.textAlignment = .left
                     text.returnKeyType = .next
                     text.translatesAutoresizingMaskIntoConstraints = false
-                    text.keyboardType = .decimalPad
+                    text.keyboardType = .numberPad
                 return text
             }()
             //---  change number
@@ -381,25 +381,6 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @objc func hideKeyboard() {
         dasvView.endEditing(true)
     }
-    
-    @objc func testCheking(_ textField: UITextField) {
-        let text = """
-        Ваше Имя \(nameUser!)
-        Работаете в \(changeNumber.text!) карауле
-        Ваше Отчество \(patronymicUser!)
-        Родились \(dateBirthdayUser!)!
-        Ваш город\(cityUser!)
-        Объем вашего баллона \(volumeBallons.text!) л.
-        Вы \(positionSelect.text!)
-        Коэффециент сжатия воздуха \(airCompression.text!)
-        В части №\(numberParth.text!)
-        средний расход будет \(airConsumption.text!) л/с
-        А редуктор стабильно работает при \(gearOperation.text!) Bar
-        type \(unitTypeField.text!)
-        """
-
-        AlertView(text: text)
-    }
     @objc func saveUserData() {
         guard numberParth.text! != "" else {return AlertView(text: "Укажите номер части!")}
         guard changeNumber.text! != "" else {return AlertView(text: "Укажите номер караула!")}
@@ -432,6 +413,9 @@ class FirstNextViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         let saveDataBase = userInfoFIR(Name: nameUser, Patronymic: patronymicUser, City: cityUser, Position: positionSelect.text!, PartNumb: numberParth.text!, ChangeNum: Int(changeNumber.text!)! as NSNumber, BirthDay: dateBirthdayUser, UnitType: unitTypeField.text!,vballons: Double(volumeBallons.text!.forrmated)! as NSNumber, AspectRatio: Double(airCompression.text!.forrmated)! as NSNumber, AirFlow: Double(airConsumption.text!.forrmated)! as NSNumber, GearboxOperation: Double(gearOperation.text!.forrmated)! as NSNumber)
                     let infoRef = self.DataReference.child(userTocken!)
                         infoRef.setValue(saveDataBase.convertDataBase())
+        let userDef = UserDefaults.standard
+        userDef.set(2, forKey: "DarkTheme")
+        userDef.synchronize()
         nextVC()
     }
      private func nextVC() {

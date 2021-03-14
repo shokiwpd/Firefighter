@@ -31,7 +31,7 @@ class loginVCiPad: UIViewController, UITextFieldDelegate {
     override func viewDidLayoutSubviews() {
         appNameLabel.LoginLabel(viewHeight: Double(view.bounds.height))
         buttonGardients.gardientButton(w: authButtonStyle.frame.size.width, h: authButtonStyle.frame.size.height)
-        authButtonStyle.grayButton(nameBut: "Авторизироваться")
+//        authButtonStyle.grayButton(nameBut: "Авторизироваться")
         authButtonStyle.layer.insertSublayer(buttonGardients, at: 0)
         //Прорисовка линий в поле ввода текста
         loginLine.layerLine(strokeColors: UIColor.gray.cgColor)

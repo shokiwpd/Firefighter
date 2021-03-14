@@ -4,7 +4,7 @@ import FirebaseAuth
 import Reachability
 import MBProgressHUD
 
-class creatUserProfile: UIViewController, UITextFieldDelegate, getTockenUser {
+class creatUserProfile: UIViewController, getTockenUser {
     
     //gardient and layer var
     var buttonGardients = CAGradientLayer()
@@ -58,7 +58,8 @@ class creatUserProfile: UIViewController, UITextFieldDelegate, getTockenUser {
         view.backgroundColor = .clear
         return view
         }()
-    
+    let passwordChek = "^(?=.*[A-Z])[A-Za-z]{,}$"
+    let minimumCount = 6
     
     override func viewDidLayoutSubviews() {
         buttonGardients.gardientButton(w: addProfileButton.frame.size.width, h: addProfileButton.frame.size.height)
@@ -192,6 +193,7 @@ class creatUserProfile: UIViewController, UITextFieldDelegate, getTockenUser {
         navigationView.modalTransitionStyle = .crossDissolve
         present(navigationView, animated: true, completion: nil)
     }
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         if textField == emailField {
@@ -207,3 +209,6 @@ class creatUserProfile: UIViewController, UITextFieldDelegate, getTockenUser {
     }
 }
 
+extension creatUserProfile: UITextFieldDelegate {
+    
+}

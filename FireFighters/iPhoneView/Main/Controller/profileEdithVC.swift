@@ -8,7 +8,7 @@
 
 import UIKit
 
-class profileEdithVC: UIViewController, UITextFieldDelegate {
+class profileEdithVC: UIViewController, UITextFieldDelegate, getTockenUser {
     //MARK: Add UI element
     let photoUser: UIImageView = {
         let image = UIImageView()
@@ -21,6 +21,11 @@ class profileEdithVC: UIViewController, UITextFieldDelegate {
         date.datePickerMode = .date
         date.locale = Locale.init(identifier: "RU")
         date.maximumDate = Date()
+        if #available(iOS 13.4, *) {
+            date.preferredDatePickerStyle = .wheels
+        } else {
+            // Fallback on earlier versions
+        }
         return date
     }()
     
@@ -29,6 +34,7 @@ class profileEdithVC: UIViewController, UITextFieldDelegate {
     var cityUserEdith = profileEdithText()
     let birthDayeUserEdith = profileEdithText()
     let saveEdithData = profileCustomButton()
+    
     var scrollViewProfile: UIScrollView = {
         let scroll = UIScrollView(frame: .zero)
         scroll.translatesAutoresizingMaskIntoConstraints = false
@@ -49,45 +55,15 @@ class profileEdithVC: UIViewController, UITextFieldDelegate {
                scrollViewProfile.contentSize = contentScroll
                scrollViewProfile.frame = self.view.bounds
 
-               //MARK:scroll view constraint
-               scrollViewProfile.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-               scrollViewProfile.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-               scrollViewProfile.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-               scrollViewProfile.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: 200).isActive = true
+        //MARK:scroll view constraint
+        scrollViewProfile.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        scrollViewProfile.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        scrollViewProfile.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        scrollViewProfile.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: 200).isActive = true
+       
+        //func setting layout
+        layOutUIKitSetting()
         
-        //MARK: Name User constraint
-        nameUserEdith.topAnchor.constraint(equalTo: scrollViewProfile.topAnchor, constant: 30).isActive = true
-        nameUserEdith.trailingAnchor.constraint(equalTo: scrollViewProfile.trailingAnchor, constant: -30).isActive = true
-        nameUserEdith.leadingAnchor.constraint(equalTo: scrollViewProfile.leadingAnchor, constant: 30).isActive = true
-        nameUserEdith.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        nameUserEdith.addLines(w: nameUserEdith.frame.size.width)
-//        nameUserEdith.
-        //MARK: Patronym User constraint
-        patronymUserEdith.topAnchor.constraint(equalTo: nameUserEdith.bottomAnchor, constant: 30).isActive = true
-        patronymUserEdith.trailingAnchor.constraint(equalTo: nameUserEdith.trailingAnchor).isActive = true
-        patronymUserEdith.leadingAnchor.constraint(equalTo: nameUserEdith.leadingAnchor).isActive = true
-        patronymUserEdith.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        patronymUserEdith.addLines(w: nameUserEdith.frame.size.width)
-        //MARK: City User constraint
-        cityUserEdith.topAnchor.constraint(equalTo: patronymUserEdith.bottomAnchor, constant: 30).isActive = true
-        cityUserEdith.trailingAnchor.constraint(equalTo: patronymUserEdith.trailingAnchor).isActive = true
-        cityUserEdith.leadingAnchor.constraint(equalTo: patronymUserEdith.leadingAnchor).isActive = true
-        cityUserEdith.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        patronymUserEdith.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-
-        cityUserEdith.addLines(w: nameUserEdith.frame.size.width)
-        //MARK: Date Birthday field
-        birthDayeUserEdith.topAnchor.constraint(equalTo: cityUserEdith.bottomAnchor, constant: 30).isActive = true
-        birthDayeUserEdith.trailingAnchor.constraint(equalTo: patronymUserEdith.trailingAnchor).isActive = true
-        birthDayeUserEdith.leadingAnchor.constraint(equalTo: patronymUserEdith.leadingAnchor).isActive = true
-        birthDayeUserEdith.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        birthDayeUserEdith.addLines(w: birthDayeUserEdith.frame.size.width)
-//        birthDayeUserEdith
-        //MARK: save button constraint
-        saveEdithData.topAnchor.constraint(equalTo: birthDayeUserEdith.bottomAnchor, constant: 40).isActive = true
-        saveEdithData.trailingAnchor.constraint(equalTo: birthDayeUserEdith.trailingAnchor).isActive = true
-        saveEdithData.leadingAnchor.constraint(equalTo: birthDayeUserEdith.leadingAnchor).isActive = true
-        saveEdithData.heightAnchor.constraint(equalToConstant: 50).isActive = true
         view.layoutIfNeeded()
 
     }
@@ -118,12 +94,16 @@ class profileEdithVC: UIViewController, UITextFieldDelegate {
         cityUserEdith.placeholder = profileDataLoadAndSave.userCity
         birthDayeUserEdith.placeholder = profileDataLoadAndSave.userBirthday
         
-        saveEdithData.setTitle("Save", for: .normal)
+        saveEdithData.setTitle("Сохранить", for: .normal)
         saveEdithData.addTarget(self, action: #selector(printAllAlert), for: .touchUpInside)
     }
     
     @objc func printAllAlert() {
-        print("\(nameUserEdith.text!)\(patronymUserEdith.text!)\(cityUserEdith.text!)\(edihtDateString(date: datePickerField.date)!)")
+        if nameUserEdith.text == "" {nameUserEdith.text = profileDataLoadAndSave.userName}
+        if patronymUserEdith.text == "" {patronymUserEdith.text = profileDataLoadAndSave.userPatronymic}
+        if cityUserEdith.text == "" {cityUserEdith.text = profileDataLoadAndSave.userCity}
+        if birthDayeUserEdith.text == "" {cityUserEdith.text = profileDataLoadAndSave.userBirthday}
+        edithProfileUser(nameUserEdith.text!, patronymUserEdith.text!, cityUserEdith.text!, birthDayeUserEdith.text!)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -136,9 +116,65 @@ class profileEdithVC: UIViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         birthDayeUserEdith.text = edihtDateString(date: datePickerField.date)!
     }
+    
+    func edithProfileUser(_ name: String, _ patronymic: String, _ city: String, _ date: String ) {
+        if name != profileDataLoadAndSave.userName{
+            self.DataReference.child(userTocken!).updateChildValues(["name": name])
+            profileDataLoadAndSave.userName = name
+        }
+        if patronymic != profileDataLoadAndSave.userPatronymic{
+            self.DataReference.child(userTocken!).updateChildValues(["patronymic": patronymic])
+            profileDataLoadAndSave.userPatronymic = patronymic
+        }
+        if city != profileDataLoadAndSave.userCity{
+            self.DataReference.child(userTocken!).updateChildValues(["city": city])
+            profileDataLoadAndSave.userCity = city
+        }
+        if date != profileDataLoadAndSave.userBirthday{
+            self.DataReference.child(userTocken!).updateChildValues(["birthDay": date])
+            profileDataLoadAndSave.userBirthday = date
+        }
+    }
+    
     @objc func backButtom(){
         self.dismiss(animated: true, completion: nil)
     }
-
+    func layOutUIKitSetting() {
+        //MARK: Name User constraint
+        nameUserEdith.layOutSettingTextField(scrollViewProfile.topAnchor, 30,
+                                             scrollViewProfile.leadingAnchor, 30,
+                                             scrollViewProfile.trailingAnchor, -30,
+                                             nil, 0)
+        nameUserEdith.heightTextField(40)
+        nameUserEdith.addLines(w: nameUserEdith.frame.size.width)
+        //MARK: Patronym User constraint
+        patronymUserEdith.layOutSettingTextField(nameUserEdith.bottomAnchor, 30,
+                                                 nameUserEdith.leadingAnchor, 0,
+                                                 nameUserEdith.trailingAnchor, 0,
+                                                 nil, 0)
+        patronymUserEdith.heightTextField(40)
+        patronymUserEdith.addLines(w: nameUserEdith.frame.size.width)
+        patronymUserEdith.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        //MARK: City User constraint
+        cityUserEdith.layOutSettingTextField(patronymUserEdith.bottomAnchor, 30,
+                                             patronymUserEdith.leadingAnchor, 0,
+                                             patronymUserEdith.trailingAnchor, 0,
+                                             nil, 0)
+        cityUserEdith.heightTextField(40)
+        cityUserEdith.addLines(w: nameUserEdith.frame.size.width)
+        //MARK: Date Birthday field
+        birthDayeUserEdith.layOutSettingTextField(cityUserEdith.bottomAnchor, 30,
+                                                  patronymUserEdith.leadingAnchor, 0,
+                                                  patronymUserEdith.trailingAnchor, 0,
+                                                  nil, 0)
+        birthDayeUserEdith.heightTextField(40)
+        birthDayeUserEdith.addLines(w: birthDayeUserEdith.frame.size.width)
+        //MARK: save button constraint
+        saveEdithData.layOutSettingButton(birthDayeUserEdith.bottomAnchor, 40,
+                                          birthDayeUserEdith.leadingAnchor, 0,
+                                          birthDayeUserEdith.trailingAnchor, 0,
+                                          nil, 0)
+        saveEdithData.heightButton(50)
+    }
 
 }

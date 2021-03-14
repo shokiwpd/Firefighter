@@ -21,7 +21,8 @@ class authStoryBoardVCiPad: UIViewController {
 
     
     override func viewDidLayoutSubviews() {
-        loginButton.grayButton(nameBut: "Вход")
+//        loginButton.grayButton(nameBut: "Вход")
+        
         registrationButton.clearButton(nameBut: "Регистрация")
         appNameLabel.UIfontLabel(viewHeight: Double(view.bounds.height))
         allButtonGarfients.gardientButton(w: loginButton.frame.size.width, h: loginButton.frame.size.height)

@@ -10,23 +10,23 @@ class newCalc {
     let calcDataBase = UserProfile.userInform
     var FF1 = 0
     var FF2 = 0
-    var FF3 = 0
-    var FF4 = 0
-    var FF5 = 0
+    lazy var FF3 = 0
+    lazy var FF4 = 0
+    lazy var FF5 = 0
     //При нахождении очага
-        var FF1_h = 0
-        var FF2_h = 0
-        var FF3_h = 0
-        var FF4_h = 0
-        var FF5_h = 0
+        lazy var FF1_h = 0
+        lazy var FF2_h = 0
+        lazy var FF3_h = 0
+        lazy var FF4_h = 0
+        lazy var FF5_h = 0
     //Данные из БД
-        let vBallons = UserProfile.userInform.userVBallons
-        let compressionFactor = UserProfile.userInform.userAspectRatio// calcDataBase.userAspectRatio
-        let airFlow = UserProfile.userInform.userAirFlow// calcDataBase.userAirFlow
+    let vBallons = UserProfile.userInform.userVBallons
+    let compressionFactor = UserProfile.userInform.userAspectRatio// calcDataBase.userAspectRatio
+    let airFlow = UserProfile.userInform.userAirFlow// calcDataBase.userAirFlow
         let reducerPressure = UserProfile.userInform.userGearboxOperation// = calcDataBase.userGearboxOperation
     //Данные для решения
-            var hearth = false
-            var complexity = false
+            var hearth = false //очаг
+            var complexity = false //условия
     //Итоговые данные без очага
         var pMinAir = 0
         var pMaxDown = 0 // Максимальное падение
@@ -119,6 +119,7 @@ class newCalc {
             tWorkHearth = Int(Double(Double(pMinAirHearth - pExitHearth) * vBallons) / Double(airFlow * compressionFactor))
         
         print("Время раюоты у очага \(tWorkHearth)")
+        print("\(vBallons),\(compressionFactor),\(airFlow),\(reducerPressure)")
     }
     func calculationsTime(time: Date, toTime: Int)-> String!{
         let TimeConvert = Double(Int(time.timeIntervalSince1970) + (toTime * 60))

@@ -29,6 +29,7 @@ import IQKeyboardManagerSwift
         }
         application.registerForRemoteNotifications()
         IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.toolbarManageBehaviour = .byTag
         FirebaseApp.configure()
         window = UIWindow()
         window?.makeKeyAndVisible()

@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import iosMath
+
 /* Файл для работы с темной темой
  
 Данный файл полностью работает с темной темой
@@ -128,6 +130,40 @@ extension UILabel {
         }
     }
 }
+
+extension MTMathUILabel {
+    func darkMathLabel(){
+        let give = UserDefaults.standard
+        let themeSelect = give.integer(forKey: "DarkTheme")
+        if themeSelect == 0 {
+            if #available(iOS 13.0, *) {
+                textColor = UIColor.reversDark
+            }
+        } else if themeSelect == 1 {
+            textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        } else if themeSelect == 2 {
+            textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        }
+    }
+}
+extension UIDatePicker {
+    func darkThemeDatePicker(){
+        let give = UserDefaults.standard
+        let themeSelect = give.integer(forKey: "DarkTheme")
+        if themeSelect == 0 {
+            if #available(iOS 13.0, *) {
+                setValue(UIColor.reversDark, forKey: "textColor")
+            }
+        } else if themeSelect == 1 {
+            setValue(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), forKey: "textColor")
+        } else if themeSelect == 2 {
+            setValue(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), forKey: "textColor")
+
+        }
+
+    }
+}
+
 extension UITextField {
     func textFieldDarkTheme() {
         let give = UserDefaults.standard
@@ -160,6 +196,22 @@ extension UIButton {
             setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         } else if themeSelect == 2 {
             backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+        }
+    }
+    func calculationResultThemeButton(){
+        let give = UserDefaults.standard
+        let themeSelect = give.integer(forKey: "DarkTheme")
+        if themeSelect == 0 {
+            if #available(iOS 13.0, *) {
+                layer.shadowColor = UIColor.pureColor.cgColor
+                setTitleColor(UIColor.pureColor, for: .normal)
+            }
+        } else if themeSelect == 1 {
+            layer.shadowColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9647058824, alpha: 1)
+            setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        } else if themeSelect == 2 {
             layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
         }

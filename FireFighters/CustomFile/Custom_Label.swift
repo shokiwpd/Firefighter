@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import iosMath
 import UIKit
 
 
@@ -21,6 +22,8 @@ extension UILabel {
             self.font = UIFont(name:  "signpainter-housescript", size: 85)//iPhone 6+,7+,8+
         case 792.0...812.0:
             self.font = UIFont(name:  "signpainter-housescript", size: 75)//iPhone X,XS,XR,11 Pro,11 Pro Max
+        case 926.0...946:
+            self.font = UIFont(name:  "signpainter-housescript", size: 80)//iPhone 12 Max Pro
         case 876.0...896.0:
             self.font = UIFont(name:  "signpainter-housescript", size: 85)//iPhone XS_Max,11
         case 1004.0...1024.0:
@@ -90,6 +93,117 @@ extension UILabel {
                 self.font = UIFont.systemFont(ofSize: 20)
             default:
                 self.font = UIFont.systemFont(ofSize: 30)
+        }
+    }
+    func layOutSettingLabel(_ top: NSLayoutAnchor<NSLayoutYAxisAnchor>?,
+                            _ topConst: CGFloat,
+                            _ leading:NSLayoutAnchor<NSLayoutXAxisAnchor>?,
+                            _ leadingConst: CGFloat,
+                            _ trailing: NSLayoutAnchor<NSLayoutXAxisAnchor>?,
+                            _ trailingConst: CGFloat,
+                            _ bottom: NSLayoutAnchor<NSLayoutYAxisAnchor>?,
+                            _ bottomConst: CGFloat){
+        if let top = top {
+            topAnchor.constraint(equalTo: top, constant: topConst).isActive = true
+        }
+        if let leading = leading {
+            leadingAnchor.constraint(equalTo: leading, constant: leadingConst).isActive = true
+        }
+        if let trailing = trailing {
+            trailingAnchor.constraint(equalTo: trailing, constant: trailingConst).isActive = true
+        }
+        if let bottom = bottom {
+            bottomAnchor.constraint(equalTo: bottom, constant: bottomConst).isActive = true            
+        }
+    }
+    func topLabel(_ top: NSLayoutAnchor<NSLayoutYAxisAnchor>, _ con: CGFloat){
+        topAnchor.constraint(equalTo: top, constant: con).isActive = true
+    }
+    func leadingLabel(_ leading:NSLayoutAnchor<NSLayoutXAxisAnchor>,_ con: CGFloat){
+        leadingAnchor.constraint(equalTo: leading, constant: con).isActive = true
+    }
+    func trailingLabel(_ trailing: NSLayoutAnchor<NSLayoutXAxisAnchor>,_ con:CGFloat){
+        trailingAnchor.constraint(equalTo: trailing, constant: con).isActive = true
+    }
+    func bottomLabel(_ bottom: NSLayoutAnchor<NSLayoutYAxisAnchor>,_ con: CGFloat){
+        bottomAnchor.constraint(equalTo: bottom, constant: con).isActive = true
+    }
+    func heightLabel(_ h: CGFloat){
+        heightAnchor.constraint(equalToConstant: h).isActive = true
+    }
+    func widthLabel(_ w: CGFloat){
+        widthAnchor.constraint(equalToConstant: w).isActive = true
+    }
+    
+}
+
+public class calculationLabel: UILabel {
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        settingUILabel()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        settingUILabel()
+    }
+    
+    func settingUILabel() {
+        translatesAutoresizingMaskIntoConstraints = false
+        numberOfLines = 0
+    }
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        NotificationCenter.default.addObserver(self, selector: #selector(DarkNotification), name: NSNotification.Name.init(rawValue: "DarkTheme"), object: nil)
+        self.darkThemeLabel()
+    }
+    @objc func DarkNotification(notif: Notification) {
+        guard let userInfo  = notif.userInfo, let Dark = userInfo["Type"] as? String else { return }
+        if Dark != "" {
+            let mainViewReload = DispatchQueue.main
+                mainViewReload.async {
+                    self.darkThemeLabel()
+            }
+        }
+    }
+}
+extension MTMathUILabel {
+    func fontSettingMTM(_ dView: Double) {
+        switch dView {
+        case 548.0...568.0:
+            fontSize = 15
+        default: fontSize = 20
+        }
+    }
+}
+
+public class calculationMTMlabel: MTMathUILabel {
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        settingMTMUIlabel()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        settingMTMUIlabel()
+    }
+    
+    func settingMTMUIlabel() {
+        translatesAutoresizingMaskIntoConstraints = false
+        sizeToFit()
+    }
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        NotificationCenter.default.addObserver(self, selector: #selector(DarkNotification), name: NSNotification.Name.init(rawValue: "DarkTheme"), object: nil)
+        self.darkMathLabel()
+    }
+    @objc func DarkNotification(notif: Notification) {
+        guard let userInfo  = notif.userInfo, let Dark = userInfo["Type"] as? String else { return }
+        if Dark != "" {
+            let mainViewReload = DispatchQueue.main
+                mainViewReload.async {
+                    self.darkMathLabel()
+            }
         }
     }
 }

@@ -19,5 +19,11 @@ extension String {
     var dataFormat: String {
         return self.replacingOccurrences(of: ":", with: ".", options: .literal, range: nil)
     }
+    func chekingIntegerString(_ st: String) -> Bool {
+        self.range(of: st, options: .regularExpression, range: nil, locale: nil) != nil
+    }
+    func chekingString(_ stringText: String) -> Bool {
+        self.range(of: stringText, options: .regularExpression, range: nil, locale: nil) != nil
+    }
 }
 

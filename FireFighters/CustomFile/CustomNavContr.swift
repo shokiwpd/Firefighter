@@ -15,7 +15,6 @@ class CustomNavContr: UINavigationController,UINavigationBarDelegate {
 extension CustomNavContr: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         ItemsStyle(itemStyle: viewController.navigationItem)
-        navigationController.navigationBar.prefersLargeTitles = true
     }
 }
 // Navigation controller to main view
@@ -24,8 +23,12 @@ class mainNavigationBar: UINavigationController, UINavigationBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-        self.navigationBar.prefersLargeTitles = true
+        
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+    }
+    
     
     func profileButton(buttonsProfile: UINavigationItem) {
         buttonsProfile.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "userInform"), style: .plain, target: self, action: #selector(editProfile))
@@ -46,6 +49,8 @@ class mainNavigationBar: UINavigationController, UINavigationBarDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigatinDarkTheme()
+        navigationBar.prefersLargeTitles = true
+//        navigationItem.largeTitleDisplayMode = .automatic
         NotificationCenter.default.addObserver(self, selector: #selector(DarkNotification), name: NSNotification.Name.init(rawValue: "DarkTheme"), object: nil)
     }
     @objc func DarkNotification(notif: Notification) {
@@ -63,5 +68,6 @@ extension mainNavigationBar: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         profileButton(buttonsProfile: viewController.navigationItem)
         navigationController.navigatinDarkTheme()
+        navigationController.navigationBar.sizeToFit()
         }
 }

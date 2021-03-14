@@ -2,147 +2,6 @@ import Foundation
 import UIKit
 import QuartzCore
 class CalculationViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    //    let yourLabel: MTMathUILabel = MTMathUILabel()
-    //    yourLabel.translatesAutoresizingMaskIntoConstraints = false
-    //    yourLabel.latex = "x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}"
-    //    yourLabel.sizeToFit()
-        //frac -> Дробь
-        //pm -> плюс минус
-        //_ -> нижний знак
-        //^ -> верхний знак
-        // не работает с русским языком
-    //    let numbersFireLabel: MTMathUILabel = {
-    //         let text = MTMathUILabel()
-    //        text.translatesAutoresizingMaskIntoConstraints = false
-    //        text.latex = "x = \\frac{300-10}{2,5}"
-    //
-    //        return text
-    //    }()
-//    @IBOutlet weak var statusFire: UISwitch!
-//    @IBOutlet weak var ComplexityStatus: UISwitch!
-//    @IBOutlet weak var numberFireFighter: UISlider!
-//    @IBOutlet weak var nuberFirfighterNow: UILabel!
-//    @IBOutlet weak var nextButton: UIButton!
-//    @IBOutlet weak var SelectType: UISegmentedControl!
-//    @IBOutlet weak var OxyAirFlow: UITextField!
-//    @IBOutlet weak var ComplexyLabel: UILabel!
-//    @IBOutlet weak var FirefightersLabel: UILabel!
-//    let DataBase = UserProfile.userInform
-//    var statusFireBool = false
-//    var Complexity = false
-//    let CalcClass = CalculationInfo.CalculationInform
-//    let saveLocalData = UserDefaults.standard
-//
-//    //MARK: Gardients for Button
-//    var buttonGardients: CAGradientLayer! {
-//        didSet {
-//            buttonGardients.colors = [UIColor.white.cgColor, UIColor.gray.cgColor]
-//            buttonGardients.startPoint = CGPoint(x: 0, y: 0)
-//            buttonGardients.endPoint = CGPoint(x: 0, y: 1)
-//        }
-//    }
-//    //MARK: Load first layout
-//    override func viewDidLayoutSubviews() {
-//        buttonGardients = CAGradientLayer()
-//        buttonGardients.frame = CGRect(x: 0, y: 0, width: nextButton.frame.size.width, height: nextButton.frame.size.height)
-//        nextButton.grayButton(nameBut: "Далее")
-//        nextButton.layer.masksToBounds = true
-//        nextButton.layer.cornerRadius = 10
-//        nextButton.layer.insertSublayer(buttonGardients, at: 0)
-//        updateView()
-//    }
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        title = "Расчеты"
-//        CalcClass.claenData()
-//    }
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(true)
-//        NotificationCenter.default.addObserver(self, selector: #selector(DarkNotification), name: NSNotification.Name.init(rawValue: "DarkMode"), object: nil)
-//    }
-//    func switchStatus(switcher: UISwitch)->Bool! {
-//        switch switcher.isOn {
-//        case true:
-//            return true
-//        case false:
-//            return false
-//        }
-//
-//    }
-//    @IBAction func selType(_ sender: Any) {
-//
-//    }
-//
-//    @IBAction func actionStatusFire(_ sender: Any) {
-//        statusFireBool = switchStatus(switcher: statusFire)
-//        switch statusFireBool {
-//        case true:
-//            nextButton.setTitle("Включение", for: .normal)
-//        case false:
-//            nextButton.setTitle("Далее", for: .normal)
-//        }
-//    }
-//    @IBAction func actionComplexityStatus(_ sender: Any) {
-//        Complexity = switchStatus(switcher: ComplexityStatus)
-//
-//    }
-//
-//    @IBAction func actionNumberFireFighter(_ sender: Any) {
-//        nuberFirfighterNow.text = String(Int(numberFireFighter.value))
-//
-//    }
-//    @IBAction func actionNextButton(_ sender: Any) {
-//        saveLocalData.set(OxyAirFlow.text!, forKey: "OxyAirFlow")
-//        CalcClass.numberFireFighter = Int(numberFireFighter.value)
-//        CalcClass.complexityStatus = Complexity
-//    }
-//
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//            if segue.identifier == "NextView"{
-//                let NextView = segue.destination as! SelectTimeFireFighter
-//                NextView.status = statusFireBool
-//
-//            }
-//        }
-//    func updateView() {
-//        let loadVeiw = DispatchQueue.main
-//        loadVeiw.async {
-//            self.view.darkThemeView()
-//            self.FirefightersLabel.darkThemeLabel()
-//            self.ComplexyLabel.darkThemeLabel()
-////            self.navigationController?.navigationBar.darkThemeNav()
-//            self.tabBarController?.tabBar.darkThemeBar()
-//        }
-//    }
-//
-//    @objc func DarkNotification(notif: Notification) {
-//        guard let userInfo  = notif.userInfo, let Dark = userInfo["Dark"] as? String else { return }
-//        if Dark != "" {
-//            updateView()
-//        }
-//    }
-//    func saveAlert() {
-//        let alertView = UIAlertController(title: "Внимание", message: "Укажите средний расход для кислорода", preferredStyle: .alert)
-//        alertView.addTextField { (textFields) in
-//            textFields.placeholder = "Расход"
-//            textFields.keyboardType = .numberPad
-//        }
-//        let saveButton = UIAlertAction(title: "Сохранить", style: .default) { (action)in
-//            let saveData = alertView.textFields![0] as UITextField
-//            print(saveData.text!)
-//        }
-//        alertView.addAction(saveButton)
-//        alertView.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
-//        present(alertView, animated: true, completion: nil)
-//    }
-    //UI element
-    // Режим работы (На пожаре или Решения задач)
-    // Сложность пожара (Простой или сложный)
-    // Число ГДЗ
-    // С Именами или нет
-    //
-    
     let typeWorkLabel: UILabel = {
         let text = UILabel()
         text.text = "Режим работы"
@@ -152,6 +11,7 @@ class CalculationViewController: UIViewController, UITextFieldDelegate, UIPicker
     let typeWorkSelect = profileEdithText()
     let complexityLabel: UILabel = {
          let text = UILabel()
+        
         text.translatesAutoresizingMaskIntoConstraints = false
          text.text = "Условия"
         return text
@@ -175,7 +35,7 @@ class CalculationViewController: UIViewController, UITextFieldDelegate, UIPicker
     let pickerViewNumber = UIPickerView()
     
     // MARK: Name picker
-    let typeName = ["На пожаре","Задачи"]
+    let typeName = ["Задачи"]//"На пожаре",
     let complexityName = ["Простые","Сложные"]
     let numberFire = ["2","3","4","5"]
     
@@ -186,52 +46,11 @@ class CalculationViewController: UIViewController, UITextFieldDelegate, UIPicker
         self.typeWorkLabel.darkThemeLabel()
         self.complexityLabel.darkThemeLabel()
         self.numbersFireLabel.darkThemeLabel()
-        
-        // UI element constraint
-        // MARK: Type label and Textfield constraint
-        typeWorkLabel.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 30).isActive = true
-        typeWorkLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
-        typeWorkLabel.heightAnchor.constraint(equalToConstant: CGFloat(40)).isActive = true
-        
-        typeWorkSelect.topAnchor.constraint(equalTo: typeWorkLabel.topAnchor).isActive = true
-        typeWorkSelect.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
-        typeWorkSelect.heightAnchor.constraint(equalToConstant: CGFloat(40)).isActive = true
-        typeWorkSelect.widthAnchor.constraint(equalToConstant: CGFloat(100)).isActive = true
-        typeWorkSelect.addLines(w: typeWorkSelect.frame.size.width)
-        
-        //MARK: Complexity label and textField constraint
-        complexityLabel.topAnchor.constraint(equalTo: typeWorkLabel.bottomAnchor, constant: 30).isActive = true
-        complexityLabel.leadingAnchor.constraint(equalTo: typeWorkLabel.leadingAnchor).isActive = true
-        complexityLabel.heightAnchor.constraint(equalToConstant: CGFloat(40)).isActive = true
-        
-        complexitySelect.topAnchor.constraint(equalTo: complexityLabel.topAnchor).isActive = true
-        complexitySelect.trailingAnchor.constraint(equalTo: typeWorkSelect.trailingAnchor).isActive = true
-        complexitySelect.heightAnchor.constraint(equalToConstant: CGFloat(40)).isActive = true
-        complexitySelect.widthAnchor.constraint(equalToConstant: CGFloat(100)).isActive = true
-        complexitySelect.addLines(w:complexitySelect.frame.size.width)
-        
-        //MARK: Number Firefighters label and textField
-        numbersFireLabel.topAnchor.constraint(equalTo: complexityLabel.bottomAnchor, constant: 30).isActive = true
-        numbersFireLabel.leadingAnchor.constraint(equalTo: complexityLabel.leadingAnchor).isActive = true
-        numbersFireLabel.heightAnchor.constraint(equalToConstant: CGFloat(40)).isActive = true
-        
-        numberFireSelect.topAnchor.constraint(equalTo: numbersFireLabel.topAnchor).isActive = true
-        numberFireSelect.trailingAnchor.constraint(equalTo: complexitySelect.trailingAnchor).isActive = true
-        numberFireSelect.heightAnchor.constraint(equalToConstant: CGFloat(40)).isActive = true
-        numberFireSelect.widthAnchor.constraint(equalToConstant: CGFloat(100)).isActive = true
-        numberFireSelect.addLines(w:numberFireSelect.frame.size.width)
-
-        //MARK: Next button constraint
-        nextButton.topAnchor.constraint(equalTo: numberFireSelect.bottomAnchor, constant: 30).isActive = true
-        nextButton.leadingAnchor.constraint(equalTo: numbersFireLabel.leadingAnchor).isActive = true
-        nextButton.trailingAnchor.constraint(equalTo: numberFireSelect.trailingAnchor).isActive = true
-        nextButton.heightAnchor.constraint(equalToConstant: CGFloat(50)).isActive = true
-        view.layoutIfNeeded()
-
+        layoutSettingUI()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true
+
         typeWorkSelect.delegate = self
         complexitySelect.delegate = self
         numberFireSelect.delegate = self
@@ -255,7 +74,7 @@ class CalculationViewController: UIViewController, UITextFieldDelegate, UIPicker
         pickerViewNumber.tag = 2
         
         //Setting Button and TextField
-        nextButton.setTitle("Включение", for: .normal)
+        nextButton.setTitle("Решение", for: .normal)
         
         typeWorkSelect.text = typeName[0]
         complexitySelect.text = complexityName[0]
@@ -268,21 +87,78 @@ class CalculationViewController: UIViewController, UITextFieldDelegate, UIPicker
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        NotificationCenter.default.addObserver(self, selector: #selector(DarkNotification), name: NSNotification.Name.init(rawValue: "DarkTheme"), object: nil)
+        CalculationInfo.CalculationInform.claenData()
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .automatic
+
+        NotificationCenter.default.addObserver(self, selector: #selector(DarkNotification), name: NSNotification.Name.init(rawValue: "DarkTheme"), object: nil)
         
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+
+    }
     //MARK: Action Button
     @objc func nextStepCalculation(){
-            let nextVC = startCulcViewController()
-            self.navigationController?.pushViewController(nextVC, animated: true)
+            let nextVC = startCalcViewController()
+            navigationController!.pushViewController(nextVC, animated: false)
             nextVC.numberFirefighters = Int(numberFireSelect.text!)!
             nextVC.typeInfo = typeWorkSelect.text!
             nextVC.complexityInfo = complexitySelect.text!
             view.endEditing(true)
     }
+    func layoutSettingUI() {
+        view.layoutIfNeeded()
+        // MARK: Type label and Textfield constraint
+        typeWorkLabel.layOutSettingLabel(self.view.safeAreaLayoutGuide.topAnchor, 30,
+                                         self.view.leadingAnchor, 30,
+                                         nil, 0,
+                                         nil, 0)
+        typeWorkLabel.heightLabel(40)
+        typeWorkSelect.layOutSettingTextField(typeWorkLabel.topAnchor, 0,
+                                              nil, 0,
+                                              self.view.trailingAnchor, -30,
+                                              nil, 0)
+        typeWorkSelect.heightTextField(40)
+        typeWorkSelect.widthTextField(100)
+        typeWorkSelect.addLines(w: typeWorkSelect.frame.size.width)
+        
+        //MARK: Complexity label and textField constraint
+        complexityLabel.layOutSettingLabel(typeWorkLabel.bottomAnchor, 30,
+                                           typeWorkLabel.leadingAnchor, 0,
+                                           nil, 0,
+                                           nil, 0)
+        complexityLabel.heightLabel(40)
+        complexitySelect.layOutSettingTextField(complexityLabel.topAnchor, 0,
+                                                nil, 0,
+                                                typeWorkSelect.trailingAnchor, 0,
+                                                nil, 0)
+        complexitySelect.heightTextField(40)
+        complexitySelect.widthTextField(100)
+        complexitySelect.addLines(w:complexitySelect.frame.size.width)
+        
+        //MARK: Number Firefighters label and textField
+        numbersFireLabel.layOutSettingLabel(complexityLabel.bottomAnchor, 30,
+                                            complexityLabel.leadingAnchor, 0,
+                                            nil, 0,
+                                            nil, 0)
+        numbersFireLabel.heightLabel(40)
+        numberFireSelect.layOutSettingTextField(numbersFireLabel.topAnchor, 0,
+                                                nil, 0,
+                                                complexitySelect.trailingAnchor, 0,
+                                                nil, 0)
+        numberFireSelect.heightTextField(40)
+        numberFireSelect.widthTextField(100)
+        numberFireSelect.addLines(w:numberFireSelect.frame.size.width)
 
+        //MARK: Next button constraint
+        nextButton.layOutSettingButton(numberFireSelect.bottomAnchor, 30,
+                                       numbersFireLabel.leadingAnchor, 0,
+                                       numberFireSelect.trailingAnchor, 0,
+                                       nil, 0)
+        nextButton.heightButton(50)
+        view.layoutIfNeeded()
+    }
     
     //MARK: TextField tracking
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -345,5 +221,6 @@ class CalculationViewController: UIViewController, UITextFieldDelegate, UIPicker
             }
         }
     }
+    
 }
 

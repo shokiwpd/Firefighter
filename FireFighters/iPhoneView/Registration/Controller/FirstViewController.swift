@@ -70,6 +70,11 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         date.datePickerMode = .date
         date.locale = Locale.init(identifier: "RU")
         date.maximumDate = Date()
+        if #available(iOS 13.4, *) {
+            date.preferredDatePickerStyle = .wheels
+        } else {
+            // Fallback on earlier versions
+        }
         date.isHidden = false
         return date
     }()
@@ -169,7 +174,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         nameField.delegate = self
         patronymicField.delegate = self
         cityField.delegate = self
-
+        datePicker.darkThemeDatePicker()
         let viewTouchHideKey = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         viewTouchHideKey.cancelsTouchesInView = false
         

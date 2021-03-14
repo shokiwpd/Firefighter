@@ -31,12 +31,18 @@ class documentsVC: UIViewController, WKNavigationDelegate, WKUIDelegate {
     }
     
     var filesName = ""
-    
+    var typeOpen = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
         progressView()
         articleWebView.navigationDelegate = self
-        openPDFfile(filename: filesName)
+        if typeOpen == "Web" {
+            openWebfile(filename: filesName)
+        } else if typeOpen == "PDF" {
+            openPDFfile(filename: filesName)
+
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -46,11 +52,17 @@ class documentsVC: UIViewController, WKNavigationDelegate, WKUIDelegate {
     @IBAction func closeViewButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    private func openPDFfile(filename: String){
+    private func openWebfile(filename: String){
         let myURL = URL(string: filename)
         let reauest = URLRequest(url: myURL!)
             articleWebView.load(reauest)
         
+    }
+    private func openPDFfile(filename: String){
+        if let filePath = Bundle.main.url(forResource: filename, withExtension: "pdf") {
+            let reauest = URLRequest(url: filePath)
+            articleWebView.load(reauest)
+        }
     }
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         MBProgressHUD.hide(for: self.view, animated: true)

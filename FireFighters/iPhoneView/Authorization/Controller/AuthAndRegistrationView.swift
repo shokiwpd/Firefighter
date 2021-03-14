@@ -12,7 +12,7 @@ import AVFoundation
 import Firebase
 import MBProgressHUD
 
-class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenUser {
+class AuthAndRegistrationView: UIViewController,UITextFieldDelegate, getTockenUser {
     var loginLine = CAShapeLayer()
     var passwordLine = CAShapeLayer()
     var buttonGardients = CAGradientLayer()
@@ -99,6 +99,11 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
         text.isUserInteractionEnabled = true
         return text
     }()
+    let passwordChek = "^(?=.*[A-Z])[A-Za-z]{,}$"
+    let minimumCount = 6
+    let chekingInteger = "^(?=.*[а-я])(?=.*[А-Я])(?=.*\\d)(?=.*[$@$!%*?&#])[А-Яа-я\\d$@$!%*?&#]{6,}$"
+
+
     
     // load layout
     override func viewDidLayoutSubviews() {
@@ -126,37 +131,41 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
         
         // label constraint
         namesLabel.centerXAnchor.constraint(equalTo: modelView.centerXAnchor).isActive = true
-        namesLabel.bottomAnchor.constraint(equalTo: loginField.topAnchor, constant:  -10).isActive = true
-        namesLabel.trailingAnchor.constraint(equalTo: modelView.trailingAnchor, constant: -20).isActive = true
-        namesLabel.leadingAnchor.constraint(equalTo: modelView.leadingAnchor, constant: 20).isActive = true
-        
+        namesLabel.layOutSettingLabel(nil, 0,
+                                      modelView.leadingAnchor, 20,
+                                      modelView.trailingAnchor, -20,
+                                      nil, 0)
         // login field constraint
-        loginField.trailingAnchor.constraint(equalTo: namesLabel.trailingAnchor).isActive = true
-        loginField.leadingAnchor.constraint(equalTo: namesLabel.leadingAnchor).isActive = true
-        
+        loginField.layOutSettingTextField(namesLabel.bottomAnchor, 10,
+                                          namesLabel.leadingAnchor, 0,
+                                          namesLabel.trailingAnchor, 0,
+                                          nil,0)
+        loginField.heightTextField(30)
         // password field constraint
-        passwordField.topAnchor.constraint(equalTo: loginField.bottomAnchor, constant: 20).isActive = true
-        passwordField.trailingAnchor.constraint(equalTo: loginField.trailingAnchor).isActive = true
-        passwordField.leadingAnchor.constraint(equalTo: loginField.leadingAnchor).isActive = true
+        passwordField.layOutSettingTextField(loginField.bottomAnchor, 20,
+                                             loginField.leadingAnchor, 0,
+                                             loginField.trailingAnchor, 0,
+                                             nil,0)
         passwordField.centerYAnchor.constraint(equalTo: modelView.centerYAnchor).isActive = true
-        
+        passwordField.heightTextField(30)
         // autorization button constraint
-        autorizatioButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant:  20).isActive = true
-        autorizatioButton.trailingAnchor.constraint(equalTo: passwordField.trailingAnchor).isActive = true
-        autorizatioButton.leadingAnchor.constraint(equalTo: passwordField.leadingAnchor).isActive = true
-        autorizatioButton.heightAnchor.constraint(equalToConstant: CGFloat(50)).isActive = true
-        
+        autorizatioButton.layOutSettingButton(passwordField.bottomAnchor, 20,
+                                              passwordField.leadingAnchor, 0,
+                                              passwordField.trailingAnchor, 0,
+                                              nil, 0)
+        autorizatioButton.heightButton(50)
         // registration button constraint
-        registrationButton.topAnchor.constraint(equalTo: autorizatioButton.bottomAnchor, constant: 20).isActive = true
-        registrationButton.trailingAnchor.constraint(equalTo: autorizatioButton.trailingAnchor).isActive  = true
-        registrationButton.leadingAnchor.constraint(equalTo: autorizatioButton.leadingAnchor).isActive = true
-        registrationButton.heightAnchor.constraint(equalToConstant: CGFloat(50)).isActive = true
+        registrationButton.layOutSettingButton(autorizatioButton.bottomAnchor, 20,
+                                               autorizatioButton.leadingAnchor, 0,
+                                               autorizatioButton.trailingAnchor, 0,
+                                               nil, 0)
+        registrationButton.heightButton(50)
         // reset password label
-        resetPassword.topAnchor.constraint(equalTo: registrationButton.bottomAnchor, constant: 10).isActive = true
-        resetPassword.trailingAnchor.constraint(equalTo: registrationButton.trailingAnchor).isActive = true
-        resetPassword.leadingAnchor.constraint(equalTo: registrationButton.leadingAnchor).isActive = true
-//        resetPassword.bottomAnchor.constraint(equalTo: modelView.bottomAnchor, constant: -10).isActive = true
-        resetPassword.heightAnchor.constraint(equalToConstant: CGFloat(15)).isActive = true
+        resetPassword.layOutSettingLabel(registrationButton.bottomAnchor, 10,
+                                         registrationButton.leadingAnchor, 0,
+                                         registrationButton.trailingAnchor, 0,
+                                         nil,0)
+        resetPassword.heightLabel(15)
         // UIview
         if UIDevice.current.model == "iPhone" {
             modelView.topAnchor.constraint(equalTo: view.topAnchor, constant: 70).isActive = true
@@ -175,6 +184,7 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
         super.viewDidLoad()
         TypeString.TypeStrings.nameType = ""
         namesLabel.UIfontLabel(viewHeight: Double(view.bounds.height))
+        print(view.bounds.height)
         let viewTouchHideKey = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         viewTouchHideKey.cancelsTouchesInView = false
         let resetPasswordTap = UITapGestureRecognizer(target: self, action: #selector(resetPasswordTapReg))
@@ -221,22 +231,21 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
     }
     //autorization firebase
     @objc func autorizationFirebase() {
-//        let errorCode = AuthErrorCode.wrongPassword
-//        let codeError = errorCode.errorMessage
-//        guard loginField.text != "" else { return AlertView(text: "Вы не указали логин")}
-//        guard passwordField.text != "" else { return AlertView(text: "Вы не указали пароль")}
-//
-//        Auth.auth().signIn(withEmail: loginField.text!, password: passwordField.text!) {[weak self](user, AuthErrors) in
-//                    self?.progressView() //Включение индикатора загрузки
-//            if AuthErrors != nil {
-//                if AuthErrors!.localizedDescription == codeError {self?.AlertView(text: "Скажите админу что забыли пароль XD")}
-//                self!.fetchError(AuthErrors!)
-//                self!.stopProgress()
-//            }
-//                guard user != nil else { return } //Проверка на существование пользователя в БД Firebase
-//                    self?.fetchFirebase() //загрузка данных из Firebase
-//            }
-        nextViewController()
+        let errorCode = AuthErrorCode.wrongPassword
+        let codeError = errorCode.errorMessage
+        guard loginField.text != "" else { return AlertView(text: "Вы не указали логин")}
+        guard passwordField.text != "" else { return AlertView(text: "Вы не указали пароль")}
+
+        Auth.auth().signIn(withEmail: loginField.text!, password: passwordField.text!) {[weak self](user, AuthErrors) in
+                    self?.progressView() //Включение индикатора загрузки
+            if AuthErrors != nil {
+                if AuthErrors!.localizedDescription == codeError {self?.AlertView(text: "Скажите админу что забыли пароль XD")}
+                self!.fetchError(AuthErrors!)
+                self!.stopProgress()
+            }
+                guard user != nil else { return } //Проверка на существование пользователя в БД Firebase
+                    self?.fetchFirebase() //загрузка данных из Firebase
+            }
     }
     //progress view
     func progressView(){
@@ -265,7 +274,7 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
                 userImage = UIImage(data: data)!
             }
                 print(error ?? "Errors no")
-            if error != nil {print("Yes Error")}
+            if error != nil {print(error?.localizedDescription ?? "Nil")}
         }
         DownloadImage.observe(.progress, handler: { (snapshot) in //Получение статуса загрузки
             if snapshot.progress?.fractionCompleted == 1.0 {
@@ -281,10 +290,6 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
         }
     }
     private func nextViewController() {
-//        let Vc = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateInitialViewController() as! UITabBarController
-//        Vc.modalPresentationStyle = .fullScreen
-//        present(Vc, animated: true, completion: nil)
-        
         let tabbars = MainTabBarViewController()
         tabbars.modalPresentationStyle = .fullScreen
         present(tabbars, animated: true, completion: nil)
@@ -352,4 +357,24 @@ class AuthAndRegistrationView: UIViewController, UITextFieldDelegate, getTockenU
         navBar.modalTransitionStyle = .crossDissolve
         present(navBar, animated: true)
     }
+    
+    
 }
+
+//pod 'Firebase/Core'
+//pod 'Firebase/Database'
+//pod 'Firebase/Auth'
+//pod 'Firebase/Storage'
+//pod 'Firebase/Messaging'
+//pod 'MBProgressHUD'
+//pod 'ReachabilitySwift'
+//pod 'iosMath'
+//pod 'IQKeyboardManagerSwift'
+//
+//post_install do |pi|
+//    pi.pods_project.targets.each do |t|
+//      t.build_configurations.each do |config|
+//        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.0'
+//      end
+//    end
+//end
